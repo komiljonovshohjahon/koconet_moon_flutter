@@ -7,8 +7,8 @@ const Key _closeButtonKey = Key("closeButtonKey");
 
 const String _alertLabel = "Label";
 const String _alertBody = "Body";
-const IconData _alertLeadingIcon = MoonIcons.other_frame_24_light;
-const IconData _alertTrailingIcon = MoonIcons.controls_close_small_24_light;
+const IconData _alertLeadingIcon = Icons.keyboard_arrow_down_rounded;
+const IconData _alertTrailingIcon = Icons.close;
 
 void main() {
   testWidgets("Provided key is used.", (tester) async {

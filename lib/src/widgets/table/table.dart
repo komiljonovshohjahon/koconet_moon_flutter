@@ -490,7 +490,7 @@ class _MoonTableState extends State<MoonTable> {
 
             final Widget effectiveSortingIcon = currentColumn.sortingIcon ??
                 Icon(
-                  MoonIcons.controls_chevron_up_16_light,
+                  Icons.arrow_upward,
                   size: effectiveSortIconSize,
                 );
 

@@ -7,7 +7,6 @@ import 'package:moon_design/src/theme/tokens/typography/text_styles.dart';
 import 'package:moon_design/src/utils/color_tween_premul.dart';
 import 'package:moon_design/src/widgets/breadcrumb/breadcrumb_item.dart';
 import 'package:moon_design/src/widgets/common/base_control.dart';
-import 'package:moon_icons/moon_icons.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
 class MoonBreadcrumb extends StatefulWidget {
@@ -219,8 +218,8 @@ class _MoonBreadcrumbState extends State<MoonBreadcrumb> {
       child: widget.divider ??
           Icon(
             Directionality.of(context) == TextDirection.ltr
-                ? MoonIcons.arrows_right_24_light
-                : MoonIcons.arrows_left_24_light,
+                ? Icons.arrow_forward_ios
+                : Icons.arrow_back_ios,
             size: 24,
           ),
     );

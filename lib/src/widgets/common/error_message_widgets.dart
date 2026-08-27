@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_icons/moon_icons.dart';
 
 class MoonErrorMessages extends StatelessWidget {
   final List<String> errors;
@@ -83,7 +82,7 @@ class _MoonErrorMessageState extends State<MoonErrorMessage>
       child: Row(
         children: [
           Icon(
-            MoonIcons.generic_info_16_light,
+            Icons.info_outline,
             size: context.moonSizes?.x2s ?? 16,
           ),
           SizedBox(width: context.moonSizes?.x5s ?? 4),

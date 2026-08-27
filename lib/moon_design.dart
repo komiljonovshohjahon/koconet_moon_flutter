@@ -1,5 +1,5 @@
 /// Moon Design for Flutter
-library moon_design;
+library;
 
 export 'package:moon_design/src/theme/accordion/accordion_theme.dart';
 export 'package:moon_design/src/theme/alert/alert_theme.dart';
@@ -100,5 +100,4 @@ export 'package:moon_design/src/widgets/text_input_group/text_input_group.dart';
 export 'package:moon_design/src/widgets/toast/toast.dart';
 export 'package:moon_design/src/widgets/tooltip/tooltip.dart';
 
-export 'package:moon_icons/moon_icons.dart';
 export 'package:moon_tokens/moon_tokens.dart';

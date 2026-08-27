@@ -39,7 +39,7 @@ class PulseEffectPainter extends CustomPainter {
       final Rect rect = Rect.fromLTRB(0.0, 0.0, size.width, size.height);
       final double opacity =
           (rangeValue == 0.0 ? 0.0 : 1.0 - rangeValue).clamp(0.0, 1.0);
-      final Color transformedColor = color.withOpacity(opacity);
+      final Color transformedColor = color.withValues(alpha: opacity);
       final double newWidth = rect.width + rangeValue * effectExtent;
       final double newHeight = rect.height + rangeValue * effectExtent;
       final double widthIncrease = newWidth / rect.width;

@@ -6,8 +6,8 @@ const Key _menuItemKey = Key("menuItemKey");
 
 const String _menuItemLabel = "Label";
 const String _menuItemContent = "Content";
-const IconData _menuItemLeadingIcon = MoonIcons.other_frame_24_light;
-const IconData _menuItemTrailingIcon = MoonIcons.controls_close_small_24_light;
+const IconData _menuItemLeadingIcon = Icons.keyboard_arrow_down_rounded;
+const IconData _menuItemTrailingIcon = Icons.close;
 
 void main() {
   testWidgets("Provided key is used.", (tester) async {

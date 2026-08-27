@@ -6,8 +6,8 @@ const Key _showButtonKey = Key('showButtonKey');
 
 const String _toastLabel = 'Label';
 const String _toastBody = 'Body';
-const IconData _toastLeadingIcon = MoonIcons.other_frame_24_light;
-const IconData _toastTrailingIcon = MoonIcons.controls_close_small_24_light;
+const IconData _toastLeadingIcon = Icons.keyboard_arrow_down_rounded;
+const IconData _toastTrailingIcon = Icons.close;
 
 void main() {
   testWidgets(

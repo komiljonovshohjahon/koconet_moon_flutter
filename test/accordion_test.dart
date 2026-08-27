@@ -12,7 +12,7 @@ const Key _secondAccordionChildKey = Key("secondAccordionChildKey");
 
 const String _accordionLabel = "Label";
 const String _accordionContent = "Content";
-const IconData _accordionTrailingIcon = MoonIcons.other_frame_24_light;
+const IconData _accordionTrailingIcon = Icons.keyboard_arrow_down_rounded;
 
 void main() {
   testWidgets("Provided key is used.", (tester) async {
@@ -165,7 +165,7 @@ class _GroupedAccordionTestWidgetState
               groupIdentityValue: _currentlyOpenAccordionItem,
               onExpansionChanged: (_AccordionItems? value) =>
                   setState(() => _currentlyOpenAccordionItem = value),
-              leading: const Icon(MoonIcons.other_frame_24_light),
+              leading: const Icon(Icons.keyboard_arrow_down_rounded),
               label: const Text("Grouped MoonAccordion item #1"),
               children: const [
                 Text(
@@ -180,7 +180,7 @@ class _GroupedAccordionTestWidgetState
               groupIdentityValue: _currentlyOpenAccordionItem,
               onExpansionChanged: (_AccordionItems? value) =>
                   setState(() => _currentlyOpenAccordionItem = value),
-              leading: const Icon(MoonIcons.other_frame_24_light),
+              leading: const Icon(Icons.keyboard_arrow_down_rounded),
               label: const Text("Grouped MoonAccordion item #2"),
               children: const [
                 Text(

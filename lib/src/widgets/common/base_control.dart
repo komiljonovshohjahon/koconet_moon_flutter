@@ -1,3 +1,5 @@
+// ignore_for_file: strict_top_level_inference
+
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/effects/effects_theme.dart';
@@ -301,8 +303,8 @@ class _MoonBaseControlState extends State<MoonBaseControl> {
   Color _getFocusColor({required Color focusColor}) {
     if (widget.backgroundColor != null) {
       return context.isDarkMode
-          ? widget.backgroundColor!.withOpacity(0.8)
-          : widget.backgroundColor!.withOpacity(0.2);
+          ? widget.backgroundColor!.withValues(alpha: 0.8)
+          : widget.backgroundColor!.withValues(alpha: 0.2);
     } else {
       return focusColor;
     }

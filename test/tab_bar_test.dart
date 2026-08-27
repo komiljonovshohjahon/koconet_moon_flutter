@@ -8,8 +8,8 @@ const String _firstTabLabel = "Label 1";
 const String _secondTabLabel = "Label 2";
 const String _thirdTabLabel = "Label 3";
 const String _fourthTabLabel = "Label 4";
-const IconData _tabLeadingIcon = MoonIcons.other_frame_24_light;
-const IconData _tabTrailingIcon = MoonIcons.controls_close_small_24_light;
+const IconData _tabLeadingIcon = Icons.keyboard_arrow_down_rounded;
+const IconData _tabTrailingIcon = Icons.close;
 
 void main() {
   testWidgets("Provided key is used.", (tester) async {

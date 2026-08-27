@@ -61,14 +61,6 @@ class AvatarClipper extends CustomClipper<Path> {
                 radius: badgeRadius + badgeMarginValue,
               ),
             );
-        default:
-          return Path()
-            ..addOval(
-              Rect.fromCircle(
-                center: Offset(width - badgeRadius, width - badgeRadius),
-                radius: badgeRadius + badgeMarginValue,
-              ),
-            );
       }
     } else {
       switch (badgeAlignment) {
@@ -101,14 +93,6 @@ class AvatarClipper extends CustomClipper<Path> {
             ..addOval(
               Rect.fromCircle(
                 center: Offset(width - badgeRadius, height - badgeRadius),
-                radius: badgeRadius + badgeMarginValue,
-              ),
-            );
-        default:
-          return Path()
-            ..addOval(
-              Rect.fromCircle(
-                center: Offset(width - badgeRadius, width - badgeRadius),
                 radius: badgeRadius + badgeMarginValue,
               ),
             );

@@ -1,3 +1,5 @@
+// ignore_for_file: unintended_html_in_doc_comment
+
 import 'dart:ui' as ui show BoxHeightStyle, BoxWidthStyle;
 
 import 'package:flutter/cupertino.dart';
@@ -1006,12 +1008,12 @@ class _MoonTextInputState extends State<MoonTextInput>
         Theme.of(context).platform,
       );
 
-  Set<MaterialState> get _materialState {
-    return <MaterialState>{
-      if (!_isEnabled) MaterialState.disabled,
-      if (_isHovering) MaterialState.hovered,
-      if (_hasFocus) MaterialState.focused,
-      if (_hasError) MaterialState.error,
+  Set<WidgetState> get _materialState {
+    return <WidgetState>{
+      if (!_isEnabled) WidgetState.disabled,
+      if (_isHovering) WidgetState.hovered,
+      if (_hasFocus) WidgetState.focused,
+      if (_hasError) WidgetState.error,
     };
   }
 
@@ -1122,7 +1124,9 @@ class _MoonTextInputState extends State<MoonTextInput>
     }
     if (!_isEnabled) return false;
     if (cause == SelectionChangedCause.longPress ||
-        cause == SelectionChangedCause.scribble) return true;
+        cause == SelectionChangedCause.stylusHandwriting) {
+      return true;
+    }
     if (_effectiveController.text.isNotEmpty) return true;
 
     return false;
@@ -1363,8 +1367,8 @@ class _MoonTextInputState extends State<MoonTextInput>
     TextSelectionControls? textSelectionControls = widget.selectionControls;
 
     final MouseCursor effectiveMouseCursor =
-        MaterialStateProperty.resolveAs<MouseCursor>(
-      widget.mouseCursor ?? MaterialStateMouseCursor.textable,
+        WidgetStateProperty.resolveAs<MouseCursor>(
+      widget.mouseCursor ?? WidgetStateMouseCursor.textable,
       _materialState,
     );
 
@@ -1416,7 +1420,7 @@ class _MoonTextInputState extends State<MoonTextInput>
             ? effectiveCursorErrorColor
             : widget.cursorColor ?? effectiveTextColor;
         selectionColor = selectionStyle.selectionColor ??
-            cupertinoTheme.primaryColor.withOpacity(0.40);
+            cupertinoTheme.primaryColor.withValues(alpha: 0.40);
         cursorRadius ??= const Radius.circular(2.0);
         cursorOffset = Offset(
           iOSHorizontalOffset / MediaQuery.devicePixelRatioOf(context),
@@ -1434,7 +1438,7 @@ class _MoonTextInputState extends State<MoonTextInput>
             ? effectiveCursorErrorColor
             : widget.cursorColor ?? effectiveTextColor;
         selectionColor = selectionStyle.selectionColor ??
-            cupertinoTheme.primaryColor.withOpacity(0.40);
+            cupertinoTheme.primaryColor.withValues(alpha: 0.40);
         cursorRadius ??= const Radius.circular(2.0);
         cursorOffset = Offset(
           iOSHorizontalOffset / MediaQuery.devicePixelRatioOf(context),
@@ -1457,7 +1461,7 @@ class _MoonTextInputState extends State<MoonTextInput>
             ? effectiveCursorErrorColor
             : widget.cursorColor ?? effectiveTextColor;
         selectionColor = selectionStyle.selectionColor ??
-            theme.colorScheme.primary.withOpacity(0.40);
+            theme.colorScheme.primary.withValues(alpha: 0.40);
 
       case TargetPlatform.linux:
         forcePressEnabled = false;
@@ -1468,7 +1472,7 @@ class _MoonTextInputState extends State<MoonTextInput>
             ? effectiveCursorErrorColor
             : widget.cursorColor ?? effectiveTextColor;
         selectionColor = selectionStyle.selectionColor ??
-            theme.colorScheme.primary.withOpacity(0.40);
+            theme.colorScheme.primary.withValues(alpha: 0.40);
 
       case TargetPlatform.windows:
         forcePressEnabled = false;
@@ -1479,7 +1483,7 @@ class _MoonTextInputState extends State<MoonTextInput>
             ? effectiveCursorErrorColor
             : widget.cursorColor ?? effectiveTextColor;
         selectionColor = selectionStyle.selectionColor ??
-            theme.colorScheme.primary.withOpacity(0.40);
+            theme.colorScheme.primary.withValues(alpha: 0.40);
         handleDidGainAccessibilityFocus = () {
           // Automatically activates MoonTextInput on receiving accessibility focus.
           if (!_hasFocus && _effectiveFocusNode.canRequestFocus) {
@@ -1536,7 +1540,7 @@ class _MoonTextInputState extends State<MoonTextInput>
           readOnly: widget.readOnly || !_isEnabled,
           rendererIgnoresPointer: true,
           restorationId: 'editable',
-          scribbleEnabled: widget.scribbleEnabled,
+          stylusHandwritingEnabled: widget.scribbleEnabled,
           scrollController: widget.scrollController,
           scrollPadding: widget.scrollPadding,
           scrollPhysics: widget.scrollPhysics,

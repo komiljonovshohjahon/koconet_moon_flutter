@@ -10,8 +10,8 @@ const String _errorText = 'Error text';
 const String _helperText = 'Helper text';
 const String _validText = 'Valid text';
 const String _invalidText = 'Invalid text';
-const IconData _textInputLeadingIcon = MoonIcons.other_frame_24_light;
-const IconData _textInputTrailingIcon = MoonIcons.controls_close_small_24_light;
+const IconData _textInputLeadingIcon = Icons.keyboard_arrow_down_rounded;
+const IconData _textInputTrailingIcon = Icons.close;
 
 void main() {
   Future<void> submit(WidgetTester tester) async {

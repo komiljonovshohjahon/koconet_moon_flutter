@@ -5,8 +5,8 @@ import 'package:moon_design/moon_design.dart';
 const Key _chipKey = Key("chipKey");
 
 const String _chipLabel = "Label";
-const IconData _chipLeadingIcon = MoonIcons.other_frame_24_light;
-const IconData _chipTrailingIcon = MoonIcons.controls_close_small_24_light;
+const IconData _chipLeadingIcon = Icons.keyboard_arrow_down_rounded;
+const IconData _chipTrailingIcon = Icons.close;
 
 void main() {
   testWidgets("Provided key is used.", (tester) async {

@@ -11,7 +11,6 @@ import 'package:moon_design/src/utils/color_tween_premul.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_design/src/widgets/common/base_control.dart';
-import 'package:moon_icons/moon_icons.dart';
 import 'package:moon_tokens/moon_tokens.dart';
 
 enum MoonAccordionSize {
@@ -404,9 +403,7 @@ class _MoonAccordionState<T> extends State<MoonAccordion<T>>
         turns: _halfTween.animate(_expansionCurvedAnimation!),
         child: Icon(
           switch (iconSize) {
-            16 => MoonIcons.controls_chevron_down_small_16_light,
-            24 => MoonIcons.controls_chevron_down_small_24_light,
-            _ => MoonIcons.controls_chevron_down_small_32_regular,
+            _ => Icons.keyboard_arrow_down_rounded,
           },
           size: iconSize,
         ),

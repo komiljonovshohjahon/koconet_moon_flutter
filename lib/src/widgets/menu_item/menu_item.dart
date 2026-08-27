@@ -132,6 +132,7 @@ class MoonMenuItem extends StatefulWidget {
     Color? color,
     double? width,
   }) {
+    // ignore: parameter_assignments
     menuItems = menuItems.toList();
 
     if (menuItems.isEmpty || menuItems.length == 1) return menuItems;

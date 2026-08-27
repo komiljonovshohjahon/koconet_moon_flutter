@@ -675,7 +675,7 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
     return _renderAuthInputFieldText(index: index);
   }
 
-  Widget _renderAuthInputFieldText({@required int? index}) {
+  Widget _renderAuthInputFieldText({required int? index}) {
     assert(index != null);
 
     final bool showObscured = !widget.peekWhenObscuring ||

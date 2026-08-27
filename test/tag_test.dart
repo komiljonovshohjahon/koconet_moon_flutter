@@ -5,8 +5,8 @@ import 'package:moon_design/moon_design.dart';
 const Key _tagKey = Key("tagKey");
 
 const String _tagLabel = "Label";
-const IconData _tagLeadingIcon = MoonIcons.other_frame_24_light;
-const IconData _tagTrailingIcon = MoonIcons.controls_close_small_24_light;
+const IconData _tagLeadingIcon = Icons.keyboard_arrow_down_rounded;
+const IconData _tagTrailingIcon = Icons.close;
 
 void main() {
   testWidgets("Provided key is used.", (tester) async {

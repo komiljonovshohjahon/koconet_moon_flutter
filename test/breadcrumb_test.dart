@@ -6,9 +6,8 @@ const Key _breadcrumbKey = Key("breadcrumbKey");
 
 const String _showMoreButtonText = '...';
 const String _breadcrumbItem = 'breadcrumb item';
-const IconData _breadcrumbLeadingIcon = MoonIcons.other_frame_24_light;
-const IconData _breadcrumbDividerIcon =
-    MoonIcons.arrows_chevron_right_double_16_light;
+const IconData _breadcrumbLeadingIcon = Icons.keyboard_arrow_down_rounded;
+const IconData _breadcrumbDividerIcon = Icons.arrow_forward_ios;
 
 void main() {
   testWidgets("Provided key is used.", (tester) async {

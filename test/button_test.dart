@@ -5,8 +5,8 @@ import 'package:moon_design/moon_design.dart';
 const Key _buttonKey = Key("buttonKey");
 
 const String _buttonLabel = "Label";
-const IconData _buttonLeadingIcon = MoonIcons.other_frame_24_light;
-const IconData _buttonTrailingIcon = MoonIcons.controls_close_small_24_light;
+const IconData _buttonLeadingIcon = Icons.keyboard_arrow_down_rounded;
+const IconData _buttonTrailingIcon = Icons.close;
 
 void main() {
   testWidgets("Provided key is used.", (tester) async {

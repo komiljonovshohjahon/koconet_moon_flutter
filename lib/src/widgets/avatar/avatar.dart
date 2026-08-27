@@ -98,8 +98,6 @@ class MoonAvatar extends StatelessWidget {
           return Alignment.bottomRight;
         case MoonBadgeAlignment.bottomRight:
           return Alignment.bottomLeft;
-        default:
-          return Alignment.bottomRight;
       }
     } else {
       switch (badgeAlignment) {
@@ -110,8 +108,6 @@ class MoonAvatar extends StatelessWidget {
         case MoonBadgeAlignment.bottomLeft:
           return Alignment.bottomLeft;
         case MoonBadgeAlignment.bottomRight:
-          return Alignment.bottomRight;
-        default:
           return Alignment.bottomRight;
       }
     }

@@ -32,7 +32,7 @@ class MoonEffectsTheme extends ThemeExtension<MoonEffectsTheme>
     MoonControlEffect? controlScaleEffect,
   })  : controlFocusEffect = controlFocusEffect ??
             MoonFocusEffect(
-              effectColor: tokens.colors.bulma.withOpacity(0.25),
+              effectColor: tokens.colors.bulma.withValues(alpha: 0.25),
               effectExtent: 4,
               effectDuration: tokens.transitions.defaultTransitionDuration,
               effectCurve: tokens.transitions.defaultTransitionCurve,

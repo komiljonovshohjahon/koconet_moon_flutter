@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:ui';
 
 Color _scaleAlpha(Color a, double factor) {
@@ -17,8 +19,8 @@ Color? colorPremulLerp(Color? a, Color? b, double t) {
     if (a == null) {
       return _scaleAlpha(b, t);
     } else {
-      final weight1 = (1 - t) * a.opacity;
-      final weight2 = t * b.opacity;
+      final weight1 = (1 - t) * a.a;
+      final weight2 = t * b.a;
       final summedWeight = weight1 + weight2;
       final w = summedWeight > 0.000001 ? weight2 / summedWeight : 0.5;
 

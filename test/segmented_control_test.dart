@@ -7,8 +7,8 @@ const Key _segmentedControlKey = Key("segmentControlKey");
 const String _firstSegmentLabel = "Label 1";
 const String _secondSegmentLabel = "Label 2";
 const String _thirdSegmentLabel = "Label 3";
-const IconData _segmentLeadingIcon = MoonIcons.other_frame_24_light;
-const IconData _segmentTrailingIcon = MoonIcons.controls_close_small_24_light;
+const IconData _segmentLeadingIcon = Icons.keyboard_arrow_down_rounded;
+const IconData _segmentTrailingIcon = Icons.close;
 
 void main() {
   testWidgets("Provided key is used.", (tester) async {

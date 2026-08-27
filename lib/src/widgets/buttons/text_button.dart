@@ -101,8 +101,8 @@ class MoonTextButton extends StatelessWidget {
 
     final Color effectiveFocusColor = context
             .moonTheme?.buttonTheme.colors.textVariantFocusColor
-            .withOpacity(context.isDarkMode ? 0.8 : 0.2) ??
-        MoonColors.light.piccolo.withOpacity(context.isDarkMode ? 0.8 : 0.2);
+            .withValues(alpha: context.isDarkMode ? 0.8 : 0.2) ??
+        MoonColors.light.piccolo.withValues(alpha: context.isDarkMode ? 0.8 : 0.2);
 
     return MoonButton(
       autofocus: autofocus,
