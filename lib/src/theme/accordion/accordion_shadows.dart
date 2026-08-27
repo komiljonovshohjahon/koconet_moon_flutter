@@ -11,9 +11,7 @@ class MoonAccordionShadows extends ThemeExtension<MoonAccordionShadows>
 
   @override
   MoonAccordionShadows copyWith({List<BoxShadow>? shadows}) {
-    return MoonAccordionShadows(
-      shadows: shadows ?? this.shadows,
-    );
+    return MoonAccordionShadows(shadows: shadows ?? this.shadows);
   }
 
   @override

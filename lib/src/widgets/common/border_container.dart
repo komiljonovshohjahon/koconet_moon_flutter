@@ -44,19 +44,13 @@ class _BorderContainerState extends State<BorderContainer>
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
-      duration: widget.duration,
-      vsync: this,
-    );
+    _controller = AnimationController(duration: widget.duration, vsync: this);
     _borderAnimation = CurvedAnimation(
       parent: _controller,
       curve: widget.curve,
       reverseCurve: widget.curve.flipped,
     );
-    _border = ShapeBorderTween(
-      begin: widget.border,
-      end: widget.border,
-    );
+    _border = ShapeBorderTween(begin: widget.border, end: widget.border);
   }
 
   @override
@@ -71,10 +65,7 @@ class _BorderContainerState extends State<BorderContainer>
     super.didUpdateWidget(oldWidget);
 
     if (widget.border != oldWidget.border) {
-      _border = ShapeBorderTween(
-        begin: oldWidget.border,
-        end: widget.border,
-      );
+      _border = ShapeBorderTween(begin: oldWidget.border, end: widget.border);
       _controller
         ..value = 0.0
         ..forward();
@@ -98,7 +89,8 @@ class _BorderContainerState extends State<BorderContainer>
                 : widget.width ?? double.infinity,
           ),
           clipBehavior: widget.clipBehavior,
-          decoration: widget.decoration ??
+          decoration:
+              widget.decoration ??
               ShapeDecorationWithPremultipliedAlpha(
                 color: widget.backgroundColor,
                 shape: _border.evaluate(_borderAnimation)!,

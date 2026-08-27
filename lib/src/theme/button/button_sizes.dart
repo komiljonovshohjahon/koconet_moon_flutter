@@ -32,51 +32,56 @@ class MoonButtonSizes extends ThemeExtension<MoonButtonSizes>
     MoonButtonSizeProperties? md,
     MoonButtonSizeProperties? lg,
     MoonButtonSizeProperties? xl,
-  })  : xs = xs ??
-            MoonButtonSizeProperties(
-              borderRadius: tokens.borders.interactiveXs,
-              gap: tokens.sizes.x5s,
-              height: tokens.sizes.xs,
-              iconSizeValue: tokens.sizes.x2s,
-              padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x4s),
-              textStyle: tokens.typography.heading.text12,
-            ),
-        sm = sm ??
-            MoonButtonSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              gap: tokens.sizes.x5s,
-              height: tokens.sizes.sm,
-              iconSizeValue: tokens.sizes.xs,
-              padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              textStyle: tokens.typography.heading.textDefault,
-            ),
-        md = md ??
-            MoonButtonSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              gap: tokens.sizes.x4s,
-              height: tokens.sizes.md,
-              iconSizeValue: tokens.sizes.xs,
-              padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x2s),
-              textStyle: tokens.typography.heading.textDefault,
-            ),
-        lg = lg ??
-            MoonButtonSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              gap: tokens.sizes.x3s,
-              height: tokens.sizes.lg,
-              iconSizeValue: tokens.sizes.xs,
-              padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x2s),
-              textStyle: tokens.typography.heading.text16,
-            ),
-        xl = xl ??
-            MoonButtonSizeProperties(
-              borderRadius: tokens.borders.interactiveMd,
-              gap: tokens.sizes.x2s,
-              height: tokens.sizes.xl,
-              iconSizeValue: tokens.sizes.xs,
-              padding: EdgeInsets.symmetric(horizontal: tokens.sizes.xs),
-              textStyle: tokens.typography.heading.text16,
-            );
+  }) : xs =
+           xs ??
+           MoonButtonSizeProperties(
+             borderRadius: tokens.borders.interactiveXs,
+             gap: tokens.sizes.x5s,
+             height: tokens.sizes.xs,
+             iconSizeValue: tokens.sizes.x2s,
+             padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x4s),
+             textStyle: tokens.typography.heading.text12,
+           ),
+       sm =
+           sm ??
+           MoonButtonSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             gap: tokens.sizes.x5s,
+             height: tokens.sizes.sm,
+             iconSizeValue: tokens.sizes.xs,
+             padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
+             textStyle: tokens.typography.heading.textDefault,
+           ),
+       md =
+           md ??
+           MoonButtonSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             gap: tokens.sizes.x4s,
+             height: tokens.sizes.md,
+             iconSizeValue: tokens.sizes.xs,
+             padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x2s),
+             textStyle: tokens.typography.heading.textDefault,
+           ),
+       lg =
+           lg ??
+           MoonButtonSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             gap: tokens.sizes.x3s,
+             height: tokens.sizes.lg,
+             iconSizeValue: tokens.sizes.xs,
+             padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x2s),
+             textStyle: tokens.typography.heading.text16,
+           ),
+       xl =
+           xl ??
+           MoonButtonSizeProperties(
+             borderRadius: tokens.borders.interactiveMd,
+             gap: tokens.sizes.x2s,
+             height: tokens.sizes.xl,
+             iconSizeValue: tokens.sizes.xs,
+             padding: EdgeInsets.symmetric(horizontal: tokens.sizes.xs),
+             textStyle: tokens.typography.heading.text16,
+           );
 
   @override
   MoonButtonSizes copyWith({

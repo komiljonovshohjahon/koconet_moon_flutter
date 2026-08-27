@@ -42,8 +42,11 @@ class MoonDrawerProperties extends ThemeExtension<MoonDrawerProperties>
     if (other is! MoonDrawerProperties) return this;
 
     return MoonDrawerProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
       width: lerpDouble(width, other.width, t)!,
       textStyle: TextStyle.lerp(textStyle, other.textStyle, t)!,
     );
@@ -53,17 +56,11 @@ class MoonDrawerProperties extends ThemeExtension<MoonDrawerProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonDrawerProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonDrawerProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )
-      ..add(
-        DoubleProperty("width", width),
-      )
-      ..add(
-        DiagnosticsProperty<TextStyle>("textStyle", textStyle),
-      );
+      ..add(DoubleProperty("width", width))
+      ..add(DiagnosticsProperty<TextStyle>("textStyle", textStyle));
   }
 }

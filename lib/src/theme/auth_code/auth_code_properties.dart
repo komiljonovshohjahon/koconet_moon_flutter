@@ -91,15 +91,24 @@ class MoonAuthCodeProperties extends ThemeExtension<MoonAuthCodeProperties>
     if (other is! MoonAuthCodeProperties) return this;
 
     return MoonAuthCodeProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
       gap: lerpDouble(gap, other.gap, t)!,
       height: lerpDouble(height, other.height, t)!,
       width: lerpDouble(width, other.width, t)!,
-      animationDuration:
-          lerpDuration(animationDuration, other.animationDuration, t),
-      errorAnimationDuration:
-          lerpDuration(errorAnimationDuration, other.errorAnimationDuration, t),
+      animationDuration: lerpDuration(
+        animationDuration,
+        other.animationDuration,
+        t,
+      ),
+      errorAnimationDuration: lerpDuration(
+        errorAnimationDuration,
+        other.errorAnimationDuration,
+        t,
+      ),
       peekDuration: lerpDuration(peekDuration, other.peekDuration, t),
       animationCurve: other.animationCurve,
       errorAnimationCurve: other.errorAnimationCurve,
@@ -112,21 +121,13 @@ class MoonAuthCodeProperties extends ThemeExtension<MoonAuthCodeProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonAuthCodeProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonAuthCodeProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )
-      ..add(
-        DoubleProperty("gap", gap),
-      )
-      ..add(
-        DoubleProperty("height", height),
-      )
-      ..add(
-        DoubleProperty("width", width),
-      )
+      ..add(DoubleProperty("gap", gap))
+      ..add(DoubleProperty("height", height))
+      ..add(DoubleProperty("width", width))
       ..add(
         DiagnosticsProperty<Duration>("animationDuration", animationDuration),
       )
@@ -136,20 +137,12 @@ class MoonAuthCodeProperties extends ThemeExtension<MoonAuthCodeProperties>
           errorAnimationDuration,
         ),
       )
-      ..add(
-        DiagnosticsProperty<Duration>("peekDuration", peekDuration),
-      )
-      ..add(
-        DiagnosticsProperty<Curve>("animationCurve", animationCurve),
-      )
+      ..add(DiagnosticsProperty<Duration>("peekDuration", peekDuration))
+      ..add(DiagnosticsProperty<Curve>("animationCurve", animationCurve))
       ..add(
         DiagnosticsProperty<Curve>("errorAnimationCurve", errorAnimationCurve),
       )
-      ..add(
-        DiagnosticsProperty<TextStyle>("textStyle", textStyle),
-      )
-      ..add(
-        DiagnosticsProperty<TextStyle>("errorTextStyle", errorTextStyle),
-      );
+      ..add(DiagnosticsProperty<TextStyle>("textStyle", textStyle))
+      ..add(DiagnosticsProperty<TextStyle>("errorTextStyle", errorTextStyle));
   }
 }

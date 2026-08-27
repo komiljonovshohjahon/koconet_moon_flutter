@@ -93,21 +93,33 @@ class MoonAccordionColors extends ThemeExtension<MoonAccordionColors>
 
     return MoonAccordionColors(
       textColor: colorPremulLerp(textColor, other.textColor, t)!,
-      expandedTextColor:
-          colorPremulLerp(expandedTextColor, other.expandedTextColor, t)!,
+      expandedTextColor: colorPremulLerp(
+        expandedTextColor,
+        other.expandedTextColor,
+        t,
+      )!,
       contentColor: colorPremulLerp(contentColor, other.contentColor, t)!,
       iconColor: colorPremulLerp(iconColor, other.iconColor, t)!,
-      expandedIconColor:
-          colorPremulLerp(expandedIconColor, other.expandedIconColor, t)!,
-      trailingIconColor:
-          colorPremulLerp(trailingIconColor, other.trailingIconColor, t)!,
+      expandedIconColor: colorPremulLerp(
+        expandedIconColor,
+        other.expandedIconColor,
+        t,
+      )!,
+      trailingIconColor: colorPremulLerp(
+        trailingIconColor,
+        other.trailingIconColor,
+        t,
+      )!,
       expandedTrailingIconColor: colorPremulLerp(
         expandedTrailingIconColor,
         other.expandedTrailingIconColor,
         t,
       )!,
-      backgroundColor:
-          colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
+      backgroundColor: colorPremulLerp(
+        backgroundColor,
+        other.backgroundColor,
+        t,
+      )!,
       expandedBackgroundColor: colorPremulLerp(
         expandedBackgroundColor,
         other.expandedBackgroundColor,
@@ -132,17 +144,9 @@ class MoonAccordionColors extends ThemeExtension<MoonAccordionColors>
       ..add(
         ColorProperty("expandedTrailingIconColor", expandedTrailingIconColor),
       )
-      ..add(
-        ColorProperty("backgroundColor", backgroundColor),
-      )
-      ..add(
-        ColorProperty("expandedBackgroundColor", expandedBackgroundColor),
-      )
-      ..add(
-        ColorProperty("borderColor", borderColor),
-      )
-      ..add(
-        ColorProperty("dividerColor", dividerColor),
-      );
+      ..add(ColorProperty("backgroundColor", backgroundColor))
+      ..add(ColorProperty("expandedBackgroundColor", expandedBackgroundColor))
+      ..add(ColorProperty("borderColor", borderColor))
+      ..add(ColorProperty("dividerColor", dividerColor));
   }
 }

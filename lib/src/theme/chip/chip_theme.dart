@@ -21,14 +21,15 @@ class MoonChipTheme extends ThemeExtension<MoonChipTheme>
     required this.tokens,
     MoonChipColors? colors,
     MoonChipSizes? sizes,
-  })  : colors = colors ??
-            MoonChipColors(
-              activeColor: tokens.colors.piccolo,
-              backgroundColor: tokens.colors.goku,
-              activeBackgroundColor: tokens.colors.jiren,
-              textColor: tokens.colors.textPrimary,
-            ),
-        sizes = sizes ?? MoonChipSizes(tokens: tokens);
+  }) : colors =
+           colors ??
+           MoonChipColors(
+             activeColor: tokens.colors.piccolo,
+             backgroundColor: tokens.colors.goku,
+             activeBackgroundColor: tokens.colors.jiren,
+             textColor: tokens.colors.textPrimary,
+           ),
+       sizes = sizes ?? MoonChipSizes(tokens: tokens);
 
   @override
   MoonChipTheme copyWith({

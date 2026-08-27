@@ -81,11 +81,17 @@ class MoonToastProperties extends ThemeExtension<MoonToastProperties>
       horizontalGap: lerpDouble(horizontalGap, other.horizontalGap, t)!,
       verticalGap: lerpDouble(verticalGap, other.verticalGap, t)!,
       displayDuration: lerpDuration(displayDuration, other.displayDuration, t),
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
-      contentPadding:
-          EdgeInsetsGeometry.lerp(contentPadding, other.contentPadding, t)!,
+      contentPadding: EdgeInsetsGeometry.lerp(
+        contentPadding,
+        other.contentPadding,
+        t,
+      )!,
       textStyle: TextStyle.lerp(textStyle, other.textStyle, t)!,
     );
   }
@@ -94,35 +100,22 @@ class MoonToastProperties extends ThemeExtension<MoonToastProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonToastProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonToastProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )
-      ..add(
-        DoubleProperty("horizontalGap", horizontalGap),
-      )
-      ..add(
-        DiagnosticsProperty<Duration>("displayDuration", displayDuration),
-      )
+      ..add(DoubleProperty("horizontalGap", horizontalGap))
+      ..add(DiagnosticsProperty<Duration>("displayDuration", displayDuration))
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      )
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve))
       ..add(
         DiagnosticsProperty<EdgeInsetsGeometry>(
           "contentPadding",
           contentPadding,
         ),
       )
-      ..add(
-        DiagnosticsProperty<TextStyle>(
-          "textStyle",
-          textStyle,
-        ),
-      );
+      ..add(DiagnosticsProperty<TextStyle>("textStyle", textStyle));
   }
 }

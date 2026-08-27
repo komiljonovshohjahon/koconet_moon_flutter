@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/effects/effects_theme.dart';
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
 import 'package:moon_design/src/theme/tokens/opacities.dart';
 import 'package:moon_design/src/theme/tokens/tokens.dart';
 import 'package:moon_design/src/utils/extensions.dart';
@@ -10,7 +9,6 @@ import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_design/src/utils/touch_target_padding.dart';
 import 'package:moon_design/src/widgets/checkbox/checkbox_painter.dart';
 import 'package:moon_design/src/widgets/common/effects/focus_effect.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
 class MoonCheckbox extends StatefulWidget {
   /// {@macro flutter.widgets.Focus.autofocus}
@@ -142,57 +140,54 @@ class _MoonCheckboxState extends State<MoonCheckbox>
     const Size size = Size(16, 16);
 
     final BorderRadiusGeometry effectiveBorderRadius =
-        context.moonTheme.checkboxTheme.properties.borderRadius ??
-            MoonBorders.borders.interactiveXs;
+        context.moonTheme.checkboxTheme.properties.borderRadius;
 
-    final Color effectiveActiveColor = widget.activeColor ??
-        context.moonTheme.checkboxTheme.colors.activeColor ??
-        MoonColors.light.piccolo;
+    final Color effectiveActiveColor =
+        widget.activeColor ??
+        context.moonTheme.checkboxTheme.colors.activeColor;
 
-    final Color effectiveInactiveColor = widget.inactiveColor ??
-        context.moonTheme.checkboxTheme.colors.inactiveColor ??
-        Colors.transparent;
+    final Color effectiveInactiveColor =
+        widget.inactiveColor ??
+        context.moonTheme.checkboxTheme.colors.inactiveColor;
 
-    final Color effectiveCheckColor = widget.checkColor ??
-        context.moonTheme.checkboxTheme.colors.checkColor ??
-        MoonColors.light.goten;
+    final Color effectiveCheckColor =
+        widget.checkColor ?? context.moonTheme.checkboxTheme.colors.checkColor;
 
-    final Color effectiveBorderColor = widget.borderColor ??
-        context.moonTheme.checkboxTheme.colors.borderColor ??
-        MoonColors.light.trunks;
+    final Color effectiveBorderColor =
+        widget.borderColor ??
+        context.moonTheme.checkboxTheme.colors.borderColor;
 
     final Color effectiveFocusEffectColor =
         context.moonEffects?.controlFocusEffect.effectColor ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
-                .controlFocusEffect
-                .effectColor;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlFocusEffect.effectColor;
 
     final Duration effectiveFocusEffectDuration =
         context.moonEffects?.controlFocusEffect.effectDuration ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
-                .controlFocusEffect
-                .effectDuration;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlFocusEffect.effectDuration;
 
     final Curve effectiveFocusEffectCurve =
         context.moonEffects?.controlFocusEffect.effectCurve ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
-                .controlFocusEffect
-                .effectCurve;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlFocusEffect.effectCurve;
 
     final double effectiveFocusEffectExtent =
         context.moonEffects?.controlFocusEffect.effectExtent ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
-                .controlFocusEffect
-                .effectExtent;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlFocusEffect.effectExtent;
 
     final double effectiveDisabledOpacityValue =
         context.moonOpacities?.disabled ?? MoonOpacities.opacities.disabled;
 
     final WidgetStateProperty<MouseCursor> effectiveMouseCursor =
-        WidgetStateProperty.resolveWith<MouseCursor>(
-            (Set<WidgetState> states) {
-      return WidgetStateMouseCursor.clickable.resolve(states);
-    });
+        WidgetStateProperty.resolveWith<MouseCursor>((Set<WidgetState> states) {
+          return WidgetStateMouseCursor.clickable.resolve(states);
+        });
 
     return Semantics(
       label: widget.semanticLabel,
@@ -226,8 +221,9 @@ class _MoonCheckboxState extends State<MoonCheckbox>
                   ..value = value
                   ..previousValue = _previousValue
                   ..shape = MoonSquircleBorder(
-                    borderRadius:
-                        effectiveBorderRadius.squircleBorderRadius(context),
+                    borderRadius: effectiveBorderRadius.squircleBorderRadius(
+                      context,
+                    ),
                   )
                   ..side = _resolveSide(
                     BorderSide(color: effectiveBorderColor),

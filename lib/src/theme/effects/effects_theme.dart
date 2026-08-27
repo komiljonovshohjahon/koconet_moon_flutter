@@ -30,33 +30,37 @@ class MoonEffectsTheme extends ThemeExtension<MoonEffectsTheme>
     MoonHoverEffect? controlHoverEffect,
     MoonControlEffect? controlPulseEffect,
     MoonControlEffect? controlScaleEffect,
-  })  : controlFocusEffect = controlFocusEffect ??
-            MoonFocusEffect(
-              effectColor: tokens.colors.bulma.withValues(alpha: 0.25),
-              effectExtent: 4,
-              effectDuration: tokens.transitions.defaultTransitionDuration,
-              effectCurve: tokens.transitions.defaultTransitionCurve,
-            ),
-        controlHoverEffect = controlHoverEffect ??
-            MoonHoverEffect(
-              primaryHoverColor: tokens.colors.heles,
-              secondaryHoverColor: tokens.colors.jiren,
-              hoverDuration: tokens.transitions.defaultTransitionDuration,
-              hoverCurve: tokens.transitions.defaultTransitionCurve,
-            ),
-        controlPulseEffect = controlPulseEffect ??
-            MoonControlEffect(
-              effectColor: tokens.colors.piccolo,
-              effectDuration: const Duration(milliseconds: 1400),
-              effectCurve: tokens.transitions.defaultTransitionCurve,
-              effectExtent: 24,
-            ),
-        controlScaleEffect = controlScaleEffect ??
-            MoonControlEffect(
-              effectDuration: tokens.transitions.defaultTransitionDuration,
-              effectCurve: tokens.transitions.defaultTransitionCurve,
-              effectScalar: 0.95,
-            );
+  }) : controlFocusEffect =
+           controlFocusEffect ??
+           MoonFocusEffect(
+             effectColor: tokens.colors.bulma.withValues(alpha: 0.25),
+             effectExtent: 4,
+             effectDuration: tokens.transitions.defaultTransitionDuration,
+             effectCurve: tokens.transitions.defaultTransitionCurve,
+           ),
+       controlHoverEffect =
+           controlHoverEffect ??
+           MoonHoverEffect(
+             primaryHoverColor: tokens.colors.heles,
+             secondaryHoverColor: tokens.colors.jiren,
+             hoverDuration: tokens.transitions.defaultTransitionDuration,
+             hoverCurve: tokens.transitions.defaultTransitionCurve,
+           ),
+       controlPulseEffect =
+           controlPulseEffect ??
+           MoonControlEffect(
+             effectColor: tokens.colors.piccolo,
+             effectDuration: const Duration(milliseconds: 1400),
+             effectCurve: tokens.transitions.defaultTransitionCurve,
+             effectExtent: 24,
+           ),
+       controlScaleEffect =
+           controlScaleEffect ??
+           MoonControlEffect(
+             effectDuration: tokens.transitions.defaultTransitionDuration,
+             effectCurve: tokens.transitions.defaultTransitionCurve,
+             effectScalar: 0.95,
+           );
 
   @override
   MoonEffectsTheme copyWith({

@@ -2,15 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/effects/effects_theme.dart';
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
 import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
 import 'package:moon_design/src/utils/color_tween_premul.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_design/src/widgets/common/base_control.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
 class MoonMenuItem extends StatefulWidget {
   /// Defines how the widgets of the menu item are aligned along the cross axis.
@@ -120,11 +116,11 @@ class MoonMenuItem extends StatefulWidget {
     this.content,
     this.trailing,
   }) : assert(
-          labelAndContentCrossAxisAlignment != CrossAxisAlignment.baseline,
-          'The CrossAxisAlignment.baseline is not supported since the label and '
-          'content of menu item are aligned in a column, not in a row. '
-          'Try using another constant.',
-        );
+         labelAndContentCrossAxisAlignment != CrossAxisAlignment.baseline,
+         'The CrossAxisAlignment.baseline is not supported since the label and '
+         'content of menu item are aligned in a column, not in a row. '
+         'Try using another constant.',
+       );
 
   static Iterable<Widget> divideMenuItems({
     required BuildContext context,
@@ -137,9 +133,8 @@ class MoonMenuItem extends StatefulWidget {
 
     if (menuItems.isEmpty || menuItems.length == 1) return menuItems;
 
-    final Color effectiveColor = color ??
-        context.moonTheme.menuItemTheme.colors.dividerColor ??
-        MoonColors.light.beerus;
+    final Color effectiveColor =
+        color ?? context.moonTheme.menuItemTheme.colors.dividerColor;
 
     Widget wrapMenuItem(Widget menuItems) {
       return DecoratedBox(
@@ -190,71 +185,69 @@ class _MoonMenuItemState extends State<MoonMenuItem>
 
   @override
   Widget build(BuildContext context) {
-    final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme.menuItemTheme.properties.borderRadius ??
-        MoonBorders.borders.interactiveSm;
+    final BorderRadiusGeometry effectiveBorderRadius =
+        widget.borderRadius ??
+        context.moonTheme.menuItemTheme.properties.borderRadius;
 
-    final double effectiveMinimumHeaderHeight = widget.height ??
-        context.moonTheme.menuItemTheme.properties.minimumHeight ??
-        MoonSizes.sizes.md;
+    final double effectiveMinimumHeaderHeight =
+        widget.height ??
+        context.moonTheme.menuItemTheme.properties.minimumHeight;
 
-    final double effectiveVerticalGap = widget.verticalGap ??
-        context.moonTheme.menuItemTheme.properties.verticalGap ??
-        MoonSizes.sizes.x5s;
+    final double effectiveVerticalGap =
+        widget.verticalGap ??
+        context.moonTheme.menuItemTheme.properties.verticalGap;
 
-    final EdgeInsetsGeometry effectiveHeaderPadding = widget.menuItemPadding ??
-        context.moonTheme.menuItemTheme.properties.padding ??
-        EdgeInsets.all(MoonSizes.sizes.x3s);
+    final EdgeInsetsGeometry effectiveHeaderPadding =
+        widget.menuItemPadding ??
+        context.moonTheme.menuItemTheme.properties.padding;
 
-    final EdgeInsets resolvedDirectionalHeaderPadding =
-        effectiveHeaderPadding.resolve(Directionality.of(context));
+    final EdgeInsets resolvedDirectionalHeaderPadding = effectiveHeaderPadding
+        .resolve(Directionality.of(context));
 
-    final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme.menuItemTheme.colors.backgroundColor ??
-        Colors.transparent;
+    final Color effectiveBackgroundColor =
+        widget.backgroundColor ??
+        context.moonTheme.menuItemTheme.colors.backgroundColor;
 
     final Color effectiveIconColor =
-        context.moonTheme.menuItemTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+        context.moonTheme.menuItemTheme.colors.iconColor;
 
     final Color effectiveLabelTextColor =
-        context.moonTheme.menuItemTheme.colors.labelTextColor ??
-            MoonColors.light.textPrimary;
+        context.moonTheme.menuItemTheme.colors.labelTextColor;
 
     final Color effectiveContentTextColor =
-        context.moonTheme.menuItemTheme.colors.contentTextColor ??
-            MoonColors.light.textSecondary;
+        context.moonTheme.menuItemTheme.colors.contentTextColor;
 
     final TextStyle effectiveLabelTextStyle =
-        context.moonTheme.menuItemTheme.properties.labelTextStyle ??
-            MoonTypography.typography.body.textDefault;
+        context.moonTheme.menuItemTheme.properties.labelTextStyle;
 
     final TextStyle effectiveContentTextStyle =
-        context.moonTheme.menuItemTheme.properties.contentTextStyle ??
-            MoonTypography.typography.body.text12;
+        context.moonTheme.menuItemTheme.properties.contentTextStyle;
 
-    final Color effectiveHoverEffectColor = widget.hoverEffectColor ??
+    final Color effectiveHoverEffectColor =
+        widget.hoverEffectColor ??
         context.moonEffects?.controlHoverEffect.primaryHoverColor ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
-            .controlHoverEffect
-            .primaryHoverColor;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlHoverEffect.primaryHoverColor;
 
     final Color resolvedHoverColor = Color.alphaBlend(
       effectiveHoverEffectColor,
       widget.backgroundColor ?? Colors.transparent,
     );
 
-    final Duration effectiveHoverEffectDuration = widget.hoverEffectDuration ??
+    final Duration effectiveHoverEffectDuration =
+        widget.hoverEffectDuration ??
         context.moonEffects?.controlHoverEffect.hoverDuration ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
-            .controlHoverEffect
-            .hoverDuration;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlHoverEffect.hoverDuration;
 
-    final Curve effectiveHoverEffectCurve = widget.hoverEffectCurve ??
+    final Curve effectiveHoverEffectCurve =
+        widget.hoverEffectCurve ??
         context.moonEffects?.controlHoverEffect.hoverCurve ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
-            .controlHoverEffect
-            .hoverCurve;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlHoverEffect.hoverCurve;
 
     _animationController ??= AnimationController(
       duration: effectiveHoverEffectDuration,
@@ -279,93 +272,98 @@ class _MoonMenuItemState extends State<MoonMenuItem>
         autofocus: widget.autofocus,
         focusNode: widget.focusNode,
         borderRadius: effectiveBorderRadius.squircleBorderRadius(context),
-        builder: (
-          BuildContext context,
-          bool isEnabled,
-          bool isHovered,
-          bool isFocused,
-          bool isPressed,
-        ) {
-          final bool isActive = isHovered || isFocused;
+        builder:
+            (
+              BuildContext context,
+              bool isEnabled,
+              bool isHovered,
+              bool isFocused,
+              bool isPressed,
+            ) {
+              final bool isActive = isHovered || isFocused;
 
-          _handleActiveStatus(isActive);
+              _handleActiveStatus(isActive);
 
-          return AnimatedBuilder(
-            animation: _animationController!,
-            builder: (BuildContext context, Widget? child) {
-              return Container(
-                height: widget.height,
-                width: widget.width,
-                constraints: BoxConstraints(
-                  minHeight: effectiveMinimumHeaderHeight,
-                ),
-                padding: resolvedDirectionalHeaderPadding,
-                decoration: widget.decoration ??
-                    ShapeDecoration(
-                      color: _backgroundColor!.value,
-                      shape: MoonSquircleBorder(
-                        borderRadius:
-                            effectiveBorderRadius.squircleBorderRadius(context),
-                      ),
+              return AnimatedBuilder(
+                animation: _animationController!,
+                builder: (BuildContext context, Widget? child) {
+                  return Container(
+                    height: widget.height,
+                    width: widget.width,
+                    constraints: BoxConstraints(
+                      minHeight: effectiveMinimumHeaderHeight,
                     ),
-                child: child,
+                    padding: resolvedDirectionalHeaderPadding,
+                    decoration:
+                        widget.decoration ??
+                        ShapeDecoration(
+                          color: _backgroundColor!.value,
+                          shape: MoonSquircleBorder(
+                            borderRadius: effectiveBorderRadius
+                                .squircleBorderRadius(context),
+                          ),
+                        ),
+                    child: child,
+                  );
+                },
+                child: IconTheme(
+                  data: IconThemeData(color: effectiveIconColor),
+                  child: DefaultTextStyle(
+                    style: effectiveLabelTextStyle.copyWith(
+                      color: effectiveLabelTextColor,
+                    ),
+                    child: Row(
+                      crossAxisAlignment:
+                          widget.menuItemCrossAxisAlignment ??
+                          CrossAxisAlignment.center,
+                      children: [
+                        if (widget.leading != null)
+                          Padding(
+                            padding: EdgeInsetsDirectional.only(
+                              end:
+                                  widget.horizontalGap ??
+                                  resolvedDirectionalHeaderPadding.left,
+                            ),
+                            child: widget.leading,
+                          ),
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment:
+                                widget.labelAndContentCrossAxisAlignment ??
+                                CrossAxisAlignment.start,
+                            children: [
+                              widget.label,
+                              if (widget.content != null)
+                                DefaultTextStyle(
+                                  style: effectiveContentTextStyle.copyWith(
+                                    color: effectiveContentTextColor,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.only(
+                                      top: effectiveVerticalGap,
+                                    ),
+                                    child: widget.content,
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ),
+                        if (widget.trailing != null)
+                          Padding(
+                            padding: EdgeInsetsDirectional.only(
+                              start:
+                                  widget.horizontalGap ??
+                                  resolvedDirectionalHeaderPadding.right,
+                            ),
+                            child: widget.trailing,
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
               );
             },
-            child: IconTheme(
-              data: IconThemeData(color: effectiveIconColor),
-              child: DefaultTextStyle(
-                style: effectiveLabelTextStyle.copyWith(
-                  color: effectiveLabelTextColor,
-                ),
-                child: Row(
-                  crossAxisAlignment: widget.menuItemCrossAxisAlignment ??
-                      CrossAxisAlignment.center,
-                  children: [
-                    if (widget.leading != null)
-                      Padding(
-                        padding: EdgeInsetsDirectional.only(
-                          end: widget.horizontalGap ??
-                              resolvedDirectionalHeaderPadding.left,
-                        ),
-                        child: widget.leading,
-                      ),
-                    Expanded(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment:
-                            widget.labelAndContentCrossAxisAlignment ??
-                                CrossAxisAlignment.start,
-                        children: [
-                          widget.label,
-                          if (widget.content != null)
-                            DefaultTextStyle(
-                              style: effectiveContentTextStyle.copyWith(
-                                color: effectiveContentTextColor,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                  top: effectiveVerticalGap,
-                                ),
-                                child: widget.content,
-                              ),
-                            ),
-                        ],
-                      ),
-                    ),
-                    if (widget.trailing != null)
-                      Padding(
-                        padding: EdgeInsetsDirectional.only(
-                          start: widget.horizontalGap ??
-                              resolvedDirectionalHeaderPadding.right,
-                        ),
-                        child: widget.trailing,
-                      ),
-                  ],
-                ),
-              ),
-            ),
-          );
-        },
       ),
     );
   }

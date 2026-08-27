@@ -11,9 +11,7 @@ class MoonSwitchShadows extends ThemeExtension<MoonSwitchShadows>
 
   @override
   MoonSwitchShadows copyWith({List<BoxShadow>? thumbShadows}) {
-    return MoonSwitchShadows(
-      thumbShadows: thumbShadows ?? this.thumbShadows,
-    );
+    return MoonSwitchShadows(thumbShadows: thumbShadows ?? this.thumbShadows);
   }
 
   @override

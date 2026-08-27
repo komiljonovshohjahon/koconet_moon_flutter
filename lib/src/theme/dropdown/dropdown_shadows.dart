@@ -36,12 +36,7 @@ class MoonDropdownShadows extends ThemeExtension<MoonDropdownShadows>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty(
-          "type",
-          "MoonDropdownShadows",
-        ),
-      )
+      ..add(DiagnosticsProperty("type", "MoonDropdownShadows"))
       ..add(
         DiagnosticsProperty<List<BoxShadow>>(
           "dropdownShadows",

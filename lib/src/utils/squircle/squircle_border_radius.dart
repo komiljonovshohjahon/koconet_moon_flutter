@@ -8,8 +8,9 @@ import 'package:moon_design/src/utils/squircle/squircle_radius.dart';
 
 class MoonSquircleBorderRadius extends BorderRadius {
   /// The border radius with zero radii.
-  static const MoonSquircleBorderRadius zero =
-      MoonSquircleBorderRadius.all(MoonSquircleRadius.zero);
+  static const MoonSquircleBorderRadius zero = MoonSquircleBorderRadius.all(
+    MoonSquircleRadius.zero,
+  );
 
   /// The top-left [MoonSquircleRadius].
   @override
@@ -33,32 +34,32 @@ class MoonSquircleBorderRadius extends BorderRadius {
     // 0.9 instead to avoid this issue.
     double cornerSmoothing = 0.9,
   }) : this.only(
-          topLeft: MoonSquircleRadius(
-            cornerRadius: cornerRadius,
-            cornerSmoothing: cornerSmoothing,
-          ),
-          topRight: MoonSquircleRadius(
-            cornerRadius: cornerRadius,
-            cornerSmoothing: cornerSmoothing,
-          ),
-          bottomLeft: MoonSquircleRadius(
-            cornerRadius: cornerRadius,
-            cornerSmoothing: cornerSmoothing,
-          ),
-          bottomRight: MoonSquircleRadius(
-            cornerRadius: cornerRadius,
-            cornerSmoothing: cornerSmoothing,
-          ),
-        );
+         topLeft: MoonSquircleRadius(
+           cornerRadius: cornerRadius,
+           cornerSmoothing: cornerSmoothing,
+         ),
+         topRight: MoonSquircleRadius(
+           cornerRadius: cornerRadius,
+           cornerSmoothing: cornerSmoothing,
+         ),
+         bottomLeft: MoonSquircleRadius(
+           cornerRadius: cornerRadius,
+           cornerSmoothing: cornerSmoothing,
+         ),
+         bottomRight: MoonSquircleRadius(
+           cornerRadius: cornerRadius,
+           cornerSmoothing: cornerSmoothing,
+         ),
+       );
 
   /// Creates a border radius with all radii set to [radius].
   const MoonSquircleBorderRadius.all(MoonSquircleRadius radius)
-      : this.only(
-          topLeft: radius,
-          topRight: radius,
-          bottomLeft: radius,
-          bottomRight: radius,
-        );
+    : this.only(
+        topLeft: radius,
+        topRight: radius,
+        bottomLeft: radius,
+        bottomRight: radius,
+      );
 
   /// Creates a border radius with vertical symmetry, ensuring that the top and
   /// bottom sides of the rectangle have the same radii.
@@ -66,11 +67,11 @@ class MoonSquircleBorderRadius extends BorderRadius {
     MoonSquircleRadius top = MoonSquircleRadius.zero,
     MoonSquircleRadius bottom = MoonSquircleRadius.zero,
   }) : this.only(
-          topLeft: top,
-          topRight: top,
-          bottomLeft: bottom,
-          bottomRight: bottom,
-        );
+         topLeft: top,
+         topRight: top,
+         bottomLeft: bottom,
+         bottomRight: bottom,
+       );
 
   /// Creates a border radius with horizontal symmetry, ensuring that the left
   /// and right sides of the rectangle have the same radii.
@@ -78,11 +79,11 @@ class MoonSquircleBorderRadius extends BorderRadius {
     MoonSquircleRadius left = MoonSquircleRadius.zero,
     MoonSquircleRadius right = MoonSquircleRadius.zero,
   }) : this.only(
-          topLeft: left,
-          topRight: right,
-          bottomLeft: left,
-          bottomRight: right,
-        );
+         topLeft: left,
+         topRight: right,
+         bottomLeft: left,
+         bottomRight: right,
+       );
 
   /// Creates a border radius with only the provided non-zero values, resulting
   /// in right angles for the other corners.
@@ -92,11 +93,11 @@ class MoonSquircleBorderRadius extends BorderRadius {
     this.bottomLeft = MoonSquircleRadius.zero,
     this.bottomRight = MoonSquircleRadius.zero,
   }) : super.only(
-          topLeft: topLeft,
-          bottomRight: topRight,
-          topRight: topRight,
-          bottomLeft: bottomLeft,
-        );
+         topLeft: topLeft,
+         bottomRight: topRight,
+         topRight: topRight,
+         bottomLeft: bottomLeft,
+       );
 
   /// Required by Flutter framework internals for proper functioning.
   Radius get _topLeft => topLeft;
@@ -127,10 +128,12 @@ class MoonSquircleBorderRadius extends BorderRadius {
     return MoonSquircleBorderRadius.only(
       topLeft: topLeft is MoonSquircleRadius ? topLeft : this.topLeft,
       topRight: topRight is MoonSquircleRadius ? topRight : this.topRight,
-      bottomLeft:
-          bottomLeft is MoonSquircleRadius ? bottomLeft : this.bottomLeft,
-      bottomRight:
-          bottomRight is MoonSquircleRadius ? bottomRight : this.bottomRight,
+      bottomLeft: bottomLeft is MoonSquircleRadius
+          ? bottomLeft
+          : this.bottomLeft,
+      bottomRight: bottomRight is MoonSquircleRadius
+          ? bottomRight
+          : this.bottomRight,
     );
   }
 
@@ -150,27 +153,15 @@ class MoonSquircleBorderRadius extends BorderRadius {
 
     final processedBottomLeft = topLeft == bottomLeft
         ? processedTopLeft
-        : ProcessedSquircleRadius(
-            bottomLeft,
-            width: width,
-            height: height,
-          );
+        : ProcessedSquircleRadius(bottomLeft, width: width, height: height);
 
     final processedBottomRight = bottomLeft == bottomRight
         ? processedBottomLeft
-        : ProcessedSquircleRadius(
-            bottomRight,
-            width: width,
-            height: height,
-          );
+        : ProcessedSquircleRadius(bottomRight, width: width, height: height);
 
     final processedTopRight = topRight == bottomRight
         ? processedBottomRight
-        : ProcessedSquircleRadius(
-            topRight,
-            width: width,
-            height: height,
-          );
+        : ProcessedSquircleRadius(topRight, width: width, height: height);
 
     result
       ..addSmoothTopRight(processedTopRight, rect)
@@ -305,11 +296,11 @@ class MoonSquircleBorderRadius extends BorderRadius {
 
   @override
   BorderRadius resolve(TextDirection? direction) => BorderRadius.only(
-        topLeft: topLeft,
-        topRight: topRight,
-        bottomLeft: bottomLeft,
-        bottomRight: bottomRight,
-      );
+    topLeft: topLeft,
+    topRight: topRight,
+    bottomLeft: bottomLeft,
+    bottomRight: bottomRight,
+  );
 
   @override
   String toString() {

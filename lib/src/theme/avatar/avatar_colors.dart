@@ -45,8 +45,11 @@ class MoonAvatarColors extends ThemeExtension<MoonAvatarColors>
     if (other is! MoonAvatarColors) return this;
 
     return MoonAvatarColors(
-      backgroundColor:
-          colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
+      backgroundColor: colorPremulLerp(
+        backgroundColor,
+        other.backgroundColor,
+        t,
+      )!,
       badgeColor: colorPremulLerp(badgeColor, other.badgeColor, t)!,
       iconColor: colorPremulLerp(iconColor, other.iconColor, t)!,
       textColor: colorPremulLerp(textColor, other.textColor, t)!,

@@ -38,8 +38,11 @@ class MoonCircularLoaderSizeProperties
 
     return MoonCircularLoaderSizeProperties(
       loaderSizeValue: lerpDouble(loaderSizeValue, other.loaderSizeValue, t)!,
-      loaderStrokeWidth:
-          lerpDouble(loaderStrokeWidth, other.loaderStrokeWidth, t)!,
+      loaderStrokeWidth: lerpDouble(
+        loaderStrokeWidth,
+        other.loaderStrokeWidth,
+        t,
+      )!,
     );
   }
 

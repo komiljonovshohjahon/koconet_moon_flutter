@@ -6,10 +6,7 @@ class MoonShadows extends ThemeExtension<MoonShadows>
     with DiagnosticableTreeMixin {
   static const light = MoonShadows(
     sm: [
-      BoxShadow(
-        color: Color(0x66000000),
-        blurRadius: 1,
-      ),
+      BoxShadow(color: Color(0x66000000), blurRadius: 1),
       BoxShadow(
         color: Color(0x28000000),
         blurRadius: 6,
@@ -18,10 +15,7 @@ class MoonShadows extends ThemeExtension<MoonShadows>
       ),
     ],
     md: [
-      BoxShadow(
-        color: Color(0x66000000),
-        blurRadius: 1,
-      ),
+      BoxShadow(color: Color(0x66000000), blurRadius: 1),
       BoxShadow(
         color: Color(0x28000000),
         blurRadius: 12,
@@ -29,25 +23,12 @@ class MoonShadows extends ThemeExtension<MoonShadows>
       ),
     ],
     lg: [
-      BoxShadow(
-        color: Color(0x66000000),
-        blurRadius: 1,
-      ),
-      BoxShadow(
-        color: Color(0x28000000),
-        blurRadius: 24,
-        offset: Offset(0, 8),
-      ),
+      BoxShadow(color: Color(0x66000000), blurRadius: 1),
+      BoxShadow(color: Color(0x28000000), blurRadius: 24, offset: Offset(0, 8)),
     ],
     xl: [
-      BoxShadow(
-        color: Color(0x33000000),
-        blurRadius: 1,
-      ),
-      BoxShadow(
-        color: Color(0x1E000000),
-        blurRadius: 32,
-      ),
+      BoxShadow(color: Color(0x33000000), blurRadius: 1),
+      BoxShadow(color: Color(0x1E000000), blurRadius: 32),
       BoxShadow(
         color: Color(0x14000000),
         blurRadius: 32,
@@ -58,10 +39,7 @@ class MoonShadows extends ThemeExtension<MoonShadows>
 
   static const dark = MoonShadows(
     sm: [
-      BoxShadow(
-        color: Color(0x8E000000),
-        blurRadius: 1,
-      ),
+      BoxShadow(color: Color(0x8E000000), blurRadius: 1),
       BoxShadow(
         color: Color(0xA3000000),
         blurRadius: 6,
@@ -70,10 +48,7 @@ class MoonShadows extends ThemeExtension<MoonShadows>
       ),
     ],
     md: [
-      BoxShadow(
-        color: Color(0x8E000000),
-        blurRadius: 1,
-      ),
+      BoxShadow(color: Color(0x8E000000), blurRadius: 1),
       BoxShadow(
         color: Color(0xA3000000),
         blurRadius: 12,
@@ -81,10 +56,7 @@ class MoonShadows extends ThemeExtension<MoonShadows>
       ),
     ],
     lg: [
-      BoxShadow(
-        color: Color(0x8E000000),
-        blurRadius: 1,
-      ),
+      BoxShadow(color: Color(0x8E000000), blurRadius: 1),
       BoxShadow(
         color: Color(0xA3000000),
         blurRadius: 24,
@@ -92,10 +64,7 @@ class MoonShadows extends ThemeExtension<MoonShadows>
       ),
     ],
     xl: [
-      BoxShadow(
-        color: Color(0xB7000000),
-        blurRadius: 1,
-      ),
+      BoxShadow(color: Color(0xB7000000), blurRadius: 1),
       BoxShadow(
         color: Color(0xE0000000),
         blurRadius: 48,

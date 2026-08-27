@@ -21,11 +21,7 @@ class MoonDrawerShadows extends ThemeExtension<MoonDrawerShadows>
     if (other is! MoonDrawerShadows) return this;
 
     return MoonDrawerShadows(
-      drawerShadows: BoxShadow.lerpList(
-        drawerShadows,
-        other.drawerShadows,
-        t,
-      )!,
+      drawerShadows: BoxShadow.lerpList(drawerShadows, other.drawerShadows, t)!,
     );
   }
 
@@ -33,9 +29,7 @@ class MoonDrawerShadows extends ThemeExtension<MoonDrawerShadows>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonDrawerShadows"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonDrawerShadows"))
       ..add(
         DiagnosticsProperty<List<BoxShadow>>("drawerShadows", drawerShadows),
       );

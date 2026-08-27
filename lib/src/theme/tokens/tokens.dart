@@ -99,8 +99,10 @@ class MoonTokens extends ThemeExtension<MoonTokens>
     return MoonTokens(
       borders: borders.lerp(other.borders, t),
       colors: colors.lerp(other.colors, t),
-      complementaryColors:
-          complementaryColors.lerp(other.complementaryColors, t),
+      complementaryColors: complementaryColors.lerp(
+        other.complementaryColors,
+        t,
+      ),
       opacities: opacities.lerp(other.opacities, t),
       shadows: shadows.lerp(other.shadows, t),
       sizes: sizes.lerp(other.sizes, t),
@@ -121,16 +123,8 @@ class MoonTokens extends ThemeExtension<MoonTokens>
       ..add(DiagnosticsProperty<MoonShadows>("MoonShadows", shadows))
       ..add(DiagnosticsProperty<MoonSizes>("MoonSizes", sizes))
       ..add(
-        DiagnosticsProperty<MoonTransitions>(
-          "MoonTransitions",
-          transitions,
-        ),
+        DiagnosticsProperty<MoonTransitions>("MoonTransitions", transitions),
       )
-      ..add(
-        DiagnosticsProperty<MoonTypography>(
-          "MoonTypography",
-          typography,
-        ),
-      );
+      ..add(DiagnosticsProperty<MoonTypography>("MoonTypography", typography));
   }
 }

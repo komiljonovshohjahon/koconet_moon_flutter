@@ -21,12 +21,13 @@ class MoonCircularLoaderTheme extends ThemeExtension<MoonCircularLoaderTheme>
     required this.tokens,
     MoonCircularLoaderColors? colors,
     MoonCircularLoaderSizes? sizes,
-  })  : colors = colors ??
-            MoonCircularLoaderColors(
-              color: tokens.colors.piccolo,
-              backgroundColor: Colors.transparent,
-            ),
-        sizes = sizes ?? MoonCircularLoaderSizes(tokens: tokens);
+  }) : colors =
+           colors ??
+           MoonCircularLoaderColors(
+             color: tokens.colors.piccolo,
+             backgroundColor: Colors.transparent,
+           ),
+       sizes = sizes ?? MoonCircularLoaderSizes(tokens: tokens);
 
   @override
   MoonCircularLoaderTheme copyWith({

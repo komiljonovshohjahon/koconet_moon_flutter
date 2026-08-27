@@ -20,24 +20,26 @@ class MoonChipSizes extends ThemeExtension<MoonChipSizes>
     required this.tokens,
     MoonChipSizeProperties? sm,
     MoonChipSizeProperties? md,
-  })  : sm = sm ??
-            MoonChipSizeProperties(
-              borderRadius: tokens.borders.interactiveXs,
-              gap: tokens.sizes.x4s,
-              height: tokens.sizes.sm,
-              iconSizeValue: tokens.sizes.xs,
-              padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              textStyle: tokens.typography.body.textDefault,
-            ),
-        md = md ??
-            MoonChipSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              gap: tokens.sizes.x4s,
-              height: tokens.sizes.md,
-              iconSizeValue: tokens.sizes.xs,
-              padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x2s),
-              textStyle: tokens.typography.body.textDefault,
-            );
+  }) : sm =
+           sm ??
+           MoonChipSizeProperties(
+             borderRadius: tokens.borders.interactiveXs,
+             gap: tokens.sizes.x4s,
+             height: tokens.sizes.sm,
+             iconSizeValue: tokens.sizes.xs,
+             padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
+             textStyle: tokens.typography.body.textDefault,
+           ),
+       md =
+           md ??
+           MoonChipSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             gap: tokens.sizes.x4s,
+             height: tokens.sizes.md,
+             iconSizeValue: tokens.sizes.xs,
+             padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x2s),
+             textStyle: tokens.typography.body.textDefault,
+           );
 
   @override
   MoonChipSizes copyWith({

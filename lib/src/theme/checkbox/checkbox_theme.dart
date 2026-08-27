@@ -21,15 +21,17 @@ class MoonCheckboxTheme extends ThemeExtension<MoonCheckboxTheme>
     required this.tokens,
     MoonCheckboxColors? colors,
     MoonCheckboxProperties? properties,
-  })  : colors = colors ??
-            MoonCheckboxColors(
-              activeColor: tokens.colors.piccolo,
-              borderColor: tokens.colors.trunks,
-              checkColor: tokens.colors.goten,
-              inactiveColor: Colors.transparent,
-            ),
-        properties = properties ??
-            MoonCheckboxProperties(borderRadius: tokens.borders.interactiveXs);
+  }) : colors =
+           colors ??
+           MoonCheckboxColors(
+             activeColor: tokens.colors.piccolo,
+             borderColor: tokens.colors.trunks,
+             checkColor: tokens.colors.goten,
+             inactiveColor: Colors.transparent,
+           ),
+       properties =
+           properties ??
+           MoonCheckboxProperties(borderRadius: tokens.borders.interactiveXs);
 
   @override
   MoonCheckboxTheme copyWith({

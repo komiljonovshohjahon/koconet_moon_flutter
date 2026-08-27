@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moon_design/src/theme/breadcrumb/breadcrumb_theme.dart';
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/text_styles.dart';
 import 'package:moon_design/src/utils/color_tween_premul.dart';
 import 'package:moon_design/src/widgets/breadcrumb/breadcrumb_item.dart';
 import 'package:moon_design/src/widgets/common/base_control.dart';
@@ -74,73 +71,67 @@ class _MoonBreadcrumbState extends State<MoonBreadcrumb> {
   List<Widget> _buildItems() {
     final MoonBreadcrumbTheme theme = context.moonTheme.breadcrumbTheme;
 
-    final double effectiveGap =
-        widget.gap ?? theme.properties.gap ?? MoonSizes.sizes.x4s;
+    final double effectiveGap = widget.gap ?? theme.properties.gap;
 
-    final Color effectiveItemTextColor = widget.itemTextStyle?.color ??
-        theme.colors.itemColor ??
-        MoonColors.light.textSecondary;
+    final Color effectiveItemTextColor =
+        widget.itemTextStyle?.color ?? theme.colors.itemColor;
 
     final Color effectiveCurrentItemTextColor =
         widget.currentItemTextStyle?.color ??
-            theme.colors.currentItemColor ??
-            MoonColors.light.textPrimary;
+        theme.colors.currentItemColor ??
+        MoonColors.light.textPrimary;
 
-    final Color effectiveHoverEffectColor = widget.hoverEffectColor ??
+    final Color effectiveHoverEffectColor =
+        widget.hoverEffectColor ??
         theme.colors.hoverEffectColor ??
         MoonColors.light.textPrimary;
 
-    final TextStyle effectiveItemTextStyle = widget.itemTextStyle ??
-        theme.properties.itemTextStyle ??
-        MoonTextStyles.body.textDefault;
+    final TextStyle effectiveItemTextStyle =
+        widget.itemTextStyle ?? theme.properties.itemTextStyle;
 
     final TextStyle effectiveCurrentItemTextStyle =
-        widget.currentItemTextStyle ??
-            theme.properties.currentItemTextStyle ??
-            MoonTextStyles.body.textDefault;
+        widget.currentItemTextStyle ?? theme.properties.currentItemTextStyle;
 
     final TextStyle effectiveShowMoreItemTextStyle =
-        theme.properties.showMoreItemTextStyle ??
-            MoonTextStyles.body.textDefault;
+        theme.properties.showMoreItemTextStyle;
 
     final Duration effectiveTransitionDuration =
-        theme.properties.transitionDuration ??
-            MoonTransitions.transitions.defaultTransitionDuration;
+        theme.properties.transitionDuration;
 
-    final Curve effectiveTransitionCurve = theme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+    final Curve effectiveTransitionCurve = theme.properties.transitionCurve;
 
-    final int resolvedItemCountToShow =
-        _showFullPath ? widget.items.length : widget.visibleItemCount;
+    final int resolvedItemCountToShow = _showFullPath
+        ? widget.items.length
+        : widget.visibleItemCount;
 
     final List<MoonBreadcrumbItem> visibleItemsList = _getVisibleItems();
 
-    final List<Widget> customizedVisibleItemsList = visibleItemsList.map(
-      (MoonBreadcrumbItem item) {
-        return Row(
-          children: [
-            if (item != visibleItemsList.first) SizedBox(width: effectiveGap),
-            _BreadcrumbItemBuilder(
-              isCurrent: item == visibleItemsList.last,
-              itemColor: effectiveItemTextColor,
-              currentItemColor: effectiveCurrentItemTextColor,
-              hoverEffectColor: effectiveHoverEffectColor,
-              decoration: widget.itemDecoration,
-              itemTextStyle: effectiveItemTextStyle,
-              currentItemTextStyle: effectiveCurrentItemTextStyle,
-              transitionDuration: effectiveTransitionDuration,
-              transitionCurve: effectiveTransitionCurve,
-              onTap: item.onTap,
-              item: item,
-            ),
-            if (item != visibleItemsList.last) ...[
-              SizedBox(width: effectiveGap),
-              _buildDivider(),
-            ],
+    final List<Widget> customizedVisibleItemsList = visibleItemsList.map((
+      MoonBreadcrumbItem item,
+    ) {
+      return Row(
+        children: [
+          if (item != visibleItemsList.first) SizedBox(width: effectiveGap),
+          _BreadcrumbItemBuilder(
+            isCurrent: item == visibleItemsList.last,
+            itemColor: effectiveItemTextColor,
+            currentItemColor: effectiveCurrentItemTextColor,
+            hoverEffectColor: effectiveHoverEffectColor,
+            decoration: widget.itemDecoration,
+            itemTextStyle: effectiveItemTextStyle,
+            currentItemTextStyle: effectiveCurrentItemTextStyle,
+            transitionDuration: effectiveTransitionDuration,
+            transitionCurve: effectiveTransitionCurve,
+            onTap: item.onTap,
+            item: item,
+          ),
+          if (item != visibleItemsList.last) ...[
+            SizedBox(width: effectiveGap),
+            _buildDivider(),
           ],
-        );
-      },
-    ).toList();
+        ],
+      );
+    }).toList();
 
     if (widget.items.length > resolvedItemCountToShow &&
         resolvedItemCountToShow > 1) {
@@ -160,9 +151,11 @@ class _MoonBreadcrumbState extends State<MoonBreadcrumb> {
                 currentItemTextStyle: effectiveCurrentItemTextStyle,
                 transitionDuration: effectiveTransitionDuration,
                 transitionCurve: effectiveTransitionCurve,
-                onTap: widget.showMoreWidget?.onTap ??
+                onTap:
+                    widget.showMoreWidget?.onTap ??
                     () => setState(() => _showFullPath = true),
-                item: widget.showMoreWidget ??
+                item:
+                    widget.showMoreWidget ??
                     MoonBreadcrumbItem(
                       semanticLabel: widget.semanticLabel,
                       label: SizedBox(
@@ -189,33 +182,35 @@ class _MoonBreadcrumbState extends State<MoonBreadcrumb> {
   }
 
   List<MoonBreadcrumbItem> _getVisibleItems() {
-    final int resolvedItemCountToShow =
-        _showFullPath ? widget.items.length : widget.visibleItemCount;
+    final int resolvedItemCountToShow = _showFullPath
+        ? widget.items.length
+        : widget.visibleItemCount;
 
     final List<MoonBreadcrumbItem> visibleItems = resolvedItemCountToShow == 0
         ? []
         : widget.items.length > resolvedItemCountToShow
-            ? [
-                widget.items[0],
-                ...List.generate(
-                  resolvedItemCountToShow - 1,
-                  (index) => widget.items.length - index,
-                ).reversed.map((int index) => widget.items[index - 1]),
-              ]
-            : widget.items;
+        ? [
+            widget.items[0],
+            ...List.generate(
+              resolvedItemCountToShow - 1,
+              (index) => widget.items.length - index,
+            ).reversed.map((int index) => widget.items[index - 1]),
+          ]
+        : widget.items;
 
     return visibleItems;
   }
 
   Widget _buildDivider() {
-    final Color effectiveDividerColor = widget.dividerColor ??
+    final Color effectiveDividerColor =
+        widget.dividerColor ??
         widget.itemTextStyle?.color ??
-        context.moonTheme.breadcrumbTheme.colors.itemColor ??
-        MoonColors.light.iconSecondary;
+        context.moonTheme.breadcrumbTheme.colors.itemColor;
 
     return IconTheme(
       data: IconThemeData(color: effectiveDividerColor),
-      child: widget.divider ??
+      child:
+          widget.divider ??
           Icon(
             Directionality.of(context) == TextDirection.ltr
                 ? Icons.arrow_forward_ios
@@ -230,10 +225,7 @@ class _MoonBreadcrumbState extends State<MoonBreadcrumb> {
     return SingleChildScrollView(
       padding: widget.padding,
       scrollDirection: Axis.horizontal,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: _buildItems(),
-      ),
+      child: Row(mainAxisSize: MainAxisSize.min, children: _buildItems()),
     );
   }
 }
@@ -302,18 +294,20 @@ class _BreadCrumbItemBuilderState extends State<_BreadcrumbItemBuilder>
 
   @override
   Widget build(BuildContext context) {
-    final double effectiveGap = widget.item.gap ??
-        context.moonTheme.breadcrumbTheme.properties.itemGap ??
-        MoonSizes.sizes.x6s;
+    final double effectiveGap =
+        widget.item.gap ?? context.moonTheme.breadcrumbTheme.properties.itemGap;
 
-    final Color resolvedItemColor =
-        widget.isCurrent ? widget.currentItemColor : widget.itemColor;
+    final Color resolvedItemColor = widget.isCurrent
+        ? widget.currentItemColor
+        : widget.itemColor;
 
-    final Color resolvedHoverEffectColor =
-        widget.isCurrent ? widget.currentItemColor : widget.hoverEffectColor;
+    final Color resolvedHoverEffectColor = widget.isCurrent
+        ? widget.currentItemColor
+        : widget.hoverEffectColor;
 
-    final TextStyle resolvedTextStyle =
-        widget.isCurrent ? widget.currentItemTextStyle : widget.itemTextStyle;
+    final TextStyle resolvedTextStyle = widget.isCurrent
+        ? widget.currentItemTextStyle
+        : widget.itemTextStyle;
 
     _itemColor ??= _animationController!.drive(
       _itemColorTween.chain(CurveTween(curve: widget.transitionCurve)),
@@ -329,51 +323,50 @@ class _BreadCrumbItemBuilderState extends State<_BreadcrumbItemBuilder>
       borderRadius: widget.decoration?.borderRadius,
       propagateGesturesToChild: true,
       onTap: widget.onTap,
-      builder: (
-        BuildContext context,
-        bool isEnabled,
-        bool isHovered,
-        bool isFocused,
-        bool isPressed,
-      ) {
-        final bool isActive =
-            isEnabled && (widget.isCurrent || isHovered || isPressed);
+      builder:
+          (
+            BuildContext context,
+            bool isEnabled,
+            bool isHovered,
+            bool isFocused,
+            bool isPressed,
+          ) {
+            final bool isActive =
+                isEnabled && (widget.isCurrent || isHovered || isPressed);
 
-        _handleActiveEffect(isActive);
+            _handleActiveEffect(isActive);
 
-        return AnimatedBuilder(
-          animation: _animationController!,
-          builder: (BuildContext context, Widget? child) {
-            return IconTheme(
-              data: IconThemeData(
-                color: _itemColor!.value,
-              ),
-              child: DefaultTextStyle(
-                style: resolvedTextStyle.copyWith(color: _itemColor?.value),
-                child: child!,
+            return AnimatedBuilder(
+              animation: _animationController!,
+              builder: (BuildContext context, Widget? child) {
+                return IconTheme(
+                  data: IconThemeData(color: _itemColor!.value),
+                  child: DefaultTextStyle(
+                    style: resolvedTextStyle.copyWith(color: _itemColor?.value),
+                    child: child!,
+                  ),
+                );
+              },
+              child: DecoratedBox(
+                decoration: widget.decoration ?? const BoxDecoration(),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (widget.item.leading != null) ...[
+                      widget.item.leading!,
+                      SizedBox(width: widget.item.gap ?? effectiveGap),
+                    ],
+                    widget.item.label,
+                    if (widget.item.trailing != null) ...[
+                      SizedBox(width: widget.item.gap ?? effectiveGap),
+                      widget.item.trailing!,
+                    ],
+                  ],
+                ),
               ),
             );
           },
-          child: DecoratedBox(
-            decoration: widget.decoration ?? const BoxDecoration(),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if (widget.item.leading != null) ...[
-                  widget.item.leading!,
-                  SizedBox(width: widget.item.gap ?? effectiveGap),
-                ],
-                widget.item.label,
-                if (widget.item.trailing != null) ...[
-                  SizedBox(width: widget.item.gap ?? effectiveGap),
-                  widget.item.trailing!,
-                ],
-              ],
-            ),
-          ),
-        );
-      },
     );
   }
 }

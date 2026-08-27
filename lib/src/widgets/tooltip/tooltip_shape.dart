@@ -80,11 +80,15 @@ class TooltipShape extends ShapeBorder {
     }
 
     if (tooltipPosition == MoonTooltipPosition.right) {
-      tooltipCenter =
-          rect.centerLeft.translate(-arrowLength - arrowTipDistance, 0);
+      tooltipCenter = rect.centerLeft.translate(
+        -arrowLength - arrowTipDistance,
+        0,
+      );
     } else if (tooltipPosition == MoonTooltipPosition.left) {
-      tooltipCenter =
-          rect.centerRight.translate(arrowLength + arrowTipDistance, 0);
+      tooltipCenter = rect.centerRight.translate(
+        arrowLength + arrowTipDistance,
+        0,
+      );
     }
 
     switch (tooltipPosition) {

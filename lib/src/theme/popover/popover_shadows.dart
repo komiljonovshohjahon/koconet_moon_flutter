@@ -33,9 +33,7 @@ class MoonPopoverShadows extends ThemeExtension<MoonPopoverShadows>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonPopoverShadows"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonPopoverShadows"))
       ..add(
         DiagnosticsProperty<List<BoxShadow>>("popoverShadows", popoverShadows),
       );

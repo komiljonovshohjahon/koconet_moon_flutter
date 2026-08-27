@@ -12,16 +12,10 @@ class MoonCarouselColors extends ThemeExtension<MoonCarouselColors>
   /// The icon color of the MoonCarousel items.
   final Color iconColor;
 
-  const MoonCarouselColors({
-    required this.textColor,
-    required this.iconColor,
-  });
+  const MoonCarouselColors({required this.textColor, required this.iconColor});
 
   @override
-  MoonCarouselColors copyWith({
-    Color? textColor,
-    Color? iconColor,
-  }) {
+  MoonCarouselColors copyWith({Color? textColor, Color? iconColor}) {
     return MoonCarouselColors(
       textColor: textColor ?? this.textColor,
       iconColor: iconColor ?? this.iconColor,

@@ -19,9 +19,7 @@ class MoonClipSquircleRect extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipPath.shape(
       clipBehavior: clipBehavior,
-      shape: MoonSquircleBorder(
-        borderRadius: radius,
-      ),
+      shape: MoonSquircleBorder(borderRadius: radius),
       child: child,
     );
   }

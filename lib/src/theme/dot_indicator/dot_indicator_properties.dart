@@ -64,20 +64,12 @@ class MoonDotIndicatorProperties
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonDotIndicatorProperties"),
-      )
-      ..add(
-        DoubleProperty("gap", gap),
-      )
-      ..add(
-        DoubleProperty("size", size),
-      )
+      ..add(DiagnosticsProperty("type", "MoonDotIndicatorProperties"))
+      ..add(DoubleProperty("gap", gap))
+      ..add(DoubleProperty("size", size))
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      );
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve));
   }
 }

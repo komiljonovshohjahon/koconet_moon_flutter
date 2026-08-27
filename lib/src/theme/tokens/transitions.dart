@@ -51,12 +51,7 @@ class MoonTransitions extends ThemeExtension<MoonTransitions>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty(
-          "type",
-          "MoonTransitions",
-        ),
-      )
+      ..add(DiagnosticsProperty("type", "MoonTransitions"))
       ..add(
         DiagnosticsProperty<Duration>(
           "defaultTransitionDuration",

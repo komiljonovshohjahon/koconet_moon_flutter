@@ -61,20 +61,24 @@ class _AnimatedIconThemeState
   @override
   void forEachTween(TweenVisitor<dynamic> visitor) {
     if (widget.color != null) {
-      _color = visitor(
-        _color,
-        widget.color,
-        (dynamic value) =>
-            ColorTweenWithPremultipliedAlpha(begin: value as Color),
-      ) as ColorTweenWithPremultipliedAlpha?;
+      _color =
+          visitor(
+                _color,
+                widget.color,
+                (dynamic value) =>
+                    ColorTweenWithPremultipliedAlpha(begin: value as Color),
+              )
+              as ColorTweenWithPremultipliedAlpha?;
     }
 
     if (widget.size != null) {
-      _size = visitor(
-        _size,
-        Size(widget.size!, widget.size!),
-        (dynamic value) => SizeTween(begin: value as Size),
-      ) as SizeTween?;
+      _size =
+          visitor(
+                _size,
+                Size(widget.size!, widget.size!),
+                (dynamic value) => SizeTween(begin: value as Size),
+              )
+              as SizeTween?;
     }
   }
 

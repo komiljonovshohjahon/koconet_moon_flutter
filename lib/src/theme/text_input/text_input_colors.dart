@@ -66,18 +66,33 @@ class MoonTextInputColors extends ThemeExtension<MoonTextInputColors>
     if (other is! MoonTextInputColors) return this;
 
     return MoonTextInputColors(
-      backgroundColor:
-          colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
-      activeBorderColor:
-          colorPremulLerp(activeBorderColor, other.activeBorderColor, t)!,
-      inactiveBorderColor:
-          colorPremulLerp(inactiveBorderColor, other.inactiveBorderColor, t)!,
+      backgroundColor: colorPremulLerp(
+        backgroundColor,
+        other.backgroundColor,
+        t,
+      )!,
+      activeBorderColor: colorPremulLerp(
+        activeBorderColor,
+        other.activeBorderColor,
+        t,
+      )!,
+      inactiveBorderColor: colorPremulLerp(
+        inactiveBorderColor,
+        other.inactiveBorderColor,
+        t,
+      )!,
       errorColor: colorPremulLerp(errorColor, other.errorColor, t)!,
-      hoverBorderColor:
-          colorPremulLerp(hoverBorderColor, other.hoverBorderColor, t)!,
+      hoverBorderColor: colorPremulLerp(
+        hoverBorderColor,
+        other.hoverBorderColor,
+        t,
+      )!,
       textColor: colorPremulLerp(textColor, other.textColor, t)!,
-      helperTextColor:
-          colorPremulLerp(helperTextColor, other.helperTextColor, t)!,
+      helperTextColor: colorPremulLerp(
+        helperTextColor,
+        other.helperTextColor,
+        t,
+      )!,
     );
   }
 

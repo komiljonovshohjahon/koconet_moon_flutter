@@ -24,36 +24,40 @@ class MoonSwitchSizes extends ThemeExtension<MoonSwitchSizes>
     MoonSwitchSizeProperties? x2s,
     MoonSwitchSizeProperties? xs,
     MoonSwitchSizeProperties? sm,
-  })  : x2s = x2s ??
-            MoonSwitchSizeProperties(
-              height: tokens.sizes.x2s,
-              width: 2 * tokens.sizes.x3s + 2 * tokens.sizes.x5s,
-              thumbSizeValue: tokens.sizes.x3s,
-              iconSizeValue: tokens.sizes.x3s,
-              padding: EdgeInsets.all(tokens.sizes.x6s),
-              textStyle:
-                  tokens.typography.body.text6.copyWith(letterSpacing: 0),
-            ),
-        xs = xs ??
-            MoonSwitchSizeProperties(
-              height: tokens.sizes.xs,
-              width: 2 * tokens.sizes.x2s + 3 * tokens.sizes.x5s,
-              thumbSizeValue: tokens.sizes.x2s,
-              iconSizeValue: tokens.sizes.x2s,
-              padding: EdgeInsets.all(tokens.sizes.x5s),
-              textStyle:
-                  tokens.typography.body.text8.copyWith(letterSpacing: 0.1),
-            ),
-        sm = sm ??
-            MoonSwitchSizeProperties(
-              height: tokens.sizes.sm,
-              width: 2 * tokens.sizes.xs + 3 * tokens.sizes.x5s,
-              thumbSizeValue: tokens.sizes.xs,
-              iconSizeValue: tokens.sizes.xs,
-              padding: EdgeInsets.all(tokens.sizes.x5s),
-              textStyle:
-                  tokens.typography.body.text10.copyWith(letterSpacing: 0.1),
-            );
+  }) : x2s =
+           x2s ??
+           MoonSwitchSizeProperties(
+             height: tokens.sizes.x2s,
+             width: 2 * tokens.sizes.x3s + 2 * tokens.sizes.x5s,
+             thumbSizeValue: tokens.sizes.x3s,
+             iconSizeValue: tokens.sizes.x3s,
+             padding: EdgeInsets.all(tokens.sizes.x6s),
+             textStyle: tokens.typography.body.text6.copyWith(letterSpacing: 0),
+           ),
+       xs =
+           xs ??
+           MoonSwitchSizeProperties(
+             height: tokens.sizes.xs,
+             width: 2 * tokens.sizes.x2s + 3 * tokens.sizes.x5s,
+             thumbSizeValue: tokens.sizes.x2s,
+             iconSizeValue: tokens.sizes.x2s,
+             padding: EdgeInsets.all(tokens.sizes.x5s),
+             textStyle: tokens.typography.body.text8.copyWith(
+               letterSpacing: 0.1,
+             ),
+           ),
+       sm =
+           sm ??
+           MoonSwitchSizeProperties(
+             height: tokens.sizes.sm,
+             width: 2 * tokens.sizes.xs + 3 * tokens.sizes.x5s,
+             thumbSizeValue: tokens.sizes.xs,
+             iconSizeValue: tokens.sizes.xs,
+             padding: EdgeInsets.all(tokens.sizes.x5s),
+             textStyle: tokens.typography.body.text10.copyWith(
+               letterSpacing: 0.1,
+             ),
+           );
 
   @override
   MoonSwitchSizes copyWith({

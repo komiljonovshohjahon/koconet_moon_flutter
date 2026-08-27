@@ -67,8 +67,11 @@ class MoonTabBarSizeProperties extends ThemeExtension<MoonTabBarSizeProperties>
     if (other is! MoonTabBarSizeProperties) return this;
 
     return MoonTabBarSizeProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
       height: lerpDouble(height, other.height, t)!,
       iconSizeValue: lerpDouble(iconSizeValue, other.iconSizeValue, t)!,
       indicatorHeight: lerpDouble(indicatorHeight, other.indicatorHeight, t)!,
@@ -82,29 +85,15 @@ class MoonTabBarSizeProperties extends ThemeExtension<MoonTabBarSizeProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonTabBarSizeProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonTabBarSizeProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )
-      ..add(
-        DoubleProperty("height", height),
-      )
-      ..add(
-        DoubleProperty("iconSizeValue", iconSizeValue),
-      )
-      ..add(
-        DoubleProperty("indicatorHeight", indicatorHeight),
-      )
-      ..add(
-        DoubleProperty("tabGap", tabGap),
-      )
-      ..add(
-        DiagnosticsProperty<EdgeInsetsGeometry>("tabPadding", tabPadding),
-      )
-      ..add(
-        DiagnosticsProperty<TextStyle>("textStyle", textStyle),
-      );
+      ..add(DoubleProperty("height", height))
+      ..add(DoubleProperty("iconSizeValue", iconSizeValue))
+      ..add(DoubleProperty("indicatorHeight", indicatorHeight))
+      ..add(DoubleProperty("tabGap", tabGap))
+      ..add(DiagnosticsProperty<EdgeInsetsGeometry>("tabPadding", tabPadding))
+      ..add(DiagnosticsProperty<TextStyle>("textStyle", textStyle));
   }
 }

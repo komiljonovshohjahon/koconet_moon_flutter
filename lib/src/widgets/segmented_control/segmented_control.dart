@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/segmented_control/segmented_control_size_properties.dart';
-import 'package:moon_design/src/theme/segmented_control/segmented_control_sizes.dart';
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
 import 'package:moon_design/src/theme/tokens/opacities.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
 import 'package:moon_design/src/utils/color_tween_premul.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/shape_decoration_premul.dart';
@@ -16,17 +11,11 @@ import 'package:moon_design/src/widgets/common/base_control.dart';
 import 'package:moon_design/src/widgets/common/base_segmented_tab_bar.dart';
 import 'package:moon_design/src/widgets/segmented_control/segment.dart';
 import 'package:moon_design/src/widgets/segmented_control/segment_style.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonSegmentedControlSize {
-  sm,
-  md,
-}
+enum MoonSegmentedControlSize { sm, md }
 
-typedef MoonCustomSegmentBuilder = Widget Function(
-  BuildContext context,
-  bool isSelected,
-);
+typedef MoonCustomSegmentBuilder =
+    Widget Function(BuildContext context, bool isSelected);
 
 class MoonSegmentedControl extends StatefulWidget {
   /// Whether the segmented control is disabled.
@@ -115,9 +104,9 @@ class MoonSegmentedControl extends StatefulWidget {
     this.tabController,
     this.onSegmentChanged,
     required this.segments,
-  })  : assert(height == null || height > 0),
-        assert(segments != null && segments.length > 0),
-        customSegments = null;
+  }) : assert(height == null || height > 0),
+       assert(segments != null && segments.length > 0),
+       customSegments = null;
 
   /// Creates a Moon Design custom segmented control.
   const MoonSegmentedControl.custom({
@@ -138,9 +127,9 @@ class MoonSegmentedControl extends StatefulWidget {
     this.tabController,
     this.onSegmentChanged,
     required this.customSegments,
-  })  : assert(height == null || height > 0),
-        assert(customSegments != null && customSegments.length > 0),
-        segments = null;
+  }) : assert(height == null || height > 0),
+       assert(customSegments != null && customSegments.length > 0),
+       segments = null;
 
   @override
   State<MoonSegmentedControl> createState() => _MoonSegmentedControlState();
@@ -157,14 +146,11 @@ class _MoonSegmentedControlState extends State<MoonSegmentedControl> {
   ) {
     switch (segmentedControlSize) {
       case MoonSegmentedControlSize.sm:
-        return context.moonTheme.segmentedControlTheme.sizes.sm ??
-            MoonSegmentedControlSizes(tokens: MoonTokens.light).sm;
+        return context.moonTheme.segmentedControlTheme.sizes.sm;
       case MoonSegmentedControlSize.md:
-        return context.moonTheme.segmentedControlTheme.sizes.md ??
-            MoonSegmentedControlSizes(tokens: MoonTokens.light).md;
+        return context.moonTheme.segmentedControlTheme.sizes.md;
       default:
-        return context.moonTheme.segmentedControlTheme.sizes.md ??
-            MoonSegmentedControlSizes(tokens: MoonTokens.light).md;
+        return context.moonTheme.segmentedControlTheme.sizes.md;
     }
   }
 
@@ -174,8 +160,10 @@ class _MoonSegmentedControlState extends State<MoonSegmentedControl> {
         segment.isSelected?.call(index == _selectedIndex);
       });
     } else {
-      widget.customSegments?.asMap().forEach(
-          (int index, Widget Function(BuildContext, bool) customSegment) {
+      widget.customSegments?.asMap().forEach((
+        int index,
+        Widget Function(BuildContext, bool) customSegment,
+      ) {
         customSegment.call(context, index == _selectedIndex);
       });
     }
@@ -215,13 +203,13 @@ class _MoonSegmentedControlState extends State<MoonSegmentedControl> {
     final MoonSegmentedControlSizeProperties effectiveMoonSegmentControlSize =
         _getMoonSegmentedControlSize(context, widget.segmentedControlSize);
 
-    final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme.segmentedControlTheme.properties.borderRadius ??
-        MoonBorders.borders.interactiveMd;
+    final BorderRadiusGeometry effectiveBorderRadius =
+        widget.borderRadius ??
+        context.moonTheme.segmentedControlTheme.properties.borderRadius;
 
-    final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme.segmentedControlTheme.colors.backgroundColor ??
-        MoonColors.light.gohan;
+    final Color effectiveBackgroundColor =
+        widget.backgroundColor ??
+        context.moonTheme.segmentedControlTheme.colors.backgroundColor;
 
     final double effectiveDisabledOpacityValue =
         context.moonOpacities?.disabled ?? MoonOpacities.opacities.disabled;
@@ -229,22 +217,20 @@ class _MoonSegmentedControlState extends State<MoonSegmentedControl> {
     final double effectiveHeight =
         widget.height ?? effectiveMoonSegmentControlSize.height;
 
-    final double effectiveGap = widget.gap ??
-        context.moonTheme.segmentedControlTheme.properties.gap ??
-        MoonSizes.sizes.x5s;
+    final double effectiveGap =
+        widget.gap ?? context.moonTheme.segmentedControlTheme.properties.gap;
 
-    final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context
-            .moonTheme.segmentedControlTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+    final Duration effectiveTransitionDuration =
+        widget.transitionDuration ??
+        context.moonTheme.segmentedControlTheme.properties.transitionDuration;
 
-    final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme.segmentedControlTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+    final Curve effectiveTransitionCurve =
+        widget.transitionCurve ??
+        context.moonTheme.segmentedControlTheme.properties.transitionCurve;
 
-    final EdgeInsetsGeometry effectivePadding = widget.padding ??
-        context.moonTheme.segmentedControlTheme.properties.padding ??
-        const EdgeInsets.all(4);
+    final EdgeInsetsGeometry effectivePadding =
+        widget.padding ??
+        context.moonTheme.segmentedControlTheme.properties.padding;
 
     return AnimatedOpacity(
       opacity: widget.isDisabled ? effectiveDisabledOpacityValue : 1,
@@ -254,12 +240,14 @@ class _MoonSegmentedControlState extends State<MoonSegmentedControl> {
         width: widget.width,
         padding: effectivePadding,
         constraints: BoxConstraints(minWidth: effectiveHeight),
-        decoration: widget.decoration ??
+        decoration:
+            widget.decoration ??
             ShapeDecorationWithPremultipliedAlpha(
               color: effectiveBackgroundColor,
               shape: MoonSquircleBorder(
-                borderRadius:
-                    effectiveBorderRadius.squircleBorderRadius(context),
+                borderRadius: effectiveBorderRadius.squircleBorderRadius(
+                  context,
+                ),
               ),
             ),
         child: BaseSegmentedTabBar(
@@ -280,30 +268,24 @@ class _MoonSegmentedControlState extends State<MoonSegmentedControl> {
             });
           },
           children: _hasDefaultSegments
-              ? List.generate(
-                  widget.segments!.length,
-                  (int index) {
-                    return _SegmentBuilder(
-                      isDisabled: widget.isDisabled,
-                      transitionDuration: effectiveTransitionDuration,
-                      transitionCurve: effectiveTransitionCurve,
-                      isSelected: index == _selectedIndex,
-                      backgroundColor: effectiveBackgroundColor,
-                      moonSegmentedControlSizeProperties:
-                          effectiveMoonSegmentControlSize,
-                      segment: widget.segments![index],
-                    );
-                  },
-                )
-              : List.generate(
-                  widget.customSegments!.length,
-                  (int index) {
-                    return widget.customSegments![index](
-                      context,
-                      index == _selectedIndex,
-                    );
-                  },
-                ),
+              ? List.generate(widget.segments!.length, (int index) {
+                  return _SegmentBuilder(
+                    isDisabled: widget.isDisabled,
+                    transitionDuration: effectiveTransitionDuration,
+                    transitionCurve: effectiveTransitionCurve,
+                    isSelected: index == _selectedIndex,
+                    backgroundColor: effectiveBackgroundColor,
+                    moonSegmentedControlSizeProperties:
+                        effectiveMoonSegmentControlSize,
+                    segment: widget.segments![index],
+                  );
+                })
+              : List.generate(widget.customSegments!.length, (int index) {
+                  return widget.customSegments![index](
+                    context,
+                    index == _selectedIndex,
+                  );
+                }),
         ),
       ),
     );
@@ -355,8 +337,10 @@ class _SegmentBuilderState extends State<_SegmentBuilder>
   void initState() {
     super.initState();
 
-    _animationController =
-        AnimationController(duration: widget.transitionDuration, vsync: this);
+    _animationController = AnimationController(
+      duration: widget.transitionDuration,
+      vsync: this,
+    );
 
     if (widget.isSelected) _animationController?.value = 1;
   }
@@ -374,49 +358,50 @@ class _SegmentBuilderState extends State<_SegmentBuilder>
 
     final BorderRadiusGeometry effectiveSegmentBorderRadius =
         segmentStyle?.segmentBorderRadius ??
-            widget.moonSegmentedControlSizeProperties.segmentBorderRadius;
+        widget.moonSegmentedControlSizeProperties.segmentBorderRadius;
 
-    final Color effectiveSelectedSegmentColor = segmentStyle
-            ?.selectedSegmentColor ??
-        context.moonTheme.segmentedControlTheme.colors.selectedSegmentColor ??
-        MoonColors.light.goku;
+    final Color effectiveSelectedSegmentColor =
+        segmentStyle?.selectedSegmentColor ??
+        context.moonTheme.segmentedControlTheme.colors.selectedSegmentColor;
 
-    final Color effectiveTextColor = segmentStyle?.textStyle?.color ??
+    final Color effectiveTextColor =
+        segmentStyle?.textStyle?.color ??
         segmentStyle?.textColor ??
-        context.moonTheme.segmentedControlTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        context.moonTheme.segmentedControlTheme.colors.textColor;
 
-    final Color effectiveSelectedTextColor = segmentStyle?.selectedTextColor ??
-        context.moonTheme.segmentedControlTheme.colors.selectedTextColor ??
-        MoonColors.light.piccolo;
+    final Color effectiveSelectedTextColor =
+        segmentStyle?.selectedTextColor ??
+        context.moonTheme.segmentedControlTheme.colors.selectedTextColor;
 
     final TextStyle effectiveTextStyle = widget
-        .moonSegmentedControlSizeProperties.textStyle
+        .moonSegmentedControlSizeProperties
+        .textStyle
         .merge(segmentStyle?.textStyle);
 
-    final double effectiveSegmentGap = segmentStyle?.segmentGap ??
+    final double effectiveSegmentGap =
+        segmentStyle?.segmentGap ??
         widget.moonSegmentedControlSizeProperties.segmentGap;
 
     final EdgeInsetsGeometry effectiveSegmentPadding =
         segmentStyle?.segmentPadding ??
-            widget.moonSegmentedControlSizeProperties.segmentPadding;
+        widget.moonSegmentedControlSizeProperties.segmentPadding;
 
-    final EdgeInsets resolvedDirectionalPadding =
-        effectiveSegmentPadding.resolve(Directionality.of(context));
+    final EdgeInsets resolvedDirectionalPadding = effectiveSegmentPadding
+        .resolve(Directionality.of(context));
 
     final EdgeInsetsGeometry correctedSegmentPadding =
         segmentStyle?.segmentPadding == null
-            ? EdgeInsetsDirectional.fromSTEB(
-                widget.segment.leading == null && widget.segment.label != null
-                    ? resolvedDirectionalPadding.left
-                    : 0,
-                resolvedDirectionalPadding.top,
-                widget.segment.trailing == null && widget.segment.label != null
-                    ? resolvedDirectionalPadding.right
-                    : 0,
-                resolvedDirectionalPadding.bottom,
-              )
-            : resolvedDirectionalPadding;
+        ? EdgeInsetsDirectional.fromSTEB(
+            widget.segment.leading == null && widget.segment.label != null
+                ? resolvedDirectionalPadding.left
+                : 0,
+            resolvedDirectionalPadding.top,
+            widget.segment.trailing == null && widget.segment.label != null
+                ? resolvedDirectionalPadding.right
+                : 0,
+            resolvedDirectionalPadding.bottom,
+          )
+        : resolvedDirectionalPadding;
 
     _segmentColor ??= _animationController!.drive(
       _segmentColorTween.chain(CurveTween(curve: widget.transitionCurve)),
@@ -444,68 +429,76 @@ class _SegmentBuilderState extends State<_SegmentBuilder>
       cursor: widget.isSelected
           ? SystemMouseCursors.basic
           : SystemMouseCursors.click,
-      builder: (
-        BuildContext context,
-        bool isEnabled,
-        bool isHovered,
-        bool isFocused,
-        bool isPressed,
-      ) {
-        final bool isActive =
-            isEnabled && (widget.isSelected || isHovered || isPressed);
+      builder:
+          (
+            BuildContext context,
+            bool isEnabled,
+            bool isHovered,
+            bool isFocused,
+            bool isPressed,
+          ) {
+            final bool isActive =
+                isEnabled && (widget.isSelected || isHovered || isPressed);
 
-        _handleActiveEffect(isActive);
+            _handleActiveEffect(isActive);
 
-        return AnimatedBuilder(
-          animation: _animationController!,
-          builder: (BuildContext context, Widget? child) {
-            return DecoratedBox(
-              decoration: segmentStyle?.decoration ??
-                  ShapeDecoration(
-                    color: _segmentColor!.value,
-                    shape: MoonSquircleBorder(
-                      borderRadius: effectiveSegmentBorderRadius
-                          .squircleBorderRadius(context),
+            return AnimatedBuilder(
+              animation: _animationController!,
+              builder: (BuildContext context, Widget? child) {
+                return DecoratedBox(
+                  decoration:
+                      segmentStyle?.decoration ??
+                      ShapeDecoration(
+                        color: _segmentColor!.value,
+                        shape: MoonSquircleBorder(
+                          borderRadius: effectiveSegmentBorderRadius
+                              .squircleBorderRadius(context),
+                        ),
+                      ),
+                  child: IconTheme(
+                    data: IconThemeData(
+                      size: widget
+                          .moonSegmentedControlSizeProperties
+                          .iconSizeValue,
+                      color: _textColor!.value,
+                    ),
+                    child: DefaultTextStyle(
+                      style: effectiveTextStyle.copyWith(
+                        color: _textColor!.value,
+                      ),
+                      child: child!,
                     ),
                   ),
-              child: IconTheme(
-                data: IconThemeData(
-                  size: widget.moonSegmentedControlSizeProperties.iconSizeValue,
-                  color: _textColor!.value,
-                ),
-                child: DefaultTextStyle(
-                  style: effectiveTextStyle.copyWith(color: _textColor!.value),
-                  child: child!,
+                );
+              },
+              child: Center(
+                child: Padding(
+                  padding: correctedSegmentPadding,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (widget.segment.leading != null)
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: effectiveSegmentGap,
+                          ),
+                          child: widget.segment.leading,
+                        ),
+                      if (widget.segment.label != null) widget.segment.label!,
+                      if (widget.segment.trailing != null)
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: effectiveSegmentGap,
+                          ),
+                          child: widget.segment.trailing,
+                        ),
+                    ],
+                  ),
                 ),
               ),
             );
           },
-          child: Center(
-            child: Padding(
-              padding: correctedSegmentPadding,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (widget.segment.leading != null)
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: effectiveSegmentGap),
-                      child: widget.segment.leading,
-                    ),
-                  if (widget.segment.label != null) widget.segment.label!,
-                  if (widget.segment.trailing != null)
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: effectiveSegmentGap),
-                      child: widget.segment.trailing,
-                    ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
     );
   }
 }

@@ -21,24 +21,26 @@ class MoonProgressPinTheme extends ThemeExtension<MoonProgressPinTheme>
     required this.tokens,
     MoonProgressPinColors? colors,
     MoonProgressPinProperties? properties,
-  })  : colors = colors ??
-            MoonProgressPinColors(
-              pinColor: tokens.colors.popo,
-              pinBorderColor: tokens.colors.goten,
-              thumbColor: tokens.colors.goten,
-              shadowColor: tokens.colors.popo,
-              textColor: tokens.colors.goten,
-            ),
-        properties = properties ??
-            MoonProgressPinProperties(
-              arrowHeight: 6,
-              arrowWidth: tokens.sizes.x4s,
-              pinDistance: tokens.sizes.x5s,
-              pinWidth: 36,
-              pinBorderWidth: tokens.sizes.x6s,
-              shadowElevation: 6,
-              textStyle: tokens.typography.body.text10,
-            );
+  }) : colors =
+           colors ??
+           MoonProgressPinColors(
+             pinColor: tokens.colors.popo,
+             pinBorderColor: tokens.colors.goten,
+             thumbColor: tokens.colors.goten,
+             shadowColor: tokens.colors.popo,
+             textColor: tokens.colors.goten,
+           ),
+       properties =
+           properties ??
+           MoonProgressPinProperties(
+             arrowHeight: 6,
+             arrowWidth: tokens.sizes.x4s,
+             pinDistance: tokens.sizes.x5s,
+             pinWidth: 36,
+             pinBorderWidth: tokens.sizes.x6s,
+             shadowElevation: 6,
+             textStyle: tokens.typography.body.text10,
+           );
 
   @override
   MoonProgressPinTheme copyWith({

@@ -1,22 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/progress/linear_progress/linear_progress_size_properties.dart';
-import 'package:moon_design/src/theme/progress/linear_progress/linear_progress_sizes.dart';
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
 import 'package:moon_design/src/widgets/common/progress_indicators/linear_progress_indicator.dart';
 import 'package:moon_design/src/widgets/progress_pin/pin_style.dart';
 import 'package:moon_design/src/widgets/progress_pin/progress_pin.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonLinearProgressSize {
-  x6s,
-  x5s,
-  x4s,
-  x3s,
-  x2s,
-}
+enum MoonLinearProgressSize { x6s, x5s, x4s, x3s, x2s }
 
 class MoonLinearProgress extends StatelessWidget {
   /// Whether to show the thumb and the pin for the linear progress.
@@ -100,23 +90,17 @@ class MoonLinearProgress extends StatelessWidget {
   ) {
     switch (moonProgressSize) {
       case MoonLinearProgressSize.x6s:
-        return context.moonTheme.linearProgressTheme.sizes.x6s ??
-            MoonLinearProgressSizes(tokens: MoonTokens.light).x6s;
+        return context.moonTheme.linearProgressTheme.sizes.x6s;
       case MoonLinearProgressSize.x5s:
-        return context.moonTheme.linearProgressTheme.sizes.x5s ??
-            MoonLinearProgressSizes(tokens: MoonTokens.light).x5s;
+        return context.moonTheme.linearProgressTheme.sizes.x5s;
       case MoonLinearProgressSize.x4s:
-        return context.moonTheme.linearProgressTheme.sizes.x4s ??
-            MoonLinearProgressSizes(tokens: MoonTokens.light).x4s;
+        return context.moonTheme.linearProgressTheme.sizes.x4s;
       case MoonLinearProgressSize.x3s:
-        return context.moonTheme.linearProgressTheme.sizes.x3s ??
-            MoonLinearProgressSizes(tokens: MoonTokens.light).x3s;
+        return context.moonTheme.linearProgressTheme.sizes.x3s;
       case MoonLinearProgressSize.x2s:
-        return context.moonTheme.linearProgressTheme.sizes.x2s ??
-            MoonLinearProgressSizes(tokens: MoonTokens.light).x2s;
+        return context.moonTheme.linearProgressTheme.sizes.x2s;
       default:
-        return context.moonTheme.linearProgressTheme.sizes.x4s ??
-            MoonLinearProgressSizes(tokens: MoonTokens.light).x4s;
+        return context.moonTheme.linearProgressTheme.sizes.x4s;
     }
   }
 
@@ -137,23 +121,21 @@ class MoonLinearProgress extends StatelessWidget {
           bottomStart: effectiveBorderRadius.bottomStart,
         ),
       BorderRadius() when showPin == true => BorderRadiusDirectional.only(
-          topStart: effectiveBorderRadius.topLeft,
-          bottomStart: effectiveBorderRadius.bottomLeft,
-        ),
+        topStart: effectiveBorderRadius.topLeft,
+        bottomStart: effectiveBorderRadius.bottomLeft,
+      ),
       _ => effectiveBorderRadius,
     };
 
-    final Color effectiveColor = color ??
-        context.moonTheme.linearProgressTheme.colors.color ??
-        MoonColors.light.piccolo;
+    final Color effectiveColor =
+        color ?? context.moonTheme.linearProgressTheme.colors.color;
 
-    final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme.linearProgressTheme.colors.backgroundColor ??
-        MoonColors.light.beerus;
+    final Color effectiveBackgroundColor =
+        backgroundColor ??
+        context.moonTheme.linearProgressTheme.colors.backgroundColor;
 
-    final Color effectiveTextColor = textColor ??
-        context.moonTheme.linearProgressTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+    final Color effectiveTextColor =
+        textColor ?? context.moonTheme.linearProgressTheme.colors.textColor;
 
     final double effectiveHeight =
         height ?? effectiveProgressSize.progressHeight;
@@ -164,26 +146,27 @@ class MoonLinearProgress extends StatelessWidget {
     final double effectiveThumbSizeValue =
         pinStyle?.thumbSizeValue ?? effectiveProgressSize.thumbSizeValue;
 
-    final double effectivePinWidth = pinStyle?.pinWidth ??
-        context.moonTheme.progressPinTheme.properties.pinWidth ??
-        36;
+    final double effectivePinWidth =
+        pinStyle?.pinWidth ??
+        context.moonTheme.progressPinTheme.properties.pinWidth;
 
-    final double effectivePinDistance = pinStyle?.pinDistance ??
-        context.moonTheme.progressPinTheme.properties.pinDistance ??
-        MoonSizes.sizes.x5s;
+    final double effectivePinDistance =
+        pinStyle?.pinDistance ??
+        context.moonTheme.progressPinTheme.properties.pinDistance;
 
-    final double effectivePinArrowHeight = pinStyle?.arrowHeight ??
-        context.moonTheme.progressPinTheme.properties.arrowHeight ??
-        6;
+    final double effectivePinArrowHeight =
+        pinStyle?.arrowHeight ??
+        context.moonTheme.progressPinTheme.properties.arrowHeight;
 
     final TextStyle effectiveTextStyle = effectiveProgressSize.textStyle;
 
     final double resolvedPaddingValue =
         effectiveThumbSizeValue - effectiveHeight > 0
-            ? effectiveThumbSizeValue / 2 - effectiveHeight / 2
-            : 0;
+        ? effectiveThumbSizeValue / 2 - effectiveHeight / 2
+        : 0;
 
-    final double heightWithPin = effectivePinWidth +
+    final double heightWithPin =
+        effectivePinWidth +
         effectivePinArrowHeight +
         effectivePinDistance +
         effectiveThumbSizeValue;
@@ -217,8 +200,9 @@ class MoonLinearProgress extends StatelessWidget {
               if (showMinLabel)
                 Expanded(
                   child: DefaultTextStyle(
-                    style:
-                        effectiveTextStyle.copyWith(color: effectiveTextColor),
+                    style: effectiveTextStyle.copyWith(
+                      color: effectiveTextColor,
+                    ),
                     child: Align(
                       alignment: AlignmentDirectional.centerStart,
                       child: minLabel ?? const Text("0%"),
@@ -228,8 +212,9 @@ class MoonLinearProgress extends StatelessWidget {
               if (showMaxLabel)
                 Expanded(
                   child: DefaultTextStyle(
-                    style:
-                        effectiveTextStyle.copyWith(color: effectiveTextColor),
+                    style: effectiveTextStyle.copyWith(
+                      color: effectiveTextColor,
+                    ),
                     child: Align(
                       alignment: AlignmentDirectional.centerEnd,
                       child: maxLabel ?? const Text("100%"),

@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/progress/circular_progress/circular_progress_size_properties.dart';
-import 'package:moon_design/src/theme/progress/circular_progress/circular_progress_sizes.dart';
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
 import 'package:moon_design/src/widgets/common/progress_indicators/circular_progress_indicator.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonCircularProgressSize {
-  x2s,
-  xs,
-  sm,
-  md,
-  lg,
-}
+enum MoonCircularProgressSize { x2s, xs, sm, md, lg }
 
 class MoonCircularProgress extends StatelessWidget {
   /// The color of the circular progress.
@@ -60,35 +51,28 @@ class MoonCircularProgress extends StatelessWidget {
   ) {
     switch (moonCircularProgressSize) {
       case MoonCircularProgressSize.x2s:
-        return context.moonTheme.circularProgressTheme.sizes.x2s ??
-            MoonCircularProgressSizes(tokens: MoonTokens.light).x2s;
+        return context.moonTheme.circularProgressTheme.sizes.x2s;
       case MoonCircularProgressSize.xs:
-        return context.moonTheme.circularProgressTheme.sizes.xs ??
-            MoonCircularProgressSizes(tokens: MoonTokens.light).xs;
+        return context.moonTheme.circularProgressTheme.sizes.xs;
       case MoonCircularProgressSize.sm:
-        return context.moonTheme.circularProgressTheme.sizes.sm ??
-            MoonCircularProgressSizes(tokens: MoonTokens.light).sm;
+        return context.moonTheme.circularProgressTheme.sizes.sm;
       case MoonCircularProgressSize.md:
-        return context.moonTheme.circularProgressTheme.sizes.md ??
-            MoonCircularProgressSizes(tokens: MoonTokens.light).md;
+        return context.moonTheme.circularProgressTheme.sizes.md;
       case MoonCircularProgressSize.lg:
-        return context.moonTheme.circularProgressTheme.sizes.lg ??
-            MoonCircularProgressSizes(tokens: MoonTokens.light).lg;
+        return context.moonTheme.circularProgressTheme.sizes.lg;
       default:
-        return context.moonTheme.circularProgressTheme.sizes.md ??
-            MoonCircularProgressSizes(tokens: MoonTokens.light).md;
+        return context.moonTheme.circularProgressTheme.sizes.md;
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final Color effectiveColor = color ??
-        context.moonTheme.circularProgressTheme.colors.color ??
-        MoonColors.light.piccolo;
+    final Color effectiveColor =
+        color ?? context.moonTheme.circularProgressTheme.colors.color;
 
-    final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme.circularProgressTheme.colors.backgroundColor ??
-        MoonColors.light.beerus;
+    final Color effectiveBackgroundColor =
+        backgroundColor ??
+        context.moonTheme.circularProgressTheme.colors.backgroundColor;
 
     final MoonCircularProgressSizeProperties effectiveMoonCircularProgressSize =
         _getMoonCircularProgressSize(context, circularProgressSize);

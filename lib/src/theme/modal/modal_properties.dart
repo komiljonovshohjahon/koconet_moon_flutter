@@ -46,10 +46,16 @@ class MoonModalProperties extends ThemeExtension<MoonModalProperties>
     if (other is! MoonModalProperties) return this;
 
     return MoonModalProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
       textStyle: TextStyle.lerp(textStyle, other.textStyle, t)!,
     );
@@ -59,20 +65,14 @@ class MoonModalProperties extends ThemeExtension<MoonModalProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonModalProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonModalProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      )
-      ..add(
-        DiagnosticsProperty<TextStyle>("textStyle", textStyle),
-      );
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve))
+      ..add(DiagnosticsProperty<TextStyle>("textStyle", textStyle));
   }
 }

@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/shape_decoration_premul.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
 /// Displays a modal overlay over the app's current content, incorporating
 /// entrance and exit animations, modal barrier color, and modal barrier
@@ -34,17 +30,16 @@ Future<T?> showMoonModal<T>({
     to: Navigator.of(context, rootNavigator: useRootNavigator).context,
   );
 
-  final Color effectiveBarrierColor = barrierColor ??
-      context.moonTheme.modalTheme.colors.barrierColor ??
-      MoonColors.light.zeno;
+  final Color effectiveBarrierColor =
+      barrierColor ?? context.moonTheme.modalTheme.colors.barrierColor;
 
-  final Duration effectiveTransitionDuration = transitionDuration ??
-      context.moonTheme.modalTheme.properties.transitionDuration ??
-      MoonTransitions.transitions.defaultTransitionDuration;
+  final Duration effectiveTransitionDuration =
+      transitionDuration ??
+      context.moonTheme.modalTheme.properties.transitionDuration;
 
-  final Curve effectiveTransitionCurve = transitionCurve ??
-      context.moonTheme.modalTheme.properties.transitionCurve ??
-      MoonTransitions.transitions.defaultTransitionCurve;
+  final Curve effectiveTransitionCurve =
+      transitionCurve ??
+      context.moonTheme.modalTheme.properties.transitionCurve;
 
   return Navigator.of(context, rootNavigator: useRootNavigator).push<T>(
     MoonModalRoute<T>(
@@ -100,38 +95,41 @@ class MoonModalRoute<T> extends RawDialogRoute<T> {
     required BuildContext context,
     required WidgetBuilder builder,
   }) : super(
-          barrierLabel: barrierLabel ??
-              MaterialLocalizations.of(context).modalBarrierDismissLabel,
-          pageBuilder: (
-            BuildContext buildContext,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-          ) {
-            final Widget pageChild = Builder(builder: builder);
+         barrierLabel:
+             barrierLabel ??
+             MaterialLocalizations.of(context).modalBarrierDismissLabel,
+         pageBuilder:
+             (
+               BuildContext buildContext,
+               Animation<double> animation,
+               Animation<double> secondaryAnimation,
+             ) {
+               final Widget pageChild = Builder(builder: builder);
 
-            Widget modal = themes?.wrap(pageChild) ?? pageChild;
+               Widget modal = themes?.wrap(pageChild) ?? pageChild;
 
-            if (useSafeArea) modal = SafeArea(child: modal);
+               if (useSafeArea) modal = SafeArea(child: modal);
 
-            return modal;
-          },
-          transitionBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-            Widget child,
-          ) {
-            return RepaintBoundary(
-              child: FadeTransition(
-                opacity: CurvedAnimation(
-                  parent: animation,
-                  curve: transitionCurve,
-                ),
-                child: child,
-              ),
-            );
-          },
-        );
+               return modal;
+             },
+         transitionBuilder:
+             (
+               BuildContext context,
+               Animation<double> animation,
+               Animation<double> secondaryAnimation,
+               Widget child,
+             ) {
+               return RepaintBoundary(
+                 child: FadeTransition(
+                   opacity: CurvedAnimation(
+                     parent: animation,
+                     curve: transitionCurve,
+                   ),
+                   child: child,
+                 ),
+               );
+             },
+       );
 }
 
 class MoonModal extends StatelessWidget {
@@ -162,25 +160,20 @@ class MoonModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final BorderRadiusGeometry effectiveBorderRadius = borderRadius ??
-        context.moonTheme.modalTheme.properties.borderRadius ??
-        MoonBorders.borders.surfaceSm;
+    final BorderRadiusGeometry effectiveBorderRadius =
+        borderRadius ?? context.moonTheme.modalTheme.properties.borderRadius;
 
-    final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme.modalTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+    final Color effectiveBackgroundColor =
+        backgroundColor ?? context.moonTheme.modalTheme.colors.backgroundColor;
 
     final Color effectiveTextColor =
-        context.moonTheme.modalTheme.colors.textColor ??
-            MoonColors.light.textPrimary;
+        context.moonTheme.modalTheme.colors.textColor;
 
     final Color effectiveIconColor =
-        context.moonTheme.modalTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+        context.moonTheme.modalTheme.colors.iconColor;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme.modalTheme.properties.textStyle ??
-            MoonTypography.typography.body.textDefault;
+        context.moonTheme.modalTheme.properties.textStyle;
 
     return Semantics(
       label: semanticLabel,
@@ -190,12 +183,14 @@ class MoonModal extends StatelessWidget {
           style: effectiveTextStyle.copyWith(color: effectiveTextColor),
           child: Center(
             child: Container(
-              decoration: decoration ??
+              decoration:
+                  decoration ??
                   ShapeDecorationWithPremultipliedAlpha(
                     color: effectiveBackgroundColor,
                     shape: MoonSquircleBorder(
-                      borderRadius:
-                          effectiveBorderRadius.squircleBorderRadius(context),
+                      borderRadius: effectiveBorderRadius.squircleBorderRadius(
+                        context,
+                      ),
                     ),
                   ),
               child: child,

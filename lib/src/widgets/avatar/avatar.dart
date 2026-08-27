@@ -8,21 +8,9 @@ import 'package:moon_design/src/utils/shape_decoration_premul.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_design/src/widgets/avatar/avatar_clipper.dart';
 
-enum MoonAvatarSize {
-  xs,
-  sm,
-  md,
-  lg,
-  xl,
-  x2l,
-}
+enum MoonAvatarSize { xs, sm, md, lg, xl, x2l }
 
-enum MoonBadgeAlignment {
-  topLeft,
-  topRight,
-  bottomLeft,
-  bottomRight,
-}
+enum MoonBadgeAlignment { topLeft, topRight, bottomLeft, bottomRight }
 
 class MoonAvatar extends StatelessWidget {
   /// Whether to show the avatar badge.
@@ -134,14 +122,17 @@ class MoonAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MoonAvatarSizeProperties effectiveMoonAvatarSize =
-        _getMoonAvatarSize(context, avatarSize);
+    final MoonAvatarSizeProperties effectiveMoonAvatarSize = _getMoonAvatarSize(
+      context,
+      avatarSize,
+    );
 
     final BorderRadiusGeometry effectiveBorderRadius =
         borderRadius ?? effectiveMoonAvatarSize.borderRadius;
 
-    final resolvedBorderRadius =
-        effectiveBorderRadius.resolve(Directionality.of(context));
+    final resolvedBorderRadius = effectiveBorderRadius.resolve(
+      Directionality.of(context),
+    );
 
     final Color effectiveBackgroundColor =
         backgroundColor ?? context.moonTheme.avatarTheme.colors.backgroundColor;
@@ -182,7 +173,8 @@ class MoonAvatar extends StatelessWidget {
                 // TODO: Since clipper does not work properly on mobile web/PWA,
                 //  we are disabling it. Remove this check when it has been
                 //  fixed from Flutter side.
-                clipper: kIsWeb &&
+                clipper:
+                    kIsWeb &&
                         MediaQueryData.fromView(View.of(context)).size.width <
                             500
                     ? null
@@ -197,12 +189,11 @@ class MoonAvatar extends StatelessWidget {
                         textDirection: Directionality.of(context),
                       ),
                 child: DefaultTextStyle(
-                  style: effectiveMoonAvatarSize.textStyle
-                      .copyWith(color: effectiveTextColor),
+                  style: effectiveMoonAvatarSize.textStyle.copyWith(
+                    color: effectiveTextColor,
+                  ),
                   child: IconTheme(
-                    data: IconThemeData(
-                      color: effectiveIconColor,
-                    ),
+                    data: IconThemeData(color: effectiveIconColor),
                     child: DecoratedBox(
                       decoration: ShapeDecorationWithPremultipliedAlpha(
                         color: effectiveBackgroundColor,

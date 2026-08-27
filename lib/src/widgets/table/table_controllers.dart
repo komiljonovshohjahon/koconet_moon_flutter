@@ -29,16 +29,16 @@ class TableControllers {
     horizontalScrollController = _horizontalControllersGroup.addAndGet();
 
     if (isHeaderPinned) {
-      headerHorizontalScrollController =
-          _horizontalControllersGroup.addAndGet();
+      headerHorizontalScrollController = _horizontalControllersGroup
+          .addAndGet();
     }
     if (isFooterPinned) {
-      footerHorizontalScrollController =
-          _horizontalControllersGroup.addAndGet();
+      footerHorizontalScrollController = _horizontalControllersGroup
+          .addAndGet();
     }
     if (!hasPinnedEmptyPlaceholder) {
-      rowsPlaceholderHorizontalScrollController =
-          _horizontalControllersGroup.addAndGet();
+      rowsPlaceholderHorizontalScrollController = _horizontalControllersGroup
+          .addAndGet();
     }
   }
 

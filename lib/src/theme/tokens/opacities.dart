@@ -15,18 +15,14 @@ class MoonOpacities extends ThemeExtension<MoonOpacities>
 
   @override
   MoonOpacities copyWith({double? disabled}) {
-    return MoonOpacities(
-      disabled: disabled ?? this.disabled,
-    );
+    return MoonOpacities(disabled: disabled ?? this.disabled);
   }
 
   @override
   MoonOpacities lerp(ThemeExtension<MoonOpacities>? other, double t) {
     if (other is! MoonOpacities) return this;
 
-    return MoonOpacities(
-      disabled: lerpDouble(disabled, other.disabled, t)!,
-    );
+    return MoonOpacities(disabled: lerpDouble(disabled, other.disabled, t)!);
   }
 
   @override

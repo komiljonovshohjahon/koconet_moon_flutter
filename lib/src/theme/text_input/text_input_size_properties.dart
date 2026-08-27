@@ -62,8 +62,11 @@ class MoonTextInputSizeProperties
     if (other is! MoonTextInputSizeProperties) return this;
 
     return MoonTextInputSizeProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
       height: lerpDouble(height, other.height, t)!,
       gap: lerpDouble(gap, other.gap, t)!,
       iconSizeValue: lerpDouble(iconSizeValue, other.iconSizeValue, t)!,
@@ -76,26 +79,14 @@ class MoonTextInputSizeProperties
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonTextInputSizeProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonTextInputSizeProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )
-      ..add(
-        DoubleProperty("height", height),
-      )
-      ..add(
-        DoubleProperty("gap", gap),
-      )
-      ..add(
-        DoubleProperty("iconSizeValue", iconSizeValue),
-      )
-      ..add(
-        DiagnosticsProperty<EdgeInsetsGeometry>("padding", padding),
-      )
-      ..add(
-        DiagnosticsProperty<TextStyle>("textStyle", textStyle),
-      );
+      ..add(DoubleProperty("height", height))
+      ..add(DoubleProperty("gap", gap))
+      ..add(DoubleProperty("iconSizeValue", iconSizeValue))
+      ..add(DiagnosticsProperty<EdgeInsetsGeometry>("padding", padding))
+      ..add(DiagnosticsProperty<TextStyle>("textStyle", textStyle));
   }
 }

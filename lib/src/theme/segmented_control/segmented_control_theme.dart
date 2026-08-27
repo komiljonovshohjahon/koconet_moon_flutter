@@ -27,22 +27,24 @@ class MoonSegmentedControlTheme
     MoonSegmentedControlColors? colors,
     MoonSegmentedControlProperties? properties,
     MoonSegmentedControlSizes? sizes,
-  })  : colors = colors ??
-            MoonSegmentedControlColors(
-              backgroundColor: tokens.colors.gohan,
-              selectedSegmentColor: tokens.colors.goku,
-              textColor: tokens.colors.textPrimary,
-              selectedTextColor: tokens.colors.textPrimary,
-            ),
-        properties = properties ??
-            MoonSegmentedControlProperties(
-              borderRadius: tokens.borders.interactiveMd,
-              gap: tokens.sizes.x5s,
-              transitionDuration: tokens.transitions.defaultTransitionDuration,
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-              padding: EdgeInsets.all(tokens.sizes.x5s),
-            ),
-        sizes = sizes ?? MoonSegmentedControlSizes(tokens: tokens);
+  }) : colors =
+           colors ??
+           MoonSegmentedControlColors(
+             backgroundColor: tokens.colors.gohan,
+             selectedSegmentColor: tokens.colors.goku,
+             textColor: tokens.colors.textPrimary,
+             selectedTextColor: tokens.colors.textPrimary,
+           ),
+       properties =
+           properties ??
+           MoonSegmentedControlProperties(
+             borderRadius: tokens.borders.interactiveMd,
+             gap: tokens.sizes.x5s,
+             transitionDuration: tokens.transitions.defaultTransitionDuration,
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+             padding: EdgeInsets.all(tokens.sizes.x5s),
+           ),
+       sizes = sizes ?? MoonSegmentedControlSizes(tokens: tokens);
 
   @override
   MoonSegmentedControlTheme copyWith({
@@ -87,11 +89,6 @@ class MoonSegmentedControlTheme
           properties,
         ),
       )
-      ..add(
-        DiagnosticsProperty<MoonSegmentedControlSizes>(
-          "sizes",
-          sizes,
-        ),
-      );
+      ..add(DiagnosticsProperty<MoonSegmentedControlSizes>("sizes", sizes));
   }
 }

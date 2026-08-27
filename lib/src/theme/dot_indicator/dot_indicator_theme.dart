@@ -21,18 +21,20 @@ class MoonDotIndicatorTheme extends ThemeExtension<MoonDotIndicatorTheme>
     required this.tokens,
     MoonDotIndicatorColors? colors,
     MoonDotIndicatorProperties? properties,
-  })  : colors = colors ??
-            MoonDotIndicatorColors(
-              selectedColor: tokens.colors.piccolo,
-              unselectedColor: tokens.colors.beerus,
-            ),
-        properties = properties ??
-            MoonDotIndicatorProperties(
-              gap: tokens.sizes.x4s,
-              size: tokens.sizes.x4s,
-              transitionDuration: tokens.transitions.defaultTransitionDuration,
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-            );
+  }) : colors =
+           colors ??
+           MoonDotIndicatorColors(
+             selectedColor: tokens.colors.piccolo,
+             unselectedColor: tokens.colors.beerus,
+           ),
+       properties =
+           properties ??
+           MoonDotIndicatorProperties(
+             gap: tokens.sizes.x4s,
+             size: tokens.sizes.x4s,
+             transitionDuration: tokens.transitions.defaultTransitionDuration,
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+           );
 
   @override
   MoonDotIndicatorTheme copyWith({

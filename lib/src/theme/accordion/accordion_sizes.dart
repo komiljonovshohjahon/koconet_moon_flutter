@@ -28,42 +28,46 @@ class MoonAccordionSizes extends ThemeExtension<MoonAccordionSizes>
     MoonAccordionSizeProperties? md,
     MoonAccordionSizeProperties? lg,
     MoonAccordionSizeProperties? xl,
-  })  : sm = sm ??
-            MoonAccordionSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              headerHeight: tokens.sizes.sm,
-              iconSizeValue: tokens.sizes.x2s,
-              headerPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x4s),
-              headerTextStyle: tokens.typography.heading.text12,
-              contentTextStyle: tokens.typography.body.text12,
-            ),
-        md = md ??
-            MoonAccordionSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              headerHeight: tokens.sizes.md,
-              iconSizeValue: tokens.sizes.xs,
-              headerPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              headerTextStyle: tokens.typography.heading.textDefault,
-              contentTextStyle: tokens.typography.body.textDefault,
-            ),
-        lg = lg ??
-            MoonAccordionSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              headerHeight: tokens.sizes.lg,
-              iconSizeValue: tokens.sizes.xs,
-              headerPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              headerTextStyle: tokens.typography.heading.textDefault,
-              contentTextStyle: tokens.typography.body.textDefault,
-            ),
-        xl = xl ??
-            MoonAccordionSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              headerHeight: tokens.sizes.xl,
-              iconSizeValue: tokens.sizes.xs,
-              headerPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x2s),
-              headerTextStyle: tokens.typography.heading.text16,
-              contentTextStyle: tokens.typography.body.textDefault,
-            );
+  }) : sm =
+           sm ??
+           MoonAccordionSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             headerHeight: tokens.sizes.sm,
+             iconSizeValue: tokens.sizes.x2s,
+             headerPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x4s),
+             headerTextStyle: tokens.typography.heading.text12,
+             contentTextStyle: tokens.typography.body.text12,
+           ),
+       md =
+           md ??
+           MoonAccordionSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             headerHeight: tokens.sizes.md,
+             iconSizeValue: tokens.sizes.xs,
+             headerPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
+             headerTextStyle: tokens.typography.heading.textDefault,
+             contentTextStyle: tokens.typography.body.textDefault,
+           ),
+       lg =
+           lg ??
+           MoonAccordionSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             headerHeight: tokens.sizes.lg,
+             iconSizeValue: tokens.sizes.xs,
+             headerPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
+             headerTextStyle: tokens.typography.heading.textDefault,
+             contentTextStyle: tokens.typography.body.textDefault,
+           ),
+       xl =
+           xl ??
+           MoonAccordionSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             headerHeight: tokens.sizes.xl,
+             iconSizeValue: tokens.sizes.xs,
+             headerPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x2s),
+             headerTextStyle: tokens.typography.heading.text16,
+             contentTextStyle: tokens.typography.body.textDefault,
+           );
 
   @override
   MoonAccordionSizes copyWith({

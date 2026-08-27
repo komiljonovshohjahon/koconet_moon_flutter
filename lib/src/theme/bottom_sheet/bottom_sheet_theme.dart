@@ -21,20 +21,22 @@ class MoonBottomSheetTheme extends ThemeExtension<MoonBottomSheetTheme>
     required this.tokens,
     MoonBottomSheetColors? colors,
     MoonBottomSheetProperties? properties,
-  })  : colors = colors ??
-            MoonBottomSheetColors(
-              textColor: tokens.colors.textPrimary,
-              iconColor: tokens.colors.iconPrimary,
-              backgroundColor: tokens.colors.goku,
-              barrierColor: tokens.colors.zeno,
-            ),
-        properties = properties ??
-            MoonBottomSheetProperties(
-              borderRadius: tokens.borders.surfaceLg,
-              transitionDuration: const Duration(milliseconds: 350),
-              transitionCurve: const Cubic(0.0, 0.0, 0.2, 1.0),
-              textStyle: tokens.typography.body.textDefault,
-            );
+  }) : colors =
+           colors ??
+           MoonBottomSheetColors(
+             textColor: tokens.colors.textPrimary,
+             iconColor: tokens.colors.iconPrimary,
+             backgroundColor: tokens.colors.goku,
+             barrierColor: tokens.colors.zeno,
+           ),
+       properties =
+           properties ??
+           MoonBottomSheetProperties(
+             borderRadius: tokens.borders.surfaceLg,
+             transitionDuration: const Duration(milliseconds: 350),
+             transitionCurve: const Cubic(0.0, 0.0, 0.2, 1.0),
+             textStyle: tokens.typography.body.textDefault,
+           );
 
   @override
   MoonBottomSheetTheme copyWith({

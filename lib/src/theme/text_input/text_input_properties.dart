@@ -47,13 +47,22 @@ class MoonTextInputProperties extends ThemeExtension<MoonTextInputProperties>
     if (other is! MoonTextInputProperties) return this;
 
     return MoonTextInputProperties(
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
-      helperPadding:
-          EdgeInsetsGeometry.lerp(helperPadding, other.helperPadding, t)!,
-      helperTextStyle:
-          TextStyle.lerp(helperTextStyle, other.helperTextStyle, t)!,
+      helperPadding: EdgeInsetsGeometry.lerp(
+        helperPadding,
+        other.helperPadding,
+        t,
+      )!,
+      helperTextStyle: TextStyle.lerp(
+        helperTextStyle,
+        other.helperTextStyle,
+        t,
+      )!,
     );
   }
 
@@ -61,20 +70,14 @@ class MoonTextInputProperties extends ThemeExtension<MoonTextInputProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonTextInputProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonTextInputProperties"))
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      )
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve))
       ..add(
         DiagnosticsProperty<EdgeInsetsGeometry>("helperPadding", helperPadding),
       )
-      ..add(
-        DiagnosticsProperty<TextStyle>("helperTextStyle", helperTextStyle),
-      );
+      ..add(DiagnosticsProperty<TextStyle>("helperTextStyle", helperTextStyle));
   }
 }

@@ -55,11 +55,17 @@ class MoonSegmentedControlProperties
     if (other is! MoonSegmentedControlProperties) return this;
 
     return MoonSegmentedControlProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
       gap: lerpDouble(gap, other.gap, t)!,
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
       padding: EdgeInsetsGeometry.lerp(padding, other.padding, t)!,
     );
@@ -69,23 +75,15 @@ class MoonSegmentedControlProperties
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonSegmentedControlProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonSegmentedControlProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )
-      ..add(
-        DoubleProperty("gap", gap),
-      )
+      ..add(DoubleProperty("gap", gap))
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      )
-      ..add(
-        DiagnosticsProperty<EdgeInsetsGeometry>("padding", padding),
-      );
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve))
+      ..add(DiagnosticsProperty<EdgeInsetsGeometry>("padding", padding));
   }
 }

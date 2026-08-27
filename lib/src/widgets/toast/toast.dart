@@ -4,20 +4,11 @@ import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/theme.dart';
 import 'package:moon_design/src/theme/toast/toast_theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/shadows.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/shape_decoration_premul.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonToastVariant {
-  original,
-  inverted,
-}
+enum MoonToastVariant { original, inverted }
 
 class MoonToast {
   static const double _toastTravelDistance = 64.0;
@@ -34,6 +25,7 @@ class MoonToast {
   /// Displays a Moon Design toast.
   static void show(
     BuildContext context, {
+
     /// The alignment (position) of the toast.
     AlignmentGeometry toastAlignment = Alignment.bottomCenter,
 
@@ -110,62 +102,49 @@ class MoonToast {
 
     final MoonToastTheme toastTheme = context.moonTheme.toastTheme;
 
-    final BorderRadiusGeometry effectiveBorderRadius = borderRadius ??
-        toastTheme.properties.borderRadius ??
-        MoonBorders.borders.surfaceSm;
+    final BorderRadiusGeometry effectiveBorderRadius =
+        borderRadius ?? toastTheme.properties.borderRadius;
 
-    final Color effectiveBackgroundColor = backgroundColor ??
+    final Color effectiveBackgroundColor =
+        backgroundColor ??
         (variant == MoonToastVariant.original
-            ? (toastTheme.colors.lightVariantBackgroundColor ??
-                MoonColors.light.goku)
-            : (toastTheme.colors.darkVariantBackgroundColor ??
-                MoonColors.dark.goku));
+            ? (toastTheme.colors.lightVariantBackgroundColor)
+            : (toastTheme.colors.darkVariantBackgroundColor));
 
     final Color effectiveTextColor = variant == MoonToastVariant.original
-        ? (toastTheme.colors.lightVariantTextColor ??
-            MoonColors.light.textPrimary)
-        : (toastTheme.colors.darkVariantTextColor ??
-            MoonColors.dark.textPrimary);
+        ? (toastTheme.colors.lightVariantTextColor)
+        : (toastTheme.colors.darkVariantTextColor);
 
     final Color effectiveIconColor = variant == MoonToastVariant.original
-        ? (toastTheme.colors.lightVariantIconColor ??
-            MoonColors.light.iconPrimary)
-        : (toastTheme.colors.darkVariantIconColor ??
-            MoonColors.dark.iconPrimary);
+        ? (toastTheme.colors.lightVariantIconColor)
+        : (toastTheme.colors.darkVariantIconColor);
 
-    final TextStyle effectiveTextStyle = toastTheme.properties.textStyle ??
-        MoonTypography.typography.body.textDefault;
+    final TextStyle effectiveTextStyle = toastTheme.properties.textStyle;
 
-    final double effectiveHorizontalGap = horizontalGap ??
-        toastTheme.properties.horizontalGap ??
-        MoonSizes.sizes.x2s;
+    final double effectiveHorizontalGap =
+        horizontalGap ?? toastTheme.properties.horizontalGap;
 
-    final double effectiveVerticalGap = verticalGap ??
-        toastTheme.properties.verticalGap ??
-        MoonSizes.sizes.x3s;
+    final double effectiveVerticalGap =
+        verticalGap ?? toastTheme.properties.verticalGap;
 
-    final Duration effectiveDisplayDuration = displayDuration ??
-        toastTheme.properties.displayDuration ??
-        const Duration(seconds: 3);
+    final Duration effectiveDisplayDuration =
+        displayDuration ?? toastTheme.properties.displayDuration;
 
-    final Duration effectiveTransitionDuration = transitionDuration ??
-        toastTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+    final Duration effectiveTransitionDuration =
+        transitionDuration ?? toastTheme.properties.transitionDuration;
 
-    final Curve effectiveTransitionCurve = transitionCurve ??
-        toastTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+    final Curve effectiveTransitionCurve =
+        transitionCurve ?? toastTheme.properties.transitionCurve;
 
-    final EdgeInsetsGeometry effectiveContentPadding = padding ??
-        toastTheme.properties.contentPadding ??
-        EdgeInsets.all(MoonSizes.sizes.x2s);
+    final EdgeInsetsGeometry effectiveContentPadding =
+        padding ?? toastTheme.properties.contentPadding;
 
-    final EdgeInsets resolvedContentPadding =
-        effectiveContentPadding.resolve(Directionality.of(context));
+    final EdgeInsets resolvedContentPadding = effectiveContentPadding.resolve(
+      Directionality.of(context),
+    );
 
-    final List<BoxShadow> effectiveToastShadows = toastShadows ??
-        toastTheme.shadows.toastShadows ??
-        MoonShadows.light.lg;
+    final List<BoxShadow> effectiveToastShadows =
+        toastShadows ?? toastTheme.shadows.toastShadows;
 
     final effectiveContext = isPersistent
         ? (Navigator.maybeOf(context, rootNavigator: true)?.context ?? context)
@@ -204,21 +183,19 @@ class MoonToast {
                         Alignment.centerRight ||
                         Alignment.bottomRight =>
                           (1 - progress) * _toastTravelDistance,
-                        _ => 0
+                        _ => 0,
                       },
                       switch (toastAlignment) {
-                        Alignment.topCenter => -_toastTravelDistance +
-                            progress * _toastTravelDistance,
+                        Alignment.topCenter =>
+                          -_toastTravelDistance +
+                              progress * _toastTravelDistance,
                         Alignment.bottomCenter =>
                           (1 - progress) * _toastTravelDistance,
-                        _ => 0
+                        _ => 0,
                       },
                       0,
                     ),
-                    child: Opacity(
-                      opacity: progress,
-                      child: child,
-                    ),
+                    child: Opacity(opacity: progress, child: child),
                   ),
                 ),
               );
@@ -236,7 +213,8 @@ class MoonToast {
                       margin: margin ?? resolvedContentPadding,
                       padding: resolvedContentPadding,
                       width: width,
-                      decoration: decoration ??
+                      decoration:
+                          decoration ??
                           ShapeDecorationWithPremultipliedAlpha(
                             color: effectiveBackgroundColor,
                             shadows: effectiveToastShadows,
@@ -319,14 +297,11 @@ class MoonToast {
     _entry = toastEntry.overlayEntry;
     _timer = Timer(duration, () => _removeToastOverlay(duration: duration));
 
-    Future.delayed(
-      _timeBetweenToasts,
-      () {
-        if (toastEntry.buildContext.mounted) {
-          Navigator.of(toastEntry.buildContext).overlay?.insert(_entry!);
-        }
-      },
-    );
+    Future.delayed(_timeBetweenToasts, () {
+      if (toastEntry.buildContext.mounted) {
+        Navigator.of(toastEntry.buildContext).overlay?.insert(_entry!);
+      }
+    });
   }
 
   static void _removeToastOverlay({required Duration duration}) {
@@ -344,8 +319,5 @@ class _ToastEntry {
   final BuildContext buildContext;
   final OverlayEntry overlayEntry;
 
-  _ToastEntry({
-    required this.buildContext,
-    required this.overlayEntry,
-  });
+  _ToastEntry({required this.buildContext, required this.overlayEntry});
 }

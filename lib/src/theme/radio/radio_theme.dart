@@ -13,14 +13,13 @@ class MoonRadioTheme extends ThemeExtension<MoonRadioTheme>
   /// The colors of the MoonRadio.
   final MoonRadioColors colors;
 
-  MoonRadioTheme({
-    required this.tokens,
-    MoonRadioColors? colors,
-  }) : colors = colors ??
-            MoonRadioColors(
-              activeColor: tokens.colors.piccolo,
-              inactiveColor: tokens.colors.trunks,
-            );
+  MoonRadioTheme({required this.tokens, MoonRadioColors? colors})
+    : colors =
+          colors ??
+          MoonRadioColors(
+            activeColor: tokens.colors.piccolo,
+            inactiveColor: tokens.colors.trunks,
+          );
 
   @override
   MoonRadioTheme copyWith({MoonTokens? tokens, MoonRadioColors? colors}) {

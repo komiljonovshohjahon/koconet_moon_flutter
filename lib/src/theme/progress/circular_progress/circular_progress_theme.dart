@@ -22,12 +22,13 @@ class MoonCircularProgressTheme
     required this.tokens,
     MoonCircularProgressColors? colors,
     MoonCircularProgressSizes? sizes,
-  })  : colors = colors ??
-            MoonCircularProgressColors(
-              color: tokens.colors.piccolo,
-              backgroundColor: tokens.colors.beerus,
-            ),
-        sizes = sizes ?? MoonCircularProgressSizes(tokens: tokens);
+  }) : colors =
+           colors ??
+           MoonCircularProgressColors(
+             color: tokens.colors.piccolo,
+             backgroundColor: tokens.colors.beerus,
+           ),
+       sizes = sizes ?? MoonCircularProgressSizes(tokens: tokens);
 
   @override
   MoonCircularProgressTheme copyWith({

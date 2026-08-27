@@ -21,14 +21,15 @@ class MoonAvatarTheme extends ThemeExtension<MoonAvatarTheme>
     required this.tokens,
     MoonAvatarColors? colors,
     MoonAvatarSizes? sizes,
-  })  : colors = colors ??
-            MoonAvatarColors(
-              backgroundColor: tokens.colors.goku,
-              badgeColor: tokens.colors.roshi,
-              iconColor: tokens.colors.iconPrimary,
-              textColor: tokens.colors.textPrimary,
-            ),
-        sizes = sizes ?? MoonAvatarSizes(tokens: tokens);
+  }) : colors =
+           colors ??
+           MoonAvatarColors(
+             backgroundColor: tokens.colors.goku,
+             badgeColor: tokens.colors.roshi,
+             iconColor: tokens.colors.iconPrimary,
+             textColor: tokens.colors.textPrimary,
+           ),
+       sizes = sizes ?? MoonAvatarSizes(tokens: tokens);
 
   @override
   MoonAvatarTheme copyWith({

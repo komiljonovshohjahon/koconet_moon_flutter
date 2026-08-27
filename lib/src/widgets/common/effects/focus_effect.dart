@@ -60,7 +60,7 @@ class _MoonFocusEffectState extends State<MoonFocusEffect>
   Widget build(BuildContext context) {
     final resolvedBorderRadius =
         widget.childBorderRadius?.resolve(Directionality.of(context)) ??
-            BorderRadius.zero;
+        BorderRadius.zero;
 
     return AnimatedBuilder(
       animation: _animationController,

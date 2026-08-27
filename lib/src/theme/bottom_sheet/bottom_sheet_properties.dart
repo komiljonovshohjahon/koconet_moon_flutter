@@ -47,10 +47,16 @@ class MoonBottomSheetProperties
     if (other is! MoonBottomSheetProperties) return this;
 
     return MoonBottomSheetProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
       textStyle: TextStyle.lerp(textStyle, other.textStyle, t)!,
     );
@@ -60,20 +66,14 @@ class MoonBottomSheetProperties
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonBottomSheetProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonBottomSheetProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      )
-      ..add(
-        DiagnosticsProperty<TextStyle>("textStyle", textStyle),
-      );
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve))
+      ..add(DiagnosticsProperty<TextStyle>("textStyle", textStyle));
   }
 }

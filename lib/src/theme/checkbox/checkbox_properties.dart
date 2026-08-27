@@ -36,9 +36,7 @@ class MoonCheckboxProperties extends ThemeExtension<MoonCheckboxProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonCheckboxProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonCheckboxProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       );

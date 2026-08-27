@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/chip/chip_size_properties.dart';
-import 'package:moon_design/src/theme/chip/chip_sizes.dart';
 import 'package:moon_design/src/theme/effects/effects_theme.dart';
 import 'package:moon_design/src/theme/theme.dart';
 import 'package:moon_design/src/theme/tokens/borders.dart';
@@ -10,12 +9,8 @@ import 'package:moon_design/src/utils/color_tween_premul.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_design/src/widgets/common/base_control.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonChipSize {
-  sm,
-  md,
-}
+enum MoonChipSize { sm, md }
 
 class MoonChip extends StatefulWidget {
   /// {@macro flutter.widgets.Focus.autofocus}
@@ -232,14 +227,11 @@ class _MoonChipState extends State<MoonChip>
   ) {
     switch (moonChipSize) {
       case MoonChipSize.sm:
-        return context.moonTheme.chipTheme.sizes.sm ??
-            MoonChipSizes(tokens: MoonTokens.light).sm;
+        return context.moonTheme.chipTheme.sizes.sm;
       case MoonChipSize.md:
-        return context.moonTheme.chipTheme.sizes.md ??
-            MoonChipSizes(tokens: MoonTokens.light).md;
+        return context.moonTheme.chipTheme.sizes.md;
       default:
-        return context.moonTheme.chipTheme.sizes.md ??
-            MoonChipSizes(tokens: MoonTokens.light).md;
+        return context.moonTheme.chipTheme.sizes.md;
     }
   }
 
@@ -252,13 +244,16 @@ class _MoonChipState extends State<MoonChip>
 
   @override
   Widget build(BuildContext context) {
-    final MoonChipSizeProperties effectiveMoonChipSize =
-        _getMoonChipSize(context, widget.chipSize);
+    final MoonChipSizeProperties effectiveMoonChipSize = _getMoonChipSize(
+      context,
+      widget.chipSize,
+    );
 
     final BorderRadiusGeometry effectiveBorderRadius =
         widget.borderRadius ?? effectiveMoonChipSize.borderRadius;
 
-    final double effectiveBorderWidth = widget.borderWidth ??
+    final double effectiveBorderWidth =
+        widget.borderWidth ??
         context.moonBorders?.defaultBorderWidth ??
         MoonBorders.borders.defaultBorderWidth;
 
@@ -267,40 +262,40 @@ class _MoonChipState extends State<MoonChip>
 
     final double effectiveGap = widget.gap ?? effectiveMoonChipSize.gap;
 
-    final Color effectiveActiveColor = widget.activeColor ??
-        context.moonTheme.chipTheme.colors.activeColor ??
-        MoonColors.light.piccolo;
+    final Color effectiveActiveColor =
+        widget.activeColor ?? context.moonTheme.chipTheme.colors.activeColor;
 
-    final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme.chipTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+    final Color effectiveBackgroundColor =
+        widget.backgroundColor ??
+        context.moonTheme.chipTheme.colors.backgroundColor;
 
-    final Color effectiveActiveBackgroundColor = widget.activeBackgroundColor ??
-        context.moonTheme.chipTheme.colors.activeBackgroundColor ??
-        MoonColors.light.jiren;
+    final Color effectiveActiveBackgroundColor =
+        widget.activeBackgroundColor ??
+        context.moonTheme.chipTheme.colors.activeBackgroundColor;
 
-    final Color effectiveTextColor = widget.textColor ??
-        context.moonTheme.chipTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+    final Color effectiveTextColor =
+        widget.textColor ?? context.moonTheme.chipTheme.colors.textColor;
 
     final Duration effectiveActiveEffectDuration =
         widget.activeEffectDuration ??
-            context.moonEffects?.controlHoverEffect.hoverDuration ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
-                .controlHoverEffect
-                .hoverDuration;
+        context.moonEffects?.controlHoverEffect.hoverDuration ??
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlHoverEffect.hoverDuration;
 
-    final Curve effectiveActiveEffectCurve = widget.activeEffectCurve ??
+    final Curve effectiveActiveEffectCurve =
+        widget.activeEffectCurve ??
         context.moonEffects?.controlHoverEffect.hoverCurve ??
-        MoonEffectsTheme(tokens: MoonTokens.light)
-            .controlHoverEffect
-            .hoverCurve;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlHoverEffect.hoverCurve;
 
     final EdgeInsetsGeometry effectivePadding =
         widget.padding ?? effectiveMoonChipSize.padding;
 
-    final EdgeInsets resolvedDirectionalPadding =
-        effectivePadding.resolve(Directionality.of(context));
+    final EdgeInsets resolvedDirectionalPadding = effectivePadding.resolve(
+      Directionality.of(context),
+    );
 
     final EdgeInsetsGeometry correctedPadding = widget.padding == null
         ? EdgeInsetsDirectional.fromSTEB(
@@ -321,8 +316,9 @@ class _MoonChipState extends State<MoonChip>
     );
 
     _backgroundColor ??= _animationController!.drive(
-      _backgroundColorTween
-          .chain(CurveTween(curve: effectiveActiveEffectCurve)),
+      _backgroundColorTween.chain(
+        CurveTween(curve: effectiveActiveEffectCurve),
+      ),
     );
 
     _borderColor ??= _animationController!.drive(
@@ -362,74 +358,79 @@ class _MoonChipState extends State<MoonChip>
       semanticLabel: widget.semanticLabel,
       onTap: widget.onTap ?? () {},
       onLongPress: widget.onLongPress,
-      builder: (
-        BuildContext context,
-        bool isEnabled,
-        bool isHovered,
-        bool isFocused,
-        bool isPressed,
-      ) {
-        final bool canAnimate = widget.isActive || isHovered || isFocused;
+      builder:
+          (
+            BuildContext context,
+            bool isEnabled,
+            bool isHovered,
+            bool isFocused,
+            bool isPressed,
+          ) {
+            final bool canAnimate = widget.isActive || isHovered || isFocused;
 
-        _handleActiveEffect(canAnimate);
+            _handleActiveEffect(canAnimate);
 
-        return AnimatedBuilder(
-          animation: _animationController!,
-          builder: (BuildContext context, Widget? child) {
-            return IconTheme(
-              data: IconThemeData(
-                color: _textColor!.value,
-                size: effectiveMoonChipSize.iconSizeValue,
-              ),
-              child: DefaultTextStyle(
-                style: effectiveMoonChipSize.textStyle
-                    .copyWith(color: _textColor!.value),
-                child: Container(
-                  width: widget.width,
-                  height: effectiveHeight,
-                  padding: correctedPadding,
-                  constraints: BoxConstraints(minWidth: effectiveHeight),
-                  decoration: widget.decoration ??
-                      ShapeDecoration(
-                        color: _backgroundColor!.value,
-                        shape: MoonSquircleBorder(
-                          borderRadius: effectiveBorderRadius
-                              .squircleBorderRadius(context),
-                          side: BorderSide(
-                            color: widget.showBorder
-                                ? _borderColor!.value!
-                                : Colors.transparent,
-                            width: widget.showBorder ? effectiveBorderWidth : 0,
-                            style: widget.showBorder
-                                ? BorderStyle.solid
-                                : BorderStyle.none,
+            return AnimatedBuilder(
+              animation: _animationController!,
+              builder: (BuildContext context, Widget? child) {
+                return IconTheme(
+                  data: IconThemeData(
+                    color: _textColor!.value,
+                    size: effectiveMoonChipSize.iconSizeValue,
+                  ),
+                  child: DefaultTextStyle(
+                    style: effectiveMoonChipSize.textStyle.copyWith(
+                      color: _textColor!.value,
+                    ),
+                    child: Container(
+                      width: widget.width,
+                      height: effectiveHeight,
+                      padding: correctedPadding,
+                      constraints: BoxConstraints(minWidth: effectiveHeight),
+                      decoration:
+                          widget.decoration ??
+                          ShapeDecoration(
+                            color: _backgroundColor!.value,
+                            shape: MoonSquircleBorder(
+                              borderRadius: effectiveBorderRadius
+                                  .squircleBorderRadius(context),
+                              side: BorderSide(
+                                color: widget.showBorder
+                                    ? _borderColor!.value!
+                                    : Colors.transparent,
+                                width: widget.showBorder
+                                    ? effectiveBorderWidth
+                                    : 0,
+                                style: widget.showBorder
+                                    ? BorderStyle.solid
+                                    : BorderStyle.none,
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                  child: child,
-                ),
+                      child: child,
+                    ),
+                  ),
+                );
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (widget.leading != null)
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: effectiveGap),
+                      child: widget.leading,
+                    ),
+                  if (widget.label != null) widget.label!,
+                  if (widget.trailing != null)
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: effectiveGap),
+                      child: widget.trailing,
+                    ),
+                ],
               ),
             );
           },
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if (widget.leading != null)
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: effectiveGap),
-                  child: widget.leading,
-                ),
-              if (widget.label != null) widget.label!,
-              if (widget.trailing != null)
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: effectiveGap),
-                  child: widget.trailing,
-                ),
-            ],
-          ),
-        );
-      },
     );
   }
 }

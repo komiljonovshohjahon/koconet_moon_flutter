@@ -89,8 +89,11 @@ class MoonButtonColors extends ThemeExtension<MoonButtonColors>
         other.textVariantHoverColor,
         t,
       )!,
-      textVariantTextColor:
-          colorPremulLerp(textVariantTextColor, other.textVariantTextColor, t)!,
+      textVariantTextColor: colorPremulLerp(
+        textVariantTextColor,
+        other.textVariantTextColor,
+        t,
+      )!,
     );
   }
 
@@ -98,24 +101,9 @@ class MoonButtonColors extends ThemeExtension<MoonButtonColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty(
-          "type",
-          "MoonButtonColors",
-        ),
-      )
-      ..add(
-        ColorProperty(
-          "borderColor",
-          borderColor,
-        ),
-      )
-      ..add(
-        ColorProperty(
-          "textColor",
-          textColor,
-        ),
-      )
+      ..add(DiagnosticsProperty("type", "MoonButtonColors"))
+      ..add(ColorProperty("borderColor", borderColor))
+      ..add(ColorProperty("textColor", textColor))
       ..add(
         ColorProperty(
           "filledVariantBackgroundColor",

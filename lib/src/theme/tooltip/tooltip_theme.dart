@@ -26,25 +26,27 @@ class MoonTooltipTheme extends ThemeExtension<MoonTooltipTheme>
     MoonTooltipColors? colors,
     MoonTooltipProperties? properties,
     MoonTooltipShadows? shadows,
-  })  : colors = colors ??
-            MoonTooltipColors(
-              textColor: tokens.colors.textPrimary,
-              iconColor: tokens.colors.iconPrimary,
-              backgroundColor: tokens.colors.goku,
-            ),
-        properties = properties ??
-            MoonTooltipProperties(
-              borderRadius: tokens.borders.interactiveXs,
-              arrowBaseWidth: tokens.sizes.x2s,
-              arrowLength: tokens.sizes.x4s,
-              arrowTipDistance: tokens.sizes.x4s,
-              transitionDuration: const Duration(milliseconds: 150),
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-              contentPadding: EdgeInsets.all(tokens.sizes.x3s),
-              textStyle: tokens.typography.body.text12,
-            ),
-        shadows =
-            shadows ?? MoonTooltipShadows(tooltipShadows: tokens.shadows.sm);
+  }) : colors =
+           colors ??
+           MoonTooltipColors(
+             textColor: tokens.colors.textPrimary,
+             iconColor: tokens.colors.iconPrimary,
+             backgroundColor: tokens.colors.goku,
+           ),
+       properties =
+           properties ??
+           MoonTooltipProperties(
+             borderRadius: tokens.borders.interactiveXs,
+             arrowBaseWidth: tokens.sizes.x2s,
+             arrowLength: tokens.sizes.x4s,
+             arrowTipDistance: tokens.sizes.x4s,
+             transitionDuration: const Duration(milliseconds: 150),
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+             contentPadding: EdgeInsets.all(tokens.sizes.x3s),
+             textStyle: tokens.typography.body.text12,
+           ),
+       shadows =
+           shadows ?? MoonTooltipShadows(tooltipShadows: tokens.shadows.sm);
 
   @override
   MoonTooltipTheme copyWith({
@@ -77,20 +79,12 @@ class MoonTooltipTheme extends ThemeExtension<MoonTooltipTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(
-        DiagnosticsProperty("type", "MoonTooltipTheme"),
-      )
-      ..add(
-        DiagnosticsProperty<MoonTokens>("tokens", tokens),
-      )
-      ..add(
-        DiagnosticsProperty<MoonTooltipColors>("colors", colors),
-      )
+      ..add(DiagnosticsProperty("type", "MoonTooltipTheme"))
+      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<MoonTooltipColors>("colors", colors))
       ..add(
         DiagnosticsProperty<MoonTooltipProperties>("properties", properties),
       )
-      ..add(
-        DiagnosticsProperty<MoonTooltipShadows>("shadows", shadows),
-      );
+      ..add(DiagnosticsProperty<MoonTooltipShadows>("shadows", shadows));
   }
 }

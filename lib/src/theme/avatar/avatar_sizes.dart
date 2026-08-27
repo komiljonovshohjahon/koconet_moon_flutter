@@ -36,66 +36,72 @@ class MoonAvatarSizes extends ThemeExtension<MoonAvatarSizes>
     MoonAvatarSizeProperties? lg,
     MoonAvatarSizeProperties? xl,
     MoonAvatarSizeProperties? x2l,
-  })  : xs = xs ??
-            MoonAvatarSizeProperties(
-              borderRadius: tokens.borders.interactiveXs,
-              avatarSizeValue: tokens.sizes.xs,
-              badgeMarginValue:
-                  tokens.sizes.xs * tokens.sizes.x5s / tokens.sizes.x2l,
-              badgeSizeValue:
-                  tokens.sizes.xs * tokens.sizes.x3s / tokens.sizes.x2l,
-              textStyle: tokens.typography.heading.text10,
-            ),
-        sm = sm ??
-            MoonAvatarSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              avatarSizeValue: tokens.sizes.sm,
-              badgeMarginValue:
-                  tokens.sizes.sm * tokens.sizes.x5s / tokens.sizes.x2l,
-              badgeSizeValue:
-                  tokens.sizes.sm * tokens.sizes.x3s / tokens.sizes.x2l,
-              textStyle: tokens.typography.heading.text12,
-            ),
-        md = md ??
-            MoonAvatarSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              avatarSizeValue: tokens.sizes.md,
-              badgeMarginValue:
-                  tokens.sizes.md * tokens.sizes.x5s / tokens.sizes.x2l,
-              badgeSizeValue:
-                  tokens.sizes.md * tokens.sizes.x3s / tokens.sizes.x2l,
-              textStyle: tokens.typography.heading.textDefault,
-            ),
-        lg = lg ??
-            MoonAvatarSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              avatarSizeValue: tokens.sizes.lg,
-              badgeMarginValue:
-                  tokens.sizes.lg * tokens.sizes.x5s / tokens.sizes.x2l,
-              badgeSizeValue:
-                  tokens.sizes.lg * tokens.sizes.x3s / tokens.sizes.x2l,
-              textStyle: tokens.typography.heading.text16,
-            ),
-        xl = xl ??
-            MoonAvatarSizeProperties(
-              borderRadius: tokens.borders.interactiveMd,
-              avatarSizeValue: tokens.sizes.xl,
-              badgeMarginValue:
-                  tokens.sizes.xl * tokens.sizes.x5s / tokens.sizes.x2l,
-              badgeSizeValue:
-                  tokens.sizes.xl * tokens.sizes.x3s / tokens.sizes.x2l,
-              textStyle: tokens.typography.heading.text16,
-            ),
-        x2l = x2l ??
-            MoonAvatarSizeProperties(
-              borderRadius: tokens.borders.interactiveMd,
-              avatarSizeValue: tokens.sizes.x2l,
-              badgeMarginValue:
-                  tokens.sizes.x2l * tokens.sizes.x5s / tokens.sizes.x2l,
-              badgeSizeValue:
-                  tokens.sizes.x2l * tokens.sizes.x3s / tokens.sizes.x2l,
-              textStyle: tokens.typography.heading.text20,
-            );
+  }) : xs =
+           xs ??
+           MoonAvatarSizeProperties(
+             borderRadius: tokens.borders.interactiveXs,
+             avatarSizeValue: tokens.sizes.xs,
+             badgeMarginValue:
+                 tokens.sizes.xs * tokens.sizes.x5s / tokens.sizes.x2l,
+             badgeSizeValue:
+                 tokens.sizes.xs * tokens.sizes.x3s / tokens.sizes.x2l,
+             textStyle: tokens.typography.heading.text10,
+           ),
+       sm =
+           sm ??
+           MoonAvatarSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             avatarSizeValue: tokens.sizes.sm,
+             badgeMarginValue:
+                 tokens.sizes.sm * tokens.sizes.x5s / tokens.sizes.x2l,
+             badgeSizeValue:
+                 tokens.sizes.sm * tokens.sizes.x3s / tokens.sizes.x2l,
+             textStyle: tokens.typography.heading.text12,
+           ),
+       md =
+           md ??
+           MoonAvatarSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             avatarSizeValue: tokens.sizes.md,
+             badgeMarginValue:
+                 tokens.sizes.md * tokens.sizes.x5s / tokens.sizes.x2l,
+             badgeSizeValue:
+                 tokens.sizes.md * tokens.sizes.x3s / tokens.sizes.x2l,
+             textStyle: tokens.typography.heading.textDefault,
+           ),
+       lg =
+           lg ??
+           MoonAvatarSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             avatarSizeValue: tokens.sizes.lg,
+             badgeMarginValue:
+                 tokens.sizes.lg * tokens.sizes.x5s / tokens.sizes.x2l,
+             badgeSizeValue:
+                 tokens.sizes.lg * tokens.sizes.x3s / tokens.sizes.x2l,
+             textStyle: tokens.typography.heading.text16,
+           ),
+       xl =
+           xl ??
+           MoonAvatarSizeProperties(
+             borderRadius: tokens.borders.interactiveMd,
+             avatarSizeValue: tokens.sizes.xl,
+             badgeMarginValue:
+                 tokens.sizes.xl * tokens.sizes.x5s / tokens.sizes.x2l,
+             badgeSizeValue:
+                 tokens.sizes.xl * tokens.sizes.x3s / tokens.sizes.x2l,
+             textStyle: tokens.typography.heading.text16,
+           ),
+       x2l =
+           x2l ??
+           MoonAvatarSizeProperties(
+             borderRadius: tokens.borders.interactiveMd,
+             avatarSizeValue: tokens.sizes.x2l,
+             badgeMarginValue:
+                 tokens.sizes.x2l * tokens.sizes.x5s / tokens.sizes.x2l,
+             badgeSizeValue:
+                 tokens.sizes.x2l * tokens.sizes.x3s / tokens.sizes.x2l,
+             textStyle: tokens.typography.heading.text20,
+           );
 
   @override
   MoonAvatarSizes copyWith({

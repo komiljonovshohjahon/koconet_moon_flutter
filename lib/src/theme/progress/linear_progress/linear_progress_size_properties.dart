@@ -56,8 +56,11 @@ class MoonLinearProgressSizeProperties
     if (other is! MoonLinearProgressSizeProperties) return this;
 
     return MoonLinearProgressSizeProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
       progressHeight: lerpDouble(progressHeight, other.progressHeight, t)!,
       thumbSizeValue: lerpDouble(thumbSizeValue, other.thumbSizeValue, t)!,
       verticalGap: lerpDouble(verticalGap, other.verticalGap, t)!,
@@ -69,23 +72,13 @@ class MoonLinearProgressSizeProperties
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonLinearProgressSizeProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonLinearProgressSizeProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )
-      ..add(
-        DoubleProperty("progressHeight", progressHeight),
-      )
-      ..add(
-        DoubleProperty("thumbSizeValue", thumbSizeValue),
-      )
-      ..add(
-        DoubleProperty("verticalGap", verticalGap),
-      )
-      ..add(
-        DiagnosticsProperty<TextStyle>("textStyle", textStyle),
-      );
+      ..add(DoubleProperty("progressHeight", progressHeight))
+      ..add(DoubleProperty("thumbSizeValue", thumbSizeValue))
+      ..add(DoubleProperty("verticalGap", verticalGap))
+      ..add(DiagnosticsProperty<TextStyle>("textStyle", textStyle));
   }
 }

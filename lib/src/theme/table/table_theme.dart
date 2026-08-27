@@ -26,21 +26,23 @@ class MoonTableTheme extends ThemeExtension<MoonTableTheme>
     MoonTableColors? colors,
     MoonTableProperties? properties,
     MoonTableSizes? sizes,
-  })  : colors = colors ??
-            MoonTableColors(
-              columnTextColor: tokens.colors.textPrimary,
-              rowTextColor: tokens.colors.textPrimary,
-              rowLabelTextColor: tokens.colors.textPrimary,
-              rowPinnedAnimatedLabelTextColor: tokens.colors.trunks,
-              iconColor: tokens.colors.iconPrimary,
-              rowBackgroundColor: tokens.colors.goku,
-            ),
-        properties = properties ??
-            MoonTableProperties(
-              transitionDuration: const Duration(milliseconds: 400),
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-            ),
-        sizes = sizes ?? MoonTableSizes(tokens: tokens);
+  }) : colors =
+           colors ??
+           MoonTableColors(
+             columnTextColor: tokens.colors.textPrimary,
+             rowTextColor: tokens.colors.textPrimary,
+             rowLabelTextColor: tokens.colors.textPrimary,
+             rowPinnedAnimatedLabelTextColor: tokens.colors.trunks,
+             iconColor: tokens.colors.iconPrimary,
+             rowBackgroundColor: tokens.colors.goku,
+           ),
+       properties =
+           properties ??
+           MoonTableProperties(
+             transitionDuration: const Duration(milliseconds: 400),
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+           ),
+       sizes = sizes ?? MoonTableSizes(tokens: tokens);
 
   @override
   MoonTableTheme copyWith({

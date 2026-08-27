@@ -21,26 +21,28 @@ class MoonTextAreaTheme extends ThemeExtension<MoonTextAreaTheme>
     required this.tokens,
     MoonTextAreaColors? colors,
     MoonTextAreaProperties? properties,
-  })  : colors = colors ??
-            MoonTextAreaColors(
-              backgroundColor: tokens.colors.goku,
-              activeBorderColor: tokens.colors.piccolo,
-              inactiveBorderColor: tokens.colors.beerus,
-              errorColor: tokens.colors.chichi,
-              hoverBorderColor: tokens.colors.beerus,
-              textColor: tokens.colors.textPrimary,
-              helperTextColor: tokens.colors.trunks,
-            ),
-        properties = properties ??
-            MoonTextAreaProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              transitionDuration: tokens.transitions.defaultTransitionDuration,
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-              helperPadding: EdgeInsets.only(top: tokens.sizes.x4s),
-              textPadding: EdgeInsets.all(tokens.sizes.x2s),
-              textStyle: tokens.typography.body.text16,
-              helperTextStyle: tokens.typography.body.text12,
-            );
+  }) : colors =
+           colors ??
+           MoonTextAreaColors(
+             backgroundColor: tokens.colors.goku,
+             activeBorderColor: tokens.colors.piccolo,
+             inactiveBorderColor: tokens.colors.beerus,
+             errorColor: tokens.colors.chichi,
+             hoverBorderColor: tokens.colors.beerus,
+             textColor: tokens.colors.textPrimary,
+             helperTextColor: tokens.colors.trunks,
+           ),
+       properties =
+           properties ??
+           MoonTextAreaProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             transitionDuration: tokens.transitions.defaultTransitionDuration,
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+             helperPadding: EdgeInsets.only(top: tokens.sizes.x4s),
+             textPadding: EdgeInsets.all(tokens.sizes.x2s),
+             textStyle: tokens.typography.body.text16,
+             helperTextStyle: tokens.typography.body.text12,
+           );
 
   @override
   MoonTextAreaTheme copyWith({

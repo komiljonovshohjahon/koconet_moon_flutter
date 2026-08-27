@@ -35,8 +35,11 @@ class MoonAccordionProperties extends ThemeExtension<MoonAccordionProperties>
     if (other is! MoonAccordionProperties) return this;
 
     return MoonAccordionProperties(
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
     );
   }
@@ -45,14 +48,10 @@ class MoonAccordionProperties extends ThemeExtension<MoonAccordionProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonAccordionProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonAccordionProperties"))
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      );
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve));
   }
 }

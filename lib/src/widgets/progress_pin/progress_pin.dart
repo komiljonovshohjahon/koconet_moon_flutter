@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
 import 'package:moon_design/src/widgets/progress_pin/pin_style.dart';
 import 'package:moon_design/src/widgets/progress_pin/progress_pin_painter.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
 class MoonProgressPin extends StatelessWidget {
   final double progressValue;
@@ -24,53 +21,53 @@ class MoonProgressPin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color effectivePinColor = pinStyle?.pinColor ??
-        context.moonTheme.progressPinTheme.colors.pinColor ??
-        MoonColors.light.popo;
+    final Color effectivePinColor =
+        pinStyle?.pinColor ??
+        context.moonTheme.progressPinTheme.colors.pinColor;
 
-    final Color effectivePinBorderColor = pinStyle?.pinBorderColor ??
-        context.moonTheme.progressPinTheme.colors.pinBorderColor ??
-        MoonColors.light.goten;
+    final Color effectivePinBorderColor =
+        pinStyle?.pinBorderColor ??
+        context.moonTheme.progressPinTheme.colors.pinBorderColor;
 
-    final Color effectiveThumbColor = pinStyle?.thumbColor ??
-        context.moonTheme.progressPinTheme.colors.thumbColor ??
-        MoonColors.light.goten;
+    final Color effectiveThumbColor =
+        pinStyle?.thumbColor ??
+        context.moonTheme.progressPinTheme.colors.thumbColor;
 
-    final Color effectiveShadowColor = pinStyle?.shadowColor ??
-        context.moonTheme.progressPinTheme.colors.shadowColor ??
-        MoonColors.light.popo;
+    final Color effectiveShadowColor =
+        pinStyle?.shadowColor ??
+        context.moonTheme.progressPinTheme.colors.shadowColor;
 
-    final Color effectiveTextColor = pinStyle?.textStyle?.color ??
-        context.moonTheme.progressPinTheme.colors.textColor ??
-        MoonColors.light.goten;
+    final Color effectiveTextColor =
+        pinStyle?.textStyle?.color ??
+        context.moonTheme.progressPinTheme.colors.textColor;
 
-    final TextStyle effectiveTextStyle = pinStyle?.textStyle ??
-        context.moonTheme.progressPinTheme.properties.textStyle ??
-        MoonTypography.typography.body.text10;
+    final TextStyle effectiveTextStyle =
+        pinStyle?.textStyle ??
+        context.moonTheme.progressPinTheme.properties.textStyle;
 
-    final double effectivePinWidth = pinStyle?.pinWidth ??
-        context.moonTheme.progressPinTheme.properties.pinWidth ??
-        36;
+    final double effectivePinWidth =
+        pinStyle?.pinWidth ??
+        context.moonTheme.progressPinTheme.properties.pinWidth;
 
-    final double effectivePinBorderWidth = pinStyle?.pinBorderWidth ??
-        context.moonTheme.progressPinTheme.properties.pinBorderWidth ??
-        MoonSizes.sizes.x6s;
+    final double effectivePinBorderWidth =
+        pinStyle?.pinBorderWidth ??
+        context.moonTheme.progressPinTheme.properties.pinBorderWidth;
 
-    final double effectivePinDistance = pinStyle?.pinDistance ??
-        context.moonTheme.progressPinTheme.properties.pinDistance ??
-        MoonSizes.sizes.x5s;
+    final double effectivePinDistance =
+        pinStyle?.pinDistance ??
+        context.moonTheme.progressPinTheme.properties.pinDistance;
 
-    final double effectiveArrowHeight = pinStyle?.arrowHeight ??
-        context.moonTheme.progressPinTheme.properties.arrowHeight ??
-        6;
+    final double effectiveArrowHeight =
+        pinStyle?.arrowHeight ??
+        context.moonTheme.progressPinTheme.properties.arrowHeight;
 
-    final double effectiveArrowWidth = pinStyle?.arrowWidth ??
-        context.moonTheme.progressPinTheme.properties.arrowWidth ??
-        MoonSizes.sizes.x4s;
+    final double effectiveArrowWidth =
+        pinStyle?.arrowWidth ??
+        context.moonTheme.progressPinTheme.properties.arrowWidth;
 
-    final double effectiveShadowElevation = pinStyle?.shadowElevation ??
-        context.moonTheme.progressPinTheme.properties.shadowElevation ??
-        6;
+    final double effectiveShadowElevation =
+        pinStyle?.shadowElevation ??
+        context.moonTheme.progressPinTheme.properties.shadowElevation;
 
     final TextDirection effectiveTextDirection = Directionality.of(context);
 

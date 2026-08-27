@@ -26,20 +26,21 @@ class MoonDrawerTheme extends ThemeExtension<MoonDrawerTheme>
     MoonDrawerColors? colors,
     MoonDrawerProperties? properties,
     MoonDrawerShadows? shadows,
-  })  : colors = colors ??
-            MoonDrawerColors(
-              textColor: tokens.colors.textPrimary,
-              iconColor: tokens.colors.iconPrimary,
-              backgroundColor: tokens.colors.goku,
-            ),
-        properties = properties ??
-            MoonDrawerProperties(
-              borderRadius: BorderRadius.zero,
-              width: 448,
-              textStyle: tokens.typography.body.textDefault,
-            ),
-        shadows =
-            shadows ?? MoonDrawerShadows(drawerShadows: tokens.shadows.lg);
+  }) : colors =
+           colors ??
+           MoonDrawerColors(
+             textColor: tokens.colors.textPrimary,
+             iconColor: tokens.colors.iconPrimary,
+             backgroundColor: tokens.colors.goku,
+           ),
+       properties =
+           properties ??
+           MoonDrawerProperties(
+             borderRadius: BorderRadius.zero,
+             width: 448,
+             textStyle: tokens.typography.body.textDefault,
+           ),
+       shadows = shadows ?? MoonDrawerShadows(drawerShadows: tokens.shadows.lg);
 
   @override
   MoonDrawerTheme copyWith({

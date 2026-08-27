@@ -11,21 +11,12 @@ import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/shape_decoration_premul.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 
-enum AuthFieldShape {
-  box,
-  underline,
-  circle,
-}
+enum AuthFieldShape { box, underline, circle }
 
-enum ErrorAnimationType {
-  noAnimation,
-  shake,
-}
+enum ErrorAnimationType { noAnimation, shake }
 
-typedef MoonAuthCodeErrorBuilder = Widget Function(
-  BuildContext context,
-  String? errorText,
-);
+typedef MoonAuthCodeErrorBuilder =
+    Widget Function(BuildContext context, String? errorText);
 
 class MoonAuthCode extends StatefulWidget {
   /// The shape of the auth code input field.
@@ -274,9 +265,9 @@ class MoonAuthCode extends StatefulWidget {
     this.onEditingComplete,
     required this.errorBuilder,
     this.obscuringWidget,
-  })  : assert(authInputFieldCount > 0),
-        assert(height == null || height > 0),
-        assert(width == null || width > 0);
+  }) : assert(authInputFieldCount > 0),
+       assert(height == null || height > 0),
+       assert(width == null || width > 0);
 
   @override
   _MoonAuthCodeState createState() => _MoonAuthCodeState();
@@ -320,19 +311,21 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
   int _selectedIndex = 0;
   Timer? _peekDebounce;
 
-  TextStyle get _resolvedTextStyle =>
-      _effectiveTextStyle.merge(widget.textStyle).copyWith(
-            color: _isInErrorMode
-                ? _resolvedErrorTextStyle.color
-                : widget.textStyle?.color ?? _effectiveTextColor,
-          );
+  TextStyle get _resolvedTextStyle => _effectiveTextStyle
+      .merge(widget.textStyle)
+      .copyWith(
+        color: _isInErrorMode
+            ? _resolvedErrorTextStyle.color
+            : widget.textStyle?.color ?? _effectiveTextColor,
+      );
 
   TextStyle get _hintStyle => _resolvedTextStyle.merge(widget.hintStyle);
 
-  TextStyle get _resolvedErrorTextStyle =>
-      _effectiveErrorTextStyle.merge(widget.errorTextStyle).copyWith(
-            color: widget.errorTextStyle?.color ?? _effectiveErrorBorderColor,
-          );
+  TextStyle get _resolvedErrorTextStyle => _effectiveErrorTextStyle
+      .merge(widget.errorTextStyle)
+      .copyWith(
+        color: widget.errorTextStyle?.color ?? _effectiveErrorBorderColor,
+      );
 
   Color get _resolvedErrorCursorColor => _isInErrorMode
       ? _resolvedErrorTextStyle.color ?? _effectiveErrorBorderColor
@@ -382,8 +375,10 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
         if (currentText.length >= widget.authInputFieldCount) {
           if (widget.onCompleted != null) {
             if (currentText.length > widget.authInputFieldCount) {
-              currentText =
-                  currentText.substring(0, widget.authInputFieldCount);
+              currentText = currentText.substring(
+                0,
+                widget.authInputFieldCount,
+              );
             }
             Future.delayed(
               const Duration(milliseconds: 100),
@@ -406,13 +401,12 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
   }
 
   void _initializeAuthFieldCursor() {
-    _cursorController =
-        AnimationController(duration: const Duration(seconds: 1), vsync: this);
+    _cursorController = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    );
     _cursorAnimation = Tween<double>(begin: 1, end: 0).animate(
-      CurvedAnimation(
-        parent: _cursorController,
-        curve: Curves.easeInOut,
-      ),
+      CurvedAnimation(parent: _cursorController, curve: Curves.easeInOut),
     );
 
     if (widget.showAuthFieldCursor) _cursorController.repeat();
@@ -536,8 +530,10 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
   }
 
   Future<void> _updateTextField(String text) async {
-    final List<String> updatedList =
-        List<String>.filled(widget.authInputFieldCount, '');
+    final List<String> updatedList = List<String>.filled(
+      widget.authInputFieldCount,
+      '',
+    );
 
     for (int i = 0; i < widget.authInputFieldCount; i++) {
       updatedList[i] = text.length > i ? text[i] : '';
@@ -605,14 +601,13 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
                 color: widget.enableInputFill
                     ? _getFillColorFromIndex(i)
                     : Colors.transparent,
-                shadows: (widget.activeBoxShadows != null ||
+                shadows:
+                    (widget.activeBoxShadows != null ||
                         widget.inActiveBoxShadows != null)
                     ? _getBoxShadowFromIndex(i)
                     : widget.boxShadows,
               ),
-              child: Center(
-                child: _buildChild(i),
-              ),
+              child: Center(child: _buildChild(i)),
             ),
           ),
         ),
@@ -660,9 +655,7 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
             opacity: _cursorAnimation,
             child: CustomPaint(
               size: Size(0, cursorHeight),
-              painter: _CursorPainter(
-                cursorColor: _resolvedErrorCursorColor,
-              ),
+              painter: _CursorPainter(cursorColor: _resolvedErrorCursorColor),
             ),
           ),
         );
@@ -674,7 +667,8 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
   Widget _renderAuthInputFieldText({required int? index}) {
     assert(index != null);
 
-    final bool showObscured = !widget.peekWhenObscuring ||
+    final bool showObscured =
+        !widget.peekWhenObscuring ||
         (widget.peekWhenObscuring && _hasPeeked) ||
         index != _inputList.where((x) => x.isNotEmpty).length - 1;
 
@@ -694,8 +688,8 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
 
     final String text =
         widget.obscureText && _inputList[index].isNotEmpty && showObscured
-            ? widget.obscuringCharacter
-            : _inputList[index];
+        ? widget.obscuringCharacter
+        : _inputList[index];
 
     return Text(
       text,
@@ -757,10 +751,12 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
 
   @override
   Widget build(BuildContext context) {
-    _effectiveBorderRadius = widget.borderRadius ??
+    _effectiveBorderRadius =
+        widget.borderRadius ??
         context.moonTheme.authCodeTheme.properties.borderRadius;
 
-    _effectiveBorderWidth = widget.borderWidth ??
+    _effectiveBorderWidth =
+        widget.borderWidth ??
         context.moonBorders?.defaultBorderWidth ??
         MoonBorders.borders.defaultBorderWidth;
 
@@ -773,25 +769,32 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
     _effectiveWidth =
         widget.width ?? context.moonTheme.authCodeTheme.properties.width;
 
-    _effectiveSelectedBorderColor = widget.selectedBorderColor ??
+    _effectiveSelectedBorderColor =
+        widget.selectedBorderColor ??
         context.moonTheme.authCodeTheme.colors.selectedBorderColor;
 
-    _effectiveActiveBorderColor = widget.activeBorderColor ??
+    _effectiveActiveBorderColor =
+        widget.activeBorderColor ??
         context.moonTheme.authCodeTheme.colors.activeBorderColor;
 
-    _effectiveInactiveBorderColor = widget.inactiveBorderColor ??
+    _effectiveInactiveBorderColor =
+        widget.inactiveBorderColor ??
         context.moonTheme.authCodeTheme.colors.inactiveBorderColor;
 
-    _effectiveErrorBorderColor = widget.errorBorderColor ??
+    _effectiveErrorBorderColor =
+        widget.errorBorderColor ??
         context.moonTheme.authCodeTheme.colors.errorBorderColor;
 
-    _effectiveSelectedFillColor = widget.selectedFillColor ??
+    _effectiveSelectedFillColor =
+        widget.selectedFillColor ??
         context.moonTheme.authCodeTheme.colors.selectedFillColor;
 
-    _effectiveActiveFillColor = widget.activeFillColor ??
+    _effectiveActiveFillColor =
+        widget.activeFillColor ??
         context.moonTheme.authCodeTheme.colors.activeFillColor;
 
-    _effectiveInactiveFillColor = widget.inactiveFillColor ??
+    _effectiveInactiveFillColor =
+        widget.inactiveFillColor ??
         context.moonTheme.authCodeTheme.colors.inactiveFillColor;
 
     _effectiveTextStyle = context.moonTheme.authCodeTheme.properties.textStyle;
@@ -801,27 +804,33 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
 
     _effectiveTextColor = context.moonTheme.authCodeTheme.colors.textColor;
 
-    _effectiveCursorColor = widget.authFieldCursorColor ??
+    _effectiveCursorColor =
+        widget.authFieldCursorColor ??
         context.moonTheme.authCodeTheme.colors.textColor;
 
-    _animationDuration ??= widget.animationDuration ??
+    _animationDuration ??=
+        widget.animationDuration ??
         context.moonTheme.authCodeTheme.properties.animationDuration;
 
-    _animationCurve ??= widget.animationCurve ??
+    _animationCurve ??=
+        widget.animationCurve ??
         context.moonTheme.authCodeTheme.properties.animationCurve;
 
-    _peekDuration ??= widget.peekDuration ??
+    _peekDuration ??=
+        widget.peekDuration ??
         context.moonTheme.authCodeTheme.properties.peekDuration;
 
-    final double effectiveDisabledOpacityValue = widget.disabledOpacityValue ??
+    final double effectiveDisabledOpacityValue =
+        widget.disabledOpacityValue ??
         context.moonOpacities?.disabled ??
         MoonOpacities.opacities.disabled;
 
     final Duration effectiveErrorAnimationDuration =
         widget.errorAnimationDuration ??
-            context.moonTheme.authCodeTheme.properties.errorAnimationDuration;
+        context.moonTheme.authCodeTheme.properties.errorAnimationDuration;
 
-    final Curve effectiveErrorAnimationCurve = widget.errorAnimationCurve ??
+    final Curve effectiveErrorAnimationCurve =
+        widget.errorAnimationCurve ??
         context.moonTheme.authCodeTheme.properties.errorAnimationCurve;
 
     _errorAnimationController ??= AnimationController(
@@ -829,15 +838,13 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
       vsync: this,
     );
 
-    _errorOffsetAnimation ??= Tween<Offset>(
-      begin: Offset.zero,
-      end: const Offset(.01, 0.0),
-    ).animate(
-      CurvedAnimation(
-        parent: _errorAnimationController!,
-        curve: effectiveErrorAnimationCurve,
-      ),
-    );
+    _errorOffsetAnimation ??=
+        Tween<Offset>(begin: Offset.zero, end: const Offset(.01, 0.0)).animate(
+          CurvedAnimation(
+            parent: _errorAnimationController!,
+            curve: effectiveErrorAnimationCurve,
+          ),
+        );
 
     return Semantics(
       label: widget.semanticLabel,
@@ -853,9 +860,7 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
                 child: Stack(
                   children: <Widget>[
                     AbsorbPointer(
-                      child: AutofillGroup(
-                        child: _getTextFormField(),
-                      ),
+                      child: AutofillGroup(child: _getTextFormField()),
                     ),
                     Positioned(
                       top: 0,
@@ -876,9 +881,7 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
                 DefaultTextStyle(
                   style: _resolvedErrorTextStyle,
                   child: IconTheme(
-                    data: IconThemeData(
-                      color: _resolvedErrorTextStyle.color,
-                    ),
+                    data: IconThemeData(color: _resolvedErrorTextStyle.color),
                     child: widget.errorBuilder(
                       context,
                       _validateInput() ?? widget.errorText,

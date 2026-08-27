@@ -26,23 +26,25 @@ class MoonPopoverTheme extends ThemeExtension<MoonPopoverTheme>
     MoonPopoverColors? colors,
     MoonPopoverProperties? properties,
     MoonPopoverShadows? shadows,
-  })  : colors = colors ??
-            MoonPopoverColors(
-              textColor: tokens.colors.textPrimary,
-              iconColor: tokens.colors.iconPrimary,
-              backgroundColor: tokens.colors.goku,
-            ),
-        properties = properties ??
-            MoonPopoverProperties(
-              borderRadius: tokens.borders.interactiveMd,
-              distanceToTarget: tokens.sizes.x4s,
-              transitionDuration: tokens.transitions.defaultTransitionDuration,
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-              contentPadding: EdgeInsets.all(tokens.sizes.x3s),
-              textStyle: tokens.typography.body.textDefault,
-            ),
-        shadows =
-            shadows ?? MoonPopoverShadows(popoverShadows: tokens.shadows.sm);
+  }) : colors =
+           colors ??
+           MoonPopoverColors(
+             textColor: tokens.colors.textPrimary,
+             iconColor: tokens.colors.iconPrimary,
+             backgroundColor: tokens.colors.goku,
+           ),
+       properties =
+           properties ??
+           MoonPopoverProperties(
+             borderRadius: tokens.borders.interactiveMd,
+             distanceToTarget: tokens.sizes.x4s,
+             transitionDuration: tokens.transitions.defaultTransitionDuration,
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+             contentPadding: EdgeInsets.all(tokens.sizes.x3s),
+             textStyle: tokens.typography.body.textDefault,
+           ),
+       shadows =
+           shadows ?? MoonPopoverShadows(popoverShadows: tokens.shadows.sm);
 
   @override
   MoonPopoverTheme copyWith({
@@ -75,20 +77,12 @@ class MoonPopoverTheme extends ThemeExtension<MoonPopoverTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(
-        DiagnosticsProperty("type", "MoonPopoverTheme"),
-      )
-      ..add(
-        DiagnosticsProperty<MoonTokens>("tokens", tokens),
-      )
-      ..add(
-        DiagnosticsProperty<MoonPopoverColors>("colors", colors),
-      )
+      ..add(DiagnosticsProperty("type", "MoonPopoverTheme"))
+      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<MoonPopoverColors>("colors", colors))
       ..add(
         DiagnosticsProperty<MoonPopoverProperties>("properties", properties),
       )
-      ..add(
-        DiagnosticsProperty<MoonPopoverShadows>("shadows", shadows),
-      );
+      ..add(DiagnosticsProperty<MoonPopoverShadows>("shadows", shadows));
   }
 }

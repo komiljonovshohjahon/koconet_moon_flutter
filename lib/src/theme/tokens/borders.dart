@@ -87,20 +87,35 @@ class MoonBorders extends ThemeExtension<MoonBorders>
     if (other is! MoonBorders) return this;
 
     return MoonBorders(
-      interactiveXs:
-          BorderRadiusGeometry.lerp(interactiveXs, other.interactiveXs, t)!,
-      interactiveSm:
-          BorderRadiusGeometry.lerp(interactiveSm, other.interactiveSm, t)!,
-      interactiveMd:
-          BorderRadiusGeometry.lerp(interactiveMd, other.interactiveMd, t)!,
+      interactiveXs: BorderRadiusGeometry.lerp(
+        interactiveXs,
+        other.interactiveXs,
+        t,
+      )!,
+      interactiveSm: BorderRadiusGeometry.lerp(
+        interactiveSm,
+        other.interactiveSm,
+        t,
+      )!,
+      interactiveMd: BorderRadiusGeometry.lerp(
+        interactiveMd,
+        other.interactiveMd,
+        t,
+      )!,
       surfaceXs: BorderRadiusGeometry.lerp(surfaceXs, other.surfaceXs, t)!,
       surfaceSm: BorderRadiusGeometry.lerp(surfaceSm, other.surfaceSm, t)!,
       surfaceMd: BorderRadiusGeometry.lerp(surfaceMd, other.surfaceMd, t)!,
       surfaceLg: BorderRadiusGeometry.lerp(surfaceLg, other.surfaceLg, t)!,
-      defaultBorderWidth:
-          lerpDouble(defaultBorderWidth, other.defaultBorderWidth, t)!,
-      activeBorderWidth:
-          lerpDouble(activeBorderWidth, other.activeBorderWidth, t)!,
+      defaultBorderWidth: lerpDouble(
+        defaultBorderWidth,
+        other.defaultBorderWidth,
+        t,
+      )!,
+      activeBorderWidth: lerpDouble(
+        activeBorderWidth,
+        other.activeBorderWidth,
+        t,
+      )!,
     );
   }
 
@@ -108,12 +123,7 @@ class MoonBorders extends ThemeExtension<MoonBorders>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty(
-          "type",
-          "MoonBorders",
-        ),
-      )
+      ..add(DiagnosticsProperty("type", "MoonBorders"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>(
           "interactiveXs",

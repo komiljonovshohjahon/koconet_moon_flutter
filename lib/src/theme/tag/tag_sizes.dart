@@ -24,33 +24,36 @@ class MoonTagSizes extends ThemeExtension<MoonTagSizes>
     MoonTagSizeProperties? x2s,
     MoonTagSizeProperties? xs,
     MoonTagSizeProperties? sm,
-  })  : x2s = x2s ??
-            MoonTagSizeProperties(
-              borderRadius: tokens.borders.interactiveXs,
-              gap: tokens.sizes.x6s,
-              height: tokens.sizes.x2s,
-              iconSizeValue: tokens.sizes.x3s,
-              padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x4s),
-              textStyle: tokens.typography.body.text9,
-            ),
-        xs = xs ??
-            MoonTagSizeProperties(
-              borderRadius: tokens.borders.interactiveXs,
-              gap: tokens.sizes.x6s,
-              height: tokens.sizes.xs,
-              iconSizeValue: tokens.sizes.x2s,
-              padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x4s),
-              textStyle: tokens.typography.body.text12,
-            ),
-        sm = sm ??
-            MoonTagSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              gap: tokens.sizes.x4s,
-              height: tokens.sizes.sm,
-              iconSizeValue: tokens.sizes.x2s,
-              padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x2s),
-              textStyle: tokens.typography.body.text12,
-            );
+  }) : x2s =
+           x2s ??
+           MoonTagSizeProperties(
+             borderRadius: tokens.borders.interactiveXs,
+             gap: tokens.sizes.x6s,
+             height: tokens.sizes.x2s,
+             iconSizeValue: tokens.sizes.x3s,
+             padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x4s),
+             textStyle: tokens.typography.body.text9,
+           ),
+       xs =
+           xs ??
+           MoonTagSizeProperties(
+             borderRadius: tokens.borders.interactiveXs,
+             gap: tokens.sizes.x6s,
+             height: tokens.sizes.xs,
+             iconSizeValue: tokens.sizes.x2s,
+             padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x4s),
+             textStyle: tokens.typography.body.text12,
+           ),
+       sm =
+           sm ??
+           MoonTagSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             gap: tokens.sizes.x4s,
+             height: tokens.sizes.sm,
+             iconSizeValue: tokens.sizes.x2s,
+             padding: EdgeInsets.symmetric(horizontal: tokens.sizes.x2s),
+             textStyle: tokens.typography.body.text12,
+           );
 
   @override
   MoonTagSizes copyWith({

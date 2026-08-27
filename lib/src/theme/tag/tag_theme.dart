@@ -21,13 +21,14 @@ class MoonTagTheme extends ThemeExtension<MoonTagTheme>
     required this.tokens,
     MoonTagColors? colors,
     MoonTagSizes? sizes,
-  })  : colors = colors ??
-            MoonTagColors(
-              textColor: tokens.colors.textPrimary,
-              iconColor: tokens.colors.iconPrimary,
-              backgroundColor: tokens.colors.goku,
-            ),
-        sizes = sizes ?? MoonTagSizes(tokens: tokens);
+  }) : colors =
+           colors ??
+           MoonTagColors(
+             textColor: tokens.colors.textPrimary,
+             iconColor: tokens.colors.iconPrimary,
+             backgroundColor: tokens.colors.goku,
+           ),
+       sizes = sizes ?? MoonTagSizes(tokens: tokens);
 
   @override
   MoonTagTheme copyWith({

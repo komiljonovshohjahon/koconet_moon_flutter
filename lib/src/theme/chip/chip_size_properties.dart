@@ -60,8 +60,11 @@ class MoonChipSizeProperties extends ThemeExtension<MoonChipSizeProperties>
     if (other is! MoonChipSizeProperties) return this;
 
     return MoonChipSizeProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
       gap: lerpDouble(gap, other.gap, t)!,
       height: lerpDouble(height, other.height, t)!,
       iconSizeValue: lerpDouble(iconSizeValue, other.iconSizeValue, t)!,
@@ -74,9 +77,7 @@ class MoonChipSizeProperties extends ThemeExtension<MoonChipSizeProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonChipSizeProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonChipSizeProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )

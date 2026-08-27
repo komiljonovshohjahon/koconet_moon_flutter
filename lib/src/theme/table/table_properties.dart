@@ -34,8 +34,11 @@ class MoonTableProperties extends ThemeExtension<MoonTableProperties>
     if (other is! MoonTableProperties) return this;
 
     return MoonTableProperties(
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
     );
   }
@@ -44,14 +47,10 @@ class MoonTableProperties extends ThemeExtension<MoonTableProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonTableProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonTableProperties"))
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      );
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve));
   }
 }

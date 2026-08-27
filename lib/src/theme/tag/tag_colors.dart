@@ -41,8 +41,11 @@ class MoonTagColors extends ThemeExtension<MoonTagColors>
     return MoonTagColors(
       textColor: colorPremulLerp(textColor, other.textColor, t)!,
       iconColor: colorPremulLerp(iconColor, other.iconColor, t)!,
-      backgroundColor:
-          colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
+      backgroundColor: colorPremulLerp(
+        backgroundColor,
+        other.backgroundColor,
+        t,
+      )!,
     );
   }
 

@@ -21,19 +21,21 @@ class MoonCarouselTheme extends ThemeExtension<MoonCarouselTheme>
     required this.tokens,
     MoonCarouselColors? colors,
     MoonCarouselProperties? properties,
-  })  : colors = colors ??
-            MoonCarouselColors(
-              textColor: tokens.colors.textPrimary,
-              iconColor: tokens.colors.iconPrimary,
-            ),
-        properties = properties ??
-            MoonCarouselProperties(
-              gap: tokens.sizes.x2s,
-              textStyle: tokens.typography.body.textDefault,
-              autoPlayDelay: const Duration(seconds: 3),
-              transitionDuration: const Duration(milliseconds: 800),
-              transitionCurve: Curves.fastOutSlowIn,
-            );
+  }) : colors =
+           colors ??
+           MoonCarouselColors(
+             textColor: tokens.colors.textPrimary,
+             iconColor: tokens.colors.iconPrimary,
+           ),
+       properties =
+           properties ??
+           MoonCarouselProperties(
+             gap: tokens.sizes.x2s,
+             textStyle: tokens.typography.body.textDefault,
+             autoPlayDelay: const Duration(seconds: 3),
+             transitionDuration: const Duration(milliseconds: 800),
+             transitionCurve: Curves.fastOutSlowIn,
+           );
 
   @override
   MoonCarouselTheme copyWith({

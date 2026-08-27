@@ -37,8 +37,10 @@ class PulseEffectPainter extends CustomPainter {
         animationValue: animation.value,
       );
       final Rect rect = Rect.fromLTRB(0.0, 0.0, size.width, size.height);
-      final double opacity =
-          (rangeValue == 0.0 ? 0.0 : 1.0 - rangeValue).clamp(0.0, 1.0);
+      final double opacity = (rangeValue == 0.0 ? 0.0 : 1.0 - rangeValue).clamp(
+        0.0,
+        1.0,
+      );
       final Color transformedColor = color.withValues(alpha: opacity);
       final double newWidth = rect.width + rangeValue * effectExtent;
       final double newHeight = rect.height + rangeValue * effectExtent;
@@ -46,8 +48,9 @@ class PulseEffectPainter extends CustomPainter {
       final double heightIncrease = newHeight / rect.height;
       final double widthOffset = (widthIncrease - 1) / 2;
       final double heightOffset = (heightIncrease - 1) / 2;
-      final double resolvedExtent =
-          borderRadius != BorderRadius.zero ? (effectExtent / 2) : 0;
+      final double resolvedExtent = borderRadius != BorderRadius.zero
+          ? (effectExtent / 2)
+          : 0;
       final double topLeftLerp = lerpDouble(
         borderRadius.topLeft.x,
         borderRadius.topLeft.x + resolvedExtent,
@@ -72,7 +75,8 @@ class PulseEffectPainter extends CustomPainter {
       final Paint paint = Paint()
         ..color = transformedColor
         ..style = PaintingStyle.stroke
-        ..strokeWidth = rangeValue * effectExtent +
+        ..strokeWidth =
+            rangeValue * effectExtent +
             1; // +1 for squircle hairline border correction.
 
       canvas.drawRRect(

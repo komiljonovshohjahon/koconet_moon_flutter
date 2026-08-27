@@ -16,11 +16,12 @@ import 'package:moon_design/src/widgets/bottom_sheet/utils/scroll_to_top_status_
 const double _minFlingVelocity = 500.0;
 const double _closeProgressThreshold = 0.6;
 
-typedef WidgetWithChildBuilder = Widget Function(
-  BuildContext context,
-  Animation<double> animation,
-  Widget child,
-);
+typedef WidgetWithChildBuilder =
+    Widget Function(
+      BuildContext context,
+      Animation<double> animation,
+      Widget child,
+    );
 
 /// The Moon Design bottom sheet.
 ///
@@ -115,7 +116,7 @@ class MoonBottomSheet extends StatefulWidget {
     required this.scrollController,
     required this.child,
   }) : closeProgressThreshold =
-            closeProgressThreshold ?? _closeProgressThreshold;
+           closeProgressThreshold ?? _closeProgressThreshold;
 
   @override
   MoonBottomSheetState createState() => MoonBottomSheetState();
@@ -301,8 +302,9 @@ class MoonBottomSheetState extends State<MoonBottomSheet>
 
       // Otherwise, the velocity is calculated using a VelocityTracker.
       if (_velocityTracker == null) {
-        final PointerDeviceKind pointerKind =
-            _defaultPointerDeviceKind(context);
+        final PointerDeviceKind pointerKind = _defaultPointerDeviceKind(
+          context,
+        );
 
         _velocityTracker = VelocityTracker.withKind(pointerKind);
         _startTime = DateTime.now();
@@ -335,8 +337,10 @@ class MoonBottomSheetState extends State<MoonBottomSheet>
 
         return;
       } else if (_isDragging) {
-        final double velocity =
-            velocityTracker.getVelocity().pixelsPerSecond.dy;
+        final double velocity = velocityTracker
+            .getVelocity()
+            .pixelsPerSecond
+            .dy;
 
         _velocityTracker = null;
         _startTime = null;
@@ -348,10 +352,12 @@ class MoonBottomSheetState extends State<MoonBottomSheet>
 
   @override
   Widget build(BuildContext context) {
-    final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
+    final BorderRadiusGeometry effectiveBorderRadius =
+        widget.borderRadius ??
         context.moonTheme.bottomSheetTheme.properties.borderRadius;
 
-    final Color effectiveBackgroundColor = widget.backgroundColor ??
+    final Color effectiveBackgroundColor =
+        widget.backgroundColor ??
         context.moonTheme.bottomSheetTheme.colors.backgroundColor;
 
     final Color effectiveIconColor =
@@ -363,7 +369,8 @@ class MoonBottomSheetState extends State<MoonBottomSheet>
     final TextStyle effectiveTextStyle =
         context.moonTheme.bottomSheetTheme.properties.textStyle;
 
-    _defaultCurve ??= widget.transitionCurve ??
+    _defaultCurve ??=
+        widget.transitionCurve ??
         context.moonTheme.bottomSheetTheme.properties.transitionCurve;
 
     transitionCurve ??= _defaultCurve;
@@ -375,8 +382,9 @@ class MoonBottomSheetState extends State<MoonBottomSheet>
         builder: (BuildContext context, Widget? child) {
           assert(child != null);
 
-          final double animationValue =
-              transitionCurve!.transform(widget.animationController.value);
+          final double animationValue = transitionCurve!.transform(
+            widget.animationController.value,
+          );
 
           final draggableChild = widget.enableDrag
               ? KeyedSubtree(
@@ -416,10 +424,7 @@ class MoonBottomSheetState extends State<MoonBottomSheet>
               controller: widget.animationController,
               parent: const BouncingScrollPhysics(),
             ),
-            dragDevices: {
-              PointerDeviceKind.touch,
-              PointerDeviceKind.mouse,
-            },
+            dragDevices: {PointerDeviceKind.touch, PointerDeviceKind.mouse},
           ),
           child: RepaintBoundary(
             child: Semantics(
@@ -430,7 +435,8 @@ class MoonBottomSheetState extends State<MoonBottomSheet>
                   style: effectiveTextStyle.copyWith(color: effectiveTextColor),
                   child: Container(
                     height: widget.height,
-                    decoration: widget.decoration ??
+                    decoration:
+                        widget.decoration ??
                         ShapeDecorationWithPremultipliedAlpha(
                           color: effectiveBackgroundColor,
                           shape: MoonSquircleBorder(

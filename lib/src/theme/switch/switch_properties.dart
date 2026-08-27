@@ -34,8 +34,11 @@ class MoonSwitchProperties extends ThemeExtension<MoonSwitchProperties>
     if (other is! MoonSwitchProperties) return this;
 
     return MoonSwitchProperties(
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
     );
   }
@@ -44,14 +47,10 @@ class MoonSwitchProperties extends ThemeExtension<MoonSwitchProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonSwitchProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonSwitchProperties"))
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      );
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve));
   }
 }

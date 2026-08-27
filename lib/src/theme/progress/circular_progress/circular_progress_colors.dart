@@ -19,10 +19,7 @@ class MoonCircularProgressColors
   });
 
   @override
-  MoonCircularProgressColors copyWith({
-    Color? color,
-    Color? backgroundColor,
-  }) {
+  MoonCircularProgressColors copyWith({Color? color, Color? backgroundColor}) {
     return MoonCircularProgressColors(
       color: color ?? this.color,
       backgroundColor: backgroundColor ?? this.backgroundColor,
@@ -38,8 +35,11 @@ class MoonCircularProgressColors
 
     return MoonCircularProgressColors(
       color: colorPremulLerp(color, other.color, t)!,
-      backgroundColor:
-          colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
+      backgroundColor: colorPremulLerp(
+        backgroundColor,
+        other.backgroundColor,
+        t,
+      )!,
     );
   }
 

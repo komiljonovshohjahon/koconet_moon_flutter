@@ -57,8 +57,12 @@ class MoonCheckboxPainter extends ToggleablePainter {
   }
 
   Rect _outerRectAt(Offset origin, double t) {
-    final Rect rect =
-        Rect.fromLTWH(origin.dx, origin.dy, _kEdgeSize, _kEdgeSize);
+    final Rect rect = Rect.fromLTWH(
+      origin.dx,
+      origin.dy,
+      _kEdgeSize,
+      _kEdgeSize,
+    );
 
     return rect;
   }
@@ -145,8 +149,8 @@ class MoonCheckboxPainter extends ToggleablePainter {
     final AnimationStatus status = position.status;
     final double tNormalized =
         status == AnimationStatus.forward || status == AnimationStatus.completed
-            ? position.value
-            : 1.0 - position.value;
+        ? position.value
+        : 1.0 - position.value;
 
     // Four cases: false to null, false to true, null to false, true to false.
     if (previousValue == false || value == false) {

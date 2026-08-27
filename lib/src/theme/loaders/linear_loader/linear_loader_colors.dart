@@ -18,10 +18,7 @@ class MoonLinearLoaderColors extends ThemeExtension<MoonLinearLoaderColors>
   });
 
   @override
-  MoonLinearLoaderColors copyWith({
-    Color? color,
-    Color? backgroundColor,
-  }) {
+  MoonLinearLoaderColors copyWith({Color? color, Color? backgroundColor}) {
     return MoonLinearLoaderColors(
       color: color ?? this.color,
       backgroundColor: backgroundColor ?? this.backgroundColor,
@@ -37,8 +34,11 @@ class MoonLinearLoaderColors extends ThemeExtension<MoonLinearLoaderColors>
 
     return MoonLinearLoaderColors(
       color: colorPremulLerp(color, other.color, t)!,
-      backgroundColor:
-          colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
+      backgroundColor: colorPremulLerp(
+        backgroundColor,
+        other.backgroundColor,
+        t,
+      )!,
     );
   }
 

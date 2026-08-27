@@ -60,8 +60,11 @@ class MoonButtonSizeProperties extends ThemeExtension<MoonButtonSizeProperties>
     if (other is! MoonButtonSizeProperties) return this;
 
     return MoonButtonSizeProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
       gap: lerpDouble(gap, other.gap, t)!,
       height: lerpDouble(height, other.height, t)!,
       iconSizeValue: lerpDouble(iconSizeValue, other.iconSizeValue, t)!,
@@ -74,9 +77,7 @@ class MoonButtonSizeProperties extends ThemeExtension<MoonButtonSizeProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonButtonSizeProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonButtonSizeProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )

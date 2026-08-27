@@ -21,25 +21,27 @@ class MoonAlertTheme extends ThemeExtension<MoonAlertTheme>
     required this.tokens,
     MoonAlertColors? colors,
     MoonAlertProperties? properties,
-  })  : colors = colors ??
-            MoonAlertColors(
-              backgroundColor: tokens.colors.goku,
-              borderColor: tokens.colors.textSecondary,
-              iconColor: tokens.colors.iconPrimary,
-              textColor: tokens.colors.textPrimary,
-            ),
-        properties = properties ??
-            MoonAlertProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              horizontalGap: tokens.sizes.x3s,
-              minimumHeight: tokens.sizes.xl,
-              verticalGap: tokens.sizes.x4s,
-              transitionDuration: tokens.transitions.defaultTransitionDuration,
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-              padding: EdgeInsets.all(tokens.sizes.x2s),
-              contentTextStyle: tokens.typography.body.textDefault,
-              labelTextStyle: tokens.typography.heading.textDefault,
-            );
+  }) : colors =
+           colors ??
+           MoonAlertColors(
+             backgroundColor: tokens.colors.goku,
+             borderColor: tokens.colors.textSecondary,
+             iconColor: tokens.colors.iconPrimary,
+             textColor: tokens.colors.textPrimary,
+           ),
+       properties =
+           properties ??
+           MoonAlertProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             horizontalGap: tokens.sizes.x3s,
+             minimumHeight: tokens.sizes.xl,
+             verticalGap: tokens.sizes.x4s,
+             transitionDuration: tokens.transitions.defaultTransitionDuration,
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+             padding: EdgeInsets.all(tokens.sizes.x2s),
+             contentTextStyle: tokens.typography.body.textDefault,
+             labelTextStyle: tokens.typography.heading.textDefault,
+           );
 
   @override
   MoonAlertTheme copyWith({

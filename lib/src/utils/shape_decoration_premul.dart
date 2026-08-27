@@ -218,29 +218,25 @@ class ShapeDecorationWithPremultipliedAlpha extends Decoration {
 
   @override
   int get hashCode => Object.hash(
-        color,
-        gradient,
-        image,
-        shape,
-        shadows == null ? null : Object.hashAll(shadows!),
-      );
+    color,
+    gradient,
+    image,
+    shape,
+    shadows == null ? null : Object.hashAll(shadows!),
+  );
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.defaultDiagnosticsTreeStyle = DiagnosticsTreeStyle.whitespace;
-    properties.add(
-      ColorProperty('color', color, defaultValue: null),
-    );
+    properties.add(ColorProperty('color', color, defaultValue: null));
     properties.add(
       DiagnosticsProperty<Gradient>('gradient', gradient, defaultValue: null),
     );
     properties.add(
       DiagnosticsProperty<DecorationImage>('image', image, defaultValue: null),
     );
-    properties.add(
-      DiagnosticsProperty<ShapeBorder>('shape', shape),
-    );
+    properties.add(DiagnosticsProperty<ShapeBorder>('shape', shape));
     properties.add(
       IterableProperty<BoxShadow>(
         'shadows',
@@ -269,7 +265,7 @@ class ShapeDecorationWithPremultipliedAlpha extends Decoration {
 /// canvas.
 class _ShapeDecorationPainter extends BoxPainter {
   _ShapeDecorationPainter(this._decoration, VoidCallback onChanged)
-      : super(onChanged);
+    : super(onChanged);
 
   final ShapeDecorationWithPremultipliedAlpha _decoration;
 
@@ -301,8 +297,10 @@ class _ShapeDecorationPainter extends BoxPainter {
     }
 
     if (_decoration.gradient != null) {
-      _interiorPaint!.shader = _decoration.gradient!
-          .createShader(rect, textDirection: textDirection);
+      _interiorPaint!.shader = _decoration.gradient!.createShader(
+        rect,
+        textDirection: textDirection,
+      );
     }
 
     if (_decoration.shadows != null) {

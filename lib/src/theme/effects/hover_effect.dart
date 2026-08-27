@@ -45,10 +45,16 @@ class MoonHoverEffect extends ThemeExtension<MoonHoverEffect>
     if (other is! MoonHoverEffect) return this;
 
     return MoonHoverEffect(
-      primaryHoverColor:
-          colorPremulLerp(primaryHoverColor, other.primaryHoverColor, t)!,
-      secondaryHoverColor:
-          colorPremulLerp(secondaryHoverColor, other.secondaryHoverColor, t)!,
+      primaryHoverColor: colorPremulLerp(
+        primaryHoverColor,
+        other.primaryHoverColor,
+        t,
+      )!,
+      secondaryHoverColor: colorPremulLerp(
+        secondaryHoverColor,
+        other.secondaryHoverColor,
+        t,
+      )!,
       hoverDuration: lerpDuration(hoverDuration, other.hoverDuration, t),
       hoverCurve: other.hoverCurve,
     );

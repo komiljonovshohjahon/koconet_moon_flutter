@@ -36,101 +36,113 @@ class MoonTableSizes extends ThemeExtension<MoonTableSizes>
     MoonTableSizeProperties? lg,
     MoonTableSizeProperties? xl,
     MoonTableSizeProperties? x2l,
-  })  : xs = xs ??
-            MoonTableSizeProperties(
-              rowBorderRadius: tokens.borders.interactiveXs,
-              rowGap: tokens.sizes.x5s,
-              rowHeight: tokens.sizes.xs,
-              sortIconSizeValue: tokens.sizes.x2s,
-              sortIconGap: tokens.sizes.x5s,
-              cellPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x4s),
-              rowLabelPadding:
-                  EdgeInsets.symmetric(horizontal: tokens.sizes.x4s),
-              columnTextStyle: tokens.typography.heading.text12,
-              rowTextStyle: tokens.typography.body.text12,
-              rowLabelTextStyle: tokens.typography.body.text12,
-              rowPinnedAnimatedLabelTextStyle: tokens.typography.body.text12,
-            ),
-        sm = sm ??
-            MoonTableSizeProperties(
-              rowBorderRadius: tokens.borders.interactiveXs,
-              rowGap: tokens.sizes.x5s,
-              rowHeight: tokens.sizes.sm,
-              sortIconSizeValue: tokens.sizes.x2s,
-              sortIconGap: tokens.sizes.x5s,
-              cellPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              rowLabelPadding:
-                  EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              columnTextStyle: tokens.typography.heading.textDefault,
-              rowTextStyle: tokens.typography.body.textDefault,
-              rowLabelTextStyle: tokens.typography.body.textDefault,
-              rowPinnedAnimatedLabelTextStyle:
-                  tokens.typography.body.textDefault,
-            ),
-        md = md ??
-            MoonTableSizeProperties(
-              rowBorderRadius: tokens.borders.interactiveSm,
-              rowGap: tokens.sizes.x5s,
-              rowHeight: tokens.sizes.md,
-              sortIconSizeValue: tokens.sizes.x2s,
-              sortIconGap: tokens.sizes.x5s,
-              cellPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              rowLabelPadding:
-                  EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              columnTextStyle: tokens.typography.heading.textDefault,
-              rowTextStyle: tokens.typography.body.textDefault,
-              rowLabelTextStyle: tokens.typography.body.textDefault,
-              rowPinnedAnimatedLabelTextStyle:
-                  tokens.typography.body.textDefault,
-            ),
-        lg = lg ??
-            MoonTableSizeProperties(
-              rowBorderRadius: tokens.borders.interactiveSm,
-              rowGap: tokens.sizes.x5s,
-              rowHeight: tokens.sizes.lg,
-              sortIconSizeValue: tokens.sizes.x2s,
-              sortIconGap: tokens.sizes.x5s,
-              cellPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              rowLabelPadding:
-                  EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              columnTextStyle: tokens.typography.heading.textDefault,
-              rowTextStyle: tokens.typography.body.textDefault,
-              rowLabelTextStyle: tokens.typography.body.textDefault,
-              rowPinnedAnimatedLabelTextStyle:
-                  tokens.typography.body.textDefault,
-            ),
-        xl = xl ??
-            MoonTableSizeProperties(
-              rowBorderRadius: tokens.borders.interactiveMd,
-              rowGap: tokens.sizes.x5s,
-              rowHeight: tokens.sizes.xl,
-              sortIconSizeValue: tokens.sizes.x2s,
-              sortIconGap: tokens.sizes.x5s,
-              cellPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              rowLabelPadding:
-                  EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              columnTextStyle: tokens.typography.heading.textDefault,
-              rowTextStyle: tokens.typography.body.textDefault,
-              rowLabelTextStyle: tokens.typography.body.textDefault,
-              rowPinnedAnimatedLabelTextStyle:
-                  tokens.typography.body.textDefault,
-            ),
-        x2l = x2l ??
-            MoonTableSizeProperties(
-              rowBorderRadius: tokens.borders.interactiveMd,
-              rowGap: tokens.sizes.x5s,
-              rowHeight: tokens.sizes.x2l,
-              sortIconSizeValue: tokens.sizes.x2s,
-              sortIconGap: tokens.sizes.x5s,
-              cellPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              rowLabelPadding:
-                  EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              columnTextStyle: tokens.typography.heading.textDefault,
-              rowTextStyle: tokens.typography.body.textDefault,
-              rowLabelTextStyle: tokens.typography.body.textDefault,
-              rowPinnedAnimatedLabelTextStyle:
-                  tokens.typography.body.textDefault,
-            );
+  }) : xs =
+           xs ??
+           MoonTableSizeProperties(
+             rowBorderRadius: tokens.borders.interactiveXs,
+             rowGap: tokens.sizes.x5s,
+             rowHeight: tokens.sizes.xs,
+             sortIconSizeValue: tokens.sizes.x2s,
+             sortIconGap: tokens.sizes.x5s,
+             cellPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x4s),
+             rowLabelPadding: EdgeInsets.symmetric(
+               horizontal: tokens.sizes.x4s,
+             ),
+             columnTextStyle: tokens.typography.heading.text12,
+             rowTextStyle: tokens.typography.body.text12,
+             rowLabelTextStyle: tokens.typography.body.text12,
+             rowPinnedAnimatedLabelTextStyle: tokens.typography.body.text12,
+           ),
+       sm =
+           sm ??
+           MoonTableSizeProperties(
+             rowBorderRadius: tokens.borders.interactiveXs,
+             rowGap: tokens.sizes.x5s,
+             rowHeight: tokens.sizes.sm,
+             sortIconSizeValue: tokens.sizes.x2s,
+             sortIconGap: tokens.sizes.x5s,
+             cellPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
+             rowLabelPadding: EdgeInsets.symmetric(
+               horizontal: tokens.sizes.x3s,
+             ),
+             columnTextStyle: tokens.typography.heading.textDefault,
+             rowTextStyle: tokens.typography.body.textDefault,
+             rowLabelTextStyle: tokens.typography.body.textDefault,
+             rowPinnedAnimatedLabelTextStyle:
+                 tokens.typography.body.textDefault,
+           ),
+       md =
+           md ??
+           MoonTableSizeProperties(
+             rowBorderRadius: tokens.borders.interactiveSm,
+             rowGap: tokens.sizes.x5s,
+             rowHeight: tokens.sizes.md,
+             sortIconSizeValue: tokens.sizes.x2s,
+             sortIconGap: tokens.sizes.x5s,
+             cellPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
+             rowLabelPadding: EdgeInsets.symmetric(
+               horizontal: tokens.sizes.x3s,
+             ),
+             columnTextStyle: tokens.typography.heading.textDefault,
+             rowTextStyle: tokens.typography.body.textDefault,
+             rowLabelTextStyle: tokens.typography.body.textDefault,
+             rowPinnedAnimatedLabelTextStyle:
+                 tokens.typography.body.textDefault,
+           ),
+       lg =
+           lg ??
+           MoonTableSizeProperties(
+             rowBorderRadius: tokens.borders.interactiveSm,
+             rowGap: tokens.sizes.x5s,
+             rowHeight: tokens.sizes.lg,
+             sortIconSizeValue: tokens.sizes.x2s,
+             sortIconGap: tokens.sizes.x5s,
+             cellPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
+             rowLabelPadding: EdgeInsets.symmetric(
+               horizontal: tokens.sizes.x3s,
+             ),
+             columnTextStyle: tokens.typography.heading.textDefault,
+             rowTextStyle: tokens.typography.body.textDefault,
+             rowLabelTextStyle: tokens.typography.body.textDefault,
+             rowPinnedAnimatedLabelTextStyle:
+                 tokens.typography.body.textDefault,
+           ),
+       xl =
+           xl ??
+           MoonTableSizeProperties(
+             rowBorderRadius: tokens.borders.interactiveMd,
+             rowGap: tokens.sizes.x5s,
+             rowHeight: tokens.sizes.xl,
+             sortIconSizeValue: tokens.sizes.x2s,
+             sortIconGap: tokens.sizes.x5s,
+             cellPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
+             rowLabelPadding: EdgeInsets.symmetric(
+               horizontal: tokens.sizes.x3s,
+             ),
+             columnTextStyle: tokens.typography.heading.textDefault,
+             rowTextStyle: tokens.typography.body.textDefault,
+             rowLabelTextStyle: tokens.typography.body.textDefault,
+             rowPinnedAnimatedLabelTextStyle:
+                 tokens.typography.body.textDefault,
+           ),
+       x2l =
+           x2l ??
+           MoonTableSizeProperties(
+             rowBorderRadius: tokens.borders.interactiveMd,
+             rowGap: tokens.sizes.x5s,
+             rowHeight: tokens.sizes.x2l,
+             sortIconSizeValue: tokens.sizes.x2s,
+             sortIconGap: tokens.sizes.x5s,
+             cellPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
+             rowLabelPadding: EdgeInsets.symmetric(
+               horizontal: tokens.sizes.x3s,
+             ),
+             columnTextStyle: tokens.typography.heading.textDefault,
+             rowTextStyle: tokens.typography.body.textDefault,
+             rowLabelTextStyle: tokens.typography.body.textDefault,
+             rowPinnedAnimatedLabelTextStyle:
+                 tokens.typography.body.textDefault,
+           );
 
   @override
   MoonTableSizes copyWith({

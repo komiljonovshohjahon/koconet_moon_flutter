@@ -26,21 +26,23 @@ class MoonTabBarTheme extends ThemeExtension<MoonTabBarTheme>
     MoonTabBarColors? colors,
     MoonTabBarProperties? properties,
     MoonTabBarSizes? sizes,
-  })  : colors = colors ??
-            MoonTabBarColors(
-              indicatorColor: tokens.colors.piccolo,
-              textColor: tokens.colors.textPrimary,
-              selectedTextColor: tokens.colors.piccolo,
-              selectedPillTextColor: tokens.colors.textPrimary,
-              selectedPillTabColor: tokens.colors.goku,
-            ),
-        properties = properties ??
-            MoonTabBarProperties(
-              gap: tokens.sizes.x5s,
-              transitionDuration: tokens.transitions.defaultTransitionDuration,
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-            ),
-        sizes = sizes ?? MoonTabBarSizes(tokens: tokens);
+  }) : colors =
+           colors ??
+           MoonTabBarColors(
+             indicatorColor: tokens.colors.piccolo,
+             textColor: tokens.colors.textPrimary,
+             selectedTextColor: tokens.colors.piccolo,
+             selectedPillTextColor: tokens.colors.textPrimary,
+             selectedPillTabColor: tokens.colors.goku,
+           ),
+       properties =
+           properties ??
+           MoonTabBarProperties(
+             gap: tokens.sizes.x5s,
+             transitionDuration: tokens.transitions.defaultTransitionDuration,
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+           ),
+       sizes = sizes ?? MoonTabBarSizes(tokens: tokens);
 
   @override
   MoonTabBarTheme copyWith({

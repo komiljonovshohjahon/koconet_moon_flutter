@@ -47,34 +47,40 @@ class _MoonPulseEffectState extends State<MoonPulseEffect>
     curve: widget.effectCurve,
   );
 
-  late final Animation<double> _jiggleAnimation = TweenSequence<double>(
-    [
-      TweenSequenceItem<double>(
-        tween: Tween<double>(begin: 0.0, end: -1.0)
-            .chain(CurveTween(curve: widget.effectCurve)),
-        weight: _jiggleRestTimePercentage / 2,
-      ),
-      TweenSequenceItem<double>(
-        tween: Tween<double>(begin: -1.0, end: 0.0)
-            .chain(CurveTween(curve: widget.effectCurve)),
-        weight: _jiggleRestTimePercentage / 2,
-      ),
-      TweenSequenceItem<double>(
-        tween: ConstantTween<double>(0.0),
-        weight: _jiggleRestTimePercentage,
-      ),
-      TweenSequenceItem<double>(
-        tween: Tween<double>(begin: 0.0, end: -1.0)
-            .chain(CurveTween(curve: widget.effectCurve)),
-        weight: _jiggleRestTimePercentage / 2,
-      ),
-      TweenSequenceItem<double>(
-        tween: Tween<double>(begin: -1.0, end: 0.0)
-            .chain(CurveTween(curve: widget.effectCurve)),
-        weight: _jiggleRestTimePercentage / 2,
-      ),
-    ],
-  ).animate(_animationController);
+  late final Animation<double> _jiggleAnimation = TweenSequence<double>([
+    TweenSequenceItem<double>(
+      tween: Tween<double>(
+        begin: 0.0,
+        end: -1.0,
+      ).chain(CurveTween(curve: widget.effectCurve)),
+      weight: _jiggleRestTimePercentage / 2,
+    ),
+    TweenSequenceItem<double>(
+      tween: Tween<double>(
+        begin: -1.0,
+        end: 0.0,
+      ).chain(CurveTween(curve: widget.effectCurve)),
+      weight: _jiggleRestTimePercentage / 2,
+    ),
+    TweenSequenceItem<double>(
+      tween: ConstantTween<double>(0.0),
+      weight: _jiggleRestTimePercentage,
+    ),
+    TweenSequenceItem<double>(
+      tween: Tween<double>(
+        begin: 0.0,
+        end: -1.0,
+      ).chain(CurveTween(curve: widget.effectCurve)),
+      weight: _jiggleRestTimePercentage / 2,
+    ),
+    TweenSequenceItem<double>(
+      tween: Tween<double>(
+        begin: -1.0,
+        end: 0.0,
+      ).chain(CurveTween(curve: widget.effectCurve)),
+      weight: _jiggleRestTimePercentage / 2,
+    ),
+  ]).animate(_animationController);
 
   @override
   void didUpdateWidget(covariant MoonPulseEffect oldWidget) {
@@ -84,9 +90,9 @@ class _MoonPulseEffectState extends State<MoonPulseEffect>
       if (widget.show) {
         _animationController.repeat();
       } else {
-        _animationController
-            .forward()
-            .then((_) => _animationController.reset());
+        _animationController.forward().then(
+          (_) => _animationController.reset(),
+        );
       }
     }
   }
@@ -106,7 +112,7 @@ class _MoonPulseEffectState extends State<MoonPulseEffect>
     //  causes uneven and buggy animations.
     final BorderRadius resolvedBorderRadius =
         widget.childBorderRadius?.resolve(Directionality.of(context)) ??
-            BorderRadius.zero;
+        BorderRadius.zero;
 
     return AnimatedBuilder(
       animation: _animationController,

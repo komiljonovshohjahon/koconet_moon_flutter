@@ -22,26 +22,31 @@ class FocusEffectPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     if (!animation.isDismissed) {
       final Rect rect = Rect.fromLTRB(0.0, 0.0, size.width, size.height);
-      final Color transformedColor =
-          colorPremulLerp(null, color, animation.value)!;
+      final Color transformedColor = colorPremulLerp(
+        null,
+        color,
+        animation.value,
+      )!;
       final double newWidth = rect.width + effectExtent;
       final double newHeight = rect.height + effectExtent;
       final double widthIncrease = newWidth / rect.width;
       final double heightIncrease = newHeight / rect.height;
       final double widthOffset = (widthIncrease - 1) / 2;
       final double heightOffset = (heightIncrease - 1) / 2;
-      final double resolvedExtent =
-          borderRadius != BorderRadius.zero ? (effectExtent / 2) : 0;
+      final double resolvedExtent = borderRadius != BorderRadius.zero
+          ? (effectExtent / 2)
+          : 0;
 
       final Paint paint = isFilled
           ? (Paint()
-            ..color = transformedColor
-            ..style = PaintingStyle.fill)
+              ..color = transformedColor
+              ..style = PaintingStyle.fill)
           : (Paint()
-            ..color = transformedColor
-            ..style = PaintingStyle.stroke
-            ..strokeWidth = effectExtent +
-                1); // +1 for squircle hairline border correction.
+              ..color = transformedColor
+              ..style = PaintingStyle.stroke
+              ..strokeWidth =
+                  effectExtent +
+                  1); // +1 for squircle hairline border correction.
 
       canvas.drawRRect(
         RRect.fromRectAndCorners(

@@ -60,15 +60,27 @@ class MoonPopoverProperties extends ThemeExtension<MoonPopoverProperties>
     if (other is! MoonPopoverProperties) return this;
 
     return MoonPopoverProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
-      distanceToTarget:
-          lerpDouble(distanceToTarget, other.distanceToTarget, t)!,
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
+      distanceToTarget: lerpDouble(
+        distanceToTarget,
+        other.distanceToTarget,
+        t,
+      )!,
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
-      contentPadding:
-          EdgeInsetsGeometry.lerp(contentPadding, other.contentPadding, t)!,
+      contentPadding: EdgeInsetsGeometry.lerp(
+        contentPadding,
+        other.contentPadding,
+        t,
+      )!,
       textStyle: TextStyle.lerp(textStyle, other.textStyle, t)!,
     );
   }
@@ -77,32 +89,21 @@ class MoonPopoverProperties extends ThemeExtension<MoonPopoverProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonPopoverProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonPopoverProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )
-      ..add(
-        DoubleProperty("distanceToTarget", distanceToTarget),
-      )
+      ..add(DoubleProperty("distanceToTarget", distanceToTarget))
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      )
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve))
       ..add(
         DiagnosticsProperty<EdgeInsetsGeometry>(
           "contentPadding",
           contentPadding,
         ),
       )
-      ..add(
-        DiagnosticsProperty<TextStyle>(
-          "textStyle",
-          textStyle,
-        ),
-      );
+      ..add(DiagnosticsProperty<TextStyle>("textStyle", textStyle));
   }
 }

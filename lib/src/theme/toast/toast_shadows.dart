@@ -11,9 +11,7 @@ class MoonToastShadows extends ThemeExtension<MoonToastShadows>
 
   @override
   MoonToastShadows copyWith({List<BoxShadow>? toastShadows}) {
-    return MoonToastShadows(
-      toastShadows: toastShadows ?? this.toastShadows,
-    );
+    return MoonToastShadows(toastShadows: toastShadows ?? this.toastShadows);
   }
 
   @override

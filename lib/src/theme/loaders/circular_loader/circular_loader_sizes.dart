@@ -32,31 +32,36 @@ class MoonCircularLoaderSizes extends ThemeExtension<MoonCircularLoaderSizes>
     MoonCircularLoaderSizeProperties? sm,
     MoonCircularLoaderSizeProperties? md,
     MoonCircularLoaderSizeProperties? lg,
-  })  : x2s = x2s ??
-            MoonCircularLoaderSizeProperties(
-              loaderSizeValue: tokens.sizes.x2s,
-              loaderStrokeWidth: tokens.sizes.x6s,
-            ),
-        xs = xs ??
-            MoonCircularLoaderSizeProperties(
-              loaderSizeValue: tokens.sizes.xs,
-              loaderStrokeWidth: tokens.sizes.x6s,
-            ),
-        sm = sm ??
-            MoonCircularLoaderSizeProperties(
-              loaderSizeValue: tokens.sizes.sm,
-              loaderStrokeWidth: tokens.sizes.x6s,
-            ),
-        md = md ??
-            MoonCircularLoaderSizeProperties(
-              loaderSizeValue: tokens.sizes.md,
-              loaderStrokeWidth: tokens.sizes.x5s,
-            ),
-        lg = lg ??
-            MoonCircularLoaderSizeProperties(
-              loaderSizeValue: tokens.sizes.lg,
-              loaderStrokeWidth: tokens.sizes.x5s,
-            );
+  }) : x2s =
+           x2s ??
+           MoonCircularLoaderSizeProperties(
+             loaderSizeValue: tokens.sizes.x2s,
+             loaderStrokeWidth: tokens.sizes.x6s,
+           ),
+       xs =
+           xs ??
+           MoonCircularLoaderSizeProperties(
+             loaderSizeValue: tokens.sizes.xs,
+             loaderStrokeWidth: tokens.sizes.x6s,
+           ),
+       sm =
+           sm ??
+           MoonCircularLoaderSizeProperties(
+             loaderSizeValue: tokens.sizes.sm,
+             loaderStrokeWidth: tokens.sizes.x6s,
+           ),
+       md =
+           md ??
+           MoonCircularLoaderSizeProperties(
+             loaderSizeValue: tokens.sizes.md,
+             loaderStrokeWidth: tokens.sizes.x5s,
+           ),
+       lg =
+           lg ??
+           MoonCircularLoaderSizeProperties(
+             loaderSizeValue: tokens.sizes.lg,
+             loaderStrokeWidth: tokens.sizes.x5s,
+           );
 
   @override
   MoonCircularLoaderSizes copyWith({

@@ -20,23 +20,25 @@ class MoonMenuItemTheme extends ThemeExtension<MoonMenuItemTheme>
     required this.tokens,
     MoonMenuItemColors? colors,
     MoonMenuItemProperties? properties,
-  })  : colors = colors ??
-            MoonMenuItemColors(
-              backgroundColor: Colors.transparent,
-              dividerColor: tokens.colors.beerus,
-              iconColor: tokens.colors.iconPrimary,
-              labelTextColor: tokens.colors.textPrimary,
-              contentTextColor: tokens.colors.textSecondary,
-            ),
-        properties = properties ??
-            MoonMenuItemProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              verticalGap: tokens.sizes.x5s,
-              minimumHeight: tokens.sizes.md,
-              padding: EdgeInsets.all(tokens.sizes.x3s),
-              labelTextStyle: tokens.typography.body.textDefault,
-              contentTextStyle: tokens.typography.body.text12,
-            );
+  }) : colors =
+           colors ??
+           MoonMenuItemColors(
+             backgroundColor: Colors.transparent,
+             dividerColor: tokens.colors.beerus,
+             iconColor: tokens.colors.iconPrimary,
+             labelTextColor: tokens.colors.textPrimary,
+             contentTextColor: tokens.colors.textSecondary,
+           ),
+       properties =
+           properties ??
+           MoonMenuItemProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             verticalGap: tokens.sizes.x5s,
+             minimumHeight: tokens.sizes.md,
+             padding: EdgeInsets.all(tokens.sizes.x3s),
+             labelTextStyle: tokens.typography.body.textDefault,
+             contentTextStyle: tokens.typography.body.text12,
+           );
 
   @override
   MoonMenuItemTheme copyWith({

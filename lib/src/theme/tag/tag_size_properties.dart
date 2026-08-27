@@ -61,8 +61,11 @@ class MoonTagSizeProperties extends ThemeExtension<MoonTagSizeProperties>
     if (other is! MoonTagSizeProperties) return this;
 
     return MoonTagSizeProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
       gap: lerpDouble(gap, other.gap, t)!,
       height: lerpDouble(height, other.height, t)!,
       iconSizeValue: lerpDouble(iconSizeValue, other.iconSizeValue, t)!,
@@ -75,17 +78,9 @@ class MoonTagSizeProperties extends ThemeExtension<MoonTagSizeProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
+      ..add(DiagnosticsProperty("type", "MoonTagSizeProperties"))
       ..add(
-        DiagnosticsProperty(
-          "type",
-          "MoonTagSizeProperties",
-        ),
-      )
-      ..add(
-        DiagnosticsProperty<BorderRadiusGeometry>(
-          "borderRadius",
-          borderRadius,
-        ),
+        DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )
       ..add(DoubleProperty("gap", gap))
       ..add(DoubleProperty("height", height))

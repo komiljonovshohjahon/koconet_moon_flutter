@@ -21,17 +21,18 @@ class MoonButtonTheme extends ThemeExtension<MoonButtonTheme>
     required this.tokens,
     MoonButtonColors? colors,
     MoonButtonSizes? sizes,
-  })  : colors = colors ??
-            MoonButtonColors(
-              borderColor: tokens.colors.trunks,
-              textColor: tokens.colors.textPrimary,
-              filledVariantBackgroundColor: tokens.colors.piccolo,
-              filledVariantTextColor: tokens.colors.goten,
-              textVariantTextColor: tokens.colors.textSecondary,
-              textVariantFocusColor: tokens.colors.piccolo,
-              textVariantHoverColor: tokens.colors.jiren,
-            ),
-        sizes = sizes ?? MoonButtonSizes(tokens: tokens);
+  }) : colors =
+           colors ??
+           MoonButtonColors(
+             borderColor: tokens.colors.trunks,
+             textColor: tokens.colors.textPrimary,
+             filledVariantBackgroundColor: tokens.colors.piccolo,
+             filledVariantTextColor: tokens.colors.goten,
+             textVariantTextColor: tokens.colors.textSecondary,
+             textVariantFocusColor: tokens.colors.piccolo,
+             textVariantHoverColor: tokens.colors.jiren,
+           ),
+       sizes = sizes ?? MoonButtonSizes(tokens: tokens);
 
   @override
   MoonButtonTheme copyWith({

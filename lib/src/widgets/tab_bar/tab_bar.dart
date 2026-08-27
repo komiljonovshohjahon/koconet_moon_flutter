@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/tab_bar/tab_bar_size_properties.dart';
-import 'package:moon_design/src/theme/tab_bar/tab_bar_sizes.dart';
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
 import 'package:moon_design/src/utils/color_tween_premul.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
@@ -15,23 +11,13 @@ import 'package:moon_design/src/widgets/tab_bar/pill_tab.dart';
 import 'package:moon_design/src/widgets/tab_bar/pill_tab_style.dart';
 import 'package:moon_design/src/widgets/tab_bar/tab.dart';
 import 'package:moon_design/src/widgets/tab_bar/tab_style.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonTabBarVariant {
-  indicator,
-  pill,
-  custom,
-}
+enum MoonTabBarVariant { indicator, pill, custom }
 
-enum MoonTabBarSize {
-  sm,
-  md,
-}
+enum MoonTabBarSize { sm, md }
 
-typedef MoonCustomTabBuilder = Widget Function(
-  BuildContext context,
-  bool isSelected,
-);
+typedef MoonCustomTabBuilder =
+    Widget Function(BuildContext context, bool isSelected);
 
 class MoonTabBar extends StatefulWidget {
   /// Whether the tab bar is expanded to its full available width horizontally
@@ -115,10 +101,10 @@ class MoonTabBar extends StatefulWidget {
     this.tabController,
     this.onTabChanged,
     required this.tabs,
-  })  : assert(height == null || height > 0),
-        assert(tabs != null && tabs.length > 0),
-        pillTabs = null,
-        customTabs = null;
+  }) : assert(height == null || height > 0),
+       assert(tabs != null && tabs.length > 0),
+       pillTabs = null,
+       customTabs = null;
 
   /// Creates a Moon Design pill tab bar.
   ///
@@ -140,10 +126,10 @@ class MoonTabBar extends StatefulWidget {
     this.tabController,
     this.onTabChanged,
     required this.pillTabs,
-  })  : assert(height == null || height > 0),
-        assert(pillTabs != null && pillTabs.length > 0),
-        tabs = null,
-        customTabs = null;
+  }) : assert(height == null || height > 0),
+       assert(pillTabs != null && pillTabs.length > 0),
+       tabs = null,
+       customTabs = null;
 
   /// Creates a Moon Design custom tab bar.
   ///
@@ -165,10 +151,10 @@ class MoonTabBar extends StatefulWidget {
     this.tabController,
     this.onTabChanged,
     required this.customTabs,
-  })  : assert(height == null || height > 0),
-        assert(customTabs != null && customTabs.length > 0),
-        tabs = null,
-        pillTabs = null;
+  }) : assert(height == null || height > 0),
+       assert(customTabs != null && customTabs.length > 0),
+       tabs = null,
+       pillTabs = null;
 
   @override
   State<MoonTabBar> createState() => _MoonTabBarState();
@@ -188,14 +174,11 @@ class _MoonTabBarState extends State<MoonTabBar> {
   ) {
     switch (tabBarSize) {
       case MoonTabBarSize.sm:
-        return context.moonTheme.tabBarTheme.sizes.sm ??
-            MoonTabBarSizes(tokens: MoonTokens.light).sm;
+        return context.moonTheme.tabBarTheme.sizes.sm;
       case MoonTabBarSize.md:
-        return context.moonTheme.tabBarTheme.sizes.md ??
-            MoonTabBarSizes(tokens: MoonTokens.light).md;
+        return context.moonTheme.tabBarTheme.sizes.md;
       default:
-        return context.moonTheme.tabBarTheme.sizes.md ??
-            MoonTabBarSizes(tokens: MoonTokens.light).md;
+        return context.moonTheme.tabBarTheme.sizes.md;
     }
   }
 
@@ -219,9 +202,10 @@ class _MoonTabBarState extends State<MoonTabBar> {
         pillTab.isSelected?.call(index == _selectedIndex);
       });
     } else {
-      widget.customTabs
-          ?.asMap()
-          .forEach((int index, Widget Function(BuildContext, bool) customTab) {
+      widget.customTabs?.asMap().forEach((
+        int index,
+        Widget Function(BuildContext, bool) customTab,
+      ) {
         customTab.call(context, index == _selectedIndex);
       });
     }
@@ -270,62 +254,52 @@ class _MoonTabBarState extends State<MoonTabBar> {
   }
 
   List<Widget> _generateIndicatorTabs() {
-    return List.generate(
-      widget.tabs!.length,
-      (int index) {
-        return _IndicatorTabBuilder(
-          transitionDuration: _effectiveTransitionDuration,
-          transitionCurve: _effectiveTransitionCurve,
-          isSelected: index == _selectedIndex,
-          moonTabBarSizeProperties: _effectiveMoonTabBarSize,
-          tab: widget.tabs![index],
-        );
-      },
-    );
+    return List.generate(widget.tabs!.length, (int index) {
+      return _IndicatorTabBuilder(
+        transitionDuration: _effectiveTransitionDuration,
+        transitionCurve: _effectiveTransitionCurve,
+        isSelected: index == _selectedIndex,
+        moonTabBarSizeProperties: _effectiveMoonTabBarSize,
+        tab: widget.tabs![index],
+      );
+    });
   }
 
   List<Widget> _generatePillTabs() {
-    return List.generate(
-      widget.pillTabs!.length,
-      (int index) {
-        return _PillTabBuilder(
-          transitionDuration: _effectiveTransitionDuration,
-          transitionCurve: _effectiveTransitionCurve,
-          isSelected: index == _selectedIndex,
-          moonTabBarSizeProperties: _effectiveMoonTabBarSize,
-          tab: widget.pillTabs![index],
-        );
-      },
-    );
+    return List.generate(widget.pillTabs!.length, (int index) {
+      return _PillTabBuilder(
+        transitionDuration: _effectiveTransitionDuration,
+        transitionCurve: _effectiveTransitionCurve,
+        isSelected: index == _selectedIndex,
+        moonTabBarSizeProperties: _effectiveMoonTabBarSize,
+        tab: widget.pillTabs![index],
+      );
+    });
   }
 
   List<Widget> _generateCustomTabs() {
-    return List.generate(
-      widget.customTabs!.length,
-      (int index) {
-        return widget.customTabs![index](context, index == _selectedIndex);
-      },
-    );
+    return List.generate(widget.customTabs!.length, (int index) {
+      return widget.customTabs![index](context, index == _selectedIndex);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     _effectiveMoonTabBarSize = _getMoonTabBarSize(context, widget.tabBarSize);
 
-    _effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme.tabBarTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+    _effectiveTransitionDuration =
+        widget.transitionDuration ??
+        context.moonTheme.tabBarTheme.properties.transitionDuration;
 
-    _effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme.tabBarTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+    _effectiveTransitionCurve =
+        widget.transitionCurve ??
+        context.moonTheme.tabBarTheme.properties.transitionCurve;
 
     final double effectiveHeight =
         widget.height ?? _effectiveMoonTabBarSize.height;
 
-    final double effectiveGap = widget.gap ??
-        context.moonTheme.tabBarTheme.properties.gap ??
-        MoonSizes.sizes.x5s;
+    final double effectiveGap =
+        widget.gap ?? context.moonTheme.tabBarTheme.properties.gap;
 
     return Container(
       height: effectiveHeight,
@@ -421,23 +395,26 @@ class _IndicatorTabBuilderState extends State<_IndicatorTabBuilder>
   Widget build(BuildContext context) {
     final MoonTabStyle? tabStyle = widget.tab.tabStyle;
 
-    final Color effectiveIndicatorColor = tabStyle?.indicatorColor ??
-        context.moonTheme.tabBarTheme.colors.indicatorColor ??
-        MoonColors.light.piccolo;
+    final Color effectiveIndicatorColor =
+        tabStyle?.indicatorColor ??
+        context.moonTheme.tabBarTheme.colors.indicatorColor;
 
-    final Color effectiveTextColor = tabStyle?.textStyle?.color ??
+    final Color effectiveTextColor =
+        tabStyle?.textStyle?.color ??
         tabStyle?.textColor ??
-        context.moonTheme.tabBarTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        context.moonTheme.tabBarTheme.colors.textColor;
 
-    final Color effectiveSelectedTextColor = tabStyle?.selectedTextColor ??
-        context.moonTheme.tabBarTheme.colors.selectedTextColor ??
-        MoonColors.light.piccolo;
+    final Color effectiveSelectedTextColor =
+        tabStyle?.selectedTextColor ??
+        context.moonTheme.tabBarTheme.colors.selectedTextColor;
 
-    final TextStyle effectiveTextStyle =
-        widget.moonTabBarSizeProperties.textStyle.merge(tabStyle?.textStyle);
+    final TextStyle effectiveTextStyle = widget
+        .moonTabBarSizeProperties
+        .textStyle
+        .merge(tabStyle?.textStyle);
 
-    final double effectiveIndicatorHeight = tabStyle?.indicatorHeight ??
+    final double effectiveIndicatorHeight =
+        tabStyle?.indicatorHeight ??
         widget.moonTabBarSizeProperties.indicatorHeight;
 
     final double effectiveTabGap =
@@ -446,8 +423,9 @@ class _IndicatorTabBuilderState extends State<_IndicatorTabBuilder>
     final EdgeInsetsGeometry effectiveTabPadding =
         tabStyle?.tabPadding ?? widget.moonTabBarSizeProperties.tabPadding;
 
-    final EdgeInsets resolvedDirectionalPadding =
-        effectiveTabPadding.resolve(Directionality.of(context));
+    final EdgeInsets resolvedDirectionalPadding = effectiveTabPadding.resolve(
+      Directionality.of(context),
+    );
 
     final EdgeInsetsGeometry correctedTabPadding = tabStyle?.tabPadding == null
         ? EdgeInsetsDirectional.fromSTEB(
@@ -491,102 +469,107 @@ class _IndicatorTabBuilderState extends State<_IndicatorTabBuilder>
       cursor: widget.isSelected
           ? SystemMouseCursors.basic
           : SystemMouseCursors.click,
-      builder: (
-        BuildContext context,
-        bool isEnabled,
-        bool isHovered,
-        bool isFocused,
-        bool isPressed,
-      ) {
-        final bool isActive =
-            isEnabled && (widget.isSelected || isHovered || isPressed);
+      builder:
+          (
+            BuildContext context,
+            bool isEnabled,
+            bool isHovered,
+            bool isFocused,
+            bool isPressed,
+          ) {
+            final bool isActive =
+                isEnabled && (widget.isSelected || isHovered || isPressed);
 
-        _handleActiveEffect(isActive);
+            _handleActiveEffect(isActive);
 
-        return Container(
-          decoration: tabStyle?.decoration,
-          child: Stack(
-            children: [
-              AnimatedBuilder(
-                animation: _animationController!,
-                builder: (BuildContext context, Widget? child) {
-                  return IconTheme(
-                    data: IconThemeData(
-                      color: _textColor!.value,
-                      size: widget.moonTabBarSizeProperties.iconSizeValue,
-                    ),
-                    child: DefaultTextStyle(
-                      style: effectiveTextStyle.copyWith(
-                        color: _textColor!.value,
+            return Container(
+              decoration: tabStyle?.decoration,
+              child: Stack(
+                children: [
+                  AnimatedBuilder(
+                    animation: _animationController!,
+                    builder: (BuildContext context, Widget? child) {
+                      return IconTheme(
+                        data: IconThemeData(
+                          color: _textColor!.value,
+                          size: widget.moonTabBarSizeProperties.iconSizeValue,
+                        ),
+                        child: DefaultTextStyle(
+                          style: effectiveTextStyle.copyWith(
+                            color: _textColor!.value,
+                          ),
+                          child: child!,
+                        ),
+                      );
+                    },
+                    child: Center(
+                      child: Padding(
+                        padding: correctedTabPadding,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            if (widget.tab.leading != null)
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: effectiveTabGap,
+                                ),
+                                child: widget.tab.leading,
+                              ),
+                            if (widget.tab.label != null)
+                              ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  minHeight: widget
+                                      .moonTabBarSizeProperties
+                                      .iconSizeValue,
+                                ),
+                                child: Center(child: widget.tab.label),
+                              ),
+                            if (widget.tab.trailing != null)
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: effectiveTabGap,
+                                ),
+                                child: widget.tab.trailing,
+                              ),
+                          ],
+                        ),
                       ),
-                      child: child!,
-                    ),
-                  );
-                },
-                child: Center(
-                  child: Padding(
-                    padding: correctedTabPadding,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (widget.tab.leading != null)
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: effectiveTabGap,
-                            ),
-                            child: widget.tab.leading,
-                          ),
-                        if (widget.tab.label != null)
-                          ConstrainedBox(
-                            constraints: BoxConstraints(
-                              minHeight:
-                                  widget.moonTabBarSizeProperties.iconSizeValue,
-                            ),
-                            child: Center(child: widget.tab.label),
-                          ),
-                        if (widget.tab.trailing != null)
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: effectiveTabGap,
-                            ),
-                            child: widget.tab.trailing,
-                          ),
-                      ],
                     ),
                   ),
-                ),
-              ),
-              Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: LayoutBuilder(
-                  builder: (BuildContext context, BoxConstraints constraints) {
-                    _indicatorWidthTween.end = constraints.maxWidth;
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: LayoutBuilder(
+                      builder:
+                          (BuildContext context, BoxConstraints constraints) {
+                            _indicatorWidthTween.end = constraints.maxWidth;
 
-                    return Align(
-                      alignment: Directionality.of(context) == TextDirection.ltr
-                          ? Alignment.bottomLeft
-                          : Alignment.bottomRight,
-                      child: AnimatedBuilder(
-                        animation: _animationController!,
-                        builder: (BuildContext context, Widget? child) {
-                          return Container(
-                            color: effectiveIndicatorColor,
-                            height: effectiveIndicatorHeight,
-                            width: _indicatorWidth!.value,
-                          );
-                        },
-                      ),
-                    );
-                  },
-                ),
+                            return Align(
+                              alignment:
+                                  Directionality.of(context) ==
+                                      TextDirection.ltr
+                                  ? Alignment.bottomLeft
+                                  : Alignment.bottomRight,
+                              child: AnimatedBuilder(
+                                animation: _animationController!,
+                                builder: (BuildContext context, Widget? child) {
+                                  return Container(
+                                    color: effectiveIndicatorColor,
+                                    height: effectiveIndicatorHeight,
+                                    width: _indicatorWidth!.value,
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        );
-      },
+            );
+          },
     );
   }
 }
@@ -654,21 +637,23 @@ class _PillTabBuilderState extends State<_PillTabBuilder>
     final BorderRadiusGeometry effectiveTabBorderRadius =
         tabStyle?.borderRadius ?? widget.moonTabBarSizeProperties.borderRadius;
 
-    final Color effectiveSelectedTabColor = tabStyle?.selectedTabColor ??
-        context.moonTheme.tabBarTheme.colors.selectedPillTabColor ??
-        MoonColors.light.goku;
+    final Color effectiveSelectedTabColor =
+        tabStyle?.selectedTabColor ??
+        context.moonTheme.tabBarTheme.colors.selectedPillTabColor;
 
-    final Color effectiveTextColor = tabStyle?.textStyle?.color ??
+    final Color effectiveTextColor =
+        tabStyle?.textStyle?.color ??
         tabStyle?.textColor ??
-        context.moonTheme.tabBarTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        context.moonTheme.tabBarTheme.colors.textColor;
 
-    final Color effectiveSelectedTextColor = tabStyle?.selectedTextColor ??
-        context.moonTheme.tabBarTheme.colors.selectedPillTextColor ??
-        MoonColors.light.textPrimary;
+    final Color effectiveSelectedTextColor =
+        tabStyle?.selectedTextColor ??
+        context.moonTheme.tabBarTheme.colors.selectedPillTextColor;
 
-    final TextStyle effectiveTextStyle =
-        widget.moonTabBarSizeProperties.textStyle.merge(tabStyle?.textStyle);
+    final TextStyle effectiveTextStyle = widget
+        .moonTabBarSizeProperties
+        .textStyle
+        .merge(tabStyle?.textStyle);
 
     final double effectiveTabGap =
         tabStyle?.tabGap ?? widget.moonTabBarSizeProperties.tabGap;
@@ -676,8 +661,9 @@ class _PillTabBuilderState extends State<_PillTabBuilder>
     final EdgeInsetsGeometry effectiveTabPadding =
         tabStyle?.tabPadding ?? widget.moonTabBarSizeProperties.tabPadding;
 
-    final EdgeInsets resolvedDirectionalPadding =
-        effectiveTabPadding.resolve(Directionality.of(context));
+    final EdgeInsets resolvedDirectionalPadding = effectiveTabPadding.resolve(
+      Directionality.of(context),
+    );
 
     final EdgeInsetsGeometry correctedTabPadding = tabStyle?.tabPadding == null
         ? EdgeInsetsDirectional.fromSTEB(
@@ -718,70 +704,74 @@ class _PillTabBuilderState extends State<_PillTabBuilder>
       cursor: widget.isSelected
           ? SystemMouseCursors.basic
           : SystemMouseCursors.click,
-      builder: (
-        BuildContext context,
-        bool isEnabled,
-        bool isHovered,
-        bool isFocused,
-        bool isPressed,
-      ) {
-        final bool isActive =
-            isEnabled && (widget.isSelected || isHovered || isPressed);
+      builder:
+          (
+            BuildContext context,
+            bool isEnabled,
+            bool isHovered,
+            bool isFocused,
+            bool isPressed,
+          ) {
+            final bool isActive =
+                isEnabled && (widget.isSelected || isHovered || isPressed);
 
-        _handleActiveEffect(isActive);
+            _handleActiveEffect(isActive);
 
-        return AnimatedBuilder(
-          animation: _animationController!,
-          builder: (BuildContext context, Widget? child) {
-            return DecoratedBox(
-              decoration: tabStyle?.decoration ??
-                  ShapeDecoration(
-                    color: _tabColor!.value,
-                    shape: MoonSquircleBorder(
-                      borderRadius: effectiveTabBorderRadius
-                          .squircleBorderRadius(context),
+            return AnimatedBuilder(
+              animation: _animationController!,
+              builder: (BuildContext context, Widget? child) {
+                return DecoratedBox(
+                  decoration:
+                      tabStyle?.decoration ??
+                      ShapeDecoration(
+                        color: _tabColor!.value,
+                        shape: MoonSquircleBorder(
+                          borderRadius: effectiveTabBorderRadius
+                              .squircleBorderRadius(context),
+                        ),
+                      ),
+                  child: IconTheme(
+                    data: IconThemeData(
+                      size: widget.moonTabBarSizeProperties.iconSizeValue,
+                      color: _textColor!.value,
+                    ),
+                    child: DefaultTextStyle(
+                      style: effectiveTextStyle.copyWith(
+                        color: _textColor!.value,
+                      ),
+                      child: child!,
                     ),
                   ),
-              child: IconTheme(
-                data: IconThemeData(
-                  size: widget.moonTabBarSizeProperties.iconSizeValue,
-                  color: _textColor!.value,
-                ),
-                child: DefaultTextStyle(
-                  style: effectiveTextStyle.copyWith(color: _textColor!.value),
-                  child: child!,
+                );
+              },
+              child: Center(
+                child: Padding(
+                  padding: correctedTabPadding,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (widget.tab.leading != null)
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: effectiveTabGap,
+                          ),
+                          child: widget.tab.leading,
+                        ),
+                      if (widget.tab.label != null) widget.tab.label!,
+                      if (widget.tab.trailing != null)
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: effectiveTabGap,
+                          ),
+                          child: widget.tab.trailing,
+                        ),
+                    ],
+                  ),
                 ),
               ),
             );
           },
-          child: Center(
-            child: Padding(
-              padding: correctedTabPadding,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (widget.tab.leading != null)
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: effectiveTabGap,
-                      ),
-                      child: widget.tab.leading,
-                    ),
-                  if (widget.tab.label != null) widget.tab.label!,
-                  if (widget.tab.trailing != null)
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: effectiveTabGap,
-                      ),
-                      child: widget.tab.trailing,
-                    ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
     );
   }
 }

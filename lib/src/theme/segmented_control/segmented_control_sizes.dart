@@ -21,26 +21,26 @@ class MoonSegmentedControlSizes
     required this.tokens,
     MoonSegmentedControlSizeProperties? sm,
     MoonSegmentedControlSizeProperties? md,
-  })  : sm = sm ??
-            MoonSegmentedControlSizeProperties(
-              segmentBorderRadius: tokens.borders.interactiveSm,
-              segmentGap: tokens.sizes.x5s,
-              height: tokens.sizes.md,
-              iconSizeValue: tokens.sizes.xs,
-              segmentPadding:
-                  EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              textStyle: tokens.typography.heading.textDefault,
-            ),
-        md = md ??
-            MoonSegmentedControlSizeProperties(
-              segmentBorderRadius: tokens.borders.interactiveSm,
-              segmentGap: tokens.sizes.x4s,
-              height: tokens.sizes.lg,
-              iconSizeValue: tokens.sizes.xs,
-              segmentPadding:
-                  EdgeInsets.symmetric(horizontal: tokens.sizes.x2s),
-              textStyle: tokens.typography.heading.textDefault,
-            );
+  }) : sm =
+           sm ??
+           MoonSegmentedControlSizeProperties(
+             segmentBorderRadius: tokens.borders.interactiveSm,
+             segmentGap: tokens.sizes.x5s,
+             height: tokens.sizes.md,
+             iconSizeValue: tokens.sizes.xs,
+             segmentPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
+             textStyle: tokens.typography.heading.textDefault,
+           ),
+       md =
+           md ??
+           MoonSegmentedControlSizeProperties(
+             segmentBorderRadius: tokens.borders.interactiveSm,
+             segmentGap: tokens.sizes.x4s,
+             height: tokens.sizes.lg,
+             iconSizeValue: tokens.sizes.xs,
+             segmentPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x2s),
+             textStyle: tokens.typography.heading.textDefault,
+           );
 
   @override
   MoonSegmentedControlSizes copyWith({

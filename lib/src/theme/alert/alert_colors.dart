@@ -45,8 +45,11 @@ class MoonAlertColors extends ThemeExtension<MoonAlertColors>
     if (other is! MoonAlertColors) return this;
 
     return MoonAlertColors(
-      backgroundColor:
-          colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
+      backgroundColor: colorPremulLerp(
+        backgroundColor,
+        other.backgroundColor,
+        t,
+      )!,
       borderColor: colorPremulLerp(borderColor, other.borderColor, t)!,
       iconColor: colorPremulLerp(iconColor, other.iconColor, t)!,
       textColor: colorPremulLerp(textColor, other.textColor, t)!,

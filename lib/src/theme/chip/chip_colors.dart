@@ -47,8 +47,11 @@ class MoonChipColors extends ThemeExtension<MoonChipColors>
 
     return MoonChipColors(
       activeColor: colorPremulLerp(activeColor, other.activeColor, t)!,
-      backgroundColor:
-          colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
+      backgroundColor: colorPremulLerp(
+        backgroundColor,
+        other.backgroundColor,
+        t,
+      )!,
       activeBackgroundColor: colorPremulLerp(
         activeBackgroundColor,
         other.activeBackgroundColor,

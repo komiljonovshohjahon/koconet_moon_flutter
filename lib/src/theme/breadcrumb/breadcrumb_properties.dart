@@ -71,12 +71,18 @@ class MoonBreadcrumbProperties extends ThemeExtension<MoonBreadcrumbProperties>
     return MoonBreadcrumbProperties(
       gap: lerpDouble(gap, other.gap, t)!,
       itemGap: lerpDouble(itemGap, other.itemGap, t)!,
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
       itemTextStyle: TextStyle.lerp(itemTextStyle, other.itemTextStyle, t)!,
-      currentItemTextStyle:
-          TextStyle.lerp(currentItemTextStyle, other.currentItemTextStyle, t)!,
+      currentItemTextStyle: TextStyle.lerp(
+        currentItemTextStyle,
+        other.currentItemTextStyle,
+        t,
+      )!,
       showMoreItemTextStyle: TextStyle.lerp(
         showMoreItemTextStyle,
         other.showMoreItemTextStyle,
@@ -89,24 +95,14 @@ class MoonBreadcrumbProperties extends ThemeExtension<MoonBreadcrumbProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonBreadcrumbProperties"),
-      )
-      ..add(
-        DoubleProperty("gap", gap),
-      )
-      ..add(
-        DoubleProperty("itemGap", itemGap),
-      )
+      ..add(DiagnosticsProperty("type", "MoonBreadcrumbProperties"))
+      ..add(DoubleProperty("gap", gap))
+      ..add(DoubleProperty("itemGap", itemGap))
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      )
-      ..add(
-        DiagnosticsProperty<TextStyle>("itemTextStyle", itemTextStyle),
-      )
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve))
+      ..add(DiagnosticsProperty<TextStyle>("itemTextStyle", itemTextStyle))
       ..add(
         DiagnosticsProperty<TextStyle>(
           "currentItemTextStyle",

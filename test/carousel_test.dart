@@ -51,7 +51,7 @@ class _CarouselTestWidget extends StatelessWidget {
             gap: 0,
             itemCount: 10,
             itemExtent: 100,
-            itemBuilder: (BuildContext _, int itemIndex, int __) =>
+            itemBuilder: (BuildContext _, int itemIndex, int _) =>
                 Text("$itemIndex"),
           ),
         ),

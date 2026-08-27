@@ -33,9 +33,7 @@ class MoonTooltipShadows extends ThemeExtension<MoonTooltipShadows>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonTooltipShadows"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonTooltipShadows"))
       ..add(
         DiagnosticsProperty<List<BoxShadow>>("tooltipShadows", tooltipShadows),
       );

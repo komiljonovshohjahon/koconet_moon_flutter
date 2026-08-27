@@ -26,24 +26,26 @@ class MoonDropdownTheme extends ThemeExtension<MoonDropdownTheme>
     MoonDropdownColors? colors,
     MoonDropdownProperties? properties,
     MoonDropdownShadows? shadows,
-  })  : colors = colors ??
-            MoonDropdownColors(
-              textColor: tokens.colors.textPrimary,
-              iconColor: tokens.colors.iconPrimary,
-              backgroundColor: tokens.colors.goku,
-            ),
-        properties = properties ??
-            MoonDropdownProperties(
-              borderRadius: tokens.borders.interactiveMd,
-              distanceToTarget: tokens.sizes.x4s,
-              transitionDuration: Duration.zero,
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-              contentPadding: EdgeInsets.all(tokens.sizes.x5s),
-              dropdownMargin: EdgeInsets.all(tokens.sizes.x4s),
-              textStyle: tokens.typography.body.textDefault,
-            ),
-        shadows =
-            shadows ?? MoonDropdownShadows(dropdownShadows: tokens.shadows.sm);
+  }) : colors =
+           colors ??
+           MoonDropdownColors(
+             textColor: tokens.colors.textPrimary,
+             iconColor: tokens.colors.iconPrimary,
+             backgroundColor: tokens.colors.goku,
+           ),
+       properties =
+           properties ??
+           MoonDropdownProperties(
+             borderRadius: tokens.borders.interactiveMd,
+             distanceToTarget: tokens.sizes.x4s,
+             transitionDuration: Duration.zero,
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+             contentPadding: EdgeInsets.all(tokens.sizes.x5s),
+             dropdownMargin: EdgeInsets.all(tokens.sizes.x4s),
+             textStyle: tokens.typography.body.textDefault,
+           ),
+       shadows =
+           shadows ?? MoonDropdownShadows(dropdownShadows: tokens.shadows.sm);
 
   @override
   MoonDropdownTheme copyWith({
@@ -76,20 +78,12 @@ class MoonDropdownTheme extends ThemeExtension<MoonDropdownTheme>
   void debugFillProperties(DiagnosticPropertiesBuilder diagnosticProperties) {
     super.debugFillProperties(diagnosticProperties);
     diagnosticProperties
-      ..add(
-        DiagnosticsProperty("type", "MoonDropdownTheme"),
-      )
-      ..add(
-        DiagnosticsProperty<MoonTokens>("tokens", tokens),
-      )
-      ..add(
-        DiagnosticsProperty<MoonDropdownColors>("colors", colors),
-      )
+      ..add(DiagnosticsProperty("type", "MoonDropdownTheme"))
+      ..add(DiagnosticsProperty<MoonTokens>("tokens", tokens))
+      ..add(DiagnosticsProperty<MoonDropdownColors>("colors", colors))
       ..add(
         DiagnosticsProperty<MoonDropdownProperties>("properties", properties),
       )
-      ..add(
-        DiagnosticsProperty<MoonDropdownShadows>("shadows", shadows),
-      );
+      ..add(DiagnosticsProperty<MoonDropdownShadows>("shadows", shadows));
   }
 }

@@ -3,24 +3,16 @@ import 'package:flutter/services.dart';
 
 import 'package:moon_design/src/theme/effects/effects_theme.dart';
 import 'package:moon_design/src/theme/switch/switch_size_properties.dart';
-import 'package:moon_design/src/theme/switch/switch_sizes.dart';
 import 'package:moon_design/src/theme/theme.dart';
 import 'package:moon_design/src/theme/tokens/opacities.dart';
-import 'package:moon_design/src/theme/tokens/shadows.dart';
 import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/shape_decoration_premul.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border_radius.dart';
 import 'package:moon_design/src/widgets/common/effects/focus_effect.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonSwitchSize {
-  x2s,
-  xs,
-  sm,
-}
+enum MoonSwitchSize { x2s, xs, sm }
 
 class MoonSwitch extends StatefulWidget {
   /// {@macro flutter.widgets.Focus.autofocus}
@@ -146,17 +138,13 @@ class _MoonSwitchState extends State<MoonSwitch>
   ) {
     switch (moonSwitchSize) {
       case MoonSwitchSize.x2s:
-        return context.moonTheme.switchTheme.sizes.x2s ??
-            MoonSwitchSizes(tokens: MoonTokens.light).x2s;
+        return context.moonTheme.switchTheme.sizes.x2s;
       case MoonSwitchSize.xs:
-        return context.moonTheme.switchTheme.sizes.xs ??
-            MoonSwitchSizes(tokens: MoonTokens.light).xs;
+        return context.moonTheme.switchTheme.sizes.xs;
       case MoonSwitchSize.sm:
-        return context.moonTheme.switchTheme.sizes.sm ??
-            MoonSwitchSizes(tokens: MoonTokens.light).sm;
+        return context.moonTheme.switchTheme.sizes.sm;
       default:
-        return context.moonTheme.switchTheme.sizes.xs ??
-            MoonSwitchSizes(tokens: MoonTokens.light).xs;
+        return context.moonTheme.switchTheme.sizes.xs;
     }
   }
 
@@ -227,10 +215,12 @@ class _MoonSwitchState extends State<MoonSwitch>
 
       switch (Directionality.of(context)) {
         case TextDirection.rtl:
-          _animationController!.value += -details.primaryDelta! /
+          _animationController!.value +=
+              -details.primaryDelta! /
               (switchWidth - (thumbSizeValue + padding.right + padding.left));
         case TextDirection.ltr:
-          _animationController!.value += details.primaryDelta! /
+          _animationController!.value +=
+              details.primaryDelta! /
               (switchWidth - (thumbSizeValue + padding.right + padding.left));
       }
     }
@@ -276,20 +266,21 @@ class _MoonSwitchState extends State<MoonSwitch>
   Widget build(BuildContext context) {
     if (_needsPositionAnimation) _resumePositionAnimation();
 
-    final MoonSwitchSizeProperties effectiveMoonSwitchSize =
-        _getMoonSwitchSize(context, widget.switchSize);
+    final MoonSwitchSizeProperties effectiveMoonSwitchSize = _getMoonSwitchSize(
+      context,
+      widget.switchSize,
+    );
 
-    final Color effectiveActiveTrackColor = widget.activeTrackColor ??
-        context.moonTheme.switchTheme.colors.activeTrackColor ??
-        MoonColors.light.piccolo;
+    final Color effectiveActiveTrackColor =
+        widget.activeTrackColor ??
+        context.moonTheme.switchTheme.colors.activeTrackColor;
 
-    final Color effectiveInactiveTrackColor = widget.inactiveTrackColor ??
-        context.moonTheme.switchTheme.colors.inactiveTrackColor ??
-        MoonColors.light.beerus;
+    final Color effectiveInactiveTrackColor =
+        widget.inactiveTrackColor ??
+        context.moonTheme.switchTheme.colors.inactiveTrackColor;
 
-    final Color effectiveThumbColor = widget.thumbColor ??
-        context.moonTheme.switchTheme.colors.thumbColor ??
-        MoonColors.light.goten;
+    final Color effectiveThumbColor =
+        widget.thumbColor ?? context.moonTheme.switchTheme.colors.thumbColor;
 
     final double effectiveHeight =
         widget.height ?? effectiveMoonSwitchSize.height;
@@ -305,47 +296,48 @@ class _MoonSwitchState extends State<MoonSwitch>
     final EdgeInsetsGeometry effectivePadding =
         widget.padding ?? effectiveMoonSwitchSize.padding;
 
-    final EdgeInsets resolvedDirectionalPadding =
-        effectivePadding.resolve(Directionality.of(context));
+    final EdgeInsets resolvedDirectionalPadding = effectivePadding.resolve(
+      Directionality.of(context),
+    );
 
-    final BorderRadiusGeometry effectiveBorderRadius =
-        BorderRadius.circular(effectiveThumbSizeValue / 2);
+    final BorderRadiusGeometry effectiveBorderRadius = BorderRadius.circular(
+      effectiveThumbSizeValue / 2,
+    );
 
     final List<BoxShadow> effectiveThumbShadow =
-        context.moonTheme.switchTheme.shadows.thumbShadows ??
-            MoonShadows.light.sm;
+        context.moonTheme.switchTheme.shadows.thumbShadows;
 
-    final Duration effectiveDuration = widget.duration ??
-        context.moonTheme.switchTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+    final Duration effectiveDuration =
+        widget.duration ??
+        context.moonTheme.switchTheme.properties.transitionDuration;
 
-    final Curve effectiveTransitionCurve = widget.curve ??
-        context.moonTheme.switchTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+    final Curve effectiveTransitionCurve =
+        widget.curve ??
+        context.moonTheme.switchTheme.properties.transitionCurve;
 
     final double effectiveFocusEffectExtent =
         context.moonEffects?.controlFocusEffect.effectExtent ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
-                .controlFocusEffect
-                .effectExtent;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlFocusEffect.effectExtent;
 
     final Color effectiveFocusEffectColor =
         context.moonEffects?.controlFocusEffect.effectColor ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
-                .controlFocusEffect
-                .effectColor;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlFocusEffect.effectColor;
 
     final Duration effectiveFocusEffectDuration =
         context.moonEffects?.controlFocusEffect.effectDuration ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
-                .controlFocusEffect
-                .effectDuration;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlFocusEffect.effectDuration;
 
     final Curve effectiveFocusEffectCurve =
         context.moonEffects?.controlFocusEffect.effectCurve ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
-                .controlFocusEffect
-                .effectCurve;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlFocusEffect.effectCurve;
 
     _animationController ??= AnimationController(
       vsync: this,
@@ -402,41 +394,36 @@ class _MoonSwitchState extends State<MoonSwitch>
       ),
     ]).animate(_curvedAnimation!);
 
-    _activeTrackWidgetFadeAnimation ??=
-        Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(
-        parent: _animationController!,
-        curve: const Interval(0.7, 1.0),
-      ),
-    );
+    _activeTrackWidgetFadeAnimation ??= Tween<double>(begin: 0.0, end: 1.0)
+        .animate(
+          CurvedAnimation(
+            parent: _animationController!,
+            curve: const Interval(0.7, 1.0),
+          ),
+        );
 
-    _inactiveTrackWidgetFadeAnimation ??=
-        Tween<double>(begin: 1.0, end: 0.0).animate(
-      CurvedAnimation(
-        parent: _animationController!,
-        curve: const Interval(0.0, 0.3),
-      ),
-    );
+    _inactiveTrackWidgetFadeAnimation ??= Tween<double>(begin: 1.0, end: 0.0)
+        .animate(
+          CurvedAnimation(
+            parent: _animationController!,
+            curve: const Interval(0.0, 0.3),
+          ),
+        );
 
     final Color effectiveActiveTextColor =
-        context.moonTheme.switchTheme.colors.activeTextColor ??
-            MoonTokens.dark.colors.textPrimary;
+        context.moonTheme.switchTheme.colors.activeTextColor;
 
     final Color effectiveInactiveTextColor =
-        context.moonTheme.switchTheme.colors.inactiveTextColor ??
-            MoonColors.light.textPrimary;
+        context.moonTheme.switchTheme.colors.inactiveTextColor;
 
     final Color effectiveActiveIconColor =
-        context.moonTheme.switchTheme.colors.activeIconColor ??
-            MoonTokens.dark.colors.iconPrimary;
+        context.moonTheme.switchTheme.colors.activeIconColor;
 
     final Color effectiveInactiveIconColor =
-        context.moonTheme.switchTheme.colors.inactiveIconColor ??
-            MoonColors.light.iconPrimary;
+        context.moonTheme.switchTheme.colors.inactiveIconColor;
 
     final Color effectiveThumbIconColor =
-        context.moonTheme.switchTheme.colors.thumbIconColor ??
-            MoonColors.light.iconPrimary;
+        context.moonTheme.switchTheme.colors.thumbIconColor;
 
     return Semantics(
       label: widget.semanticLabel,
@@ -459,11 +446,11 @@ class _MoonSwitchState extends State<MoonSwitch>
           onHorizontalDragStart: _handleDragStart,
           onHorizontalDragUpdate: (DragUpdateDetails details) =>
               _handleDragUpdate(
-            details: details,
-            switchWidth: effectiveWidth,
-            thumbSizeValue: effectiveThumbSizeValue,
-            padding: resolvedDirectionalPadding,
-          ),
+                details: details,
+                switchWidth: effectiveWidth,
+                thumbSizeValue: effectiveThumbSizeValue,
+                padding: resolvedDirectionalPadding,
+              ),
           onHorizontalDragEnd: _handleDragEnd,
           child: RepaintBoundary(
             child: AnimatedBuilder(
@@ -494,13 +481,14 @@ class _MoonSwitchState extends State<MoonSwitch>
                                   child: DefaultTextStyle(
                                     style: effectiveMoonSwitchSize.textStyle
                                         .copyWith(
-                                      color: effectiveActiveTextColor,
-                                    ),
+                                          color: effectiveActiveTextColor,
+                                        ),
                                     child: Expanded(
                                       child: FadeTransition(
                                         opacity:
                                             _activeTrackWidgetFadeAnimation!,
-                                        child: widget.activeTrackWidget ??
+                                        child:
+                                            widget.activeTrackWidget ??
                                             const SizedBox.shrink(),
                                       ),
                                     ),
@@ -517,13 +505,14 @@ class _MoonSwitchState extends State<MoonSwitch>
                                   child: DefaultTextStyle(
                                     style: effectiveMoonSwitchSize.textStyle
                                         .copyWith(
-                                      color: effectiveInactiveTextColor,
-                                    ),
+                                          color: effectiveInactiveTextColor,
+                                        ),
                                     child: Expanded(
                                       child: FadeTransition(
                                         opacity:
                                             _inactiveTrackWidgetFadeAnimation!,
-                                        child: widget.inactiveTrackWidget ??
+                                        child:
+                                            widget.inactiveTrackWidget ??
                                             const SizedBox.shrink(),
                                       ),
                                     ),
@@ -541,8 +530,8 @@ class _MoonSwitchState extends State<MoonSwitch>
                                 child: DefaultTextStyle(
                                   style: effectiveMoonSwitchSize.textStyle
                                       .copyWith(
-                                    color: effectiveInactiveTextColor,
-                                  ),
+                                        color: effectiveInactiveTextColor,
+                                      ),
                                   child: MoonFocusEffect(
                                     show: _isFocused,
                                     effectColor: effectiveFocusEffectColor,
@@ -557,13 +546,16 @@ class _MoonSwitchState extends State<MoonSwitch>
                                       alignment: Alignment.center,
                                       decoration:
                                           ShapeDecorationWithPremultipliedAlpha(
-                                        color: effectiveThumbColor,
-                                        shadows: effectiveThumbShadow,
-                                        shape: MoonSquircleBorder(
-                                          borderRadius: effectiveBorderRadius
-                                              .squircleBorderRadius(context),
-                                        ),
-                                      ),
+                                            color: effectiveThumbColor,
+                                            shadows: effectiveThumbShadow,
+                                            shape: MoonSquircleBorder(
+                                              borderRadius:
+                                                  effectiveBorderRadius
+                                                      .squircleBorderRadius(
+                                                        context,
+                                                      ),
+                                            ),
+                                          ),
                                       child: FadeTransition(
                                         opacity: _thumbFadeAnimation!,
                                         child: _curvedAnimation!.value > 0.5

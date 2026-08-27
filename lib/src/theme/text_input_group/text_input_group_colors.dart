@@ -54,14 +54,23 @@ class MoonTextInputGroupColors extends ThemeExtension<MoonTextInputGroupColors>
     if (other is! MoonTextInputGroupColors) return this;
 
     return MoonTextInputGroupColors(
-      backgroundColor:
-          colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
+      backgroundColor: colorPremulLerp(
+        backgroundColor,
+        other.backgroundColor,
+        t,
+      )!,
       errorColor: colorPremulLerp(errorColor, other.errorColor, t)!,
-      helperTextColor:
-          colorPremulLerp(helperTextColor, other.helperTextColor, t)!,
+      helperTextColor: colorPremulLerp(
+        helperTextColor,
+        other.helperTextColor,
+        t,
+      )!,
       borderColor: colorPremulLerp(borderColor, other.borderColor, t)!,
-      hoverBorderColor:
-          colorPremulLerp(hoverBorderColor, other.hoverBorderColor, t)!,
+      hoverBorderColor: colorPremulLerp(
+        hoverBorderColor,
+        other.hoverBorderColor,
+        t,
+      )!,
     );
   }
 

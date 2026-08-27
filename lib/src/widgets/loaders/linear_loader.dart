@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/loaders/linear_loader/linear_loader_size_properties.dart';
-import 'package:moon_design/src/theme/loaders/linear_loader/linear_loader_sizes.dart';
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
 import 'package:moon_design/src/widgets/common/progress_indicators/linear_progress_indicator.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonLinearLoaderSize {
-  x6s,
-  x5s,
-  x4s,
-  x3s,
-  x2s,
-}
+enum MoonLinearLoaderSize { x6s, x5s, x4s, x3s, x2s }
 
 class MoonLinearLoader extends StatelessWidget {
   /// The border radius of the linear loader.
@@ -47,23 +38,17 @@ class MoonLinearLoader extends StatelessWidget {
   ) {
     switch (moonLoaderSize) {
       case MoonLinearLoaderSize.x6s:
-        return context.moonTheme.linearLoaderTheme.sizes.x6s ??
-            MoonLinearLoaderSizes(tokens: MoonTokens.light).x6s;
+        return context.moonTheme.linearLoaderTheme.sizes.x6s;
       case MoonLinearLoaderSize.x5s:
-        return context.moonTheme.linearLoaderTheme.sizes.x5s ??
-            MoonLinearLoaderSizes(tokens: MoonTokens.light).x5s;
+        return context.moonTheme.linearLoaderTheme.sizes.x5s;
       case MoonLinearLoaderSize.x4s:
-        return context.moonTheme.linearLoaderTheme.sizes.x4s ??
-            MoonLinearLoaderSizes(tokens: MoonTokens.light).x4s;
+        return context.moonTheme.linearLoaderTheme.sizes.x4s;
       case MoonLinearLoaderSize.x3s:
-        return context.moonTheme.linearLoaderTheme.sizes.x3s ??
-            MoonLinearLoaderSizes(tokens: MoonTokens.light).x3s;
+        return context.moonTheme.linearLoaderTheme.sizes.x3s;
       case MoonLinearLoaderSize.x2s:
-        return context.moonTheme.linearLoaderTheme.sizes.x2s ??
-            MoonLinearLoaderSizes(tokens: MoonTokens.light).x2s;
+        return context.moonTheme.linearLoaderTheme.sizes.x2s;
       default:
-        return context.moonTheme.linearLoaderTheme.sizes.x4s ??
-            MoonLinearLoaderSizes(tokens: MoonTokens.light).x4s;
+        return context.moonTheme.linearLoaderTheme.sizes.x4s;
     }
   }
 
@@ -75,13 +60,12 @@ class MoonLinearLoader extends StatelessWidget {
     final BorderRadiusGeometry effectiveBorderRadius =
         borderRadius ?? effectiveLoaderSize.borderRadius;
 
-    final Color effectiveColor = color ??
-        context.moonTheme.linearLoaderTheme.colors.color ??
-        MoonColors.light.piccolo;
+    final Color effectiveColor =
+        color ?? context.moonTheme.linearLoaderTheme.colors.color;
 
-    final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme.linearLoaderTheme.colors.backgroundColor ??
-        Colors.transparent;
+    final Color effectiveBackgroundColor =
+        backgroundColor ??
+        context.moonTheme.linearLoaderTheme.colors.backgroundColor;
 
     final double effectiveHeight = height ?? effectiveLoaderSize.loaderHeight;
 

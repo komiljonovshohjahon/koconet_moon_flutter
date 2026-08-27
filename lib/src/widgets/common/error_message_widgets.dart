@@ -53,10 +53,7 @@ class _MoonErrorMessageState extends State<MoonErrorMessage>
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
-      duration: widget.duration,
-      vsync: this,
-    );
+    _controller = AnimationController(duration: widget.duration, vsync: this);
     _opacityAnimation = CurvedAnimation(
       parent: _controller,
       curve: widget.curve,
@@ -81,10 +78,7 @@ class _MoonErrorMessageState extends State<MoonErrorMessage>
       opacity: _opacityAnimation,
       child: Row(
         children: [
-          Icon(
-            Icons.info_outline,
-            size: context.moonSizes?.x2s ?? 16,
-          ),
+          Icon(Icons.info_outline, size: context.moonSizes?.x2s ?? 16),
           SizedBox(width: context.moonSizes?.x5s ?? 4),
           Text(widget.errorText),
         ],

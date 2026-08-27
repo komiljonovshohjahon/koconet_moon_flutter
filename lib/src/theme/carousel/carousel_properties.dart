@@ -58,8 +58,11 @@ class MoonCarouselProperties extends ThemeExtension<MoonCarouselProperties>
       gap: lerpDouble(gap, other.gap, t)!,
       textStyle: TextStyle.lerp(textStyle, other.textStyle, t)!,
       autoPlayDelay: lerpDuration(autoPlayDelay, other.autoPlayDelay, t),
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
     );
   }
@@ -75,8 +78,6 @@ class MoonCarouselProperties extends ThemeExtension<MoonCarouselProperties>
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      );
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve));
   }
 }

@@ -110,16 +110,16 @@ class MoonAlert extends StatefulWidget {
     required this.label,
     this.trailing,
     this.content,
-  })  : showBorder = false,
-        borderColor = null,
-        borderWidth = null,
-        decoration = null,
-        minimumHeight = null,
-        padding = null,
-        horizontalGap = null,
-        verticalGap = null,
-        transitionDuration = null,
-        transitionCurve = null;
+  }) : showBorder = false,
+       borderColor = null,
+       borderWidth = null,
+       decoration = null,
+       minimumHeight = null,
+       padding = null,
+       horizontalGap = null,
+       verticalGap = null,
+       transitionDuration = null,
+       transitionCurve = null;
 
   /// Creates a Moon Design outlined alert.
   ///
@@ -138,15 +138,15 @@ class MoonAlert extends StatefulWidget {
     required this.label,
     this.trailing,
     this.content,
-  })  : showBorder = true,
-        backgroundColor = Colors.transparent,
-        decoration = null,
-        minimumHeight = null,
-        padding = null,
-        horizontalGap = null,
-        verticalGap = null,
-        transitionDuration = null,
-        transitionCurve = null;
+  }) : showBorder = true,
+       backgroundColor = Colors.transparent,
+       decoration = null,
+       minimumHeight = null,
+       padding = null,
+       horizontalGap = null,
+       verticalGap = null,
+       transitionDuration = null,
+       transitionCurve = null;
 
   @override
   State<MoonAlert> createState() => _MoonAlertState();
@@ -208,23 +208,29 @@ class _MoonAlertState extends State<MoonAlert>
 
   @override
   Widget build(BuildContext context) {
-    final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
+    final BorderRadiusGeometry effectiveBorderRadius =
+        widget.borderRadius ??
         context.moonTheme.alertTheme.properties.borderRadius;
 
-    final double effectiveBorderWidth = widget.borderWidth ??
+    final double effectiveBorderWidth =
+        widget.borderWidth ??
         context.moonBorders?.defaultBorderWidth ??
         MoonBorders.borders.defaultBorderWidth;
 
-    final double effectiveHorizontalGap = widget.horizontalGap ??
+    final double effectiveHorizontalGap =
+        widget.horizontalGap ??
         context.moonTheme.alertTheme.properties.horizontalGap;
 
-    final double effectiveVerticalGap = widget.verticalGap ??
+    final double effectiveVerticalGap =
+        widget.verticalGap ??
         context.moonTheme.alertTheme.properties.verticalGap;
 
-    final double effectiveMinimumHeight = widget.minimumHeight ??
+    final double effectiveMinimumHeight =
+        widget.minimumHeight ??
         context.moonTheme.alertTheme.properties.minimumHeight;
 
-    final Color effectiveBackgroundColor = widget.backgroundColor ??
+    final Color effectiveBackgroundColor =
+        widget.backgroundColor ??
         context.moonTheme.alertTheme.colors.backgroundColor;
 
     final Color effectiveBorderColor =
@@ -239,16 +245,19 @@ class _MoonAlertState extends State<MoonAlert>
     final EdgeInsetsGeometry effectivePadding =
         widget.padding ?? context.moonTheme.alertTheme.properties.padding;
 
-    final TextStyle effectiveLabelTextStyle =
-        _getLabelTextStyle(context: context);
+    final TextStyle effectiveLabelTextStyle = _getLabelTextStyle(
+      context: context,
+    );
 
     final TextStyle effectiveContentTextStyle =
         context.moonTheme.alertTheme.properties.contentTextStyle;
 
-    final Duration effectiveTransitionDuration = widget.transitionDuration ??
+    final Duration effectiveTransitionDuration =
+        widget.transitionDuration ??
         context.moonTheme.alertTheme.properties.transitionDuration;
 
-    final Curve effectiveTransitionCurve = widget.transitionCurve ??
+    final Curve effectiveTransitionCurve =
+        widget.transitionCurve ??
         context.moonTheme.alertTheme.properties.transitionCurve;
 
     _animationController ??= AnimationController(
@@ -271,7 +280,8 @@ class _MoonAlertState extends State<MoonAlert>
             child: Container(
               padding: effectivePadding,
               constraints: BoxConstraints(minHeight: effectiveMinimumHeight),
-              decoration: widget.decoration ??
+              decoration:
+                  widget.decoration ??
                   ShapeDecorationWithPremultipliedAlpha(
                     color: effectiveBackgroundColor,
                     shape: MoonSquircleBorder(
@@ -282,14 +292,13 @@ class _MoonAlertState extends State<MoonAlert>
                             ? BorderStyle.solid
                             : BorderStyle.none,
                       ),
-                      borderRadius:
-                          effectiveBorderRadius.squircleBorderRadius(context),
+                      borderRadius: effectiveBorderRadius.squircleBorderRadius(
+                        context,
+                      ),
                     ),
                   ),
               child: IconTheme(
-                data: IconThemeData(
-                  color: effectiveIconColor,
-                ),
+                data: IconThemeData(color: effectiveIconColor),
                 child: DefaultTextStyle(
                   style: effectiveContentTextStyle.copyWith(
                     color: effectiveTextColor,
@@ -310,9 +319,7 @@ class _MoonAlertState extends State<MoonAlert>
                             style: effectiveLabelTextStyle.copyWith(
                               color: effectiveTextColor,
                             ),
-                            child: Expanded(
-                              child: widget.label,
-                            ),
+                            child: Expanded(child: widget.label),
                           ),
                           if (widget.trailing != null)
                             Padding(

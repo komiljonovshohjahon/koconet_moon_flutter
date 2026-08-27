@@ -54,15 +54,21 @@ class MoonTabBarColors extends ThemeExtension<MoonTabBarColors>
     return MoonTabBarColors(
       indicatorColor: colorPremulLerp(indicatorColor, other.indicatorColor, t)!,
       textColor: colorPremulLerp(textColor, other.textColor, t)!,
-      selectedTextColor:
-          colorPremulLerp(selectedTextColor, other.selectedTextColor, t)!,
+      selectedTextColor: colorPremulLerp(
+        selectedTextColor,
+        other.selectedTextColor,
+        t,
+      )!,
       selectedPillTextColor: colorPremulLerp(
         selectedPillTextColor,
         other.selectedPillTextColor,
         t,
       )!,
-      selectedPillTabColor:
-          colorPremulLerp(selectedPillTabColor, other.selectedPillTabColor, t)!,
+      selectedPillTabColor: colorPremulLerp(
+        selectedPillTabColor,
+        other.selectedPillTabColor,
+        t,
+      )!,
     );
   }
 

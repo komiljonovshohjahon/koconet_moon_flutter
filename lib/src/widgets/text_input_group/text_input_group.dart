@@ -1,26 +1,17 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_design/src/widgets/common/base_control.dart';
 import 'package:moon_design/src/widgets/common/border_container.dart';
 import 'package:moon_design/src/widgets/common/error_message_widgets.dart';
 import 'package:moon_design/src/widgets/text_input/form_text_input.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonTextInputGroupOrientation {
-  vertical,
-  horizontal,
-}
+enum MoonTextInputGroupOrientation { vertical, horizontal }
 
-typedef MoonTextInputGroupErrorBuilder = Widget Function(
-  BuildContext context,
-  List<String> errorText,
-);
+typedef MoonTextInputGroupErrorBuilder =
+    Widget Function(BuildContext context, List<String> errorText);
 
 class MoonTextInputGroup extends StatefulWidget {
   /// Whether the text input group is enabled. When false, taps are ignored and
@@ -115,16 +106,19 @@ class MoonTextInputGroup extends StatefulWidget {
 }
 
 class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
-  late final List<String?> _validatorErrors =
-      List.filled(widget.children.length, null);
+  late final List<String?> _validatorErrors = List.filled(
+    widget.children.length,
+    null,
+  );
 
   late List<String?> _previousValidatorErrors;
 
   bool get _groupHasValidationError =>
       _validatorErrors.nonNulls.toList().isNotEmpty;
 
-  bool get _groupHasErrorText => widget.children
-      .any((MoonFormTextInput child) => child.configuration.errorText != null);
+  bool get _groupHasErrorText => widget.children.any(
+    (MoonFormTextInput child) => child.configuration.errorText != null,
+  );
 
   bool get _groupHasError => _groupHasValidationError || _groupHasErrorText;
 
@@ -132,8 +126,8 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
       _validatorErrors.nonNulls.length == widget.children.length;
 
   bool get _groupHasAllErrorTexts => widget.children.every(
-        (MoonFormTextInput child) => child.configuration.errorText != null,
-      );
+    (MoonFormTextInput child) => child.configuration.errorText != null,
+  );
 
   bool get _groupIsInErrorState =>
       _groupHasAllValidationErrors || _groupHasAllErrorTexts;
@@ -155,208 +149,200 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
 
   @override
   Widget build(BuildContext context) {
-    final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme.textInputGroupTheme.properties.borderRadius ??
-        BorderRadius.circular(8);
+    final BorderRadiusGeometry effectiveBorderRadius =
+        widget.borderRadius ??
+        context.moonTheme.textInputGroupTheme.properties.borderRadius;
 
-    final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme.textInputGroupTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+    final Color effectiveBackgroundColor =
+        widget.backgroundColor ??
+        context.moonTheme.textInputGroupTheme.colors.backgroundColor;
 
-    final Color effectiveBorderColor = widget.borderColor ??
-        context.moonTheme.textInputGroupTheme.colors.borderColor ??
-        MoonColors.light.beerus;
+    final Color effectiveBorderColor =
+        widget.borderColor ??
+        context.moonTheme.textInputGroupTheme.colors.borderColor;
 
-    final Color effectiveErrorColor = widget.errorColor ??
-        context.moonTheme.textInputGroupTheme.colors.errorColor ??
-        MoonColors.light.chichi;
+    final Color effectiveErrorColor =
+        widget.errorColor ??
+        context.moonTheme.textInputGroupTheme.colors.errorColor;
 
-    final Color effectiveHelperTextColor = widget.hintTextColor ??
-        context.moonTheme.textInputGroupTheme.colors.helperTextColor ??
-        MoonColors.light.trunks;
+    final Color effectiveHelperTextColor =
+        widget.hintTextColor ??
+        context.moonTheme.textInputGroupTheme.colors.helperTextColor;
 
-    final EdgeInsetsGeometry effectiveHelperPadding = widget.helperPadding ??
-        context.moonTheme.textInputGroupTheme.properties.helperPadding ??
-        EdgeInsets.only(
-          left: MoonSizes.sizes.x3s,
-          top: MoonSizes.sizes.x4s,
-          right: MoonSizes.sizes.x3s,
-        );
+    final EdgeInsetsGeometry effectiveHelperPadding =
+        widget.helperPadding ??
+        context.moonTheme.textInputGroupTheme.properties.helperPadding;
 
-    final TextStyle effectiveHelperTextStyle = widget.helperTextStyle ??
-        context.moonTheme.textInputGroupTheme.properties.helperTextStyle ??
-        MoonTypography.typography.body.text12;
+    final TextStyle effectiveHelperTextStyle =
+        widget.helperTextStyle ??
+        context.moonTheme.textInputGroupTheme.properties.helperTextStyle;
 
-    final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme.textInputGroupTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+    final Duration effectiveTransitionDuration =
+        widget.transitionDuration ??
+        context.moonTheme.textInputGroupTheme.properties.transitionDuration;
 
-    final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme.textInputGroupTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+    final Curve effectiveTransitionCurve =
+        widget.transitionCurve ??
+        context.moonTheme.textInputGroupTheme.properties.transitionCurve;
 
     final List<String> effectiveErrorMessages =
         _validatorErrors.nonNulls.toList().isNotEmpty
-            ? _validatorErrors.nonNulls.toList()
-            : widget.children
-                .map((MoonFormTextInput child) => child.configuration.errorText)
-                .nonNulls
-                .toList();
+        ? _validatorErrors.nonNulls.toList()
+        : widget.children
+              .map((MoonFormTextInput child) => child.configuration.errorText)
+              .nonNulls
+              .toList();
 
-    List<Widget> childrenWithDivider({required bool shouldHideDivider}) =>
-        List.generate(
-          widget.children.length * 2 - 1,
-          (int index) {
-            final int derivedIndex = index ~/ 2;
+    List<Widget> childrenWithDivider({
+      required bool shouldHideDivider,
+    }) => List.generate(widget.children.length * 2 - 1, (int index) {
+      final int derivedIndex = index ~/ 2;
 
-            final MoonFormTextInputConfiguration configuration =
-                widget.children[derivedIndex].configuration;
+      final MoonFormTextInputConfiguration configuration =
+          widget.children[derivedIndex].configuration;
 
-            final bool selfShowError = ((configuration.errorText != null &&
-                        _validatorErrors[derivedIndex] == null) &&
-                    !_groupHasValidationError &&
-                    !_groupHasAllErrorTexts) ||
-                (_validatorErrors[derivedIndex] != null &&
-                    !_groupHasAllValidationErrors);
+      final bool selfShowError =
+          ((configuration.errorText != null &&
+                  _validatorErrors[derivedIndex] == null) &&
+              !_groupHasValidationError &&
+              !_groupHasAllErrorTexts) ||
+          (_validatorErrors[derivedIndex] != null &&
+              !_groupHasAllValidationErrors);
 
-            Widget child = MoonFormTextInput(
-              activeBorderColor: configuration.activeBorderColor,
-              autocorrect: configuration.autocorrect,
-              autofillHints: configuration.autofillHints,
-              autofocus: configuration.autofocus,
-              autovalidateMode: configuration.autovalidateMode,
-              backgroundColor: Colors.transparent,
-              borderRadius: configuration.borderRadius,
-              canRequestFocus: configuration.canRequestFocus,
-              clipBehavior: configuration.clipBehavior,
-              contentInsertionConfiguration:
-                  configuration.contentInsertionConfiguration,
-              contextMenuBuilder: configuration.contextMenuBuilder,
-              controller: configuration.controller,
-              cursorColor: configuration.cursorColor,
-              cursorHeight: configuration.cursorHeight,
-              cursorOpacityAnimates: configuration.cursorOpacityAnimates,
-              cursorRadius: configuration.cursorRadius,
-              cursorWidth: configuration.cursorWidth,
-              decoration: configuration.decoration,
-              dragStartBehavior: configuration.dragStartBehavior,
-              enabled: configuration.enabled,
-              enableIMEPersonalizedLearning:
-                  configuration.enableIMEPersonalizedLearning,
-              enableInteractiveSelection:
-                  configuration.enableInteractiveSelection,
-              enableSuggestions: configuration.enableSuggestions,
-              errorBorderColor:
-                  selfShowError ? configuration.errorColor : Colors.transparent,
-              errorBuilder: (BuildContext context, String? errorText) =>
-                  const SizedBox.shrink(),
-              errorColor: configuration.errorColor,
-              errorText: configuration.errorText,
-              expands: configuration.expands,
-              focusNode: configuration.focusNode,
-              gap: configuration.gap,
-              hasFloatingLabel: configuration.hasFloatingLabel,
-              height: configuration.height,
-              helper: configuration.helper,
-              helperPadding: configuration.helperPadding,
-              helperTextStyle: configuration.helperTextStyle,
-              hintText: configuration.hintText,
-              hintTextColor: configuration.hintTextColor,
-              hoverBorderColor: configuration.hoverBorderColor,
-              inactiveBorderColor: Colors.transparent,
-              initialValue: configuration.initialValue,
-              inputFormatters: configuration.inputFormatters,
-              keyboardAppearance: configuration.keyboardAppearance,
-              keyboardType: configuration.keyboardType,
-              leading: configuration.leading,
-              magnifierConfiguration: configuration.magnifierConfiguration,
-              maxLength: configuration.maxLength,
-              maxLengthEnforcement: configuration.maxLengthEnforcement,
-              maxLines: configuration.maxLines,
-              minLines: configuration.minLines,
-              mouseCursor: configuration.mouseCursor,
-              obscureText: configuration.obscureText,
-              obscuringCharacter: configuration.obscuringCharacter,
-              onAppPrivateCommand: configuration.onAppPrivateCommand,
-              onChanged: configuration.onChanged,
-              onEditingComplete: configuration.onEditingComplete,
-              onSubmitted: configuration.onSubmitted,
-              onSaved: configuration.onSaved,
-              onTap: configuration.onTap,
-              onTapOutside: configuration.onTapOutside,
-              padding: configuration.padding,
-              readOnly: configuration.readOnly,
-              restorationId: configuration.restorationId,
-              scribbleEnabled: configuration.scribbleEnabled,
-              scrollController: configuration.scrollController,
-              scrollPadding: configuration.scrollPadding,
-              scrollPhysics: configuration.scrollPhysics,
-              selectionControls: configuration.selectionControls,
-              selectionHeightStyle: configuration.selectionHeightStyle,
-              selectionWidthStyle: configuration.selectionWidthStyle,
-              showCursor: configuration.showCursor,
-              smartDashesType: configuration.smartDashesType,
-              smartQuotesType: configuration.smartQuotesType,
-              spellCheckConfiguration: configuration.spellCheckConfiguration,
-              strutStyle: configuration.strutStyle,
-              style: configuration.style,
-              textAlign: configuration.textAlign,
-              textAlignVertical: configuration.textAlignVertical,
-              textCapitalization: configuration.textCapitalization,
-              textColor: configuration.textColor,
-              textDirection: configuration.textDirection,
-              textInputAction: configuration.textInputAction,
-              textInputSize: configuration.textInputSize,
-              trailing: configuration.trailing,
-              transitionCurve: configuration.transitionCurve,
-              transitionDuration: configuration.transitionDuration,
-              undoController: configuration.undoController,
-              validationStatusCallback: (errorText) =>
-                  _handleValidationError(derivedIndex, errorText),
-              validator: configuration.validator,
-              width: configuration.width,
+      Widget child = MoonFormTextInput(
+        activeBorderColor: configuration.activeBorderColor,
+        autocorrect: configuration.autocorrect,
+        autofillHints: configuration.autofillHints,
+        autofocus: configuration.autofocus,
+        autovalidateMode: configuration.autovalidateMode,
+        backgroundColor: Colors.transparent,
+        borderRadius: configuration.borderRadius,
+        canRequestFocus: configuration.canRequestFocus,
+        clipBehavior: configuration.clipBehavior,
+        contentInsertionConfiguration:
+            configuration.contentInsertionConfiguration,
+        contextMenuBuilder: configuration.contextMenuBuilder,
+        controller: configuration.controller,
+        cursorColor: configuration.cursorColor,
+        cursorHeight: configuration.cursorHeight,
+        cursorOpacityAnimates: configuration.cursorOpacityAnimates,
+        cursorRadius: configuration.cursorRadius,
+        cursorWidth: configuration.cursorWidth,
+        decoration: configuration.decoration,
+        dragStartBehavior: configuration.dragStartBehavior,
+        enabled: configuration.enabled,
+        enableIMEPersonalizedLearning:
+            configuration.enableIMEPersonalizedLearning,
+        enableInteractiveSelection: configuration.enableInteractiveSelection,
+        enableSuggestions: configuration.enableSuggestions,
+        errorBorderColor: selfShowError
+            ? configuration.errorColor
+            : Colors.transparent,
+        errorBuilder: (BuildContext context, String? errorText) =>
+            const SizedBox.shrink(),
+        errorColor: configuration.errorColor,
+        errorText: configuration.errorText,
+        expands: configuration.expands,
+        focusNode: configuration.focusNode,
+        gap: configuration.gap,
+        hasFloatingLabel: configuration.hasFloatingLabel,
+        height: configuration.height,
+        helper: configuration.helper,
+        helperPadding: configuration.helperPadding,
+        helperTextStyle: configuration.helperTextStyle,
+        hintText: configuration.hintText,
+        hintTextColor: configuration.hintTextColor,
+        hoverBorderColor: configuration.hoverBorderColor,
+        inactiveBorderColor: Colors.transparent,
+        initialValue: configuration.initialValue,
+        inputFormatters: configuration.inputFormatters,
+        keyboardAppearance: configuration.keyboardAppearance,
+        keyboardType: configuration.keyboardType,
+        leading: configuration.leading,
+        magnifierConfiguration: configuration.magnifierConfiguration,
+        maxLength: configuration.maxLength,
+        maxLengthEnforcement: configuration.maxLengthEnforcement,
+        maxLines: configuration.maxLines,
+        minLines: configuration.minLines,
+        mouseCursor: configuration.mouseCursor,
+        obscureText: configuration.obscureText,
+        obscuringCharacter: configuration.obscuringCharacter,
+        onAppPrivateCommand: configuration.onAppPrivateCommand,
+        onChanged: configuration.onChanged,
+        onEditingComplete: configuration.onEditingComplete,
+        onSubmitted: configuration.onSubmitted,
+        onSaved: configuration.onSaved,
+        onTap: configuration.onTap,
+        onTapOutside: configuration.onTapOutside,
+        padding: configuration.padding,
+        readOnly: configuration.readOnly,
+        restorationId: configuration.restorationId,
+        scribbleEnabled: configuration.scribbleEnabled,
+        scrollController: configuration.scrollController,
+        scrollPadding: configuration.scrollPadding,
+        scrollPhysics: configuration.scrollPhysics,
+        selectionControls: configuration.selectionControls,
+        selectionHeightStyle: configuration.selectionHeightStyle,
+        selectionWidthStyle: configuration.selectionWidthStyle,
+        showCursor: configuration.showCursor,
+        smartDashesType: configuration.smartDashesType,
+        smartQuotesType: configuration.smartQuotesType,
+        spellCheckConfiguration: configuration.spellCheckConfiguration,
+        strutStyle: configuration.strutStyle,
+        style: configuration.style,
+        textAlign: configuration.textAlign,
+        textAlignVertical: configuration.textAlignVertical,
+        textCapitalization: configuration.textCapitalization,
+        textColor: configuration.textColor,
+        textDirection: configuration.textDirection,
+        textInputAction: configuration.textInputAction,
+        textInputSize: configuration.textInputSize,
+        trailing: configuration.trailing,
+        transitionCurve: configuration.transitionCurve,
+        transitionDuration: configuration.transitionDuration,
+        undoController: configuration.undoController,
+        validationStatusCallback: (errorText) =>
+            _handleValidationError(derivedIndex, errorText),
+        validator: configuration.validator,
+        width: configuration.width,
+      );
+
+      child = configuration.width != null
+          ? SizedBox(width: configuration.width, child: child)
+          : Flexible(child: child);
+
+      return index.isEven
+          ? child
+          // Animated divider
+          : BorderContainer(
+              height:
+                  widget.orientation == MoonTextInputGroupOrientation.horizontal
+                  ? double.infinity
+                  : 1,
+              width:
+                  widget.orientation == MoonTextInputGroupOrientation.vertical
+                  ? double.infinity
+                  : 1,
+              duration: effectiveTransitionDuration,
+              curve: effectiveTransitionCurve,
+              border: MoonSquircleBorder(
+                borderRadius: effectiveBorderRadius.squircleBorderRadius(
+                  context,
+                ),
+                side: BorderSide(
+                  color:
+                      (!_groupHasValidationError && _groupHasAllErrorTexts) ||
+                          _groupHasAllValidationErrors
+                      ? effectiveErrorColor
+                      : shouldHideDivider ||
+                            (_groupHasError || _groupHasValidationError)
+                      ? Colors.transparent
+                      : effectiveBorderColor,
+                ),
+              ),
+              child: const SizedBox.shrink(),
             );
-
-            child = configuration.width != null
-                ? SizedBox(
-                    width: configuration.width,
-                    child: child,
-                  )
-                : Flexible(child: child);
-
-            return index.isEven
-                ? child
-                // Animated divider
-                : BorderContainer(
-                    height: widget.orientation ==
-                            MoonTextInputGroupOrientation.horizontal
-                        ? double.infinity
-                        : 1,
-                    width: widget.orientation ==
-                            MoonTextInputGroupOrientation.vertical
-                        ? double.infinity
-                        : 1,
-                    duration: effectiveTransitionDuration,
-                    curve: effectiveTransitionCurve,
-                    border: MoonSquircleBorder(
-                      borderRadius:
-                          effectiveBorderRadius.squircleBorderRadius(context),
-                      side: BorderSide(
-                        color: (!_groupHasValidationError &&
-                                    _groupHasAllErrorTexts) ||
-                                _groupHasAllValidationErrors
-                            ? effectiveErrorColor
-                            : shouldHideDivider ||
-                                    (_groupHasError || _groupHasValidationError)
-                                ? Colors.transparent
-                                : effectiveBorderColor,
-                      ),
-                    ),
-                    child: const SizedBox.shrink(),
-                  );
-          },
-          growable: false,
-        );
+    }, growable: false);
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -368,38 +354,41 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
           showFocusEffect: false,
           onTap: widget.enabled ? () {} : null,
           propagateGesturesToChild: true,
-          builder: (
-            BuildContext context,
-            bool isEnabled,
-            bool isHovered,
-            bool isFocused,
-            bool isPressed,
-          ) {
-            return BorderContainer(
-              clipBehavior: widget.clipBehavior ?? Clip.none,
-              backgroundColor: effectiveBackgroundColor,
-              decoration: widget.decoration,
-              duration: effectiveTransitionDuration,
-              curve: effectiveTransitionCurve,
-              border: MoonSquircleBorder(
-                borderRadius:
-                    effectiveBorderRadius.squircleBorderRadius(context),
-                side: BorderSide(
-                  color:
-                      (!_groupHasValidationError && _groupHasAllErrorTexts) ||
+          builder:
+              (
+                BuildContext context,
+                bool isEnabled,
+                bool isHovered,
+                bool isFocused,
+                bool isPressed,
+              ) {
+                return BorderContainer(
+                  clipBehavior: widget.clipBehavior ?? Clip.none,
+                  backgroundColor: effectiveBackgroundColor,
+                  decoration: widget.decoration,
+                  duration: effectiveTransitionDuration,
+                  curve: effectiveTransitionCurve,
+                  border: MoonSquircleBorder(
+                    borderRadius: effectiveBorderRadius.squircleBorderRadius(
+                      context,
+                    ),
+                    side: BorderSide(
+                      color:
+                          (!_groupHasValidationError &&
+                                  _groupHasAllErrorTexts) ||
                               _groupHasAllValidationErrors
                           ? effectiveErrorColor
                           : effectiveBorderColor,
-                ),
-              ),
-              child: _InputGroupOrientation(
-                orientation: widget.orientation,
-                children: childrenWithDivider(
-                  shouldHideDivider: isHovered || isFocused,
-                ),
-              ),
-            );
-          },
+                    ),
+                  ),
+                  child: _InputGroupOrientation(
+                    orientation: widget.orientation,
+                    children: childrenWithDivider(
+                      shouldHideDivider: isHovered || isFocused,
+                    ),
+                  ),
+                );
+              },
         ),
         if (widget.helper != null || _shouldShowError)
           IconTheme(
@@ -417,9 +406,11 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
               child: Padding(
                 padding: effectiveHelperPadding,
                 child: _shouldShowError
-                    ? (widget.errorBuilder
-                            ?.call(context, effectiveErrorMessages) ??
-                        MoonErrorMessages(errors: effectiveErrorMessages))
+                    ? (widget.errorBuilder?.call(
+                            context,
+                            effectiveErrorMessages,
+                          ) ??
+                          MoonErrorMessages(errors: effectiveErrorMessages))
                     : widget.helper,
               ),
             ),
@@ -442,18 +433,15 @@ class _InputGroupOrientation extends StatelessWidget {
   Widget build(BuildContext context) {
     return switch (orientation) {
       MoonTextInputGroupOrientation.vertical => Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: children,
-        ),
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: children,
+      ),
       MoonTextInputGroupOrientation.horizontal => SizedBox(
-          height: 56,
-          width: 300,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: children,
-          ),
-        ),
+        height: 56,
+        width: 300,
+        child: Row(mainAxisSize: MainAxisSize.min, children: children),
+      ),
     };
   }
 }

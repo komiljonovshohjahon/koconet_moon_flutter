@@ -31,27 +31,26 @@ class MoonSwitchTheme extends ThemeExtension<MoonSwitchTheme>
     MoonSwitchProperties? properties,
     MoonSwitchShadows? shadows,
     MoonSwitchSizes? sizes,
-  })  : colors = colors ??
-            MoonSwitchColors(
-              activeTrackColor: tokens.colors.piccolo,
-              inactiveTrackColor: tokens.colors.beerus,
-              activeTextColor: tokens.colors.goten,
-              inactiveTextColor: tokens.colors.bulma,
-              activeIconColor: tokens.colors.goten,
-              inactiveIconColor: tokens.colors.bulma,
-              thumbIconColor: tokens.colors.popo,
-              thumbColor: tokens.colors.goten,
-            ),
-        properties = properties ??
-            MoonSwitchProperties(
-              transitionDuration: tokens.transitions.defaultTransitionDuration,
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-            ),
-        shadows = shadows ??
-            MoonSwitchShadows(
-              thumbShadows: tokens.shadows.sm,
-            ),
-        sizes = sizes ?? MoonSwitchSizes(tokens: tokens);
+  }) : colors =
+           colors ??
+           MoonSwitchColors(
+             activeTrackColor: tokens.colors.piccolo,
+             inactiveTrackColor: tokens.colors.beerus,
+             activeTextColor: tokens.colors.goten,
+             inactiveTextColor: tokens.colors.bulma,
+             activeIconColor: tokens.colors.goten,
+             inactiveIconColor: tokens.colors.bulma,
+             thumbIconColor: tokens.colors.popo,
+             thumbColor: tokens.colors.goten,
+           ),
+       properties =
+           properties ??
+           MoonSwitchProperties(
+             transitionDuration: tokens.transitions.defaultTransitionDuration,
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+           ),
+       shadows = shadows ?? MoonSwitchShadows(thumbShadows: tokens.shadows.sm),
+       sizes = sizes ?? MoonSwitchSizes(tokens: tokens);
 
   @override
   MoonSwitchTheme copyWith({

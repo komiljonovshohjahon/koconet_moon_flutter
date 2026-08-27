@@ -21,12 +21,13 @@ class MoonLinearLoaderTheme extends ThemeExtension<MoonLinearLoaderTheme>
     required this.tokens,
     MoonLinearLoaderColors? colors,
     MoonLinearLoaderSizes? sizes,
-  })  : colors = colors ??
-            MoonLinearLoaderColors(
-              color: tokens.colors.piccolo,
-              backgroundColor: Colors.transparent,
-            ),
-        sizes = sizes ?? MoonLinearLoaderSizes(tokens: tokens);
+  }) : colors =
+           colors ??
+           MoonLinearLoaderColors(
+             color: tokens.colors.piccolo,
+             backgroundColor: Colors.transparent,
+           ),
+       sizes = sizes ?? MoonLinearLoaderSizes(tokens: tokens);
 
   @override
   MoonLinearLoaderTheme copyWith({

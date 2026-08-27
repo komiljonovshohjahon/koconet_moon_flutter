@@ -70,8 +70,11 @@ class WidgetSurveyor {
     TextBaseline baseline = TextBaseline.alphabetic,
     BoxConstraints constraints = const BoxConstraints(),
   }) {
-    final SurveyorView rendered =
-        _render(widget, constraints, baselineToCalculate: baseline);
+    final SurveyorView rendered = _render(
+      widget,
+      constraints,
+      baselineToCalculate: baseline,
+    );
     return rendered.childBaseline ?? rendered.size.height;
   }
 
@@ -80,8 +83,11 @@ class WidgetSurveyor {
     TextBaseline baseline = TextBaseline.alphabetic,
     BoxConstraints constraints = const BoxConstraints(),
   }) {
-    final SurveyorView rendered =
-        _render(widget, constraints, baselineToCalculate: baseline);
+    final SurveyorView rendered = _render(
+      widget,
+      constraints,
+      baselineToCalculate: baseline,
+    );
     return rendered.childBaseline;
   }
 
@@ -98,9 +104,10 @@ class WidgetSurveyor {
             throw FlutterError.fromParts(<DiagnosticsNode>[
               ErrorSummary('Visual update was requested during survey.'),
               ErrorDescription(
-                  'WidgetSurveyor does not support a render object '
-                  'calling markNeedsLayout(), markNeedsPaint(), or '
-                  'markNeedsSemanticUpdate() while the widget is being surveyed.'),
+                'WidgetSurveyor does not support a render object '
+                'calling markNeedsLayout(), markNeedsPaint(), or '
+                'markNeedsSemanticUpdate() while the widget is being surveyed.',
+              ),
             ]);
           }
           return true;
@@ -112,10 +119,10 @@ class WidgetSurveyor {
     assert(buildOwner.globalKeyCount == 0);
     final RenderObjectToWidgetElement element =
         RenderObjectToWidgetAdapter<RenderBox>(
-      container: rootView,
-      debugShortDescription: '[root]',
-      child: widget,
-    ).attachToRenderTree(buildOwner);
+          container: rootView,
+          debugShortDescription: '[root]',
+          child: widget,
+        ).attachToRenderTree(buildOwner);
     try {
       rootView.baselineToCalculate = baselineToCalculate;
       rootView.childConstraints = constraints;

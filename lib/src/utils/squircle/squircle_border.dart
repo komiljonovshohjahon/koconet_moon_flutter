@@ -8,11 +8,7 @@ import 'package:moon_design/src/utils/color_premul_lerp.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border_radius.dart';
 import 'package:moon_design/src/utils/squircle/squircle_radius.dart';
 
-enum BorderAlign {
-  inside,
-  center,
-  outside,
-}
+enum BorderAlign { inside, center, outside }
 
 class MoonSquircleBorder extends OutlinedBorder {
   /// The radius for each corner.
@@ -70,8 +66,11 @@ class MoonSquircleBorder extends OutlinedBorder {
     if (b is MoonSquircleBorder) {
       return MoonSquircleBorder(
         side: MoonSquicleBorderSide.lerp(side, b.side, t),
-        borderRadius:
-            MoonSquircleBorderRadius.lerp(borderRadius, b.borderRadius, t)!,
+        borderRadius: MoonSquircleBorderRadius.lerp(
+          borderRadius,
+          b.borderRadius,
+          t,
+        )!,
       );
     }
     return super.lerpTo(b, t);
@@ -95,24 +94,24 @@ class MoonSquircleBorder extends OutlinedBorder {
         case BorderAlign.inside:
           return borderRadius -
               MoonSquircleBorderRadius.all(
-                MoonSquircleRadius(
-                  cornerRadius: side.width,
-                ),
+                MoonSquircleRadius(cornerRadius: side.width),
               );
         case BorderAlign.center:
           return borderRadius -
               MoonSquircleBorderRadius.all(
-                MoonSquircleRadius(
-                  cornerRadius: side.width / 2,
-                ),
+                MoonSquircleRadius(cornerRadius: side.width / 2),
               );
         case BorderAlign.outside:
           return borderRadius;
       }
     }();
 
-    if ([radius.bottomLeft, radius.bottomRight, radius.topLeft, radius.topRight]
-        .every((x) => x.cornerSmoothing == 0.0)) {
+    if ([
+      radius.bottomLeft,
+      radius.bottomRight,
+      radius.topLeft,
+      radius.topRight,
+    ].every((x) => x.cornerSmoothing == 0.0)) {
       return Path()..addRRect(radius.resolve(textDirection).toRRect(innerRect));
     }
 
@@ -129,8 +128,12 @@ class MoonSquircleBorder extends OutlinedBorder {
     MoonSquircleBorderRadius radius, {
     TextDirection? textDirection,
   }) {
-    if ([radius.bottomLeft, radius.bottomRight, radius.topLeft, radius.topRight]
-        .every((x) => x.cornerSmoothing == 0.0)) {
+    if ([
+      radius.bottomLeft,
+      radius.bottomRight,
+      radius.topLeft,
+      radius.topRight,
+    ].every((x) => x.cornerSmoothing == 0.0)) {
       return Path()..addRRect(radius.resolve(textDirection).toRRect(rect));
     }
 
@@ -176,18 +179,14 @@ class MoonSquircleBorder extends OutlinedBorder {
             case BorderAlign.inside:
               return borderRadius -
                   MoonSquircleBorderRadius.all(
-                    MoonSquircleRadius(
-                      cornerRadius: side.width / 2,
-                    ),
+                    MoonSquircleRadius(cornerRadius: side.width / 2),
                   );
             case BorderAlign.center:
               return borderRadius;
             case BorderAlign.outside:
               return borderRadius +
                   MoonSquircleBorderRadius.all(
-                    MoonSquircleRadius(
-                      cornerRadius: side.width / 2,
-                    ),
+                    MoonSquircleRadius(cornerRadius: side.width / 2),
                   );
           }
         }();
@@ -198,10 +197,7 @@ class MoonSquircleBorder extends OutlinedBorder {
           textDirection: textDirection,
         );
 
-        canvas.drawPath(
-          outerPath,
-          side.toPaint(),
-        );
+        canvas.drawPath(outerPath, side.toPaint());
     }
   }
 
@@ -526,13 +522,7 @@ class MoonSquicleBorderSide with Diagnosticable {
         defaultValue: const Color(0xFF000000),
       ),
     );
-    properties.add(
-      DoubleProperty(
-        'width',
-        width,
-        defaultValue: 1.0,
-      ),
-    );
+    properties.add(DoubleProperty('width', width, defaultValue: 1.0));
     properties.add(
       DoubleProperty(
         'strokeAlign',

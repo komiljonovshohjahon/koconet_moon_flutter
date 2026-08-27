@@ -44,8 +44,10 @@ class LinkedScrollControllerGroup {
     final initialScrollOffset = _attachedControllers.isEmpty
         ? 0.0
         : _attachedControllers.first.position.pixels;
-    final controller =
-        _LinkedScrollController(this, initialScrollOffset: initialScrollOffset);
+    final controller = _LinkedScrollController(
+      this,
+      initialScrollOffset: initialScrollOffset,
+    );
 
     _allControllers.add(controller);
     controller.addListener(_offsetNotifier.notifyListeners);
@@ -75,8 +77,9 @@ class LinkedScrollControllerGroup {
     final animations = <Future<void>>[];
 
     for (final controller in _attachedControllers) {
-      animations
-          .add(controller.animateTo(offset, duration: duration, curve: curve));
+      animations.add(
+        controller.animateTo(offset, duration: duration, curve: curve),
+      );
     }
 
     return Future.wait<void>(animations).then<void>((List<void> _) => null);

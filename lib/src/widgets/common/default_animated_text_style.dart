@@ -31,18 +31,12 @@ class _MoonAnimatedDefaultTextStyleState
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
-      duration: widget.duration,
-      vsync: this,
-    );
+    _controller = AnimationController(duration: widget.duration, vsync: this);
     _textStyleAnimation = CurvedAnimation(
       parent: _controller,
       curve: widget.curve,
     );
-    _textStyle = TextStyleTween(
-      begin: widget.textStyle,
-      end: widget.textStyle,
-    );
+    _textStyle = TextStyleTween(begin: widget.textStyle, end: widget.textStyle);
   }
 
   @override

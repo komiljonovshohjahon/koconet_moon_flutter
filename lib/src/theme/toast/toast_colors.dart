@@ -98,12 +98,7 @@ class MoonToastColors extends ThemeExtension<MoonToastColors>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty(
-          "type",
-          "MoonToastColors",
-        ),
-      )
+      ..add(DiagnosticsProperty("type", "MoonToastColors"))
       ..add(
         ColorProperty(
           "lightVariantBackgroundColor",
@@ -111,10 +106,7 @@ class MoonToastColors extends ThemeExtension<MoonToastColors>
         ),
       )
       ..add(
-        ColorProperty(
-          "darkVariantBackgroundColor",
-          darkVariantBackgroundColor,
-        ),
+        ColorProperty("darkVariantBackgroundColor", darkVariantBackgroundColor),
       )
       ..add(ColorProperty("lightVariantTextColor", lightVariantTextColor))
       ..add(ColorProperty("darkVariantTextColor", darkVariantTextColor))

@@ -7,7 +7,6 @@ import 'package:moon_design/src/theme/tokens/tokens.dart';
 import 'package:moon_design/src/utils/touch_target_padding.dart';
 import 'package:moon_design/src/widgets/common/effects/focus_effect.dart';
 import 'package:moon_design/src/widgets/radio/radio_painter.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
 class MoonRadio<T> extends StatefulWidget {
   /// {@macro flutter.widgets.Focus.autofocus}
@@ -135,46 +134,44 @@ class _RadioState<T> extends State<MoonRadio<T>>
   Widget build(BuildContext context) {
     const Size size = Size(16, 16);
 
-    final Color effectiveActiveColor = widget.activeColor ??
-        context.moonTheme.radioTheme.colors.activeColor ??
-        MoonColors.light.piccolo;
+    final Color effectiveActiveColor =
+        widget.activeColor ?? context.moonTheme.radioTheme.colors.activeColor;
 
-    final Color effectiveInactiveColor = widget.inactiveColor ??
-        context.moonTheme.radioTheme.colors.inactiveColor ??
-        MoonColors.light.trunks;
+    final Color effectiveInactiveColor =
+        widget.inactiveColor ??
+        context.moonTheme.radioTheme.colors.inactiveColor;
 
     final Color effectiveFocusEffectColor =
         context.moonEffects?.controlFocusEffect.effectColor ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
-                .controlFocusEffect
-                .effectColor;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlFocusEffect.effectColor;
 
     final double effectiveFocusEffectExtent =
         context.moonEffects?.controlFocusEffect.effectExtent ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
-                .controlFocusEffect
-                .effectExtent;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlFocusEffect.effectExtent;
 
     final Duration effectiveFocusEffectDuration =
         context.moonEffects?.controlFocusEffect.effectDuration ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
-                .controlFocusEffect
-                .effectDuration;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlFocusEffect.effectDuration;
 
     final Curve effectiveFocusEffectCurve =
         context.moonEffects?.controlFocusEffect.effectCurve ??
-            MoonEffectsTheme(tokens: MoonTokens.light)
-                .controlFocusEffect
-                .effectCurve;
+        MoonEffectsTheme(
+          tokens: MoonTokens.light,
+        ).controlFocusEffect.effectCurve;
 
     final double effectiveDisabledOpacityValue =
         context.moonOpacities?.disabled ?? MoonOpacities.opacities.disabled;
 
     final WidgetStateProperty<MouseCursor> effectiveMouseCursor =
-        WidgetStateProperty.resolveWith<MouseCursor>(
-            (Set<WidgetState> states) {
-      return WidgetStateMouseCursor.clickable.resolve(states);
-    });
+        WidgetStateProperty.resolveWith<MouseCursor>((Set<WidgetState> states) {
+          return WidgetStateMouseCursor.clickable.resolve(states);
+        });
 
     return Semantics(
       label: widget.semanticLabel,

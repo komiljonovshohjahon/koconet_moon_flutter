@@ -79,17 +79,26 @@ class MoonAlertProperties extends ThemeExtension<MoonAlertProperties>
     if (other is! MoonAlertProperties) return this;
 
     return MoonAlertProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
       horizontalGap: lerpDouble(horizontalGap, other.horizontalGap, t)!,
       minimumHeight: lerpDouble(minimumHeight, other.minimumHeight, t)!,
       verticalGap: lerpDouble(verticalGap, other.verticalGap, t)!,
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
       padding: EdgeInsetsGeometry.lerp(padding, other.padding, t)!,
-      contentTextStyle:
-          TextStyle.lerp(contentTextStyle, other.contentTextStyle, t)!,
+      contentTextStyle: TextStyle.lerp(
+        contentTextStyle,
+        other.contentTextStyle,
+        t,
+      )!,
       labelTextStyle: TextStyle.lerp(labelTextStyle, other.labelTextStyle, t)!,
     );
   }
@@ -98,35 +107,21 @@ class MoonAlertProperties extends ThemeExtension<MoonAlertProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonAlertProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonAlertProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )
-      ..add(
-        DoubleProperty("horizontalGap", horizontalGap),
-      )
-      ..add(
-        DoubleProperty("minimumHeight", minimumHeight),
-      )
-      ..add(
-        DoubleProperty("verticalGap", verticalGap),
-      )
+      ..add(DoubleProperty("horizontalGap", horizontalGap))
+      ..add(DoubleProperty("minimumHeight", minimumHeight))
+      ..add(DoubleProperty("verticalGap", verticalGap))
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      )
-      ..add(
-        DiagnosticsProperty<EdgeInsetsGeometry>("padding", padding),
-      )
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve))
+      ..add(DiagnosticsProperty<EdgeInsetsGeometry>("padding", padding))
       ..add(
         DiagnosticsProperty<TextStyle>("contentTextStyle", contentTextStyle),
       )
-      ..add(
-        DiagnosticsProperty<TextStyle>("labelTextStyle", labelTextStyle),
-      );
+      ..add(DiagnosticsProperty<TextStyle>("labelTextStyle", labelTextStyle));
   }
 }

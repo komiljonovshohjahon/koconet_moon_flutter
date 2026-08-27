@@ -66,17 +66,32 @@ class MoonDropdownProperties extends ThemeExtension<MoonDropdownProperties>
     if (other is! MoonDropdownProperties) return this;
 
     return MoonDropdownProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
-      distanceToTarget:
-          lerpDouble(distanceToTarget, other.distanceToTarget, t)!,
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
+      distanceToTarget: lerpDouble(
+        distanceToTarget,
+        other.distanceToTarget,
+        t,
+      )!,
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
-      contentPadding:
-          EdgeInsetsGeometry.lerp(contentPadding, other.contentPadding, t)!,
-      dropdownMargin:
-          EdgeInsetsGeometry.lerp(dropdownMargin, other.dropdownMargin, t)!,
+      contentPadding: EdgeInsetsGeometry.lerp(
+        contentPadding,
+        other.contentPadding,
+        t,
+      )!,
+      dropdownMargin: EdgeInsetsGeometry.lerp(
+        dropdownMargin,
+        other.dropdownMargin,
+        t,
+      )!,
       textStyle: TextStyle.lerp(textStyle, other.textStyle, t)!,
     );
   }
@@ -85,21 +100,15 @@ class MoonDropdownProperties extends ThemeExtension<MoonDropdownProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonDropdownProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonDropdownProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )
-      ..add(
-        DoubleProperty("distanceToTarget", distanceToTarget),
-      )
+      ..add(DoubleProperty("distanceToTarget", distanceToTarget))
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      )
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve))
       ..add(
         DiagnosticsProperty<EdgeInsetsGeometry>(
           "contentPadding",
@@ -112,11 +121,6 @@ class MoonDropdownProperties extends ThemeExtension<MoonDropdownProperties>
           dropdownMargin,
         ),
       )
-      ..add(
-        DiagnosticsProperty<TextStyle>(
-          "textStyle",
-          textStyle,
-        ),
-      );
+      ..add(DiagnosticsProperty<TextStyle>("textStyle", textStyle));
   }
 }

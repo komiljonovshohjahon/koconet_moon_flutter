@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/shadows.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/shape_decoration_premul.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
 enum MoonDropdownAnchorPosition {
   top,
@@ -175,8 +170,9 @@ class MoonDropdown extends StatefulWidget {
 
 class _MoonDropdownState extends State<MoonDropdown>
     with RouteAware, SingleTickerProviderStateMixin {
-  late final Key _regionKey =
-      widget.groupId != null ? ValueKey(widget.groupId) : ObjectKey(widget);
+  late final Key _regionKey = widget.groupId != null
+      ? ValueKey(widget.groupId)
+      : ObjectKey(widget);
   final LayerLink _layerLink = LayerLink();
 
   AnimationController? _animationController;
@@ -237,7 +233,8 @@ class _MoonDropdownState extends State<MoonDropdown>
           offset: Offset(0, -distanceToTarget),
           targetAnchor: Alignment.topCenter,
           followerAnchor: Alignment.bottomCenter,
-          dropdownMaxWidth: overlayWidth -
+          dropdownMaxWidth:
+              overlayWidth -
               ((overlayWidth / 2 - dropdownTargetGlobalCenter) * 2).abs() -
               dropdownMargin.horizontal,
         );
@@ -247,7 +244,8 @@ class _MoonDropdownState extends State<MoonDropdown>
           offset: Offset(0, distanceToTarget),
           targetAnchor: Alignment.bottomCenter,
           followerAnchor: Alignment.topCenter,
-          dropdownMaxWidth: overlayWidth -
+          dropdownMaxWidth:
+              overlayWidth -
               ((overlayWidth / 2 - dropdownTargetGlobalCenter) * 2).abs() -
               dropdownMargin.horizontal,
         );
@@ -266,7 +264,8 @@ class _MoonDropdownState extends State<MoonDropdown>
           offset: Offset(distanceToTarget, 0),
           targetAnchor: Alignment.centerRight,
           followerAnchor: Alignment.centerLeft,
-          dropdownMaxWidth: overlayWidth -
+          dropdownMaxWidth:
+              overlayWidth -
               dropdownTargetGlobalRight -
               distanceToTarget -
               dropdownMargin.right,
@@ -352,8 +351,10 @@ class _MoonDropdownState extends State<MoonDropdown>
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((Duration _) {
-      widget.routeObserver
-          ?.subscribe(this, ModalRoute.of(context)! as PageRoute<dynamic>);
+      widget.routeObserver?.subscribe(
+        this,
+        ModalRoute.of(context)! as PageRoute<dynamic>,
+      );
     });
   }
 
@@ -363,8 +364,10 @@ class _MoonDropdownState extends State<MoonDropdown>
 
     if (oldWidget.routeObserver != widget.routeObserver) {
       oldWidget.routeObserver?.unsubscribe(this);
-      widget.routeObserver
-          ?.subscribe(this, ModalRoute.of(context)! as PageRoute<dynamic>);
+      widget.routeObserver?.subscribe(
+        this,
+        ModalRoute.of(context)! as PageRoute<dynamic>,
+      );
     }
 
     WidgetsBinding.instance.addPostFrameCallback((Duration _) {
@@ -400,47 +403,46 @@ class _MoonDropdownState extends State<MoonDropdown>
   }
 
   Widget _createOverlayContent() {
-    final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme.dropdownTheme.properties.borderRadius ??
-        BorderRadius.circular(12);
+    final BorderRadiusGeometry effectiveBorderRadius =
+        widget.borderRadius ??
+        context.moonTheme.dropdownTheme.properties.borderRadius;
 
-    final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme.dropdownTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+    final Color effectiveBackgroundColor =
+        widget.backgroundColor ??
+        context.moonTheme.dropdownTheme.colors.backgroundColor;
 
     final Color effectiveTextColor =
-        context.moonTheme.dropdownTheme.colors.textColor ??
-            MoonColors.light.textPrimary;
+        context.moonTheme.dropdownTheme.colors.textColor;
 
     final Color effectiveIconColor =
-        context.moonTheme.dropdownTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+        context.moonTheme.dropdownTheme.colors.iconColor;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme.dropdownTheme.properties.textStyle ??
-            MoonTypography.typography.body.textDefault;
+        context.moonTheme.dropdownTheme.properties.textStyle;
 
-    final double effectiveDistanceToTarget = widget.distanceToTarget ??
-        context.moonTheme.dropdownTheme.properties.distanceToTarget ??
-        MoonSizes.sizes.x4s;
+    final double effectiveDistanceToTarget =
+        widget.distanceToTarget ??
+        context.moonTheme.dropdownTheme.properties.distanceToTarget;
 
-    final EdgeInsetsGeometry effectiveContentPadding = widget.contentPadding ??
-        context.moonTheme.dropdownTheme.properties.contentPadding ??
-        const EdgeInsets.all(4);
+    final EdgeInsetsGeometry effectiveContentPadding =
+        widget.contentPadding ??
+        context.moonTheme.dropdownTheme.properties.contentPadding;
 
-    final EdgeInsets resolvedContentPadding =
-        effectiveContentPadding.resolve(Directionality.of(context));
+    final EdgeInsets resolvedContentPadding = effectiveContentPadding.resolve(
+      Directionality.of(context),
+    );
 
-    final EdgeInsetsGeometry effectiveDropdownMargin = widget.dropdownMargin ??
-        context.moonTheme.dropdownTheme.properties.dropdownMargin ??
-        const EdgeInsets.all(8);
+    final EdgeInsetsGeometry effectiveDropdownMargin =
+        widget.dropdownMargin ??
+        context.moonTheme.dropdownTheme.properties.dropdownMargin;
 
-    final EdgeInsets resolvedDropdownMargin =
-        effectiveDropdownMargin.resolve(Directionality.of(context));
+    final EdgeInsets resolvedDropdownMargin = effectiveDropdownMargin.resolve(
+      Directionality.of(context),
+    );
 
-    final List<BoxShadow> effectiveDropdownShadows = widget.dropdownShadows ??
-        context.moonTheme.dropdownTheme.shadows.dropdownShadows ??
-        MoonShadows.light.sm;
+    final List<BoxShadow> effectiveDropdownShadows =
+        widget.dropdownShadows ??
+        context.moonTheme.dropdownTheme.shadows.dropdownShadows;
 
     MoonDropdownAnchorPosition dropdownAnchorPosition =
         widget.dropdownAnchorPosition;
@@ -482,12 +484,14 @@ class _MoonDropdownState extends State<MoonDropdown>
         case MoonDropdownAnchorPosition.bottomRight:
           dropdownAnchorPosition = MoonDropdownAnchorPosition.bottomLeft;
         case MoonDropdownAnchorPosition.vertical:
-          dropdownAnchorPosition = dropdownTargetGlobalCenter.dy <
+          dropdownAnchorPosition =
+              dropdownTargetGlobalCenter.dy <
                   overlayRenderBox.size.center(Offset.zero).dy
               ? MoonDropdownAnchorPosition.bottom
               : MoonDropdownAnchorPosition.top;
         case MoonDropdownAnchorPosition.horizontal:
-          dropdownAnchorPosition = dropdownTargetGlobalCenter.dx <
+          dropdownAnchorPosition =
+              dropdownTargetGlobalCenter.dx <
                   overlayRenderBox.size.center(Offset.zero).dx
               ? MoonDropdownAnchorPosition.right
               : MoonDropdownAnchorPosition.left;
@@ -498,22 +502,22 @@ class _MoonDropdownState extends State<MoonDropdown>
 
     final _DropdownPositionProperties dropdownAnchorPositionParameters =
         _resolveDropdownPositionParameters(
-      dropdownAnchorPosition: dropdownAnchorPosition,
-      distanceToTarget: effectiveDistanceToTarget,
-      overlayWidth: overlayRenderBox.size.width,
-      dropdownTargetGlobalLeft: dropdownTargetGlobalLeft.dx,
-      dropdownTargetGlobalCenter: dropdownTargetGlobalCenter.dx,
-      dropdownTargetGlobalRight: dropdownTargetGlobalRight.dx,
-      dropdownMargin: resolvedDropdownMargin,
-    );
+          dropdownAnchorPosition: dropdownAnchorPosition,
+          distanceToTarget: effectiveDistanceToTarget,
+          overlayWidth: overlayRenderBox.size.width,
+          dropdownTargetGlobalLeft: dropdownTargetGlobalLeft.dx,
+          dropdownTargetGlobalCenter: dropdownTargetGlobalCenter.dx,
+          dropdownTargetGlobalRight: dropdownTargetGlobalRight.dx,
+          dropdownMargin: resolvedDropdownMargin,
+        );
 
     final double targetWidth = targetRenderBox.size.width;
 
     final double effectiveDropdownWidth = widget.constrainWidthToChild
         ? targetWidth
         : widget.maxWidth != null
-            ? widget.maxWidth!
-            : dropdownAnchorPositionParameters.dropdownMaxWidth;
+        ? widget.maxWidth!
+        : dropdownAnchorPositionParameters.dropdownMaxWidth;
 
     return Semantics(
       label: widget.semanticLabel,
@@ -522,9 +526,11 @@ class _MoonDropdownState extends State<MoonDropdown>
           link: _layerLink,
           showWhenUnlinked: false,
           offset: widget.offset ?? dropdownAnchorPositionParameters.offset,
-          followerAnchor: widget.followerAnchor ??
+          followerAnchor:
+              widget.followerAnchor ??
               dropdownAnchorPositionParameters.followerAnchor,
-          targetAnchor: widget.targetAnchor ??
+          targetAnchor:
+              widget.targetAnchor ??
               dropdownAnchorPositionParameters.targetAnchor,
           child: TapRegion(
             groupId: _regionKey,
@@ -536,8 +542,9 @@ class _MoonDropdownState extends State<MoonDropdown>
                 child: IconTheme(
                   data: IconThemeData(color: effectiveIconColor),
                   child: DefaultTextStyle(
-                    style:
-                        effectiveTextStyle.copyWith(color: effectiveTextColor),
+                    style: effectiveTextStyle.copyWith(
+                      color: effectiveTextColor,
+                    ),
                     child: Container(
                       constraints: BoxConstraints(
                         minHeight: widget.minHeight ?? 0,
@@ -546,7 +553,8 @@ class _MoonDropdownState extends State<MoonDropdown>
                         maxWidth: effectiveDropdownWidth,
                       ),
                       padding: resolvedContentPadding,
-                      decoration: widget.decoration ??
+                      decoration:
+                          widget.decoration ??
                           ShapeDecorationWithPremultipliedAlpha(
                             color: effectiveBackgroundColor,
                             shadows: effectiveDropdownShadows,
@@ -573,13 +581,13 @@ class _MoonDropdownState extends State<MoonDropdown>
 
   @override
   Widget build(BuildContext context) {
-    final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme.dropdownTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+    final Duration effectiveTransitionDuration =
+        widget.transitionDuration ??
+        context.moonTheme.dropdownTheme.properties.transitionDuration;
 
-    final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme.dropdownTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+    final Curve effectiveTransitionCurve =
+        widget.transitionCurve ??
+        context.moonTheme.dropdownTheme.properties.transitionCurve;
 
     _animationController ??= AnimationController(
       duration: effectiveTransitionDuration,
@@ -594,10 +602,7 @@ class _MoonDropdownState extends State<MoonDropdown>
     return TapRegion(
       groupId: _regionKey,
       behavior: HitTestBehavior.translucent,
-      child: CompositedTransformTarget(
-        link: _layerLink,
-        child: widget.child,
-      ),
+      child: CompositedTransformTarget(link: _layerLink, child: widget.child),
     );
   }
 }

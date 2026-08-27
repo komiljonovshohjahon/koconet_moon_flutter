@@ -73,17 +73,29 @@ class MoonTooltipProperties extends ThemeExtension<MoonTooltipProperties>
     if (other is! MoonTooltipProperties) return this;
 
     return MoonTooltipProperties(
-      borderRadius:
-          BorderRadiusGeometry.lerp(borderRadius, other.borderRadius, t)!,
+      borderRadius: BorderRadiusGeometry.lerp(
+        borderRadius,
+        other.borderRadius,
+        t,
+      )!,
       arrowBaseWidth: lerpDouble(arrowBaseWidth, other.arrowBaseWidth, t)!,
       arrowLength: lerpDouble(arrowLength, other.arrowLength, t)!,
-      arrowTipDistance:
-          lerpDouble(arrowTipDistance, other.arrowTipDistance, t)!,
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      arrowTipDistance: lerpDouble(
+        arrowTipDistance,
+        other.arrowTipDistance,
+        t,
+      )!,
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
-      contentPadding:
-          EdgeInsetsGeometry.lerp(contentPadding, other.contentPadding, t)!,
+      contentPadding: EdgeInsetsGeometry.lerp(
+        contentPadding,
+        other.contentPadding,
+        t,
+      )!,
       textStyle: TextStyle.lerp(textStyle, other.textStyle, t)!,
     );
   }
@@ -92,38 +104,23 @@ class MoonTooltipProperties extends ThemeExtension<MoonTooltipProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonTooltipProperties"),
-      )
+      ..add(DiagnosticsProperty("type", "MoonTooltipProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>("borderRadius", borderRadius),
       )
-      ..add(
-        DoubleProperty("arrowBaseWidth", arrowBaseWidth),
-      )
-      ..add(
-        DoubleProperty("arrowLength", arrowLength),
-      )
-      ..add(
-        DoubleProperty("arrowTipDistance", arrowTipDistance),
-      )
+      ..add(DoubleProperty("arrowBaseWidth", arrowBaseWidth))
+      ..add(DoubleProperty("arrowLength", arrowLength))
+      ..add(DoubleProperty("arrowTipDistance", arrowTipDistance))
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      )
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve))
       ..add(
         DiagnosticsProperty<EdgeInsetsGeometry>(
           "contentPadding",
           contentPadding,
         ),
       )
-      ..add(
-        DiagnosticsProperty<TextStyle>(
-          "textStyle",
-          textStyle,
-        ),
-      );
+      ..add(DiagnosticsProperty<TextStyle>("textStyle", textStyle));
   }
 }

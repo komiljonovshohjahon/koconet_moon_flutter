@@ -21,13 +21,14 @@ class MoonLinearProgressTheme extends ThemeExtension<MoonLinearProgressTheme>
     required this.tokens,
     MoonLinearProgressColors? colors,
     MoonLinearProgressSizes? sizes,
-  })  : colors = colors ??
-            MoonLinearProgressColors(
-              color: tokens.colors.piccolo,
-              backgroundColor: tokens.colors.beerus,
-              textColor: tokens.colors.textPrimary,
-            ),
-        sizes = sizes ?? MoonLinearProgressSizes(tokens: tokens);
+  }) : colors =
+           colors ??
+           MoonLinearProgressColors(
+             color: tokens.colors.piccolo,
+             backgroundColor: tokens.colors.beerus,
+             textColor: tokens.colors.textPrimary,
+           ),
+       sizes = sizes ?? MoonLinearProgressSizes(tokens: tokens);
 
   @override
   MoonLinearProgressTheme copyWith({

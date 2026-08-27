@@ -8,57 +8,23 @@ class MoonTextStyles extends ThemeExtension<MoonTextStyles>
   static const _semiBoldVariation = [FontVariation('wght', 600)];
 
   static const body = MoonTextStyles(
-    textDefault: TextStyle(
-      fontSize: 14,
-    ),
-    text6: TextStyle(
-      fontSize: 6,
-    ),
-    text8: TextStyle(
-      fontSize: 8,
-    ),
-    text9: TextStyle(
-      fontSize: 9,
-    ),
-    text10: TextStyle(
-      fontSize: 10,
-    ),
-    text12: TextStyle(
-      fontSize: 12,
-    ),
-    text14: TextStyle(
-      fontSize: 14,
-    ),
-    text16: TextStyle(
-      fontSize: 16,
-    ),
-    text18: TextStyle(
-      fontSize: 18,
-    ),
-    text20: TextStyle(
-      fontSize: 20,
-    ),
-    text24: TextStyle(
-      fontSize: 24,
-    ),
-    text32: TextStyle(
-      fontSize: 32,
-    ),
-    text40: TextStyle(
-      fontSize: 40,
-    ),
-    text48: TextStyle(
-      fontSize: 48,
-    ),
-    text56: TextStyle(
-      fontSize: 56,
-    ),
-    text64: TextStyle(
-      fontSize: 64,
-    ),
-    text72: TextStyle(
-      fontSize: 72,
-    ),
+    textDefault: TextStyle(fontSize: 14),
+    text6: TextStyle(fontSize: 6),
+    text8: TextStyle(fontSize: 8),
+    text9: TextStyle(fontSize: 9),
+    text10: TextStyle(fontSize: 10),
+    text12: TextStyle(fontSize: 12),
+    text14: TextStyle(fontSize: 14),
+    text16: TextStyle(fontSize: 16),
+    text18: TextStyle(fontSize: 18),
+    text20: TextStyle(fontSize: 20),
+    text24: TextStyle(fontSize: 24),
+    text32: TextStyle(fontSize: 32),
+    text40: TextStyle(fontSize: 40),
+    text48: TextStyle(fontSize: 48),
+    text56: TextStyle(fontSize: 56),
+    text64: TextStyle(fontSize: 64),
+    text72: TextStyle(fontSize: 72),
   );
 
   static const heading = MoonTextStyles(
@@ -249,32 +215,32 @@ class MoonTextStyles extends ThemeExtension<MoonTextStyles>
     TextOverflow? overflow,
   }) {
     TextStyle applyProps(TextStyle style) => style.apply(
-          backgroundColor: backgroundColor,
-          decorationThicknessDelta: decorationThicknessDelta,
-          decorationThicknessFactor: decorationThicknessFactor,
-          color: color,
-          decorationColor: decorationColor,
-          fontSizeDelta: fontSizeDelta,
-          fontSizeFactor: fontSizeFactor,
-          heightDelta: heightDelta,
-          heightFactor: heightFactor,
-          letterSpacingDelta: letterSpacingDelta,
-          letterSpacingFactor: letterSpacingFactor,
-          fontFeatures: fontFeatures,
-          fontStyle: fontStyle,
-          fontWeightDelta: fontWeightDelta,
-          fontVariations: fontVariations,
-          shadows: shadows,
-          fontFamilyFallback: fontFamilyFallback,
-          locale: locale,
-          fontFamily: fontFamily,
-          package: package,
-          textBaseline: textBaseline,
-          decoration: decoration,
-          decorationStyle: decorationStyle,
-          leadingDistribution: leadingDistribution,
-          overflow: overflow,
-        );
+      backgroundColor: backgroundColor,
+      decorationThicknessDelta: decorationThicknessDelta,
+      decorationThicknessFactor: decorationThicknessFactor,
+      color: color,
+      decorationColor: decorationColor,
+      fontSizeDelta: fontSizeDelta,
+      fontSizeFactor: fontSizeFactor,
+      heightDelta: heightDelta,
+      heightFactor: heightFactor,
+      letterSpacingDelta: letterSpacingDelta,
+      letterSpacingFactor: letterSpacingFactor,
+      fontFeatures: fontFeatures,
+      fontStyle: fontStyle,
+      fontWeightDelta: fontWeightDelta,
+      fontVariations: fontVariations,
+      shadows: shadows,
+      fontFamilyFallback: fontFamilyFallback,
+      locale: locale,
+      fontFamily: fontFamily,
+      package: package,
+      textBaseline: textBaseline,
+      decoration: decoration,
+      decorationStyle: decorationStyle,
+      leadingDistribution: leadingDistribution,
+      overflow: overflow,
+    );
 
     return MoonTextStyles(
       textDefault: applyProps(textDefault),

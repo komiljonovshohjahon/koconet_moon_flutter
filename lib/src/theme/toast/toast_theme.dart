@@ -26,27 +26,29 @@ class MoonToastTheme extends ThemeExtension<MoonToastTheme>
     MoonToastColors? colors,
     MoonToastProperties? properties,
     MoonToastShadows? shadows,
-  })  : colors = colors ??
-            MoonToastColors(
-              lightVariantBackgroundColor: tokens.colors.goku,
-              darkVariantBackgroundColor: tokens.complementaryColors.goku,
-              lightVariantTextColor: tokens.colors.bulma,
-              darkVariantTextColor: tokens.complementaryColors.bulma,
-              lightVariantIconColor: tokens.colors.bulma,
-              darkVariantIconColor: tokens.complementaryColors.bulma,
-            ),
-        properties = properties ??
-            MoonToastProperties(
-              borderRadius: tokens.borders.surfaceSm,
-              horizontalGap: tokens.sizes.x2s,
-              verticalGap: tokens.sizes.x3s,
-              displayDuration: const Duration(seconds: 3),
-              transitionDuration: tokens.transitions.defaultTransitionDuration,
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-              contentPadding: EdgeInsets.all(tokens.sizes.x2s),
-              textStyle: tokens.typography.body.textDefault,
-            ),
-        shadows = shadows ?? MoonToastShadows(toastShadows: tokens.shadows.lg);
+  }) : colors =
+           colors ??
+           MoonToastColors(
+             lightVariantBackgroundColor: tokens.colors.goku,
+             darkVariantBackgroundColor: tokens.complementaryColors.goku,
+             lightVariantTextColor: tokens.colors.bulma,
+             darkVariantTextColor: tokens.complementaryColors.bulma,
+             lightVariantIconColor: tokens.colors.bulma,
+             darkVariantIconColor: tokens.complementaryColors.bulma,
+           ),
+       properties =
+           properties ??
+           MoonToastProperties(
+             borderRadius: tokens.borders.surfaceSm,
+             horizontalGap: tokens.sizes.x2s,
+             verticalGap: tokens.sizes.x3s,
+             displayDuration: const Duration(seconds: 3),
+             transitionDuration: tokens.transitions.defaultTransitionDuration,
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+             contentPadding: EdgeInsets.all(tokens.sizes.x2s),
+             textStyle: tokens.typography.body.textDefault,
+           ),
+       shadows = shadows ?? MoonToastShadows(toastShadows: tokens.shadows.lg);
 
   @override
   MoonToastTheme copyWith({

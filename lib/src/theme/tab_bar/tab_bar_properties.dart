@@ -43,8 +43,11 @@ class MoonTabBarProperties extends ThemeExtension<MoonTabBarProperties>
 
     return MoonTabBarProperties(
       gap: lerpDouble(gap, other.gap, t)!,
-      transitionDuration:
-          lerpDuration(transitionDuration, other.transitionDuration, t),
+      transitionDuration: lerpDuration(
+        transitionDuration,
+        other.transitionDuration,
+        t,
+      ),
       transitionCurve: other.transitionCurve,
     );
   }
@@ -53,17 +56,11 @@ class MoonTabBarProperties extends ThemeExtension<MoonTabBarProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty("type", "MoonTabBarProperties"),
-      )
-      ..add(
-        DoubleProperty("gap", gap),
-      )
+      ..add(DiagnosticsProperty("type", "MoonTabBarProperties"))
+      ..add(DoubleProperty("gap", gap))
       ..add(
         DiagnosticsProperty<Duration>("transitionDuration", transitionDuration),
       )
-      ..add(
-        DiagnosticsProperty<Curve>("transitionCurve", transitionCurve),
-      );
+      ..add(DiagnosticsProperty<Curve>("transitionCurve", transitionCurve));
   }
 }

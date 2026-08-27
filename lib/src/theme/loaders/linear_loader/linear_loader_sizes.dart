@@ -32,31 +32,36 @@ class MoonLinearLoaderSizes extends ThemeExtension<MoonLinearLoaderSizes>
     MoonLinearLoaderSizeProperties? x4s,
     MoonLinearLoaderSizeProperties? x3s,
     MoonLinearLoaderSizeProperties? x2s,
-  })  : x6s = x6s ??
-            MoonLinearLoaderSizeProperties(
-              borderRadius: tokens.borders.surfaceXs,
-              loaderHeight: tokens.sizes.x6s,
-            ),
-        x5s = x5s ??
-            MoonLinearLoaderSizeProperties(
-              borderRadius: tokens.borders.surfaceXs,
-              loaderHeight: tokens.sizes.x5s,
-            ),
-        x4s = x4s ??
-            MoonLinearLoaderSizeProperties(
-              borderRadius: tokens.borders.surfaceSm,
-              loaderHeight: tokens.sizes.x4s,
-            ),
-        x3s = x3s ??
-            MoonLinearLoaderSizeProperties(
-              borderRadius: tokens.borders.surfaceMd,
-              loaderHeight: tokens.sizes.x3s,
-            ),
-        x2s = x2s ??
-            MoonLinearLoaderSizeProperties(
-              borderRadius: tokens.borders.surfaceLg,
-              loaderHeight: tokens.sizes.x2s,
-            );
+  }) : x6s =
+           x6s ??
+           MoonLinearLoaderSizeProperties(
+             borderRadius: tokens.borders.surfaceXs,
+             loaderHeight: tokens.sizes.x6s,
+           ),
+       x5s =
+           x5s ??
+           MoonLinearLoaderSizeProperties(
+             borderRadius: tokens.borders.surfaceXs,
+             loaderHeight: tokens.sizes.x5s,
+           ),
+       x4s =
+           x4s ??
+           MoonLinearLoaderSizeProperties(
+             borderRadius: tokens.borders.surfaceSm,
+             loaderHeight: tokens.sizes.x4s,
+           ),
+       x3s =
+           x3s ??
+           MoonLinearLoaderSizeProperties(
+             borderRadius: tokens.borders.surfaceMd,
+             loaderHeight: tokens.sizes.x3s,
+           ),
+       x2s =
+           x2s ??
+           MoonLinearLoaderSizeProperties(
+             borderRadius: tokens.borders.surfaceLg,
+             loaderHeight: tokens.sizes.x2s,
+           );
 
   @override
   MoonLinearLoaderSizes copyWith({

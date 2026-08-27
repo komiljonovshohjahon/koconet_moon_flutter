@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/shadows.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/shape_decoration_premul.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
 enum MoonPopoverPosition {
   top,
@@ -218,63 +214,66 @@ class MoonPopoverState extends State<MoonPopover>
   }) {
     return switch (popoverPosition) {
       MoonPopoverPosition.top => _PopoverPositionProperties(
-          offset: Offset(0, -distanceToTarget),
-          targetAnchor: Alignment.topCenter,
-          followerAnchor: Alignment.bottomCenter,
-          popoverMaxWidth: overlayWidth -
-              ((overlayWidth / 2 - popoverTargetGlobalCenter) * 2).abs() -
-              widget.popoverMargin * 2,
-        ),
+        offset: Offset(0, -distanceToTarget),
+        targetAnchor: Alignment.topCenter,
+        followerAnchor: Alignment.bottomCenter,
+        popoverMaxWidth:
+            overlayWidth -
+            ((overlayWidth / 2 - popoverTargetGlobalCenter) * 2).abs() -
+            widget.popoverMargin * 2,
+      ),
       MoonPopoverPosition.bottom => _PopoverPositionProperties(
-          offset: Offset(0, distanceToTarget),
-          targetAnchor: Alignment.bottomCenter,
-          followerAnchor: Alignment.topCenter,
-          popoverMaxWidth: overlayWidth -
-              ((overlayWidth / 2 - popoverTargetGlobalCenter) * 2).abs() -
-              widget.popoverMargin * 2,
-        ),
+        offset: Offset(0, distanceToTarget),
+        targetAnchor: Alignment.bottomCenter,
+        followerAnchor: Alignment.topCenter,
+        popoverMaxWidth:
+            overlayWidth -
+            ((overlayWidth / 2 - popoverTargetGlobalCenter) * 2).abs() -
+            widget.popoverMargin * 2,
+      ),
       MoonPopoverPosition.left => _PopoverPositionProperties(
-          offset: Offset(-distanceToTarget, 0),
-          targetAnchor: Alignment.centerLeft,
-          followerAnchor: Alignment.centerRight,
-          popoverMaxWidth:
-              popoverTargetGlobalLeft - distanceToTarget - widget.popoverMargin,
-        ),
+        offset: Offset(-distanceToTarget, 0),
+        targetAnchor: Alignment.centerLeft,
+        followerAnchor: Alignment.centerRight,
+        popoverMaxWidth:
+            popoverTargetGlobalLeft - distanceToTarget - widget.popoverMargin,
+      ),
       MoonPopoverPosition.right => _PopoverPositionProperties(
-          offset: Offset(distanceToTarget, 0),
-          targetAnchor: Alignment.centerRight,
-          followerAnchor: Alignment.centerLeft,
-          popoverMaxWidth: overlayWidth -
-              popoverTargetGlobalRight -
-              distanceToTarget -
-              widget.popoverMargin,
-        ),
+        offset: Offset(distanceToTarget, 0),
+        targetAnchor: Alignment.centerRight,
+        followerAnchor: Alignment.centerLeft,
+        popoverMaxWidth:
+            overlayWidth -
+            popoverTargetGlobalRight -
+            distanceToTarget -
+            widget.popoverMargin,
+      ),
       MoonPopoverPosition.topLeft => _PopoverPositionProperties(
-          offset: Offset(0, -distanceToTarget),
-          targetAnchor: Alignment.topRight,
-          followerAnchor: Alignment.bottomRight,
-          popoverMaxWidth: popoverTargetGlobalRight - widget.popoverMargin,
-        ),
+        offset: Offset(0, -distanceToTarget),
+        targetAnchor: Alignment.topRight,
+        followerAnchor: Alignment.bottomRight,
+        popoverMaxWidth: popoverTargetGlobalRight - widget.popoverMargin,
+      ),
       MoonPopoverPosition.topRight => _PopoverPositionProperties(
-          offset: Offset(0, -distanceToTarget),
-          targetAnchor: Alignment.topLeft,
-          followerAnchor: Alignment.bottomLeft,
-          popoverMaxWidth:
-              overlayWidth - popoverTargetGlobalLeft - widget.popoverMargin,
-        ),
+        offset: Offset(0, -distanceToTarget),
+        targetAnchor: Alignment.topLeft,
+        followerAnchor: Alignment.bottomLeft,
+        popoverMaxWidth:
+            overlayWidth - popoverTargetGlobalLeft - widget.popoverMargin,
+      ),
       MoonPopoverPosition.bottomLeft => _PopoverPositionProperties(
-          offset: Offset(0, distanceToTarget),
-          targetAnchor: Alignment.bottomRight,
-          followerAnchor: Alignment.topRight,
-          popoverMaxWidth: popoverTargetGlobalRight - widget.popoverMargin,
-        ),
+        offset: Offset(0, distanceToTarget),
+        targetAnchor: Alignment.bottomRight,
+        followerAnchor: Alignment.topRight,
+        popoverMaxWidth: popoverTargetGlobalRight - widget.popoverMargin,
+      ),
       MoonPopoverPosition.bottomRight => _PopoverPositionProperties(
-          offset: Offset(0, distanceToTarget),
-          targetAnchor: Alignment.bottomLeft,
-          followerAnchor: Alignment.topLeft,
-          popoverMaxWidth:
-              overlayWidth - popoverTargetGlobalLeft - widget.popoverMargin,
-        ),
+        offset: Offset(0, distanceToTarget),
+        targetAnchor: Alignment.bottomLeft,
+        followerAnchor: Alignment.topLeft,
+        popoverMaxWidth:
+            overlayWidth - popoverTargetGlobalLeft - widget.popoverMargin,
+      ),
       _ => throw AssertionError("No match: $popoverPosition"),
     };
   }
@@ -318,8 +317,10 @@ class MoonPopoverState extends State<MoonPopover>
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((Duration _) {
-      widget.routeObserver
-          ?.subscribe(this, ModalRoute.of(context)! as PageRoute<dynamic>);
+      widget.routeObserver?.subscribe(
+        this,
+        ModalRoute.of(context)! as PageRoute<dynamic>,
+      );
     });
   }
 
@@ -329,8 +330,10 @@ class MoonPopoverState extends State<MoonPopover>
 
     if (oldWidget.routeObserver != widget.routeObserver) {
       oldWidget.routeObserver?.unsubscribe(this);
-      widget.routeObserver
-          ?.subscribe(this, ModalRoute.of(context)! as PageRoute<dynamic>);
+      widget.routeObserver?.subscribe(
+        this,
+        ModalRoute.of(context)! as PageRoute<dynamic>,
+      );
     }
 
     WidgetsBinding.instance.addPostFrameCallback((Duration _) {
@@ -370,40 +373,38 @@ class MoonPopoverState extends State<MoonPopover>
   Widget _createOverlayContent() {
     MoonPopoverPosition popoverPosition = widget.popoverPosition;
 
-    final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme.popoverTheme.properties.borderRadius ??
-        BorderRadius.circular(12);
+    final BorderRadiusGeometry effectiveBorderRadius =
+        widget.borderRadius ??
+        context.moonTheme.popoverTheme.properties.borderRadius;
 
-    final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme.popoverTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+    final Color effectiveBackgroundColor =
+        widget.backgroundColor ??
+        context.moonTheme.popoverTheme.colors.backgroundColor;
 
     final Color effectiveTextColor =
-        context.moonTheme.popoverTheme.colors.textColor ??
-            MoonColors.light.textPrimary;
+        context.moonTheme.popoverTheme.colors.textColor;
 
     final Color effectiveIconColor =
-        context.moonTheme.popoverTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+        context.moonTheme.popoverTheme.colors.iconColor;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme.popoverTheme.properties.textStyle ??
-            MoonTypography.typography.body.textDefault;
+        context.moonTheme.popoverTheme.properties.textStyle;
 
-    final double effectiveDistanceToTarget = widget.distanceToTarget ??
-        context.moonTheme.popoverTheme.properties.distanceToTarget ??
-        8;
+    final double effectiveDistanceToTarget =
+        widget.distanceToTarget ??
+        context.moonTheme.popoverTheme.properties.distanceToTarget;
 
-    final EdgeInsetsGeometry effectiveContentPadding = widget.contentPadding ??
-        context.moonTheme.popoverTheme.properties.contentPadding ??
-        const EdgeInsets.all(12);
+    final EdgeInsetsGeometry effectiveContentPadding =
+        widget.contentPadding ??
+        context.moonTheme.popoverTheme.properties.contentPadding;
 
-    final EdgeInsets resolvedContentPadding =
-        effectiveContentPadding.resolve(Directionality.of(context));
+    final EdgeInsets resolvedContentPadding = effectiveContentPadding.resolve(
+      Directionality.of(context),
+    );
 
-    final List<BoxShadow> effectivePopoverShadows = widget.popoverShadows ??
-        context.moonTheme.popoverTheme.shadows.popoverShadows ??
-        MoonShadows.light.sm;
+    final List<BoxShadow> effectivePopoverShadows =
+        widget.popoverShadows ??
+        context.moonTheme.popoverTheme.shadows.popoverShadows;
 
     final RenderBox overlayRenderBox =
         Overlay.of(context).context.findRenderObject()! as RenderBox;
@@ -442,12 +443,14 @@ class MoonPopoverState extends State<MoonPopover>
         case MoonPopoverPosition.bottomRight:
           popoverPosition = MoonPopoverPosition.bottomLeft;
         case MoonPopoverPosition.vertical:
-          popoverPosition = popoverTargetGlobalCenter.dy <
+          popoverPosition =
+              popoverTargetGlobalCenter.dy <
                   overlayRenderBox.size.center(Offset.zero).dy
               ? MoonPopoverPosition.bottom
               : MoonPopoverPosition.top;
         case MoonPopoverPosition.horizontal:
-          popoverPosition = popoverTargetGlobalCenter.dx <
+          popoverPosition =
+              popoverTargetGlobalCenter.dx <
                   overlayRenderBox.size.center(Offset.zero).dx
               ? MoonPopoverPosition.right
               : MoonPopoverPosition.left;
@@ -458,13 +461,13 @@ class MoonPopoverState extends State<MoonPopover>
 
     final _PopoverPositionProperties popoverPositionParameters =
         _resolvePopoverPositionParameters(
-      popoverPosition: popoverPosition,
-      distanceToTarget: effectiveDistanceToTarget,
-      overlayWidth: overlayRenderBox.size.width,
-      popoverTargetGlobalLeft: popoverTargetGlobalLeft.dx,
-      popoverTargetGlobalCenter: popoverTargetGlobalCenter.dx,
-      popoverTargetGlobalRight: popoverTargetGlobalRight.dx,
-    );
+          popoverPosition: popoverPosition,
+          distanceToTarget: effectiveDistanceToTarget,
+          overlayWidth: overlayRenderBox.size.width,
+          popoverTargetGlobalLeft: popoverTargetGlobalLeft.dx,
+          popoverTargetGlobalCenter: popoverTargetGlobalCenter.dx,
+          popoverTargetGlobalRight: popoverTargetGlobalRight.dx,
+        );
 
     return Semantics(
       label: widget.semanticLabel,
@@ -493,11 +496,13 @@ class MoonPopoverState extends State<MoonPopover>
                         minHeight: widget.minHeight ?? 0,
                         minWidth: widget.minWidth ?? 0,
                         maxHeight: widget.maxHeight ?? double.infinity,
-                        maxWidth: widget.maxWidth ??
+                        maxWidth:
+                            widget.maxWidth ??
                             popoverPositionParameters.popoverMaxWidth,
                       ),
                       padding: resolvedContentPadding,
-                      decoration: widget.decoration ??
+                      decoration:
+                          widget.decoration ??
                           ShapeDecorationWithPremultipliedAlpha(
                             color: effectiveBackgroundColor,
                             shadows: effectivePopoverShadows,
@@ -527,13 +532,13 @@ class MoonPopoverState extends State<MoonPopover>
 
   @override
   Widget build(BuildContext context) {
-    final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme.popoverTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+    final Duration effectiveTransitionDuration =
+        widget.transitionDuration ??
+        context.moonTheme.popoverTheme.properties.transitionDuration;
 
-    final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme.popoverTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+    final Curve effectiveTransitionCurve =
+        widget.transitionCurve ??
+        context.moonTheme.popoverTheme.properties.transitionCurve;
 
     _animationController ??= AnimationController(
       duration: effectiveTransitionDuration,
@@ -548,10 +553,7 @@ class MoonPopoverState extends State<MoonPopover>
     return TapRegion(
       groupId: _regionKey,
       behavior: HitTestBehavior.translucent,
-      child: CompositedTransformTarget(
-        link: _layerLink,
-        child: widget.child,
-      ),
+      child: CompositedTransformTarget(link: _layerLink, child: widget.child),
     );
   }
 }

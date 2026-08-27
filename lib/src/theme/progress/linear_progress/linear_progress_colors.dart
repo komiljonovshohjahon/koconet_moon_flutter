@@ -44,8 +44,11 @@ class MoonLinearProgressColors extends ThemeExtension<MoonLinearProgressColors>
     return MoonLinearProgressColors(
       color: colorPremulLerp(color, other.color, t)!,
       textColor: colorPremulLerp(textColor, other.textColor, t)!,
-      backgroundColor:
-          colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
+      backgroundColor: colorPremulLerp(
+        backgroundColor,
+        other.backgroundColor,
+        t,
+      )!,
     );
   }
 

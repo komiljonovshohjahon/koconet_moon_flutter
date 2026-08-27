@@ -51,13 +51,19 @@ class MoonMenuItemColors extends ThemeExtension<MoonMenuItemColors>
     if (other is! MoonMenuItemColors) return this;
 
     return MoonMenuItemColors(
-      backgroundColor:
-          colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
+      backgroundColor: colorPremulLerp(
+        backgroundColor,
+        other.backgroundColor,
+        t,
+      )!,
       dividerColor: colorPremulLerp(dividerColor, other.dividerColor, t)!,
       iconColor: colorPremulLerp(iconColor, other.iconColor, t)!,
       labelTextColor: colorPremulLerp(labelTextColor, other.labelTextColor, t)!,
-      contentTextColor:
-          colorPremulLerp(contentTextColor, other.contentTextColor, t)!,
+      contentTextColor: colorPremulLerp(
+        contentTextColor,
+        other.contentTextColor,
+        t,
+      )!,
     );
   }
 

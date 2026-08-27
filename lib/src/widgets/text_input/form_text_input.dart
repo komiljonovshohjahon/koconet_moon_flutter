@@ -8,9 +8,8 @@ import 'package:moon_design/src/widgets/text_input/text_input.dart';
 
 export 'package:flutter/services.dart' show SmartDashesType, SmartQuotesType;
 
-typedef MoonFormTextInputValidationStatusCallback = void Function(
-  String? validationErrorText,
-);
+typedef MoonFormTextInputValidationStatusCallback =
+    void Function(String? validationErrorText);
 
 class MoonFormTextInput extends FormField<String> {
   final MoonFormTextInputConfiguration configuration;
@@ -123,245 +122,246 @@ class MoonFormTextInput extends FormField<String> {
     ui.BoxHeightStyle selectionHeightStyle = ui.BoxHeightStyle.tight,
     ui.BoxWidthStyle selectionWidthStyle = ui.BoxWidthStyle.tight,
     UndoHistoryController? undoController,
-  })  : assert(obscuringCharacter.length == 1),
-        assert(maxLines == null || maxLines > 0),
-        assert(minLines == null || minLines > 0),
-        assert(
-          (maxLines == null) || (minLines == null) || (maxLines >= minLines),
-          "MinLines can not be greater than maxLines",
-        ),
-        assert(
-          !expands || (maxLines == null && minLines == null),
-          "MinLines and maxLines must be null when 'expands' is true.",
-        ),
-        assert(
-          !obscureText || maxLines == 1,
-          "Obscured fields cannot be multiline.",
-        ),
-        assert(
-          maxLength == null ||
-              maxLength == MoonTextInput.noMaxLength ||
-              maxLength > 0,
-        ),
-        configuration = MoonFormTextInputConfiguration(
-          activeBorderColor: activeBorderColor,
-          autocorrect: autocorrect,
-          autofillHints: autofillHints,
-          autofocus: autofocus,
-          autovalidateMode: autovalidateMode ?? AutovalidateMode.disabled,
-          backgroundColor: backgroundColor,
-          borderRadius: borderRadius,
-          canRequestFocus: canRequestFocus,
-          clipBehavior: clipBehavior,
-          contentInsertionConfiguration: contentInsertionConfiguration,
-          contextMenuBuilder: contextMenuBuilder,
-          controller: controller,
-          cursorColor: cursorColor,
-          cursorErrorColor: cursorErrorColor,
-          cursorHeight: cursorHeight,
-          cursorOpacityAnimates: cursorOpacityAnimates,
-          cursorRadius: cursorRadius,
-          cursorWidth: cursorWidth,
-          decoration: decoration,
-          dragStartBehavior: dragStartBehavior,
-          enabled: enabled ?? true,
-          enableIMEPersonalizedLearning: enableIMEPersonalizedLearning,
-          enableInteractiveSelection:
-              enableInteractiveSelection ?? (!obscureText || !readOnly),
-          enableSuggestions: enableSuggestions,
-          errorBorderColor: errorBorderColor,
-          errorBuilder: errorBuilder,
-          errorColor: errorColor,
-          errorText: errorText,
-          expands: expands,
-          focusNode: focusNode,
-          gap: gap,
-          hasFloatingLabel: hasFloatingLabel,
-          height: height,
-          helper: helper,
-          helperPadding: helperPadding,
-          helperTextStyle: helperTextStyle,
-          hintText: hintText,
-          hintTextColor: hintTextColor,
-          hoverBorderColor: hoverBorderColor,
-          inactiveBorderColor: inactiveBorderColor,
-          initialValue: initialValue,
-          inputFormatters: inputFormatters,
-          keyboardAppearance: keyboardAppearance,
-          keyboardType: keyboardType,
-          leading: leading,
-          magnifierConfiguration: magnifierConfiguration,
-          maxLength: maxLength,
-          maxLengthEnforcement: maxLengthEnforcement,
-          maxLines: maxLines,
-          minLines: minLines,
-          mouseCursor: mouseCursor,
-          obscureText: obscureText,
-          obscuringCharacter: obscuringCharacter,
-          onAppPrivateCommand: onAppPrivateCommand,
-          onChanged: onChanged,
-          onEditingComplete: onEditingComplete,
-          validationStatusCallback: validationStatusCallback,
-          onSaved: onSaved,
-          onSubmitted: onSubmitted,
-          onTap: onTap,
-          onTapAlwaysCalled: onTapAlwaysCalled,
-          onTapOutside: onTapOutside,
-          padding: padding,
-          readOnly: readOnly,
-          restorationId: restorationId,
-          scribbleEnabled: scribbleEnabled,
-          scrollController: scrollController,
-          scrollPadding: scrollPadding,
-          scrollPhysics: scrollPhysics,
-          selectionControls: selectionControls,
-          selectionHeightStyle: selectionHeightStyle,
-          selectionWidthStyle: selectionWidthStyle,
-          showCursor: showCursor,
-          smartDashesType: smartDashesType ??
-              (obscureText
-                  ? SmartDashesType.disabled
-                  : SmartDashesType.enabled),
-          smartQuotesType: smartQuotesType ??
-              (obscureText
-                  ? SmartQuotesType.disabled
-                  : SmartQuotesType.enabled),
-          spellCheckConfiguration: spellCheckConfiguration,
-          strutStyle: strutStyle,
-          style: style,
-          textAlign: textAlign,
-          textAlignVertical: textAlignVertical,
-          textCapitalization: textCapitalization,
-          textColor: textColor,
-          textDirection: textDirection,
-          textInputAction: textInputAction,
-          textInputSize: textInputSize,
-          trailing: trailing,
-          transitionCurve: transitionCurve,
-          transitionDuration: transitionDuration,
-          undoController: undoController,
-          validator: validator,
-          width: width,
-        ),
-        super(
-          initialValue:
-              controller != null ? controller.text : (initialValue ?? ""),
-          enabled: enabled ?? true,
-          autovalidateMode: autovalidateMode ?? AutovalidateMode.disabled,
-          builder: (FormFieldState<String> field) {
-            final _MoonFormTextInputState state =
-                field as _MoonFormTextInputState;
+  }) : assert(obscuringCharacter.length == 1),
+       assert(maxLines == null || maxLines > 0),
+       assert(minLines == null || minLines > 0),
+       assert(
+         (maxLines == null) || (minLines == null) || (maxLines >= minLines),
+         "MinLines can not be greater than maxLines",
+       ),
+       assert(
+         !expands || (maxLines == null && minLines == null),
+         "MinLines and maxLines must be null when 'expands' is true.",
+       ),
+       assert(
+         !obscureText || maxLines == 1,
+         "Obscured fields cannot be multiline.",
+       ),
+       assert(
+         maxLength == null ||
+             maxLength == MoonTextInput.noMaxLength ||
+             maxLength > 0,
+       ),
+       configuration = MoonFormTextInputConfiguration(
+         activeBorderColor: activeBorderColor,
+         autocorrect: autocorrect,
+         autofillHints: autofillHints,
+         autofocus: autofocus,
+         autovalidateMode: autovalidateMode ?? AutovalidateMode.disabled,
+         backgroundColor: backgroundColor,
+         borderRadius: borderRadius,
+         canRequestFocus: canRequestFocus,
+         clipBehavior: clipBehavior,
+         contentInsertionConfiguration: contentInsertionConfiguration,
+         contextMenuBuilder: contextMenuBuilder,
+         controller: controller,
+         cursorColor: cursorColor,
+         cursorErrorColor: cursorErrorColor,
+         cursorHeight: cursorHeight,
+         cursorOpacityAnimates: cursorOpacityAnimates,
+         cursorRadius: cursorRadius,
+         cursorWidth: cursorWidth,
+         decoration: decoration,
+         dragStartBehavior: dragStartBehavior,
+         enabled: enabled ?? true,
+         enableIMEPersonalizedLearning: enableIMEPersonalizedLearning,
+         enableInteractiveSelection:
+             enableInteractiveSelection ?? (!obscureText || !readOnly),
+         enableSuggestions: enableSuggestions,
+         errorBorderColor: errorBorderColor,
+         errorBuilder: errorBuilder,
+         errorColor: errorColor,
+         errorText: errorText,
+         expands: expands,
+         focusNode: focusNode,
+         gap: gap,
+         hasFloatingLabel: hasFloatingLabel,
+         height: height,
+         helper: helper,
+         helperPadding: helperPadding,
+         helperTextStyle: helperTextStyle,
+         hintText: hintText,
+         hintTextColor: hintTextColor,
+         hoverBorderColor: hoverBorderColor,
+         inactiveBorderColor: inactiveBorderColor,
+         initialValue: initialValue,
+         inputFormatters: inputFormatters,
+         keyboardAppearance: keyboardAppearance,
+         keyboardType: keyboardType,
+         leading: leading,
+         magnifierConfiguration: magnifierConfiguration,
+         maxLength: maxLength,
+         maxLengthEnforcement: maxLengthEnforcement,
+         maxLines: maxLines,
+         minLines: minLines,
+         mouseCursor: mouseCursor,
+         obscureText: obscureText,
+         obscuringCharacter: obscuringCharacter,
+         onAppPrivateCommand: onAppPrivateCommand,
+         onChanged: onChanged,
+         onEditingComplete: onEditingComplete,
+         validationStatusCallback: validationStatusCallback,
+         onSaved: onSaved,
+         onSubmitted: onSubmitted,
+         onTap: onTap,
+         onTapAlwaysCalled: onTapAlwaysCalled,
+         onTapOutside: onTapOutside,
+         padding: padding,
+         readOnly: readOnly,
+         restorationId: restorationId,
+         scribbleEnabled: scribbleEnabled,
+         scrollController: scrollController,
+         scrollPadding: scrollPadding,
+         scrollPhysics: scrollPhysics,
+         selectionControls: selectionControls,
+         selectionHeightStyle: selectionHeightStyle,
+         selectionWidthStyle: selectionWidthStyle,
+         showCursor: showCursor,
+         smartDashesType:
+             smartDashesType ??
+             (obscureText ? SmartDashesType.disabled : SmartDashesType.enabled),
+         smartQuotesType:
+             smartQuotesType ??
+             (obscureText ? SmartQuotesType.disabled : SmartQuotesType.enabled),
+         spellCheckConfiguration: spellCheckConfiguration,
+         strutStyle: strutStyle,
+         style: style,
+         textAlign: textAlign,
+         textAlignVertical: textAlignVertical,
+         textCapitalization: textCapitalization,
+         textColor: textColor,
+         textDirection: textDirection,
+         textInputAction: textInputAction,
+         textInputSize: textInputSize,
+         trailing: trailing,
+         transitionCurve: transitionCurve,
+         transitionDuration: transitionDuration,
+         undoController: undoController,
+         validator: validator,
+         width: width,
+       ),
+       super(
+         initialValue: controller != null
+             ? controller.text
+             : (initialValue ?? ""),
+         enabled: enabled ?? true,
+         autovalidateMode: autovalidateMode ?? AutovalidateMode.disabled,
+         builder: (FormFieldState<String> field) {
+           final _MoonFormTextInputState state =
+               field as _MoonFormTextInputState;
 
-            validationStatusCallback?.call(field.errorText);
+           validationStatusCallback?.call(field.errorText);
 
-            void onChangedHandler(String value) {
-              field.didChange(value);
-              if (onChanged != null) {
-                onChanged(value);
-              }
-            }
+           void onChangedHandler(String value) {
+             field.didChange(value);
+             if (onChanged != null) {
+               onChanged(value);
+             }
+           }
 
-            return UnmanagedRestorationScope(
-              bucket: field.bucket,
-              child: MoonTextInput(
-                activeBorderColor: activeBorderColor,
-                autocorrect: autocorrect,
-                autofillHints: autofillHints,
-                autofocus: autofocus,
-                backgroundColor: backgroundColor,
-                borderRadius: borderRadius,
-                canRequestFocus: canRequestFocus,
-                clipBehavior: clipBehavior,
-                contentInsertionConfiguration: contentInsertionConfiguration,
-                contextMenuBuilder: contextMenuBuilder,
-                controller: state._effectiveController,
-                cursorColor: cursorColor,
-                cursorErrorColor: cursorErrorColor,
-                cursorHeight: cursorHeight,
-                cursorOpacityAnimates: cursorOpacityAnimates,
-                cursorRadius: cursorRadius,
-                cursorWidth: cursorWidth,
-                decoration: decoration,
-                dragStartBehavior: dragStartBehavior,
-                enabled: enabled ?? true,
-                enableIMEPersonalizedLearning: enableIMEPersonalizedLearning,
-                enableInteractiveSelection:
-                    enableInteractiveSelection ?? (!obscureText || !readOnly),
-                enableSuggestions: enableSuggestions,
-                errorBorderColor: errorBorderColor,
-                errorBuilder: errorBuilder,
-                errorColor: errorColor,
-                errorText: field.errorText ?? errorText,
-                expands: expands,
-                focusNode: focusNode,
-                gap: gap,
-                hasFloatingLabel: hasFloatingLabel,
-                height: height,
-                helper: helper,
-                helperPadding: helperPadding,
-                helperTextStyle: helperTextStyle,
-                hintText: hintText,
-                hintTextColor: hintTextColor,
-                hoverBorderColor: hoverBorderColor,
-                inactiveBorderColor: inactiveBorderColor,
-                initialValue: initialValue,
-                inputFormatters: inputFormatters,
-                keyboardAppearance: keyboardAppearance,
-                keyboardType: keyboardType,
-                leading: leading,
-                magnifierConfiguration: magnifierConfiguration,
-                maxLength: maxLength,
-                maxLengthEnforcement: maxLengthEnforcement,
-                maxLines: maxLines,
-                minLines: minLines,
-                mouseCursor: mouseCursor,
-                obscureText: obscureText,
-                obscuringCharacter: obscuringCharacter,
-                onAppPrivateCommand: onAppPrivateCommand,
-                onChanged: onChangedHandler,
-                onEditingComplete: onEditingComplete,
-                onSubmitted: onSubmitted,
-                onTap: onTap,
-                onTapAlwaysCalled: onTapAlwaysCalled,
-                onTapOutside: onTapOutside,
-                padding: padding,
-                readOnly: readOnly,
-                restorationId: restorationId,
-                scribbleEnabled: scribbleEnabled,
-                scrollController: scrollController,
-                scrollPadding: scrollPadding,
-                scrollPhysics: scrollPhysics,
-                selectionControls: selectionControls,
-                selectionHeightStyle: selectionHeightStyle,
-                selectionWidthStyle: selectionWidthStyle,
-                showCursor: showCursor,
-                smartDashesType: smartDashesType ??
-                    (obscureText
-                        ? SmartDashesType.disabled
-                        : SmartDashesType.enabled),
-                smartQuotesType: smartQuotesType ??
-                    (obscureText
-                        ? SmartQuotesType.disabled
-                        : SmartQuotesType.enabled),
-                spellCheckConfiguration: spellCheckConfiguration,
-                strutStyle: strutStyle,
-                style: style,
-                textAlign: textAlign,
-                textAlignVertical: textAlignVertical,
-                textCapitalization: textCapitalization,
-                textColor: textColor,
-                textDirection: textDirection,
-                textInputAction: textInputAction,
-                textInputSize: textInputSize,
-                trailing: trailing,
-                transitionCurve: transitionCurve,
-                transitionDuration: transitionDuration,
-                undoController: undoController,
-                width: width,
-              ),
-            );
-          },
-        );
+           return UnmanagedRestorationScope(
+             bucket: field.bucket,
+             child: MoonTextInput(
+               activeBorderColor: activeBorderColor,
+               autocorrect: autocorrect,
+               autofillHints: autofillHints,
+               autofocus: autofocus,
+               backgroundColor: backgroundColor,
+               borderRadius: borderRadius,
+               canRequestFocus: canRequestFocus,
+               clipBehavior: clipBehavior,
+               contentInsertionConfiguration: contentInsertionConfiguration,
+               contextMenuBuilder: contextMenuBuilder,
+               controller: state._effectiveController,
+               cursorColor: cursorColor,
+               cursorErrorColor: cursorErrorColor,
+               cursorHeight: cursorHeight ?? 16.0,
+               cursorOpacityAnimates: cursorOpacityAnimates,
+               cursorRadius: cursorRadius,
+               cursorWidth: cursorWidth,
+               decoration: decoration,
+               dragStartBehavior: dragStartBehavior,
+               enabled: enabled ?? true,
+               enableIMEPersonalizedLearning: enableIMEPersonalizedLearning,
+               enableInteractiveSelection:
+                   enableInteractiveSelection ?? (!obscureText || !readOnly),
+               enableSuggestions: enableSuggestions,
+               errorBorderColor: errorBorderColor,
+               errorBuilder: errorBuilder,
+               errorColor: errorColor,
+               errorText: field.errorText ?? errorText,
+               expands: expands,
+               focusNode: focusNode,
+               gap: gap,
+               hasFloatingLabel: hasFloatingLabel,
+               height: height,
+               helper: helper,
+               helperPadding: helperPadding,
+               helperTextStyle: helperTextStyle,
+               hintText: hintText,
+               hintTextColor: hintTextColor,
+               hoverBorderColor: hoverBorderColor,
+               inactiveBorderColor: inactiveBorderColor,
+               initialValue: initialValue,
+               inputFormatters: inputFormatters,
+               keyboardAppearance: keyboardAppearance,
+               keyboardType: keyboardType,
+               leading: leading,
+               magnifierConfiguration: magnifierConfiguration,
+               maxLength: maxLength,
+               maxLengthEnforcement: maxLengthEnforcement,
+               maxLines: maxLines,
+               minLines: minLines,
+               mouseCursor: mouseCursor,
+               obscureText: obscureText,
+               obscuringCharacter: obscuringCharacter,
+               onAppPrivateCommand: onAppPrivateCommand,
+               onChanged: onChangedHandler,
+               onEditingComplete: onEditingComplete,
+               onSubmitted: onSubmitted,
+               onTap: onTap,
+               onTapAlwaysCalled: onTapAlwaysCalled,
+               onTapOutside: onTapOutside,
+               padding: padding,
+               readOnly: readOnly,
+               restorationId: restorationId,
+               scribbleEnabled: scribbleEnabled,
+               scrollController: scrollController,
+               scrollPadding: scrollPadding,
+               scrollPhysics: scrollPhysics,
+               selectionControls: selectionControls,
+               selectionHeightStyle: selectionHeightStyle,
+               selectionWidthStyle: selectionWidthStyle,
+               showCursor: showCursor,
+               smartDashesType:
+                   smartDashesType ??
+                   (obscureText
+                       ? SmartDashesType.disabled
+                       : SmartDashesType.enabled),
+               smartQuotesType:
+                   smartQuotesType ??
+                   (obscureText
+                       ? SmartQuotesType.disabled
+                       : SmartQuotesType.enabled),
+               spellCheckConfiguration: spellCheckConfiguration,
+               strutStyle: strutStyle,
+               style: style,
+               textAlign: textAlign,
+               textAlignVertical: textAlignVertical,
+               textCapitalization: textCapitalization,
+               textColor: textColor,
+               textDirection: textDirection,
+               textInputAction: textInputAction,
+               textInputSize: textInputSize,
+               trailing: trailing,
+               transitionCurve: transitionCurve,
+               transitionDuration: transitionDuration,
+               undoController: undoController,
+               width: width,
+             ),
+           );
+         },
+       );
 
   /// Controls the input text.
   ///
@@ -645,7 +645,7 @@ class MoonFormTextInputConfiguration {
     this.inputFormatters,
     this.enabled = true,
     this.cursorWidth = 2.0,
-    this.cursorHeight,
+    double? cursorHeight,
     this.cursorRadius,
     this.cursorOpacityAnimates,
     this.cursorColor,
@@ -676,12 +676,16 @@ class MoonFormTextInputConfiguration {
     this.onSaved,
     this.validator,
     this.autovalidateMode = AutovalidateMode.disabled,
-  })  : smartDashesType = smartDashesType ??
-            (obscureText ? SmartDashesType.disabled : SmartDashesType.enabled),
-        smartQuotesType = smartQuotesType ??
-            (obscureText ? SmartQuotesType.disabled : SmartQuotesType.enabled),
-        keyboardType = keyboardType ??
-            (maxLines == 1 ? TextInputType.text : TextInputType.multiline),
-        enableInteractiveSelection =
-            enableInteractiveSelection ?? (!readOnly || !obscureText);
+  }) : smartDashesType =
+           smartDashesType ??
+           (obscureText ? SmartDashesType.disabled : SmartDashesType.enabled),
+       smartQuotesType =
+           smartQuotesType ??
+           (obscureText ? SmartQuotesType.disabled : SmartQuotesType.enabled),
+       keyboardType =
+           keyboardType ??
+           (maxLines == 1 ? TextInputType.text : TextInputType.multiline),
+       enableInteractiveSelection =
+           enableInteractiveSelection ?? (!readOnly || !obscureText),
+       cursorHeight = cursorHeight ?? 16.0;
 }

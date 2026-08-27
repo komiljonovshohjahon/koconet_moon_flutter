@@ -37,10 +37,16 @@ class MoonCircularProgressSizeProperties
     if (other is! MoonCircularProgressSizeProperties) return this;
 
     return MoonCircularProgressSizeProperties(
-      progressSizeValue:
-          lerpDouble(progressSizeValue, other.progressSizeValue, t)!,
-      progressStrokeWidth:
-          lerpDouble(progressStrokeWidth, other.progressStrokeWidth, t)!,
+      progressSizeValue: lerpDouble(
+        progressSizeValue,
+        other.progressSizeValue,
+        t,
+      )!,
+      progressStrokeWidth: lerpDouble(
+        progressStrokeWidth,
+        other.progressStrokeWidth,
+        t,
+      )!,
     );
   }
 

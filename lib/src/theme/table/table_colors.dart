@@ -45,7 +45,8 @@ class MoonTableColors extends ThemeExtension<MoonTableColors>
       columnTextColor: columnTextColor ?? this.columnTextColor,
       rowTextColor: rowTextColor ?? this.rowTextColor,
       rowLabelTextColor: rowLabelTextColor ?? this.rowLabelTextColor,
-      rowPinnedAnimatedLabelTextColor: rowPinnedAnimatedLabelTextColor ??
+      rowPinnedAnimatedLabelTextColor:
+          rowPinnedAnimatedLabelTextColor ??
           this.rowPinnedAnimatedLabelTextColor,
       iconColor: iconColor ?? this.iconColor,
       rowBackgroundColor: rowBackgroundColor ?? this.rowBackgroundColor,
@@ -57,21 +58,23 @@ class MoonTableColors extends ThemeExtension<MoonTableColors>
     if (other is! MoonTableColors) return this;
 
     return MoonTableColors(
-      columnTextColor:
-          colorPremulLerp(columnTextColor, other.columnTextColor, t)!,
+      columnTextColor: colorPremulLerp(
+        columnTextColor,
+        other.columnTextColor,
+        t,
+      )!,
       rowTextColor: colorPremulLerp(rowTextColor, other.rowTextColor, t)!,
-      rowLabelTextColor:
-          colorPremulLerp(rowLabelTextColor, other.rowLabelTextColor, t)!,
+      rowLabelTextColor: colorPremulLerp(
+        rowLabelTextColor,
+        other.rowLabelTextColor,
+        t,
+      )!,
       rowPinnedAnimatedLabelTextColor: colorPremulLerp(
         rowPinnedAnimatedLabelTextColor,
         other.rowPinnedAnimatedLabelTextColor,
         t,
       )!,
-      iconColor: colorPremulLerp(
-        iconColor,
-        other.iconColor,
-        t,
-      )!,
+      iconColor: colorPremulLerp(iconColor, other.iconColor, t)!,
       rowBackgroundColor: colorPremulLerp(
         rowBackgroundColor,
         other.rowBackgroundColor,
@@ -94,17 +97,7 @@ class MoonTableColors extends ThemeExtension<MoonTableColors>
           rowPinnedAnimatedLabelTextColor,
         ),
       )
-      ..add(
-        ColorProperty(
-          "iconColor",
-          iconColor,
-        ),
-      )
-      ..add(
-        ColorProperty(
-          "rowBackgroundColor",
-          rowBackgroundColor,
-        ),
-      );
+      ..add(ColorProperty("iconColor", iconColor))
+      ..add(ColorProperty("rowBackgroundColor", rowBackgroundColor));
   }
 }

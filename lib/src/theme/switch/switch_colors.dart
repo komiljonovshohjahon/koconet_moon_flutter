@@ -69,18 +69,36 @@ class MoonSwitchColors extends ThemeExtension<MoonSwitchColors>
     if (other is! MoonSwitchColors) return this;
 
     return MoonSwitchColors(
-      activeTrackColor:
-          colorPremulLerp(activeTrackColor, other.activeTrackColor, t)!,
-      inactiveTrackColor:
-          colorPremulLerp(inactiveTrackColor, other.inactiveTrackColor, t)!,
-      activeTextColor:
-          colorPremulLerp(activeTextColor, other.activeTextColor, t)!,
-      inactiveTextColor:
-          colorPremulLerp(inactiveTextColor, other.inactiveTextColor, t)!,
-      activeIconColor:
-          colorPremulLerp(activeIconColor, other.activeIconColor, t)!,
-      inactiveIconColor:
-          colorPremulLerp(inactiveIconColor, other.inactiveIconColor, t)!,
+      activeTrackColor: colorPremulLerp(
+        activeTrackColor,
+        other.activeTrackColor,
+        t,
+      )!,
+      inactiveTrackColor: colorPremulLerp(
+        inactiveTrackColor,
+        other.inactiveTrackColor,
+        t,
+      )!,
+      activeTextColor: colorPremulLerp(
+        activeTextColor,
+        other.activeTextColor,
+        t,
+      )!,
+      inactiveTextColor: colorPremulLerp(
+        inactiveTextColor,
+        other.inactiveTextColor,
+        t,
+      )!,
+      activeIconColor: colorPremulLerp(
+        activeIconColor,
+        other.activeIconColor,
+        t,
+      )!,
+      inactiveIconColor: colorPremulLerp(
+        inactiveIconColor,
+        other.inactiveIconColor,
+        t,
+      )!,
       thumbIconColor: colorPremulLerp(thumbIconColor, other.thumbIconColor, t)!,
       thumbColor: colorPremulLerp(thumbColor, other.thumbColor, t)!,
     );

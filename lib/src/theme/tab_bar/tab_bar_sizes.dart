@@ -20,26 +20,28 @@ class MoonTabBarSizes extends ThemeExtension<MoonTabBarSizes>
     required this.tokens,
     MoonTabBarSizeProperties? sm,
     MoonTabBarSizeProperties? md,
-  })  : sm = sm ??
-            MoonTabBarSizeProperties(
-              borderRadius: tokens.borders.interactiveXs,
-              tabGap: tokens.sizes.x5s,
-              height: tokens.sizes.sm,
-              iconSizeValue: tokens.sizes.xs,
-              indicatorHeight: tokens.sizes.x6s,
-              tabPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
-              textStyle: tokens.typography.heading.textDefault,
-            ),
-        md = md ??
-            MoonTabBarSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              tabGap: tokens.sizes.x4s,
-              height: tokens.sizes.md,
-              iconSizeValue: tokens.sizes.xs,
-              indicatorHeight: tokens.sizes.x6s,
-              tabPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x2s),
-              textStyle: tokens.typography.heading.textDefault,
-            );
+  }) : sm =
+           sm ??
+           MoonTabBarSizeProperties(
+             borderRadius: tokens.borders.interactiveXs,
+             tabGap: tokens.sizes.x5s,
+             height: tokens.sizes.sm,
+             iconSizeValue: tokens.sizes.xs,
+             indicatorHeight: tokens.sizes.x6s,
+             tabPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x3s),
+             textStyle: tokens.typography.heading.textDefault,
+           ),
+       md =
+           md ??
+           MoonTabBarSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             tabGap: tokens.sizes.x4s,
+             height: tokens.sizes.md,
+             iconSizeValue: tokens.sizes.xs,
+             indicatorHeight: tokens.sizes.x6s,
+             tabPadding: EdgeInsets.symmetric(horizontal: tokens.sizes.x2s),
+             textStyle: tokens.typography.heading.textDefault,
+           );
 
   @override
   MoonTabBarSizes copyWith({

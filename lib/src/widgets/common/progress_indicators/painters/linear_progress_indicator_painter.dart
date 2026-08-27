@@ -62,10 +62,12 @@ class MoonLinearProgressIndicatorPainter extends CustomPainter {
       Offset.zero & size,
       topLeft: MoonSquircleRadius(cornerRadius: containerRadius.topLeft.x),
       topRight: MoonSquircleRadius(cornerRadius: containerRadius.topRight.x),
-      bottomLeft:
-          MoonSquircleRadius(cornerRadius: containerRadius.bottomLeft.x),
-      bottomRight:
-          MoonSquircleRadius(cornerRadius: containerRadius.bottomRight.x),
+      bottomLeft: MoonSquircleRadius(
+        cornerRadius: containerRadius.bottomLeft.x,
+      ),
+      bottomRight: MoonSquircleRadius(
+        cornerRadius: containerRadius.bottomRight.x,
+      ),
     );
     canvas.drawRRect(containerRect, paint);
 
@@ -86,10 +88,12 @@ class MoonLinearProgressIndicatorPainter extends CustomPainter {
         Offset(left, 0.0) & Size(width, size.height),
         topLeft: MoonSquircleRadius(cornerRadius: progressRadius.topLeft.x),
         topRight: MoonSquircleRadius(cornerRadius: progressRadius.topRight.x),
-        bottomLeft:
-            MoonSquircleRadius(cornerRadius: progressRadius.bottomLeft.x),
-        bottomRight:
-            MoonSquircleRadius(cornerRadius: progressRadius.bottomRight.x),
+        bottomLeft: MoonSquircleRadius(
+          cornerRadius: progressRadius.bottomLeft.x,
+        ),
+        bottomRight: MoonSquircleRadius(
+          cornerRadius: progressRadius.bottomRight.x,
+        ),
       );
 
       // Clipping progressRect with containerRect.

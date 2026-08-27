@@ -28,54 +28,58 @@ class MoonTextInputSizes extends ThemeExtension<MoonTextInputSizes>
     MoonTextInputSizeProperties? md,
     MoonTextInputSizeProperties? lg,
     MoonTextInputSizeProperties? xl,
-  })  : sm = sm ??
-            MoonTextInputSizeProperties(
-              borderRadius: tokens.borders.interactiveXs,
-              height: tokens.sizes.sm,
-              gap: tokens.sizes.x4s,
-              iconSizeValue: tokens.sizes.xs,
-              padding: EdgeInsets.symmetric(
-                horizontal: tokens.sizes.x4s,
-                vertical: tokens.sizes.x6s,
-              ),
-              textStyle: tokens.typography.body.textDefault,
-            ),
-        md = md ??
-            MoonTextInputSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              height: tokens.sizes.md,
-              gap: tokens.sizes.x4s,
-              iconSizeValue: tokens.sizes.xs,
-              padding: EdgeInsets.symmetric(
-                horizontal: tokens.sizes.x3s,
-                vertical: tokens.sizes.x5s,
-              ),
-              textStyle: tokens.typography.body.textDefault,
-            ),
-        lg = lg ??
-            MoonTextInputSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              height: tokens.sizes.lg,
-              gap: tokens.sizes.x4s,
-              iconSizeValue: tokens.sizes.xs,
-              padding: EdgeInsets.symmetric(
-                horizontal: tokens.sizes.x3s,
-                vertical: 6,
-              ),
-              textStyle: tokens.typography.body.text16,
-            ),
-        xl = xl ??
-            MoonTextInputSizeProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              height: tokens.sizes.xl,
-              gap: tokens.sizes.x2s,
-              iconSizeValue: tokens.sizes.xs,
-              padding: EdgeInsets.symmetric(
-                horizontal: tokens.sizes.x2s,
-                vertical: 9,
-              ),
-              textStyle: tokens.typography.body.text16,
-            );
+  }) : sm =
+           sm ??
+           MoonTextInputSizeProperties(
+             borderRadius: tokens.borders.interactiveXs,
+             height: tokens.sizes.sm,
+             gap: tokens.sizes.x4s,
+             iconSizeValue: tokens.sizes.xs,
+             padding: EdgeInsets.symmetric(
+               horizontal: tokens.sizes.x4s,
+               vertical: tokens.sizes.x6s,
+             ),
+             textStyle: tokens.typography.body.textDefault,
+           ),
+       md =
+           md ??
+           MoonTextInputSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             height: tokens.sizes.md,
+             gap: tokens.sizes.x4s,
+             iconSizeValue: tokens.sizes.xs,
+             padding: EdgeInsets.symmetric(
+               horizontal: tokens.sizes.x3s,
+               vertical: tokens.sizes.x5s,
+             ),
+             textStyle: tokens.typography.body.textDefault,
+           ),
+       lg =
+           lg ??
+           MoonTextInputSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             height: tokens.sizes.lg,
+             gap: tokens.sizes.x4s,
+             iconSizeValue: tokens.sizes.xs,
+             padding: EdgeInsets.symmetric(
+               horizontal: tokens.sizes.x3s,
+               vertical: 6,
+             ),
+             textStyle: tokens.typography.body.text16,
+           ),
+       xl =
+           xl ??
+           MoonTextInputSizeProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             height: tokens.sizes.xl,
+             gap: tokens.sizes.x2s,
+             iconSizeValue: tokens.sizes.xs,
+             padding: EdgeInsets.symmetric(
+               horizontal: tokens.sizes.x2s,
+               vertical: 9,
+             ),
+             textStyle: tokens.typography.body.text16,
+           );
 
   @override
   MoonTextInputSizes copyWith({

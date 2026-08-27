@@ -42,10 +42,16 @@ class MoonBreadcrumbColors extends ThemeExtension<MoonBreadcrumbColors>
 
     return MoonBreadcrumbColors(
       itemColor: colorPremulLerp(itemColor, other.itemColor, t)!,
-      currentItemColor:
-          colorPremulLerp(currentItemColor, other.currentItemColor, t),
-      hoverEffectColor:
-          colorPremulLerp(hoverEffectColor, other.hoverEffectColor, t),
+      currentItemColor: colorPremulLerp(
+        currentItemColor,
+        other.currentItemColor,
+        t,
+      ),
+      hoverEffectColor: colorPremulLerp(
+        hoverEffectColor,
+        other.hoverEffectColor,
+        t,
+      ),
     );
   }
 

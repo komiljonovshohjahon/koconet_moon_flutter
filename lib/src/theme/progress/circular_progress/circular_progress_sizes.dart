@@ -33,31 +33,36 @@ class MoonCircularProgressSizes
     MoonCircularProgressSizeProperties? sm,
     MoonCircularProgressSizeProperties? md,
     MoonCircularProgressSizeProperties? lg,
-  })  : x2s = x2s ??
-            MoonCircularProgressSizeProperties(
-              progressSizeValue: tokens.sizes.x2s,
-              progressStrokeWidth: tokens.sizes.x6s,
-            ),
-        xs = xs ??
-            MoonCircularProgressSizeProperties(
-              progressSizeValue: tokens.sizes.xs,
-              progressStrokeWidth: tokens.sizes.x6s,
-            ),
-        sm = sm ??
-            MoonCircularProgressSizeProperties(
-              progressSizeValue: tokens.sizes.sm,
-              progressStrokeWidth: tokens.sizes.x6s,
-            ),
-        md = md ??
-            MoonCircularProgressSizeProperties(
-              progressSizeValue: tokens.sizes.md,
-              progressStrokeWidth: tokens.sizes.x5s,
-            ),
-        lg = lg ??
-            MoonCircularProgressSizeProperties(
-              progressSizeValue: tokens.sizes.lg,
-              progressStrokeWidth: tokens.sizes.x5s,
-            );
+  }) : x2s =
+           x2s ??
+           MoonCircularProgressSizeProperties(
+             progressSizeValue: tokens.sizes.x2s,
+             progressStrokeWidth: tokens.sizes.x6s,
+           ),
+       xs =
+           xs ??
+           MoonCircularProgressSizeProperties(
+             progressSizeValue: tokens.sizes.xs,
+             progressStrokeWidth: tokens.sizes.x6s,
+           ),
+       sm =
+           sm ??
+           MoonCircularProgressSizeProperties(
+             progressSizeValue: tokens.sizes.sm,
+             progressStrokeWidth: tokens.sizes.x6s,
+           ),
+       md =
+           md ??
+           MoonCircularProgressSizeProperties(
+             progressSizeValue: tokens.sizes.md,
+             progressStrokeWidth: tokens.sizes.x5s,
+           ),
+       lg =
+           lg ??
+           MoonCircularProgressSizeProperties(
+             progressSizeValue: tokens.sizes.lg,
+             progressStrokeWidth: tokens.sizes.x5s,
+           );
 
   @override
   MoonCircularProgressSizes copyWith({

@@ -78,7 +78,8 @@ class MoonTableSizeProperties extends ThemeExtension<MoonTableSizeProperties>
       columnTextStyle: columnTextStyle ?? this.columnTextStyle,
       rowTextStyle: rowTextStyle ?? this.rowTextStyle,
       rowLabelTextStyle: rowLabelTextStyle ?? this.rowLabelTextStyle,
-      rowPinnedAnimatedLabelTextStyle: rowPinnedAnimatedLabelTextStyle ??
+      rowPinnedAnimatedLabelTextStyle:
+          rowPinnedAnimatedLabelTextStyle ??
           this.rowPinnedAnimatedLabelTextStyle,
     );
   }
@@ -91,21 +92,36 @@ class MoonTableSizeProperties extends ThemeExtension<MoonTableSizeProperties>
     if (other is! MoonTableSizeProperties) return this;
 
     return MoonTableSizeProperties(
-      rowBorderRadius:
-          BorderRadiusGeometry.lerp(rowBorderRadius, other.rowBorderRadius, t)!,
+      rowBorderRadius: BorderRadiusGeometry.lerp(
+        rowBorderRadius,
+        other.rowBorderRadius,
+        t,
+      )!,
       rowGap: lerpDouble(rowGap, other.rowGap, t)!,
       rowHeight: lerpDouble(rowHeight, other.rowHeight, t)!,
       sortIconGap: lerpDouble(sortIconGap, other.sortIconGap, t)!,
-      sortIconSizeValue:
-          lerpDouble(sortIconSizeValue, other.sortIconSizeValue, t)!,
+      sortIconSizeValue: lerpDouble(
+        sortIconSizeValue,
+        other.sortIconSizeValue,
+        t,
+      )!,
       cellPadding: EdgeInsetsGeometry.lerp(cellPadding, other.cellPadding, t)!,
-      rowLabelPadding:
-          EdgeInsetsGeometry.lerp(rowLabelPadding, other.rowLabelPadding, t)!,
-      columnTextStyle:
-          TextStyle.lerp(columnTextStyle, other.columnTextStyle, t)!,
+      rowLabelPadding: EdgeInsetsGeometry.lerp(
+        rowLabelPadding,
+        other.rowLabelPadding,
+        t,
+      )!,
+      columnTextStyle: TextStyle.lerp(
+        columnTextStyle,
+        other.columnTextStyle,
+        t,
+      )!,
       rowTextStyle: TextStyle.lerp(rowTextStyle, other.rowTextStyle, t)!,
-      rowLabelTextStyle:
-          TextStyle.lerp(rowLabelTextStyle, other.rowLabelTextStyle, t)!,
+      rowLabelTextStyle: TextStyle.lerp(
+        rowLabelTextStyle,
+        other.rowLabelTextStyle,
+        t,
+      )!,
       rowPinnedAnimatedLabelTextStyle: TextStyle.lerp(
         rowPinnedAnimatedLabelTextStyle,
         other.rowPinnedAnimatedLabelTextStyle,
@@ -118,12 +134,7 @@ class MoonTableSizeProperties extends ThemeExtension<MoonTableSizeProperties>
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty(
-          "type",
-          "MoonTableSizeProperties",
-        ),
-      )
+      ..add(DiagnosticsProperty("type", "MoonTableSizeProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>(
           "rowBorderRadius",
@@ -141,23 +152,10 @@ class MoonTableSizeProperties extends ThemeExtension<MoonTableSizeProperties>
           rowLabelPadding,
         ),
       )
+      ..add(DiagnosticsProperty<TextStyle>("columnTextStyle", columnTextStyle))
+      ..add(DiagnosticsProperty<TextStyle>("rowTextStyle", rowTextStyle))
       ..add(
-        DiagnosticsProperty<TextStyle>(
-          "columnTextStyle",
-          columnTextStyle,
-        ),
-      )
-      ..add(
-        DiagnosticsProperty<TextStyle>(
-          "rowTextStyle",
-          rowTextStyle,
-        ),
-      )
-      ..add(
-        DiagnosticsProperty<TextStyle>(
-          "rowLabelTextStyle",
-          rowLabelTextStyle,
-        ),
+        DiagnosticsProperty<TextStyle>("rowLabelTextStyle", rowLabelTextStyle),
       )
       ..add(
         DiagnosticsProperty<TextStyle>(

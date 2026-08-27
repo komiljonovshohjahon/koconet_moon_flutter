@@ -2,16 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
 import 'package:moon_design/src/widgets/text_input/form_text_input.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
-typedef MoonTextAreaErrorBuilder = Widget Function(
-  BuildContext context,
-  String? errorText,
-);
+typedef MoonTextAreaErrorBuilder =
+    Widget Function(BuildContext context, String? errorText);
 
 class MoonTextArea extends StatelessWidget {
   /// Sets the auto validation mode of the text area.
@@ -292,65 +286,55 @@ class MoonTextArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final BorderRadiusGeometry effectiveBorderRadius = borderRadius ??
-        context.moonTheme.textAreaTheme.properties.borderRadius ??
-        BorderRadius.circular(8);
+    final BorderRadiusGeometry effectiveBorderRadius =
+        borderRadius ?? context.moonTheme.textAreaTheme.properties.borderRadius;
 
-    final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme.textAreaTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+    final Color effectiveBackgroundColor =
+        backgroundColor ??
+        context.moonTheme.textAreaTheme.colors.backgroundColor;
 
-    final Color effectiveActiveBorderColor = activeBorderColor ??
-        context.moonTheme.textAreaTheme.colors.activeBorderColor ??
-        MoonColors.light.piccolo;
+    final Color effectiveActiveBorderColor =
+        activeBorderColor ??
+        context.moonTheme.textAreaTheme.colors.activeBorderColor;
 
-    final Color effectiveInactiveBorderColor = inactiveBorderColor ??
-        context.moonTheme.textAreaTheme.colors.inactiveBorderColor ??
-        MoonColors.light.beerus;
+    final Color effectiveInactiveBorderColor =
+        inactiveBorderColor ??
+        context.moonTheme.textAreaTheme.colors.inactiveBorderColor;
 
-    final Color effectiveErrorColor = errorColor ??
-        context.moonTheme.textAreaTheme.colors.errorColor ??
-        MoonColors.light.chichi;
+    final Color effectiveErrorColor =
+        errorColor ?? context.moonTheme.textAreaTheme.colors.errorColor;
 
-    final Color effectiveHoverBorderColor = hoverBorderColor ??
-        context.moonTheme.textAreaTheme.colors.hoverBorderColor ??
-        MoonColors.light.beerus;
+    final Color effectiveHoverBorderColor =
+        hoverBorderColor ??
+        context.moonTheme.textAreaTheme.colors.hoverBorderColor;
 
-    final Color effectiveTextColor = textColor ??
-        context.moonTheme.textAreaTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+    final Color effectiveTextColor =
+        textColor ?? context.moonTheme.textAreaTheme.colors.textColor;
 
-    final Color effectiveHelperTextColor = hintTextColor ??
-        context.moonTheme.textAreaTheme.colors.helperTextColor ??
-        MoonColors.light.trunks;
+    final Color effectiveHelperTextColor =
+        hintTextColor ?? context.moonTheme.textAreaTheme.colors.helperTextColor;
 
-    final EdgeInsetsGeometry effectiveHelperPadding = helperPadding ??
-        context.moonTheme.textAreaTheme.properties.helperPadding ??
-        EdgeInsets.only(
-          left: MoonSizes.sizes.x3s,
-          top: MoonSizes.sizes.x4s,
-          right: MoonSizes.sizes.x3s,
-        );
+    final EdgeInsetsGeometry effectiveHelperPadding =
+        helperPadding ??
+        context.moonTheme.textAreaTheme.properties.helperPadding;
 
-    final EdgeInsetsGeometry effectiveTextPadding = textPadding ??
-        context.moonTheme.textAreaTheme.properties.textPadding ??
-        const EdgeInsets.all(16);
+    final EdgeInsetsGeometry effectiveTextPadding =
+        textPadding ?? context.moonTheme.textAreaTheme.properties.textPadding;
 
-    final TextStyle effectiveTextStyle = textStyle ??
-        context.moonTheme.textAreaTheme.properties.textStyle ??
-        MoonTypography.typography.body.text16;
+    final TextStyle effectiveTextStyle =
+        textStyle ?? context.moonTheme.textAreaTheme.properties.textStyle;
 
-    final TextStyle effectiveHelperTextStyle = helperTextStyle ??
-        context.moonTheme.textAreaTheme.properties.helperTextStyle ??
-        MoonTypography.typography.body.text12;
+    final TextStyle effectiveHelperTextStyle =
+        helperTextStyle ??
+        context.moonTheme.textAreaTheme.properties.helperTextStyle;
 
-    final Duration effectiveTransitionDuration = transitionDuration ??
-        context.moonTheme.textAreaTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+    final Duration effectiveTransitionDuration =
+        transitionDuration ??
+        context.moonTheme.textAreaTheme.properties.transitionDuration;
 
-    final Curve effectiveTransitionCurve = transitionCurve ??
-        context.moonTheme.textAreaTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+    final Curve effectiveTransitionCurve =
+        transitionCurve ??
+        context.moonTheme.textAreaTheme.properties.transitionCurve;
 
     return MoonFormTextInput(
       activeBorderColor: effectiveActiveBorderColor,

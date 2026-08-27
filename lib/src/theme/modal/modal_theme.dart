@@ -21,20 +21,22 @@ class MoonModalTheme extends ThemeExtension<MoonModalTheme>
     required this.tokens,
     MoonModalColors? colors,
     MoonModalProperties? properties,
-  })  : colors = colors ??
-            MoonModalColors(
-              textColor: tokens.colors.textPrimary,
-              iconColor: tokens.colors.iconPrimary,
-              backgroundColor: tokens.colors.goku,
-              barrierColor: tokens.colors.zeno,
-            ),
-        properties = properties ??
-            MoonModalProperties(
-              borderRadius: tokens.borders.surfaceSm,
-              transitionDuration: tokens.transitions.defaultTransitionDuration,
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-              textStyle: tokens.typography.body.textDefault,
-            );
+  }) : colors =
+           colors ??
+           MoonModalColors(
+             textColor: tokens.colors.textPrimary,
+             iconColor: tokens.colors.iconPrimary,
+             backgroundColor: tokens.colors.goku,
+             barrierColor: tokens.colors.zeno,
+           ),
+       properties =
+           properties ??
+           MoonModalProperties(
+             borderRadius: tokens.borders.surfaceSm,
+             transitionDuration: tokens.transitions.defaultTransitionDuration,
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+             textStyle: tokens.typography.body.textDefault,
+           );
 
   @override
   MoonModalTheme copyWith({

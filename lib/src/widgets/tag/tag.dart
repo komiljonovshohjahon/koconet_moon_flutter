@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/tag/tag_size_properties.dart';
-import 'package:moon_design/src/theme/tag/tag_sizes.dart';
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/shape_decoration_premul.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
-enum MoonTagSize {
-  x2s,
-  xs,
-  sm,
-}
+enum MoonTagSize { x2s, xs, sm }
 
 class MoonTag extends StatelessWidget {
   /// The border radius of the tag.
@@ -82,36 +75,31 @@ class MoonTag extends StatelessWidget {
     MoonTagSize? moonTagSize,
   ) {
     return switch (moonTagSize) {
-      MoonTagSize.x2s => context.moonTheme.tagTheme.sizes.x2s ??
-          MoonTagSizes(tokens: MoonTokens.light).x2s,
-      MoonTagSize.xs => context.moonTheme.tagTheme.sizes.xs ??
-          MoonTagSizes(tokens: MoonTokens.light).xs,
-      MoonTagSize.sm => context.moonTheme.tagTheme.sizes.sm ??
-          MoonTagSizes(tokens: MoonTokens.light).sm,
-      _ => context.moonTheme.tagTheme.sizes.xs ??
-          MoonTagSizes(tokens: MoonTokens.light).xs,
+      MoonTagSize.x2s => context.moonTheme.tagTheme.sizes.x2s,
+      MoonTagSize.xs => context.moonTheme.tagTheme.sizes.xs,
+      MoonTagSize.sm => context.moonTheme.tagTheme.sizes.sm,
+      _ => context.moonTheme.tagTheme.sizes.xs,
     };
   }
 
   @override
   Widget build(BuildContext context) {
-    final MoonTagSizeProperties effectiveMoonTagSize =
-        _getMoonTagSize(context, tagSize);
+    final MoonTagSizeProperties effectiveMoonTagSize = _getMoonTagSize(
+      context,
+      tagSize,
+    );
 
     final BorderRadiusGeometry effectiveBorderRadius =
         borderRadius ?? effectiveMoonTagSize.borderRadius;
 
-    final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme.tagTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+    final Color effectiveBackgroundColor =
+        backgroundColor ?? context.moonTheme.tagTheme.colors.backgroundColor;
 
     final Color effectiveTextColor =
-        context.moonTheme.tagTheme.colors.textColor ??
-            MoonColors.light.textPrimary;
+        context.moonTheme.tagTheme.colors.textColor;
 
     final Color effectiveIconColor =
-        context.moonTheme.tagTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+        context.moonTheme.tagTheme.colors.iconColor;
 
     final double effectiveHeight = height ?? effectiveMoonTagSize.height;
 
@@ -120,8 +108,9 @@ class MoonTag extends StatelessWidget {
     final EdgeInsetsGeometry effectivePadding =
         padding ?? effectiveMoonTagSize.padding;
 
-    final EdgeInsets resolvedDirectionalPadding =
-        effectivePadding.resolve(Directionality.of(context));
+    final EdgeInsets resolvedDirectionalPadding = effectivePadding.resolve(
+      Directionality.of(context),
+    );
 
     final EdgeInsetsGeometry correctedPadding = padding == null
         ? EdgeInsetsDirectional.fromSTEB(
@@ -153,12 +142,14 @@ class MoonTag extends StatelessWidget {
             height: effectiveHeight,
             padding: correctedPadding,
             constraints: BoxConstraints(minWidth: effectiveHeight),
-            decoration: decoration ??
+            decoration:
+                decoration ??
                 ShapeDecorationWithPremultipliedAlpha(
                   color: effectiveBackgroundColor,
                   shape: MoonSquircleBorder(
-                    borderRadius:
-                        effectiveBorderRadius.squircleBorderRadius(context),
+                    borderRadius: effectiveBorderRadius.squircleBorderRadius(
+                      context,
+                    ),
                   ),
                 ),
             child: IconTheme(

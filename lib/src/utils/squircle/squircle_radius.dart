@@ -1,10 +1,7 @@
 import 'dart:ui';
 
 class MoonSquircleRadius extends Radius {
-  static const zero = MoonSquircleRadius(
-    cornerRadius: 0,
-    cornerSmoothing: 0,
-  );
+  static const zero = MoonSquircleRadius(cornerRadius: 0, cornerSmoothing: 0);
 
   final double cornerSmoothing;
 
@@ -27,9 +24,9 @@ class MoonSquircleRadius extends Radius {
   /// a radius of one pixel from the other.
   @override
   Radius operator -() => MoonSquircleRadius(
-        cornerRadius: -cornerRadius,
-        cornerSmoothing: cornerSmoothing,
-      );
+    cornerRadius: -cornerRadius,
+    cornerSmoothing: cornerSmoothing,
+  );
 
   /// Binary subtraction operator.
   ///
@@ -78,9 +75,9 @@ class MoonSquircleRadius extends Radius {
   /// right-hand-side operand (a double).
   @override
   MoonSquircleRadius operator *(double operand) => MoonSquircleRadius(
-        cornerRadius: cornerRadius * operand,
-        cornerSmoothing: cornerSmoothing * operand,
-      );
+    cornerRadius: cornerRadius * operand,
+    cornerSmoothing: cornerSmoothing * operand,
+  );
 
   /// Division operator.
   ///
@@ -89,9 +86,9 @@ class MoonSquircleRadius extends Radius {
   /// operand (a double).
   @override
   MoonSquircleRadius operator /(double operand) => MoonSquircleRadius(
-        cornerRadius: cornerRadius / operand,
-        cornerSmoothing: cornerSmoothing / operand,
-      );
+    cornerRadius: cornerRadius / operand,
+    cornerSmoothing: cornerSmoothing / operand,
+  );
 
   /// Integer (truncating) division operator.
   ///
@@ -100,9 +97,9 @@ class MoonSquircleRadius extends Radius {
   /// operand (a double), rounded towards zero.
   @override
   MoonSquircleRadius operator ~/(double operand) => MoonSquircleRadius(
-        cornerRadius: (cornerRadius ~/ operand).toDouble(),
-        cornerSmoothing: (cornerSmoothing ~/ operand).toDouble(),
-      );
+    cornerRadius: (cornerRadius ~/ operand).toDouble(),
+    cornerSmoothing: (cornerSmoothing ~/ operand).toDouble(),
+  );
 
   /// Modulo (remainder) operator.
   ///
@@ -111,9 +108,9 @@ class MoonSquircleRadius extends Radius {
   /// right-hand-side operand (a double).
   @override
   MoonSquircleRadius operator %(double operand) => MoonSquircleRadius(
-        cornerRadius: cornerRadius % operand,
-        cornerSmoothing: cornerSmoothing % operand,
-      );
+    cornerRadius: cornerRadius % operand,
+    cornerSmoothing: cornerSmoothing % operand,
+  );
 
   /// Linearly interpolate between two smooth radii.
   ///
@@ -155,12 +152,8 @@ class MoonSquircleRadius extends Radius {
       } else {
         return MoonSquircleRadius(
           cornerRadius: lerpDouble(a.cornerRadius, b.cornerRadius, t) ?? 0,
-          cornerSmoothing: lerpDouble(
-                a.cornerSmoothing,
-                b.cornerSmoothing,
-                t,
-              ) ??
-              0,
+          cornerSmoothing:
+              lerpDouble(a.cornerSmoothing, b.cornerSmoothing, t) ?? 0,
         );
       }
     }

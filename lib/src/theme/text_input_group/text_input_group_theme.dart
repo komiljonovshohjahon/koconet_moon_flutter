@@ -21,24 +21,26 @@ class MoonTextInputGroupTheme extends ThemeExtension<MoonTextInputGroupTheme>
     required this.tokens,
     MoonTextInputGroupColors? colors,
     MoonTextInputGroupProperties? properties,
-  })  : colors = colors ??
-            MoonTextInputGroupColors(
-              backgroundColor: tokens.colors.goku,
-              errorColor: tokens.colors.chichi,
-              helperTextColor: tokens.colors.trunks,
-              borderColor: tokens.colors.beerus,
-              hoverBorderColor: tokens.colors.beerus,
-            ),
-        properties = properties ??
-            MoonTextInputGroupProperties(
-              borderRadius: tokens.borders.interactiveSm,
-              transitionDuration: tokens.transitions.defaultTransitionDuration,
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-              helperPadding: EdgeInsets.only(top: tokens.sizes.x4s),
-              textPadding: EdgeInsets.all(tokens.sizes.x2s),
-              textStyle: tokens.typography.body.text16,
-              helperTextStyle: tokens.typography.body.text12,
-            );
+  }) : colors =
+           colors ??
+           MoonTextInputGroupColors(
+             backgroundColor: tokens.colors.goku,
+             errorColor: tokens.colors.chichi,
+             helperTextColor: tokens.colors.trunks,
+             borderColor: tokens.colors.beerus,
+             hoverBorderColor: tokens.colors.beerus,
+           ),
+       properties =
+           properties ??
+           MoonTextInputGroupProperties(
+             borderRadius: tokens.borders.interactiveSm,
+             transitionDuration: tokens.transitions.defaultTransitionDuration,
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+             helperPadding: EdgeInsets.only(top: tokens.sizes.x4s),
+             textPadding: EdgeInsets.all(tokens.sizes.x2s),
+             textStyle: tokens.typography.body.text16,
+             helperTextStyle: tokens.typography.body.text12,
+           );
 
   @override
   MoonTextInputGroupTheme copyWith({

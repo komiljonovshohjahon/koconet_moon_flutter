@@ -70,8 +70,11 @@ class MoonSegmentedControlSizeProperties
       segmentGap: lerpDouble(segmentGap, other.segmentGap, t)!,
       height: lerpDouble(height, other.height, t)!,
       iconSizeValue: lerpDouble(iconSizeValue, other.iconSizeValue, t)!,
-      segmentPadding:
-          EdgeInsetsGeometry.lerp(segmentPadding, other.segmentPadding, t)!,
+      segmentPadding: EdgeInsetsGeometry.lerp(
+        segmentPadding,
+        other.segmentPadding,
+        t,
+      )!,
       textStyle: TextStyle.lerp(textStyle, other.textStyle, t)!,
     );
   }
@@ -80,47 +83,22 @@ class MoonSegmentedControlSizeProperties
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty(
-          "type",
-          "MoonSegmentedControlSizeProperties",
-        ),
-      )
+      ..add(DiagnosticsProperty("type", "MoonSegmentedControlSizeProperties"))
       ..add(
         DiagnosticsProperty<BorderRadiusGeometry>(
           "segmentBorderRadius",
           segmentBorderRadius,
         ),
       )
-      ..add(
-        DoubleProperty(
-          "segmentGap",
-          segmentGap,
-        ),
-      )
-      ..add(
-        DoubleProperty(
-          "height",
-          height,
-        ),
-      )
-      ..add(
-        DoubleProperty(
-          "iconSizeValue",
-          iconSizeValue,
-        ),
-      )
+      ..add(DoubleProperty("segmentGap", segmentGap))
+      ..add(DoubleProperty("height", height))
+      ..add(DoubleProperty("iconSizeValue", iconSizeValue))
       ..add(
         DiagnosticsProperty<EdgeInsetsGeometry>(
           "segmentPadding",
           segmentPadding,
         ),
       )
-      ..add(
-        DiagnosticsProperty<TextStyle>(
-          "textStyle",
-          textStyle,
-        ),
-      );
+      ..add(DiagnosticsProperty<TextStyle>("textStyle", textStyle));
   }
 }

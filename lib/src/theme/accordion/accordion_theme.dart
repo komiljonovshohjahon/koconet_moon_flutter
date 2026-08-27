@@ -31,27 +31,29 @@ class MoonAccordionTheme extends ThemeExtension<MoonAccordionTheme>
     MoonAccordionProperties? properties,
     MoonAccordionShadows? shadows,
     MoonAccordionSizes? sizes,
-  })  : colors = colors ??
-            MoonAccordionColors(
-              textColor: tokens.colors.textPrimary,
-              expandedTextColor: tokens.colors.textPrimary,
-              contentColor: tokens.colors.textPrimary,
-              iconColor: tokens.colors.iconPrimary,
-              expandedIconColor: tokens.colors.iconPrimary,
-              trailingIconColor: tokens.colors.iconPrimary,
-              expandedTrailingIconColor: tokens.colors.iconSecondary,
-              backgroundColor: tokens.colors.goku,
-              expandedBackgroundColor: tokens.colors.goku,
-              borderColor: tokens.colors.beerus,
-              dividerColor: tokens.colors.beerus,
-            ),
-        properties = properties ??
-            MoonAccordionProperties(
-              transitionDuration: tokens.transitions.defaultTransitionDuration,
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-            ),
-        shadows = shadows ?? MoonAccordionShadows(shadows: tokens.shadows.sm),
-        sizes = sizes ?? MoonAccordionSizes(tokens: tokens);
+  }) : colors =
+           colors ??
+           MoonAccordionColors(
+             textColor: tokens.colors.textPrimary,
+             expandedTextColor: tokens.colors.textPrimary,
+             contentColor: tokens.colors.textPrimary,
+             iconColor: tokens.colors.iconPrimary,
+             expandedIconColor: tokens.colors.iconPrimary,
+             trailingIconColor: tokens.colors.iconPrimary,
+             expandedTrailingIconColor: tokens.colors.iconSecondary,
+             backgroundColor: tokens.colors.goku,
+             expandedBackgroundColor: tokens.colors.goku,
+             borderColor: tokens.colors.beerus,
+             dividerColor: tokens.colors.beerus,
+           ),
+       properties =
+           properties ??
+           MoonAccordionProperties(
+             transitionDuration: tokens.transitions.defaultTransitionDuration,
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+           ),
+       shadows = shadows ?? MoonAccordionShadows(shadows: tokens.shadows.sm),
+       sizes = sizes ?? MoonAccordionSizes(tokens: tokens);
 
   @override
   MoonAccordionTheme copyWith({
@@ -93,11 +95,7 @@ class MoonAccordionTheme extends ThemeExtension<MoonAccordionTheme>
       ..add(
         DiagnosticsProperty<MoonAccordionProperties>("properties", properties),
       )
-      ..add(
-        DiagnosticsProperty<MoonAccordionShadows>("shadows", shadows),
-      )
-      ..add(
-        DiagnosticsProperty<MoonAccordionSizes>("sizes", sizes),
-      );
+      ..add(DiagnosticsProperty<MoonAccordionShadows>("shadows", shadows))
+      ..add(DiagnosticsProperty<MoonAccordionSizes>("sizes", sizes));
   }
 }

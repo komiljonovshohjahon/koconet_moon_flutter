@@ -18,10 +18,7 @@ class MoonCircularLoaderColors extends ThemeExtension<MoonCircularLoaderColors>
   });
 
   @override
-  MoonCircularLoaderColors copyWith({
-    Color? color,
-    Color? backgroundColor,
-  }) {
+  MoonCircularLoaderColors copyWith({Color? color, Color? backgroundColor}) {
     return MoonCircularLoaderColors(
       color: color ?? this.color,
       backgroundColor: backgroundColor ?? this.backgroundColor,
@@ -37,8 +34,11 @@ class MoonCircularLoaderColors extends ThemeExtension<MoonCircularLoaderColors>
 
     return MoonCircularLoaderColors(
       color: colorPremulLerp(color, other.color, t)!,
-      backgroundColor:
-          colorPremulLerp(backgroundColor, other.backgroundColor, t)!,
+      backgroundColor: colorPremulLerp(
+        backgroundColor,
+        other.backgroundColor,
+        t,
+      )!,
     );
   }
 

@@ -20,22 +20,24 @@ class MoonBreadcrumbTheme extends ThemeExtension<MoonBreadcrumbTheme>
     required this.tokens,
     MoonBreadcrumbColors? colors,
     MoonBreadcrumbProperties? properties,
-  })  : colors = colors ??
-            MoonBreadcrumbColors(
-              itemColor: tokens.colors.textSecondary,
-              currentItemColor: tokens.colors.textPrimary,
-              hoverEffectColor: tokens.colors.textPrimary,
-            ),
-        properties = properties ??
-            MoonBreadcrumbProperties(
-              gap: tokens.sizes.x4s,
-              itemGap: tokens.sizes.x6s,
-              transitionDuration: tokens.transitions.defaultTransitionDuration,
-              transitionCurve: tokens.transitions.defaultTransitionCurve,
-              itemTextStyle: tokens.typography.body.textDefault,
-              currentItemTextStyle: tokens.typography.body.textDefault,
-              showMoreItemTextStyle: tokens.typography.body.textDefault,
-            );
+  }) : colors =
+           colors ??
+           MoonBreadcrumbColors(
+             itemColor: tokens.colors.textSecondary,
+             currentItemColor: tokens.colors.textPrimary,
+             hoverEffectColor: tokens.colors.textPrimary,
+           ),
+       properties =
+           properties ??
+           MoonBreadcrumbProperties(
+             gap: tokens.sizes.x4s,
+             itemGap: tokens.sizes.x6s,
+             transitionDuration: tokens.transitions.defaultTransitionDuration,
+             transitionCurve: tokens.transitions.defaultTransitionCurve,
+             itemTextStyle: tokens.typography.body.textDefault,
+             currentItemTextStyle: tokens.typography.body.textDefault,
+             showMoreItemTextStyle: tokens.typography.body.textDefault,
+           );
 
   @override
   MoonBreadcrumbTheme copyWith({

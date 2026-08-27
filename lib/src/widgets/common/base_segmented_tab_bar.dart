@@ -43,23 +43,20 @@ class _BaseSegmentedTabBarState extends State<BaseSegmentedTabBar>
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
-      children: List.generate(
-        widget.children.length * 2 - 1,
-        (int index) {
-          final int derivedIndex = index ~/ 2;
+      children: List.generate(widget.children.length * 2 - 1, (int index) {
+        final int derivedIndex = index ~/ 2;
 
-          final Widget child = Listener(
-            onPointerDown: (_) => _handleTap(derivedIndex),
-            child: widget.children[derivedIndex],
-          );
+        final Widget child = Listener(
+          onPointerDown: (_) => _handleTap(derivedIndex),
+          child: widget.children[derivedIndex],
+        );
 
-          return index.isEven
-              ? widget.isExpanded
+        return index.isEven
+            ? widget.isExpanded
                   ? Expanded(child: child)
                   : child
-              : SizedBox(width: widget.gap);
-        },
-      ),
+            : SizedBox(width: widget.gap);
+      }),
     );
   }
 }
