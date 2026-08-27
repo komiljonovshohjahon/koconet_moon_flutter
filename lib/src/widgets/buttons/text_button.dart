@@ -121,7 +121,12 @@ class MoonTextButton extends StatelessWidget {
       semanticLabel: semanticLabel,
       onTap: onTap,
       onLongPress: onLongPress,
-      label: label,
+      label: label != null
+          ? DefaultTextStyle.merge(
+              style: const .new(decoration: .underline),
+              child: label!,
+            )
+          : null,
       leading: leading,
       trailing: trailing,
     );

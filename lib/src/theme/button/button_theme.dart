@@ -24,11 +24,11 @@ class MoonButtonTheme extends ThemeExtension<MoonButtonTheme>
   }) : colors =
            colors ??
            MoonButtonColors(
-             borderColor: tokens.colors.trunks,
+             borderColor: tokens.colors.beerus,
              textColor: tokens.colors.textPrimary,
              filledVariantBackgroundColor: tokens.colors.piccolo,
              filledVariantTextColor: tokens.colors.goten,
-             textVariantTextColor: tokens.colors.textSecondary,
+             textVariantTextColor: tokens.colors.piccolo,
              textVariantFocusColor: tokens.colors.piccolo,
              textVariantHoverColor: tokens.colors.jiren,
            ),
