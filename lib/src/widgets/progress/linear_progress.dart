@@ -100,22 +100,22 @@ class MoonLinearProgress extends StatelessWidget {
   ) {
     switch (moonProgressSize) {
       case MoonLinearProgressSize.x6s:
-        return context.moonTheme?.linearProgressTheme.sizes.x6s ??
+        return context.moonTheme.linearProgressTheme.sizes.x6s ??
             MoonLinearProgressSizes(tokens: MoonTokens.light).x6s;
       case MoonLinearProgressSize.x5s:
-        return context.moonTheme?.linearProgressTheme.sizes.x5s ??
+        return context.moonTheme.linearProgressTheme.sizes.x5s ??
             MoonLinearProgressSizes(tokens: MoonTokens.light).x5s;
       case MoonLinearProgressSize.x4s:
-        return context.moonTheme?.linearProgressTheme.sizes.x4s ??
+        return context.moonTheme.linearProgressTheme.sizes.x4s ??
             MoonLinearProgressSizes(tokens: MoonTokens.light).x4s;
       case MoonLinearProgressSize.x3s:
-        return context.moonTheme?.linearProgressTheme.sizes.x3s ??
+        return context.moonTheme.linearProgressTheme.sizes.x3s ??
             MoonLinearProgressSizes(tokens: MoonTokens.light).x3s;
       case MoonLinearProgressSize.x2s:
-        return context.moonTheme?.linearProgressTheme.sizes.x2s ??
+        return context.moonTheme.linearProgressTheme.sizes.x2s ??
             MoonLinearProgressSizes(tokens: MoonTokens.light).x2s;
       default:
-        return context.moonTheme?.linearProgressTheme.sizes.x4s ??
+        return context.moonTheme.linearProgressTheme.sizes.x4s ??
             MoonLinearProgressSizes(tokens: MoonTokens.light).x4s;
     }
   }
@@ -144,15 +144,15 @@ class MoonLinearProgress extends StatelessWidget {
     };
 
     final Color effectiveColor = color ??
-        context.moonTheme?.linearProgressTheme.colors.color ??
+        context.moonTheme.linearProgressTheme.colors.color ??
         MoonColors.light.piccolo;
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.linearProgressTheme.colors.backgroundColor ??
+        context.moonTheme.linearProgressTheme.colors.backgroundColor ??
         MoonColors.light.beerus;
 
     final Color effectiveTextColor = textColor ??
-        context.moonTheme?.linearProgressTheme.colors.textColor ??
+        context.moonTheme.linearProgressTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final double effectiveHeight =
@@ -165,15 +165,15 @@ class MoonLinearProgress extends StatelessWidget {
         pinStyle?.thumbSizeValue ?? effectiveProgressSize.thumbSizeValue;
 
     final double effectivePinWidth = pinStyle?.pinWidth ??
-        context.moonTheme?.progressPinTheme.properties.pinWidth ??
+        context.moonTheme.progressPinTheme.properties.pinWidth ??
         36;
 
     final double effectivePinDistance = pinStyle?.pinDistance ??
-        context.moonTheme?.progressPinTheme.properties.pinDistance ??
+        context.moonTheme.progressPinTheme.properties.pinDistance ??
         MoonSizes.sizes.x5s;
 
     final double effectivePinArrowHeight = pinStyle?.arrowHeight ??
-        context.moonTheme?.progressPinTheme.properties.arrowHeight ??
+        context.moonTheme.progressPinTheme.properties.arrowHeight ??
         6;
 
     final TextStyle effectiveTextStyle = effectiveProgressSize.textStyle;

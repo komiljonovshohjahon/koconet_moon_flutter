@@ -95,11 +95,11 @@ class MoonFilledButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.buttonTheme.colors.filledVariantBackgroundColor ??
+        context.moonTheme.buttonTheme.colors.filledVariantBackgroundColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveTextColor =
-        context.moonTheme?.buttonTheme.colors.filledVariantTextColor ??
+        context.moonTheme.buttonTheme.colors.filledVariantTextColor ??
             MoonColors.light.goten;
 
     return MoonButton(

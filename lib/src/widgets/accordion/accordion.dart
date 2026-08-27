@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/accordion/accordion_size_properties.dart';
-import 'package:moon_design/src/theme/accordion/accordion_sizes.dart';
 import 'package:moon_design/src/theme/effects/effects_theme.dart';
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/shadows.dart';
 import 'package:moon_design/src/theme/tokens/tokens.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
 import 'package:moon_design/src/utils/color_tween_premul.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_design/src/widgets/common/base_control.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
 enum MoonAccordionSize {
   sm,
@@ -312,20 +308,15 @@ class _MoonAccordionState<T> extends State<MoonAccordion<T>>
   ) {
     switch (moonAccordionSize) {
       case MoonAccordionSize.sm:
-        return context.moonTheme?.accordionTheme.sizes.sm ??
-            MoonAccordionSizes(tokens: MoonTokens.light).sm;
+        return context.moonTheme.accordionTheme.sizes.sm;
       case MoonAccordionSize.md:
-        return context.moonTheme?.accordionTheme.sizes.md ??
-            MoonAccordionSizes(tokens: MoonTokens.light).md;
+        return context.moonTheme.accordionTheme.sizes.md;
       case MoonAccordionSize.lg:
-        return context.moonTheme?.accordionTheme.sizes.lg ??
-            MoonAccordionSizes(tokens: MoonTokens.light).lg;
+        return context.moonTheme.accordionTheme.sizes.lg;
       case MoonAccordionSize.xl:
-        return context.moonTheme?.accordionTheme.sizes.xl ??
-            MoonAccordionSizes(tokens: MoonTokens.light).xl;
+        return context.moonTheme.accordionTheme.sizes.xl;
       default:
-        return context.moonTheme?.accordionTheme.sizes.md ??
-            MoonAccordionSizes(tokens: MoonTokens.light).md;
+        return context.moonTheme.accordionTheme.sizes.md;
     }
   }
 
@@ -384,12 +375,10 @@ class _MoonAccordionState<T> extends State<MoonAccordion<T>>
         _getMoonAccordionSize(context, widget.accordionSize).iconSizeValue;
 
     final Color effectiveTrailingIconColor = widget.iconColor ??
-        context.moonTheme?.accordionTheme.colors.trailingIconColor ??
-        MoonColors.light.textSecondary;
+        context.moonTheme.accordionTheme.colors.trailingIconColor;
 
     final Color effectiveExpandedTrailingIconColor = widget.expandedIconColor ??
-        context.moonTheme?.accordionTheme.colors.expandedTrailingIconColor ??
-        MoonColors.light.textPrimary;
+        context.moonTheme.accordionTheme.colors.expandedTrailingIconColor;
 
     _iconColor ??= _iconColorTween.animate(_expansionCurvedAnimation!);
 
@@ -413,12 +402,10 @@ class _MoonAccordionState<T> extends State<MoonAccordion<T>>
 
   Widget _buildDecorationContainer({required Widget child}) {
     final Color effectiveBorderColor = widget.borderColor ??
-        context.moonTheme?.accordionTheme.colors.borderColor ??
-        MoonColors.light.beerus;
+        context.moonTheme.accordionTheme.colors.borderColor;
 
-    final List<BoxShadow> effectiveShadows = widget.shadows ??
-        context.moonTheme?.accordionTheme.shadows.shadows ??
-        MoonShadows.light.sm;
+    final List<BoxShadow> effectiveShadows =
+        widget.shadows ?? context.moonTheme.accordionTheme.shadows.shadows;
 
     return MoonBaseControl(
       onTap: widget.isDisabled ? null : _handleTap,
@@ -486,33 +473,26 @@ class _MoonAccordionState<T> extends State<MoonAccordion<T>>
         _effectiveHeaderPadding.resolve(Directionality.of(context));
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.accordionTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        context.moonTheme.accordionTheme.colors.backgroundColor;
 
     final Color effectiveExpandedBackgroundColor =
         widget.expandedBackgroundColor ??
-            context.moonTheme?.accordionTheme.colors.expandedBackgroundColor ??
-            MoonColors.light.goku;
+            context.moonTheme.accordionTheme.colors.expandedBackgroundColor;
 
-    final Color effectiveIconColor = widget.iconColor ??
-        context.moonTheme?.accordionTheme.colors.iconColor ??
-        MoonColors.light.iconPrimary;
+    final Color effectiveIconColor =
+        widget.iconColor ?? context.moonTheme.accordionTheme.colors.iconColor;
 
     final Color effectiveExpandedIconColor = widget.expandedIconColor ??
-        context.moonTheme?.accordionTheme.colors.expandedIconColor ??
-        MoonColors.light.iconPrimary;
+        context.moonTheme.accordionTheme.colors.expandedIconColor;
 
-    final Color effectiveTextColor = widget.textColor ??
-        context.moonTheme?.accordionTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+    final Color effectiveTextColor =
+        widget.textColor ?? context.moonTheme.accordionTheme.colors.textColor;
 
     final Color effectiveExpandedTextColor = widget.expandedTextColor ??
-        context.moonTheme?.accordionTheme.colors.expandedTextColor ??
-        MoonColors.light.textPrimary;
+        context.moonTheme.accordionTheme.colors.expandedTextColor;
 
     final Color effectiveContentTextColor =
-        context.moonTheme?.accordionTheme.colors.contentColor ??
-            MoonColors.light.textPrimary;
+        context.moonTheme.accordionTheme.colors.contentColor;
 
     final TextStyle effectiveHeaderTextStyle =
         _effectiveMoonAccordionSize.headerTextStyle;
@@ -539,12 +519,10 @@ class _MoonAccordionState<T> extends State<MoonAccordion<T>>
                 .hoverCurve;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.accordionTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.moonTheme.accordionTheme.properties.transitionDuration;
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.accordionTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.moonTheme.accordionTheme.properties.transitionCurve;
 
     _expansionAnimationController ??=
         AnimationController(duration: effectiveTransitionDuration, vsync: this);
@@ -664,12 +642,10 @@ class _MoonAccordionState<T> extends State<MoonAccordion<T>>
   @override
   Widget build(BuildContext context) {
     final Color effectiveDividerColor = widget.dividerColor ??
-        context.moonTheme?.accordionTheme.colors.dividerColor ??
-        MoonColors.light.beerus;
+        context.moonTheme.accordionTheme.colors.dividerColor;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.accordionTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.moonTheme.accordionTheme.properties.transitionDuration;
 
     _expansionAnimationController ??= AnimationController(
       duration: effectiveTransitionDuration,

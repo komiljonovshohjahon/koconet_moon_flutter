@@ -60,22 +60,22 @@ class MoonCircularProgress extends StatelessWidget {
   ) {
     switch (moonCircularProgressSize) {
       case MoonCircularProgressSize.x2s:
-        return context.moonTheme?.circularProgressTheme.sizes.x2s ??
+        return context.moonTheme.circularProgressTheme.sizes.x2s ??
             MoonCircularProgressSizes(tokens: MoonTokens.light).x2s;
       case MoonCircularProgressSize.xs:
-        return context.moonTheme?.circularProgressTheme.sizes.xs ??
+        return context.moonTheme.circularProgressTheme.sizes.xs ??
             MoonCircularProgressSizes(tokens: MoonTokens.light).xs;
       case MoonCircularProgressSize.sm:
-        return context.moonTheme?.circularProgressTheme.sizes.sm ??
+        return context.moonTheme.circularProgressTheme.sizes.sm ??
             MoonCircularProgressSizes(tokens: MoonTokens.light).sm;
       case MoonCircularProgressSize.md:
-        return context.moonTheme?.circularProgressTheme.sizes.md ??
+        return context.moonTheme.circularProgressTheme.sizes.md ??
             MoonCircularProgressSizes(tokens: MoonTokens.light).md;
       case MoonCircularProgressSize.lg:
-        return context.moonTheme?.circularProgressTheme.sizes.lg ??
+        return context.moonTheme.circularProgressTheme.sizes.lg ??
             MoonCircularProgressSizes(tokens: MoonTokens.light).lg;
       default:
-        return context.moonTheme?.circularProgressTheme.sizes.md ??
+        return context.moonTheme.circularProgressTheme.sizes.md ??
             MoonCircularProgressSizes(tokens: MoonTokens.light).md;
     }
   }
@@ -83,11 +83,11 @@ class MoonCircularProgress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color effectiveColor = color ??
-        context.moonTheme?.circularProgressTheme.colors.color ??
+        context.moonTheme.circularProgressTheme.colors.color ??
         MoonColors.light.piccolo;
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.circularProgressTheme.colors.backgroundColor ??
+        context.moonTheme.circularProgressTheme.colors.backgroundColor ??
         MoonColors.light.beerus;
 
     final MoonCircularProgressSizeProperties effectiveMoonCircularProgressSize =

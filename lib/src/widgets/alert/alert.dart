@@ -2,13 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/theme.dart';
 import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/shape_decoration_premul.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
 class MoonAlert extends StatefulWidget {
   /// Whether to show the alert.
@@ -165,11 +161,9 @@ class _MoonAlertState extends State<MoonAlert>
 
   TextStyle _getLabelTextStyle({required BuildContext context}) {
     if (widget.content != null) {
-      return context.moonTheme?.alertTheme.properties.labelTextStyle ??
-          MoonTypography.typography.heading.textDefault;
+      return context.moonTheme.alertTheme.properties.labelTextStyle;
     } else {
-      return context.moonTheme?.alertTheme.properties.contentTextStyle ??
-          MoonTypography.typography.body.textDefault;
+      return context.moonTheme.alertTheme.properties.contentTextStyle;
     }
   }
 
@@ -215,59 +209,47 @@ class _MoonAlertState extends State<MoonAlert>
   @override
   Widget build(BuildContext context) {
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.alertTheme.properties.borderRadius ??
-        MoonBorders.borders.interactiveSm;
+        context.moonTheme.alertTheme.properties.borderRadius;
 
     final double effectiveBorderWidth = widget.borderWidth ??
         context.moonBorders?.defaultBorderWidth ??
         MoonBorders.borders.defaultBorderWidth;
 
     final double effectiveHorizontalGap = widget.horizontalGap ??
-        context.moonTheme?.alertTheme.properties.horizontalGap ??
-        MoonSizes.sizes.x3s;
+        context.moonTheme.alertTheme.properties.horizontalGap;
 
     final double effectiveVerticalGap = widget.verticalGap ??
-        context.moonTheme?.alertTheme.properties.verticalGap ??
-        MoonSizes.sizes.x4s;
+        context.moonTheme.alertTheme.properties.verticalGap;
 
     final double effectiveMinimumHeight = widget.minimumHeight ??
-        context.moonTheme?.alertTheme.properties.minimumHeight ??
-        MoonSizes.sizes.xl;
+        context.moonTheme.alertTheme.properties.minimumHeight;
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.alertTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        context.moonTheme.alertTheme.colors.backgroundColor;
 
-    final Color effectiveBorderColor = widget.borderColor ??
-        context.moonTheme?.alertTheme.colors.borderColor ??
-        MoonColors.light.bulma;
+    final Color effectiveBorderColor =
+        widget.borderColor ?? context.moonTheme.alertTheme.colors.borderColor;
 
-    final Color effectiveTextColor = widget.color ??
-        context.moonTheme?.alertTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+    final Color effectiveTextColor =
+        widget.color ?? context.moonTheme.alertTheme.colors.textColor;
 
-    final Color effectiveIconColor = widget.color ??
-        context.moonTheme?.alertTheme.colors.iconColor ??
-        MoonColors.light.iconPrimary;
+    final Color effectiveIconColor =
+        widget.color ?? context.moonTheme.alertTheme.colors.iconColor;
 
-    final EdgeInsetsGeometry effectivePadding = widget.padding ??
-        context.moonTheme?.alertTheme.properties.padding ??
-        EdgeInsets.all(MoonSizes.sizes.x2s);
+    final EdgeInsetsGeometry effectivePadding =
+        widget.padding ?? context.moonTheme.alertTheme.properties.padding;
 
     final TextStyle effectiveLabelTextStyle =
         _getLabelTextStyle(context: context);
 
     final TextStyle effectiveContentTextStyle =
-        context.moonTheme?.alertTheme.properties.contentTextStyle ??
-            MoonTypography.typography.body.textDefault;
+        context.moonTheme.alertTheme.properties.contentTextStyle;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.alertTheme.properties.transitionDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.moonTheme.alertTheme.properties.transitionDuration;
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.alertTheme.properties.transitionCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.moonTheme.alertTheme.properties.transitionCurve;
 
     _animationController ??= AnimationController(
       duration: effectiveTransitionDuration,

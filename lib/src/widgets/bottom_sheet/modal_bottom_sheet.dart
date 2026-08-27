@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/theme.dart';
 import 'package:moon_design/src/widgets/bottom_sheet/bottom_sheet.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
 /// Displays a Moon Design modal bottom sheet.
 Future<T?> showMoonModalBottomSheet<T>({
@@ -31,7 +30,7 @@ Future<T?> showMoonModalBottomSheet<T>({
 
   final bool hasMaterialLocalizations =
       Localizations.of<MaterialLocalizations>(context, MaterialLocalizations) !=
-          null;
+      null;
 
   final String barrierLabel = hasMaterialLocalizations
       ? MaterialLocalizations.of(context).modalBarrierDismissLabel
@@ -42,40 +41,39 @@ Future<T?> showMoonModalBottomSheet<T>({
     to: Navigator.of(context, rootNavigator: useRootNavigator).context,
   );
 
-  final Color effectiveBarrierColor = barrierColor ??
-      context.moonTheme?.bottomSheetTheme.colors.barrierColor ??
-      MoonColors.light.zeno;
+  final Color effectiveBarrierColor =
+      barrierColor ?? context.moonTheme.bottomSheetTheme.colors.barrierColor;
 
-  final Duration effectiveTransitionDuration = transitionDuration ??
-      context.moonTheme?.bottomSheetTheme.properties.transitionDuration ??
-      const Duration(milliseconds: 350);
+  final Duration effectiveTransitionDuration =
+      transitionDuration ??
+      context.moonTheme.bottomSheetTheme.properties.transitionDuration;
 
-  final Curve effectiveTransitionCurve = transitionCurve ??
-      context.moonTheme?.bottomSheetTheme.properties.transitionCurve ??
-      const Cubic(0.0, 0.0, 0.2, 1.0);
+  final Curve effectiveTransitionCurve =
+      transitionCurve ??
+      context.moonTheme.bottomSheetTheme.properties.transitionCurve;
 
-  final T? result =
-      await Navigator.of(context, rootNavigator: useRootNavigator).push(
-    MoonModalBottomSheetRoute<T>(
-      enableDrag: enableDrag,
-      isExpanded: isExpanded,
-      isDismissible: isDismissible,
-      borderRadius: borderRadius,
-      themes: themes,
-      backgroundColor: backgroundColor,
-      modalBarrierColor: effectiveBarrierColor,
-      decoration: decoration,
-      closeProgressThreshold: closeProgressThreshold,
-      height: height,
-      animationDuration: effectiveTransitionDuration,
-      animationCurve: effectiveTransitionCurve,
-      settings: settings,
-      semanticLabel: semanticLabel,
-      barrierLabel: barrierLabel,
-      animationController: animationController,
-      builder: builder,
-    ),
-  );
+  final T? result = await Navigator.of(context, rootNavigator: useRootNavigator)
+      .push(
+        MoonModalBottomSheetRoute<T>(
+          enableDrag: enableDrag,
+          isExpanded: isExpanded,
+          isDismissible: isDismissible,
+          borderRadius: borderRadius,
+          themes: themes,
+          backgroundColor: backgroundColor,
+          modalBarrierColor: effectiveBarrierColor,
+          decoration: decoration,
+          closeProgressThreshold: closeProgressThreshold,
+          height: height,
+          animationDuration: effectiveTransitionDuration,
+          animationCurve: effectiveTransitionCurve,
+          settings: settings,
+          semanticLabel: semanticLabel,
+          barrierLabel: barrierLabel,
+          animationController: animationController,
+          builder: builder,
+        ),
+      );
 
   return result;
 }
@@ -293,7 +291,7 @@ class _ModalBottomSheetState<T> extends State<_ModalBottomSheet<T>> {
 
     final ScrollController scrollController =
         PrimaryScrollController.maybeOf(context) ??
-            (_scrollController ??= ScrollController());
+        (_scrollController ??= ScrollController());
 
     return PrimaryScrollController(
       controller: scrollController,
@@ -319,8 +317,9 @@ class _ModalBottomSheetState<T> extends State<_ModalBottomSheet<T>> {
                 transitionDuration: widget.transitionDuration,
                 transitionCurve: widget.transitionCurve,
                 semanticLabel: widget.semanticLabel,
-                onClosing: () =>
-                    {if (widget.route.isCurrent) Navigator.of(context).pop()},
+                onClosing: () => {
+                  if (widget.route.isCurrent) Navigator.of(context).pop(),
+                },
                 shouldClose: widget.route._hasScopedWillPopCallback
                     ? () => _handleShouldClose()
                     : null,

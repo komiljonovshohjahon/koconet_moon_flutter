@@ -1138,19 +1138,19 @@ class _MoonTextInputState extends State<MoonTextInput>
   ) {
     switch (moonTextInputSize) {
       case MoonTextInputSize.sm:
-        return context.moonTheme?.textInputTheme.sizes.sm ??
+        return context.moonTheme.textInputTheme.sizes.sm ??
             MoonTextInputSizes(tokens: MoonTokens.light).sm;
       case MoonTextInputSize.md:
-        return context.moonTheme?.textInputTheme.sizes.md ??
+        return context.moonTheme.textInputTheme.sizes.md ??
             MoonTextInputSizes(tokens: MoonTokens.light).md;
       case MoonTextInputSize.lg:
-        return context.moonTheme?.textInputTheme.sizes.lg ??
+        return context.moonTheme.textInputTheme.sizes.lg ??
             MoonTextInputSizes(tokens: MoonTokens.light).lg;
       case MoonTextInputSize.xl:
-        return context.moonTheme?.textInputTheme.sizes.xl ??
+        return context.moonTheme.textInputTheme.sizes.xl ??
             MoonTextInputSizes(tokens: MoonTokens.light).xl;
       default:
-        return context.moonTheme?.textInputTheme.sizes.md ??
+        return context.moonTheme.textInputTheme.sizes.md ??
             MoonTextInputSizes(tokens: MoonTokens.light).md;
     }
   }
@@ -1247,35 +1247,35 @@ class _MoonTextInputState extends State<MoonTextInput>
         widget.borderRadius ?? effectiveMoonTextInputSize.borderRadius;
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.textInputTheme.colors.backgroundColor ??
+        context.moonTheme.textInputTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveActiveBorderColor = widget.activeBorderColor ??
-        context.moonTheme?.textInputTheme.colors.activeBorderColor ??
+        context.moonTheme.textInputTheme.colors.activeBorderColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveInactiveBorderColor = widget.inactiveBorderColor ??
-        context.moonTheme?.textInputTheme.colors.inactiveBorderColor ??
+        context.moonTheme.textInputTheme.colors.inactiveBorderColor ??
         MoonColors.light.beerus;
 
     final Color effectiveErrorColor = widget.errorColor ??
-        context.moonTheme?.textInputTheme.colors.errorColor ??
+        context.moonTheme.textInputTheme.colors.errorColor ??
         MoonColors.light.chichi;
 
     final Color effectiveCursorErrorColor = widget.cursorErrorColor ??
-        context.moonTheme?.textInputTheme.colors.errorColor ??
+        context.moonTheme.textInputTheme.colors.errorColor ??
         MoonColors.light.chichi;
 
     final Color effectiveHoverBorderColor = widget.hoverBorderColor ??
-        context.moonTheme?.textInputTheme.colors.hoverBorderColor ??
+        context.moonTheme.textInputTheme.colors.hoverBorderColor ??
         MoonColors.light.beerus;
 
     final Color effectiveTextColor = widget.textColor ??
-        context.moonTheme?.textInputTheme.colors.textColor ??
+        context.moonTheme.textInputTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveHintTextColor = widget.hintTextColor ??
-        context.moonTheme?.textInputTheme.colors.helperTextColor ??
+        context.moonTheme.textInputTheme.colors.helperTextColor ??
         MoonColors.light.trunks;
 
     final double effectiveGap = widget.gap ?? effectiveMoonTextInputSize.gap;
@@ -1287,11 +1287,11 @@ class _MoonTextInputState extends State<MoonTextInput>
         context.moonOpacities?.disabled ?? MoonOpacities.opacities.disabled;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.textInputTheme.properties.transitionDuration ??
+        context.moonTheme.textInputTheme.properties.transitionDuration ??
         const Duration(milliseconds: 167);
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.textInputTheme.properties.transitionCurve ??
+        context.moonTheme.textInputTheme.properties.transitionCurve ??
         Curves.fastOutSlowIn;
 
     final EdgeInsetsGeometry effectivePadding =
@@ -1301,7 +1301,7 @@ class _MoonTextInputState extends State<MoonTextInput>
         effectivePadding.resolve(Directionality.of(context));
 
     final EdgeInsetsGeometry effectiveHelperPadding = widget.helperPadding ??
-        context.moonTheme?.textInputTheme.properties.helperPadding ??
+        context.moonTheme.textInputTheme.properties.helperPadding ??
         EdgeInsets.only(
           left: MoonSizes.sizes.x3s,
           top: MoonSizes.sizes.x4s,
@@ -1312,7 +1312,7 @@ class _MoonTextInputState extends State<MoonTextInput>
         widget.style ?? effectiveMoonTextInputSize.textStyle;
 
     final TextStyle effectiveHelperTextStyle = widget.helperTextStyle ??
-        context.moonTheme?.textInputTheme.properties.helperTextStyle ??
+        context.moonTheme.textInputTheme.properties.helperTextStyle ??
         MoonTypography.typography.body.text12;
 
     final MoonSquircleBorder defaultBorder = MoonSquircleBorder(

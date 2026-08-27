@@ -157,13 +157,13 @@ class _MoonSegmentedControlState extends State<MoonSegmentedControl> {
   ) {
     switch (segmentedControlSize) {
       case MoonSegmentedControlSize.sm:
-        return context.moonTheme?.segmentedControlTheme.sizes.sm ??
+        return context.moonTheme.segmentedControlTheme.sizes.sm ??
             MoonSegmentedControlSizes(tokens: MoonTokens.light).sm;
       case MoonSegmentedControlSize.md:
-        return context.moonTheme?.segmentedControlTheme.sizes.md ??
+        return context.moonTheme.segmentedControlTheme.sizes.md ??
             MoonSegmentedControlSizes(tokens: MoonTokens.light).md;
       default:
-        return context.moonTheme?.segmentedControlTheme.sizes.md ??
+        return context.moonTheme.segmentedControlTheme.sizes.md ??
             MoonSegmentedControlSizes(tokens: MoonTokens.light).md;
     }
   }
@@ -216,11 +216,11 @@ class _MoonSegmentedControlState extends State<MoonSegmentedControl> {
         _getMoonSegmentedControlSize(context, widget.segmentedControlSize);
 
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.segmentedControlTheme.properties.borderRadius ??
+        context.moonTheme.segmentedControlTheme.properties.borderRadius ??
         MoonBorders.borders.interactiveMd;
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.segmentedControlTheme.colors.backgroundColor ??
+        context.moonTheme.segmentedControlTheme.colors.backgroundColor ??
         MoonColors.light.gohan;
 
     final double effectiveDisabledOpacityValue =
@@ -230,20 +230,20 @@ class _MoonSegmentedControlState extends State<MoonSegmentedControl> {
         widget.height ?? effectiveMoonSegmentControlSize.height;
 
     final double effectiveGap = widget.gap ??
-        context.moonTheme?.segmentedControlTheme.properties.gap ??
+        context.moonTheme.segmentedControlTheme.properties.gap ??
         MoonSizes.sizes.x5s;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
         context
-            .moonTheme?.segmentedControlTheme.properties.transitionDuration ??
+            .moonTheme.segmentedControlTheme.properties.transitionDuration ??
         MoonTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.segmentedControlTheme.properties.transitionCurve ??
+        context.moonTheme.segmentedControlTheme.properties.transitionCurve ??
         MoonTransitions.transitions.defaultTransitionCurve;
 
     final EdgeInsetsGeometry effectivePadding = widget.padding ??
-        context.moonTheme?.segmentedControlTheme.properties.padding ??
+        context.moonTheme.segmentedControlTheme.properties.padding ??
         const EdgeInsets.all(4);
 
     return AnimatedOpacity(
@@ -378,16 +378,16 @@ class _SegmentBuilderState extends State<_SegmentBuilder>
 
     final Color effectiveSelectedSegmentColor = segmentStyle
             ?.selectedSegmentColor ??
-        context.moonTheme?.segmentedControlTheme.colors.selectedSegmentColor ??
+        context.moonTheme.segmentedControlTheme.colors.selectedSegmentColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor = segmentStyle?.textStyle?.color ??
         segmentStyle?.textColor ??
-        context.moonTheme?.segmentedControlTheme.colors.textColor ??
+        context.moonTheme.segmentedControlTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveSelectedTextColor = segmentStyle?.selectedTextColor ??
-        context.moonTheme?.segmentedControlTheme.colors.selectedTextColor ??
+        context.moonTheme.segmentedControlTheme.colors.selectedTextColor ??
         MoonColors.light.piccolo;
 
     final TextStyle effectiveTextStyle = widget

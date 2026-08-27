@@ -382,25 +382,25 @@ class _MoonTableState extends State<MoonTable> {
   ) {
     switch (moonTableRowSize) {
       case MoonTableRowSize.xs:
-        return context.moonTheme?.tableTheme.sizes.xs ??
+        return context.moonTheme.tableTheme.sizes.xs ??
             MoonTableSizes(tokens: MoonTokens.light).xs;
       case MoonTableRowSize.sm:
-        return context.moonTheme?.tableTheme.sizes.sm ??
+        return context.moonTheme.tableTheme.sizes.sm ??
             MoonTableSizes(tokens: MoonTokens.light).sm;
       case MoonTableRowSize.md:
-        return context.moonTheme?.tableTheme.sizes.md ??
+        return context.moonTheme.tableTheme.sizes.md ??
             MoonTableSizes(tokens: MoonTokens.light).md;
       case MoonTableRowSize.lg:
-        return context.moonTheme?.tableTheme.sizes.lg ??
+        return context.moonTheme.tableTheme.sizes.lg ??
             MoonTableSizes(tokens: MoonTokens.light).lg;
       case MoonTableRowSize.xl:
-        return context.moonTheme?.tableTheme.sizes.xl ??
+        return context.moonTheme.tableTheme.sizes.xl ??
             MoonTableSizes(tokens: MoonTokens.light).xl;
       case MoonTableRowSize.x2l:
-        return context.moonTheme?.tableTheme.sizes.x2l ??
+        return context.moonTheme.tableTheme.sizes.x2l ??
             MoonTableSizes(tokens: MoonTokens.light).x2l;
       default:
-        return context.moonTheme?.tableTheme.sizes.md ??
+        return context.moonTheme.tableTheme.sizes.md ??
             MoonTableSizes(tokens: MoonTokens.light).md;
     }
   }
@@ -456,7 +456,7 @@ class _MoonTableState extends State<MoonTable> {
     final MoonTableHeader header = widget.header!;
 
     final Color effectiveTextColor =
-        context.moonTheme?.tableTheme.colors.columnTextColor ??
+        context.moonTheme.tableTheme.colors.columnTextColor ??
             MoonColors.light.textPrimary;
 
     final double? effectiveHeight = header.height ??
@@ -539,7 +539,7 @@ class _MoonTableState extends State<MoonTable> {
 
   Widget _buildFooter() {
     final Color effectiveTextColor =
-        context.moonTheme?.tableTheme.colors.columnTextColor ??
+        context.moonTheme.tableTheme.colors.columnTextColor ??
             MoonColors.light.textPrimary;
 
     final double? effectiveFooterHeight = widget.footer?.height ??
@@ -588,11 +588,11 @@ class _MoonTableState extends State<MoonTable> {
         _effectiveMoonTableRowSize.rowBorderRadius;
 
     final Color effectiveTextColor =
-        context.moonTheme?.tableTheme.colors.rowTextColor ??
+        context.moonTheme.tableTheme.colors.rowTextColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveBackgroundColor =
-        context.moonTheme?.tableTheme.colors.rowBackgroundColor ??
+        context.moonTheme.tableTheme.colors.rowBackgroundColor ??
             MoonColors.light.gohan;
 
     final double effectiveGap =
@@ -727,7 +727,7 @@ class _MoonTableState extends State<MoonTable> {
         widget.cellPadding ?? _effectiveMoonTableRowSize.cellPadding;
 
     final Color effectiveIconColor =
-        context.moonTheme?.tableTheme.colors.iconColor ??
+        context.moonTheme.tableTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final ScrollBehavior effectiveScrollBehavior = widget.scrollBehaviour ??
@@ -823,20 +823,20 @@ class _TableRowLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color effectiveLableTextColor = labelTextStyle.color ??
-        context.moonTheme?.tableTheme.colors.rowLabelTextColor ??
+        context.moonTheme.tableTheme.colors.rowLabelTextColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveAnimatedLabelTextColor = animatedLabelTextStyle
             .color ??
-        context.moonTheme?.tableTheme.colors.rowPinnedAnimatedLabelTextColor ??
+        context.moonTheme.tableTheme.colors.rowPinnedAnimatedLabelTextColor ??
         MoonColors.light.trunks;
 
     final Duration effectiveTransitionDuration = label.transitionDuration ??
-        context.moonTheme?.tableTheme.properties.transitionDuration ??
+        context.moonTheme.tableTheme.properties.transitionDuration ??
         const Duration(milliseconds: 400);
 
     final Curve effectiveTransitionCurve = label.transitionCurve ??
-        context.moonTheme?.tableTheme.properties.transitionCurve ??
+        context.moonTheme.tableTheme.properties.transitionCurve ??
         MoonTransitions.transitions.defaultTransitionCurve;
 
     final TextStyle resolvedLabelTextStyle =

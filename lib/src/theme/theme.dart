@@ -568,21 +568,21 @@ class MoonTheme extends ThemeExtension<MoonTheme> with DiagnosticableTreeMixin {
 }
 
 extension MoonThemeX on BuildContext {
-  MoonTheme? get moonTheme => Theme.of(this).extension<MoonTheme>();
+  MoonTheme get moonTheme => Theme.of(this).extension<MoonTheme>()!;
 
-  MoonBorders? get moonBorders => moonTheme?.tokens.borders;
+  MoonBorders? get moonBorders => moonTheme.tokens.borders;
 
-  MoonColors? get moonColors => moonTheme?.tokens.colors;
+  MoonColors? get moonColors => moonTheme.tokens.colors;
 
-  MoonEffectsTheme? get moonEffects => moonTheme?.effects;
+  MoonEffectsTheme? get moonEffects => moonTheme.effects;
 
-  MoonOpacities? get moonOpacities => moonTheme?.tokens.opacities;
+  MoonOpacities? get moonOpacities => moonTheme.tokens.opacities;
 
-  MoonShadows? get moonShadows => moonTheme?.tokens.shadows;
+  MoonShadows? get moonShadows => moonTheme.tokens.shadows;
 
-  MoonSizes? get moonSizes => moonTheme?.tokens.sizes;
+  MoonSizes? get moonSizes => moonTheme.tokens.sizes;
 
-  MoonTransitions? get moonTransitions => moonTheme?.tokens.transitions;
+  MoonTransitions? get moonTransitions => moonTheme.tokens.transitions;
 
-  MoonTypography? get moonTypography => moonTheme?.tokens.typography;
+  MoonTypography? get moonTypography => moonTheme.tokens.typography;
 }

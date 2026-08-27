@@ -82,13 +82,13 @@ class MoonTag extends StatelessWidget {
     MoonTagSize? moonTagSize,
   ) {
     return switch (moonTagSize) {
-      MoonTagSize.x2s => context.moonTheme?.tagTheme.sizes.x2s ??
+      MoonTagSize.x2s => context.moonTheme.tagTheme.sizes.x2s ??
           MoonTagSizes(tokens: MoonTokens.light).x2s,
-      MoonTagSize.xs => context.moonTheme?.tagTheme.sizes.xs ??
+      MoonTagSize.xs => context.moonTheme.tagTheme.sizes.xs ??
           MoonTagSizes(tokens: MoonTokens.light).xs,
-      MoonTagSize.sm => context.moonTheme?.tagTheme.sizes.sm ??
+      MoonTagSize.sm => context.moonTheme.tagTheme.sizes.sm ??
           MoonTagSizes(tokens: MoonTokens.light).sm,
-      _ => context.moonTheme?.tagTheme.sizes.xs ??
+      _ => context.moonTheme.tagTheme.sizes.xs ??
           MoonTagSizes(tokens: MoonTokens.light).xs,
     };
   }
@@ -102,15 +102,15 @@ class MoonTag extends StatelessWidget {
         borderRadius ?? effectiveMoonTagSize.borderRadius;
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.tagTheme.colors.backgroundColor ??
+        context.moonTheme.tagTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor =
-        context.moonTheme?.tagTheme.colors.textColor ??
+        context.moonTheme.tagTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.tagTheme.colors.iconColor ??
+        context.moonTheme.tagTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final double effectiveHeight = height ?? effectiveMoonTagSize.height;

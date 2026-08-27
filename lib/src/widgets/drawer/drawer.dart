@@ -45,23 +45,23 @@ class MoonDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BorderRadiusGeometry effectiveBorderRadius = borderRadius ??
-        context.moonTheme?.drawerTheme.properties.borderRadius ??
+        context.moonTheme.drawerTheme.properties.borderRadius ??
         BorderRadius.zero;
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.drawerTheme.colors.backgroundColor ??
+        context.moonTheme.drawerTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor =
-        context.moonTheme?.drawerTheme.colors.textColor ??
+        context.moonTheme.drawerTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.drawerTheme.colors.iconColor ??
+        context.moonTheme.drawerTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final double effectiveWidthFromTheme =
-        context.moonTheme?.drawerTheme.properties.width ?? 448;
+        context.moonTheme.drawerTheme.properties.width ?? 448;
 
     final double effectiveWidth = width ??
         (MediaQuery.of(context).size.width < effectiveWidthFromTheme
@@ -69,11 +69,11 @@ class MoonDrawer extends StatelessWidget {
             : effectiveWidthFromTheme);
 
     final List<BoxShadow> effectiveDrawerShadows = drawerShadows ??
-        context.moonTheme?.drawerTheme.shadows.drawerShadows ??
+        context.moonTheme.drawerTheme.shadows.drawerShadows ??
         MoonShadows.light.lg;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme?.drawerTheme.properties.textStyle ??
+        context.moonTheme.drawerTheme.properties.textStyle ??
             MoonTypography.typography.body.textDefault;
 
     return Semantics(

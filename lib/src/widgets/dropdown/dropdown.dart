@@ -401,45 +401,45 @@ class _MoonDropdownState extends State<MoonDropdown>
 
   Widget _createOverlayContent() {
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.dropdownTheme.properties.borderRadius ??
+        context.moonTheme.dropdownTheme.properties.borderRadius ??
         BorderRadius.circular(12);
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.dropdownTheme.colors.backgroundColor ??
+        context.moonTheme.dropdownTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor =
-        context.moonTheme?.dropdownTheme.colors.textColor ??
+        context.moonTheme.dropdownTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.dropdownTheme.colors.iconColor ??
+        context.moonTheme.dropdownTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme?.dropdownTheme.properties.textStyle ??
+        context.moonTheme.dropdownTheme.properties.textStyle ??
             MoonTypography.typography.body.textDefault;
 
     final double effectiveDistanceToTarget = widget.distanceToTarget ??
-        context.moonTheme?.dropdownTheme.properties.distanceToTarget ??
+        context.moonTheme.dropdownTheme.properties.distanceToTarget ??
         MoonSizes.sizes.x4s;
 
     final EdgeInsetsGeometry effectiveContentPadding = widget.contentPadding ??
-        context.moonTheme?.dropdownTheme.properties.contentPadding ??
+        context.moonTheme.dropdownTheme.properties.contentPadding ??
         const EdgeInsets.all(4);
 
     final EdgeInsets resolvedContentPadding =
         effectiveContentPadding.resolve(Directionality.of(context));
 
     final EdgeInsetsGeometry effectiveDropdownMargin = widget.dropdownMargin ??
-        context.moonTheme?.dropdownTheme.properties.dropdownMargin ??
+        context.moonTheme.dropdownTheme.properties.dropdownMargin ??
         const EdgeInsets.all(8);
 
     final EdgeInsets resolvedDropdownMargin =
         effectiveDropdownMargin.resolve(Directionality.of(context));
 
     final List<BoxShadow> effectiveDropdownShadows = widget.dropdownShadows ??
-        context.moonTheme?.dropdownTheme.shadows.dropdownShadows ??
+        context.moonTheme.dropdownTheme.shadows.dropdownShadows ??
         MoonShadows.light.sm;
 
     MoonDropdownAnchorPosition dropdownAnchorPosition =
@@ -574,11 +574,11 @@ class _MoonDropdownState extends State<MoonDropdown>
   @override
   Widget build(BuildContext context) {
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.dropdownTheme.properties.transitionDuration ??
+        context.moonTheme.dropdownTheme.properties.transitionDuration ??
         MoonTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.dropdownTheme.properties.transitionCurve ??
+        context.moonTheme.dropdownTheme.properties.transitionCurve ??
         MoonTransitions.transitions.defaultTransitionCurve;
 
     _animationController ??= AnimationController(

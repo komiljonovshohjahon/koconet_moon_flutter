@@ -232,13 +232,13 @@ class _MoonChipState extends State<MoonChip>
   ) {
     switch (moonChipSize) {
       case MoonChipSize.sm:
-        return context.moonTheme?.chipTheme.sizes.sm ??
+        return context.moonTheme.chipTheme.sizes.sm ??
             MoonChipSizes(tokens: MoonTokens.light).sm;
       case MoonChipSize.md:
-        return context.moonTheme?.chipTheme.sizes.md ??
+        return context.moonTheme.chipTheme.sizes.md ??
             MoonChipSizes(tokens: MoonTokens.light).md;
       default:
-        return context.moonTheme?.chipTheme.sizes.md ??
+        return context.moonTheme.chipTheme.sizes.md ??
             MoonChipSizes(tokens: MoonTokens.light).md;
     }
   }
@@ -268,19 +268,19 @@ class _MoonChipState extends State<MoonChip>
     final double effectiveGap = widget.gap ?? effectiveMoonChipSize.gap;
 
     final Color effectiveActiveColor = widget.activeColor ??
-        context.moonTheme?.chipTheme.colors.activeColor ??
+        context.moonTheme.chipTheme.colors.activeColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.chipTheme.colors.backgroundColor ??
+        context.moonTheme.chipTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveActiveBackgroundColor = widget.activeBackgroundColor ??
-        context.moonTheme?.chipTheme.colors.activeBackgroundColor ??
+        context.moonTheme.chipTheme.colors.activeBackgroundColor ??
         MoonColors.light.jiren;
 
     final Color effectiveTextColor = widget.textColor ??
-        context.moonTheme?.chipTheme.colors.textColor ??
+        context.moonTheme.chipTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Duration effectiveActiveEffectDuration =

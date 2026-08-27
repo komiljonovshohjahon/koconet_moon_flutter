@@ -296,22 +296,22 @@ class _MoonButtonState extends State<MoonButton>
   ) {
     switch (moonButtonSize) {
       case MoonButtonSize.xs:
-        return context.moonTheme?.buttonTheme.sizes.xs ??
+        return context.moonTheme.buttonTheme.sizes.xs ??
             MoonButtonSizes(tokens: MoonTokens.light).xs;
       case MoonButtonSize.sm:
-        return context.moonTheme?.buttonTheme.sizes.sm ??
+        return context.moonTheme.buttonTheme.sizes.sm ??
             MoonButtonSizes(tokens: MoonTokens.light).sm;
       case MoonButtonSize.md:
-        return context.moonTheme?.buttonTheme.sizes.md ??
+        return context.moonTheme.buttonTheme.sizes.md ??
             MoonButtonSizes(tokens: MoonTokens.light).md;
       case MoonButtonSize.lg:
-        return context.moonTheme?.buttonTheme.sizes.lg ??
+        return context.moonTheme.buttonTheme.sizes.lg ??
             MoonButtonSizes(tokens: MoonTokens.light).lg;
       case MoonButtonSize.xl:
-        return context.moonTheme?.buttonTheme.sizes.xl ??
+        return context.moonTheme.buttonTheme.sizes.xl ??
             MoonButtonSizes(tokens: MoonTokens.light).xl;
       default:
-        return context.moonTheme?.buttonTheme.sizes.md ??
+        return context.moonTheme.buttonTheme.sizes.md ??
             MoonButtonSizes(tokens: MoonTokens.light).md;
     }
   }
@@ -332,7 +332,7 @@ class _MoonButtonState extends State<MoonButton>
         widget.borderRadius ?? effectiveMoonButtonSize.borderRadius;
 
     final Color effectiveBorderColor = widget.borderColor ??
-        context.moonTheme?.buttonTheme.colors.borderColor ??
+        context.moonTheme.buttonTheme.colors.borderColor ??
         MoonColors.light.trunks;
 
     final double effectiveBorderWidth = widget.borderWidth ??
@@ -340,7 +340,7 @@ class _MoonButtonState extends State<MoonButton>
         MoonBorders.borders.defaultBorderWidth;
 
     final Color effectiveTextColor = widget.textColor ??
-        context.moonTheme?.buttonTheme.colors.textColor ??
+        context.moonTheme.buttonTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveHoverEffectColor = widget.hoverEffectColor ??

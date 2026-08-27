@@ -412,51 +412,51 @@ class _MoonTooltipState extends State<MoonTooltip>
     MoonTooltipPosition tooltipPosition = widget.tooltipPosition;
 
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.tooltipTheme.properties.borderRadius ??
+        context.moonTheme.tooltipTheme.properties.borderRadius ??
         MoonBorders.borders.interactiveXs;
 
     final resolvedBorderRadius =
         effectiveBorderRadius.resolve(Directionality.of(context));
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.tooltipTheme.colors.backgroundColor ??
+        context.moonTheme.tooltipTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor =
-        context.moonTheme?.tooltipTheme.colors.textColor ??
+        context.moonTheme.tooltipTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.tooltipTheme.colors.iconColor ??
+        context.moonTheme.tooltipTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final double effectiveArrowBaseWidth = widget.arrowBaseWidth ??
-        context.moonTheme?.tooltipTheme.properties.arrowBaseWidth ??
+        context.moonTheme.tooltipTheme.properties.arrowBaseWidth ??
         16;
 
     final double effectiveArrowLength = widget.hasArrow
         ? (widget.arrowLength ??
-            context.moonTheme?.tooltipTheme.properties.arrowLength ??
+            context.moonTheme.tooltipTheme.properties.arrowLength ??
             8)
         : 0;
 
     final double effectiveArrowTipDistance = widget.arrowTipDistance ??
-        context.moonTheme?.tooltipTheme.properties.arrowTipDistance ??
+        context.moonTheme.tooltipTheme.properties.arrowTipDistance ??
         8;
 
     final EdgeInsetsGeometry effectiveContentPadding = widget.contentPadding ??
-        context.moonTheme?.tooltipTheme.properties.contentPadding ??
+        context.moonTheme.tooltipTheme.properties.contentPadding ??
         const EdgeInsets.all(12);
 
     final EdgeInsets resolvedContentPadding =
         effectiveContentPadding.resolve(Directionality.of(context));
 
     final List<BoxShadow> effectiveTooltipShadows = widget.tooltipShadows ??
-        context.moonTheme?.tooltipTheme.shadows.tooltipShadows ??
+        context.moonTheme.tooltipTheme.shadows.tooltipShadows ??
         MoonShadows.light.sm;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme?.tooltipTheme.properties.textStyle ??
+        context.moonTheme.tooltipTheme.properties.textStyle ??
             MoonTypography.typography.body.text12;
 
     final overlayRenderBox =
@@ -580,11 +580,11 @@ class _MoonTooltipState extends State<MoonTooltip>
   @override
   Widget build(BuildContext context) {
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.tooltipTheme.properties.transitionDuration ??
+        context.moonTheme.tooltipTheme.properties.transitionDuration ??
         const Duration(milliseconds: 150);
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.tooltipTheme.properties.transitionCurve ??
+        context.moonTheme.tooltipTheme.properties.transitionCurve ??
         MoonTransitions.transitions.defaultTransitionCurve;
 
     _animationController ??= AnimationController(

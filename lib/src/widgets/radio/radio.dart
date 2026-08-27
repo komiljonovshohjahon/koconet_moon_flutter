@@ -136,11 +136,11 @@ class _RadioState<T> extends State<MoonRadio<T>>
     const Size size = Size(16, 16);
 
     final Color effectiveActiveColor = widget.activeColor ??
-        context.moonTheme?.radioTheme.colors.activeColor ??
+        context.moonTheme.radioTheme.colors.activeColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveInactiveColor = widget.inactiveColor ??
-        context.moonTheme?.radioTheme.colors.inactiveColor ??
+        context.moonTheme.radioTheme.colors.inactiveColor ??
         MoonColors.light.trunks;
 
     final Color effectiveFocusEffectColor =

@@ -72,42 +72,42 @@ class _MoonBreadcrumbState extends State<MoonBreadcrumb> {
   bool _showFullPath = false;
 
   List<Widget> _buildItems() {
-    final MoonBreadcrumbTheme? theme = context.moonTheme?.breadcrumbTheme;
+    final MoonBreadcrumbTheme theme = context.moonTheme.breadcrumbTheme;
 
     final double effectiveGap =
-        widget.gap ?? theme?.properties.gap ?? MoonSizes.sizes.x4s;
+        widget.gap ?? theme.properties.gap ?? MoonSizes.sizes.x4s;
 
     final Color effectiveItemTextColor = widget.itemTextStyle?.color ??
-        theme?.colors.itemColor ??
+        theme.colors.itemColor ??
         MoonColors.light.textSecondary;
 
     final Color effectiveCurrentItemTextColor =
         widget.currentItemTextStyle?.color ??
-            theme?.colors.currentItemColor ??
+            theme.colors.currentItemColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveHoverEffectColor = widget.hoverEffectColor ??
-        theme?.colors.hoverEffectColor ??
+        theme.colors.hoverEffectColor ??
         MoonColors.light.textPrimary;
 
     final TextStyle effectiveItemTextStyle = widget.itemTextStyle ??
-        theme?.properties.itemTextStyle ??
+        theme.properties.itemTextStyle ??
         MoonTextStyles.body.textDefault;
 
     final TextStyle effectiveCurrentItemTextStyle =
         widget.currentItemTextStyle ??
-            theme?.properties.currentItemTextStyle ??
+            theme.properties.currentItemTextStyle ??
             MoonTextStyles.body.textDefault;
 
     final TextStyle effectiveShowMoreItemTextStyle =
-        theme?.properties.showMoreItemTextStyle ??
+        theme.properties.showMoreItemTextStyle ??
             MoonTextStyles.body.textDefault;
 
     final Duration effectiveTransitionDuration =
-        theme?.properties.transitionDuration ??
+        theme.properties.transitionDuration ??
             MoonTransitions.transitions.defaultTransitionDuration;
 
-    final Curve effectiveTransitionCurve = theme?.properties.transitionCurve ??
+    final Curve effectiveTransitionCurve = theme.properties.transitionCurve ??
         MoonTransitions.transitions.defaultTransitionCurve;
 
     final int resolvedItemCountToShow =
@@ -210,7 +210,7 @@ class _MoonBreadcrumbState extends State<MoonBreadcrumb> {
   Widget _buildDivider() {
     final Color effectiveDividerColor = widget.dividerColor ??
         widget.itemTextStyle?.color ??
-        context.moonTheme?.breadcrumbTheme.colors.itemColor ??
+        context.moonTheme.breadcrumbTheme.colors.itemColor ??
         MoonColors.light.iconSecondary;
 
     return IconTheme(
@@ -303,7 +303,7 @@ class _BreadCrumbItemBuilderState extends State<_BreadcrumbItemBuilder>
   @override
   Widget build(BuildContext context) {
     final double effectiveGap = widget.item.gap ??
-        context.moonTheme?.breadcrumbTheme.properties.itemGap ??
+        context.moonTheme.breadcrumbTheme.properties.itemGap ??
         MoonSizes.sizes.x6s;
 
     final Color resolvedItemColor =

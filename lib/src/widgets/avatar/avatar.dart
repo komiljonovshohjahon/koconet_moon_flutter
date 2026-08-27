@@ -2,14 +2,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/avatar/avatar_size_properties.dart';
-import 'package:moon_design/src/theme/avatar/avatar_sizes.dart';
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/tokens.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/shape_decoration_premul.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
 import 'package:moon_design/src/widgets/avatar/avatar_clipper.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
 enum MoonAvatarSize {
   xs,
@@ -119,26 +116,19 @@ class MoonAvatar extends StatelessWidget {
   ) {
     switch (moonAvatarSize) {
       case MoonAvatarSize.xs:
-        return context.moonTheme?.avatarTheme.sizes.xs ??
-            MoonAvatarSizes(tokens: MoonTokens.light).xs;
+        return context.moonTheme.avatarTheme.sizes.xs;
       case MoonAvatarSize.sm:
-        return context.moonTheme?.avatarTheme.sizes.sm ??
-            MoonAvatarSizes(tokens: MoonTokens.light).sm;
+        return context.moonTheme.avatarTheme.sizes.sm;
       case MoonAvatarSize.md:
-        return context.moonTheme?.avatarTheme.sizes.md ??
-            MoonAvatarSizes(tokens: MoonTokens.light).md;
+        return context.moonTheme.avatarTheme.sizes.md;
       case MoonAvatarSize.lg:
-        return context.moonTheme?.avatarTheme.sizes.lg ??
-            MoonAvatarSizes(tokens: MoonTokens.light).lg;
+        return context.moonTheme.avatarTheme.sizes.lg;
       case MoonAvatarSize.xl:
-        return context.moonTheme?.avatarTheme.sizes.xl ??
-            MoonAvatarSizes(tokens: MoonTokens.light).xl;
+        return context.moonTheme.avatarTheme.sizes.xl;
       case MoonAvatarSize.x2l:
-        return context.moonTheme?.avatarTheme.sizes.x2l ??
-            MoonAvatarSizes(tokens: MoonTokens.light).x2l;
+        return context.moonTheme.avatarTheme.sizes.x2l;
       default:
-        return context.moonTheme?.avatarTheme.sizes.md ??
-            MoonAvatarSizes(tokens: MoonTokens.light).md;
+        return context.moonTheme.avatarTheme.sizes.md;
     }
   }
 
@@ -153,21 +143,17 @@ class MoonAvatar extends StatelessWidget {
     final resolvedBorderRadius =
         effectiveBorderRadius.resolve(Directionality.of(context));
 
-    final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.avatarTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+    final Color effectiveBackgroundColor =
+        backgroundColor ?? context.moonTheme.avatarTheme.colors.backgroundColor;
 
-    final Color effectiveBadgeColor = badgeColor ??
-        context.moonTheme?.avatarTheme.colors.badgeColor ??
-        MoonColors.light.roshi;
+    final Color effectiveBadgeColor =
+        badgeColor ?? context.moonTheme.avatarTheme.colors.badgeColor;
 
     final Color effectiveTextColor =
-        context.moonTheme?.avatarTheme.colors.textColor ??
-            MoonColors.light.textPrimary;
+        context.moonTheme.avatarTheme.colors.textColor;
 
     final Color effectiveIconColor =
-        context.moonTheme?.avatarTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+        context.moonTheme.avatarTheme.colors.iconColor;
 
     final double effectiveAvatarHeight =
         height ?? effectiveMoonAvatarSize.avatarSizeValue;

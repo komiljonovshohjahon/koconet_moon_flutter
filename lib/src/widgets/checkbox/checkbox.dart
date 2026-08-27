@@ -142,23 +142,23 @@ class _MoonCheckboxState extends State<MoonCheckbox>
     const Size size = Size(16, 16);
 
     final BorderRadiusGeometry effectiveBorderRadius =
-        context.moonTheme?.checkboxTheme.properties.borderRadius ??
+        context.moonTheme.checkboxTheme.properties.borderRadius ??
             MoonBorders.borders.interactiveXs;
 
     final Color effectiveActiveColor = widget.activeColor ??
-        context.moonTheme?.checkboxTheme.colors.activeColor ??
+        context.moonTheme.checkboxTheme.colors.activeColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveInactiveColor = widget.inactiveColor ??
-        context.moonTheme?.checkboxTheme.colors.inactiveColor ??
+        context.moonTheme.checkboxTheme.colors.inactiveColor ??
         Colors.transparent;
 
     final Color effectiveCheckColor = widget.checkColor ??
-        context.moonTheme?.checkboxTheme.colors.checkColor ??
+        context.moonTheme.checkboxTheme.colors.checkColor ??
         MoonColors.light.goten;
 
     final Color effectiveBorderColor = widget.borderColor ??
-        context.moonTheme?.checkboxTheme.colors.borderColor ??
+        context.moonTheme.checkboxTheme.colors.borderColor ??
         MoonColors.light.trunks;
 
     final Color effectiveFocusEffectColor =

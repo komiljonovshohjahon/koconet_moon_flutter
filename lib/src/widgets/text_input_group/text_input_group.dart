@@ -156,27 +156,27 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
   @override
   Widget build(BuildContext context) {
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.textInputGroupTheme.properties.borderRadius ??
+        context.moonTheme.textInputGroupTheme.properties.borderRadius ??
         BorderRadius.circular(8);
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.textInputGroupTheme.colors.backgroundColor ??
+        context.moonTheme.textInputGroupTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveBorderColor = widget.borderColor ??
-        context.moonTheme?.textInputGroupTheme.colors.borderColor ??
+        context.moonTheme.textInputGroupTheme.colors.borderColor ??
         MoonColors.light.beerus;
 
     final Color effectiveErrorColor = widget.errorColor ??
-        context.moonTheme?.textInputGroupTheme.colors.errorColor ??
+        context.moonTheme.textInputGroupTheme.colors.errorColor ??
         MoonColors.light.chichi;
 
     final Color effectiveHelperTextColor = widget.hintTextColor ??
-        context.moonTheme?.textInputGroupTheme.colors.helperTextColor ??
+        context.moonTheme.textInputGroupTheme.colors.helperTextColor ??
         MoonColors.light.trunks;
 
     final EdgeInsetsGeometry effectiveHelperPadding = widget.helperPadding ??
-        context.moonTheme?.textInputGroupTheme.properties.helperPadding ??
+        context.moonTheme.textInputGroupTheme.properties.helperPadding ??
         EdgeInsets.only(
           left: MoonSizes.sizes.x3s,
           top: MoonSizes.sizes.x4s,
@@ -184,15 +184,15 @@ class _MoonTextInputGroupState extends State<MoonTextInputGroup> {
         );
 
     final TextStyle effectiveHelperTextStyle = widget.helperTextStyle ??
-        context.moonTheme?.textInputGroupTheme.properties.helperTextStyle ??
+        context.moonTheme.textInputGroupTheme.properties.helperTextStyle ??
         MoonTypography.typography.body.text12;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.textInputGroupTheme.properties.transitionDuration ??
+        context.moonTheme.textInputGroupTheme.properties.transitionDuration ??
         MoonTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.textInputGroupTheme.properties.transitionCurve ??
+        context.moonTheme.textInputGroupTheme.properties.transitionCurve ??
         MoonTransitions.transitions.defaultTransitionCurve;
 
     final List<String> effectiveErrorMessages =

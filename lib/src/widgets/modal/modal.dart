@@ -35,15 +35,15 @@ Future<T?> showMoonModal<T>({
   );
 
   final Color effectiveBarrierColor = barrierColor ??
-      context.moonTheme?.modalTheme.colors.barrierColor ??
+      context.moonTheme.modalTheme.colors.barrierColor ??
       MoonColors.light.zeno;
 
   final Duration effectiveTransitionDuration = transitionDuration ??
-      context.moonTheme?.modalTheme.properties.transitionDuration ??
+      context.moonTheme.modalTheme.properties.transitionDuration ??
       MoonTransitions.transitions.defaultTransitionDuration;
 
   final Curve effectiveTransitionCurve = transitionCurve ??
-      context.moonTheme?.modalTheme.properties.transitionCurve ??
+      context.moonTheme.modalTheme.properties.transitionCurve ??
       MoonTransitions.transitions.defaultTransitionCurve;
 
   return Navigator.of(context, rootNavigator: useRootNavigator).push<T>(
@@ -163,23 +163,23 @@ class MoonModal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BorderRadiusGeometry effectiveBorderRadius = borderRadius ??
-        context.moonTheme?.modalTheme.properties.borderRadius ??
+        context.moonTheme.modalTheme.properties.borderRadius ??
         MoonBorders.borders.surfaceSm;
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.modalTheme.colors.backgroundColor ??
+        context.moonTheme.modalTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor =
-        context.moonTheme?.modalTheme.colors.textColor ??
+        context.moonTheme.modalTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.modalTheme.colors.iconColor ??
+        context.moonTheme.modalTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme?.modalTheme.properties.textStyle ??
+        context.moonTheme.modalTheme.properties.textStyle ??
             MoonTypography.typography.body.textDefault;
 
     return Semantics(

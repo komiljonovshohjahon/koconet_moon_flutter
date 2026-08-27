@@ -4,8 +4,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/theme/theme.dart';
-import 'package:moon_design/src/theme/tokens/borders.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/shape_decoration_premul.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
@@ -14,7 +12,6 @@ import 'package:moon_design/src/widgets/bottom_sheet/modal_bottom_sheet.dart';
 import 'package:moon_design/src/widgets/bottom_sheet/utils/bottom_sheet_custom_scroll_physics.dart';
 import 'package:moon_design/src/widgets/bottom_sheet/utils/bottom_sheet_suspended_curve.dart';
 import 'package:moon_design/src/widgets/bottom_sheet/utils/scroll_to_top_status_bar.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
 const double _minFlingVelocity = 500.0;
 const double _closeProgressThreshold = 0.6;
@@ -352,28 +349,22 @@ class MoonBottomSheetState extends State<MoonBottomSheet>
   @override
   Widget build(BuildContext context) {
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.bottomSheetTheme.properties.borderRadius ??
-        MoonBorders.borders.surfaceSm;
+        context.moonTheme.bottomSheetTheme.properties.borderRadius;
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.bottomSheetTheme.colors.backgroundColor ??
-        MoonColors.light.goku;
+        context.moonTheme.bottomSheetTheme.colors.backgroundColor;
 
     final Color effectiveIconColor =
-        context.moonTheme?.bottomSheetTheme.colors.iconColor ??
-            MoonColors.light.iconPrimary;
+        context.moonTheme.bottomSheetTheme.colors.iconColor;
 
     final Color effectiveTextColor =
-        context.moonTheme?.bottomSheetTheme.colors.textColor ??
-            MoonColors.light.textPrimary;
+        context.moonTheme.bottomSheetTheme.colors.textColor;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme?.bottomSheetTheme.properties.textStyle ??
-            MoonTypography.typography.body.textDefault;
+        context.moonTheme.bottomSheetTheme.properties.textStyle;
 
     _defaultCurve ??= widget.transitionCurve ??
-        context.moonTheme?.bottomSheetTheme.properties.transitionCurve ??
-        const Cubic(0.0, 0.0, 0.2, 1.0);
+        context.moonTheme.bottomSheetTheme.properties.transitionCurve;
 
     transitionCurve ??= _defaultCurve;
 

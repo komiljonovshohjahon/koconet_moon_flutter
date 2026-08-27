@@ -371,38 +371,38 @@ class MoonPopoverState extends State<MoonPopover>
     MoonPopoverPosition popoverPosition = widget.popoverPosition;
 
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.popoverTheme.properties.borderRadius ??
+        context.moonTheme.popoverTheme.properties.borderRadius ??
         BorderRadius.circular(12);
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.popoverTheme.colors.backgroundColor ??
+        context.moonTheme.popoverTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor =
-        context.moonTheme?.popoverTheme.colors.textColor ??
+        context.moonTheme.popoverTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.popoverTheme.colors.iconColor ??
+        context.moonTheme.popoverTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme?.popoverTheme.properties.textStyle ??
+        context.moonTheme.popoverTheme.properties.textStyle ??
             MoonTypography.typography.body.textDefault;
 
     final double effectiveDistanceToTarget = widget.distanceToTarget ??
-        context.moonTheme?.popoverTheme.properties.distanceToTarget ??
+        context.moonTheme.popoverTheme.properties.distanceToTarget ??
         8;
 
     final EdgeInsetsGeometry effectiveContentPadding = widget.contentPadding ??
-        context.moonTheme?.popoverTheme.properties.contentPadding ??
+        context.moonTheme.popoverTheme.properties.contentPadding ??
         const EdgeInsets.all(12);
 
     final EdgeInsets resolvedContentPadding =
         effectiveContentPadding.resolve(Directionality.of(context));
 
     final List<BoxShadow> effectivePopoverShadows = widget.popoverShadows ??
-        context.moonTheme?.popoverTheme.shadows.popoverShadows ??
+        context.moonTheme.popoverTheme.shadows.popoverShadows ??
         MoonShadows.light.sm;
 
     final RenderBox overlayRenderBox =
@@ -528,11 +528,11 @@ class MoonPopoverState extends State<MoonPopover>
   @override
   Widget build(BuildContext context) {
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.popoverTheme.properties.transitionDuration ??
+        context.moonTheme.popoverTheme.properties.transitionDuration ??
         MoonTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.popoverTheme.properties.transitionCurve ??
+        context.moonTheme.popoverTheme.properties.transitionCurve ??
         MoonTransitions.transitions.defaultTransitionCurve;
 
     _animationController ??= AnimationController(

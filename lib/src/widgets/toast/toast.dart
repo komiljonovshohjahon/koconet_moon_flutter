@@ -108,63 +108,63 @@ class MoonToast {
       '(200 ms).',
     );
 
-    final MoonToastTheme? toastTheme = context.moonTheme?.toastTheme;
+    final MoonToastTheme toastTheme = context.moonTheme.toastTheme;
 
     final BorderRadiusGeometry effectiveBorderRadius = borderRadius ??
-        toastTheme?.properties.borderRadius ??
+        toastTheme.properties.borderRadius ??
         MoonBorders.borders.surfaceSm;
 
     final Color effectiveBackgroundColor = backgroundColor ??
         (variant == MoonToastVariant.original
-            ? (toastTheme?.colors.lightVariantBackgroundColor ??
+            ? (toastTheme.colors.lightVariantBackgroundColor ??
                 MoonColors.light.goku)
-            : (toastTheme?.colors.darkVariantBackgroundColor ??
+            : (toastTheme.colors.darkVariantBackgroundColor ??
                 MoonColors.dark.goku));
 
     final Color effectiveTextColor = variant == MoonToastVariant.original
-        ? (toastTheme?.colors.lightVariantTextColor ??
+        ? (toastTheme.colors.lightVariantTextColor ??
             MoonColors.light.textPrimary)
-        : (toastTheme?.colors.darkVariantTextColor ??
+        : (toastTheme.colors.darkVariantTextColor ??
             MoonColors.dark.textPrimary);
 
     final Color effectiveIconColor = variant == MoonToastVariant.original
-        ? (toastTheme?.colors.lightVariantIconColor ??
+        ? (toastTheme.colors.lightVariantIconColor ??
             MoonColors.light.iconPrimary)
-        : (toastTheme?.colors.darkVariantIconColor ??
+        : (toastTheme.colors.darkVariantIconColor ??
             MoonColors.dark.iconPrimary);
 
-    final TextStyle effectiveTextStyle = toastTheme?.properties.textStyle ??
+    final TextStyle effectiveTextStyle = toastTheme.properties.textStyle ??
         MoonTypography.typography.body.textDefault;
 
     final double effectiveHorizontalGap = horizontalGap ??
-        toastTheme?.properties.horizontalGap ??
+        toastTheme.properties.horizontalGap ??
         MoonSizes.sizes.x2s;
 
     final double effectiveVerticalGap = verticalGap ??
-        toastTheme?.properties.verticalGap ??
+        toastTheme.properties.verticalGap ??
         MoonSizes.sizes.x3s;
 
     final Duration effectiveDisplayDuration = displayDuration ??
-        toastTheme?.properties.displayDuration ??
+        toastTheme.properties.displayDuration ??
         const Duration(seconds: 3);
 
     final Duration effectiveTransitionDuration = transitionDuration ??
-        toastTheme?.properties.transitionDuration ??
+        toastTheme.properties.transitionDuration ??
         MoonTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = transitionCurve ??
-        toastTheme?.properties.transitionCurve ??
+        toastTheme.properties.transitionCurve ??
         MoonTransitions.transitions.defaultTransitionCurve;
 
     final EdgeInsetsGeometry effectiveContentPadding = padding ??
-        toastTheme?.properties.contentPadding ??
+        toastTheme.properties.contentPadding ??
         EdgeInsets.all(MoonSizes.sizes.x2s);
 
     final EdgeInsets resolvedContentPadding =
         effectiveContentPadding.resolve(Directionality.of(context));
 
     final List<BoxShadow> effectiveToastShadows = toastShadows ??
-        toastTheme?.shadows.toastShadows ??
+        toastTheme.shadows.toastShadows ??
         MoonShadows.light.lg;
 
     final effectiveContext = isPersistent

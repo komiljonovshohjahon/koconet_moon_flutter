@@ -52,22 +52,22 @@ class MoonCircularLoader extends StatelessWidget {
   ) {
     switch (moonLoaderSize) {
       case MoonCircularLoaderSize.x2s:
-        return context.moonTheme?.circularLoaderTheme.sizes.x2s ??
+        return context.moonTheme.circularLoaderTheme.sizes.x2s ??
             MoonCircularLoaderSizes(tokens: MoonTokens.light).x2s;
       case MoonCircularLoaderSize.xs:
-        return context.moonTheme?.circularLoaderTheme.sizes.xs ??
+        return context.moonTheme.circularLoaderTheme.sizes.xs ??
             MoonCircularLoaderSizes(tokens: MoonTokens.light).xs;
       case MoonCircularLoaderSize.sm:
-        return context.moonTheme?.circularLoaderTheme.sizes.sm ??
+        return context.moonTheme.circularLoaderTheme.sizes.sm ??
             MoonCircularLoaderSizes(tokens: MoonTokens.light).sm;
       case MoonCircularLoaderSize.md:
-        return context.moonTheme?.circularLoaderTheme.sizes.md ??
+        return context.moonTheme.circularLoaderTheme.sizes.md ??
             MoonCircularLoaderSizes(tokens: MoonTokens.light).md;
       case MoonCircularLoaderSize.lg:
-        return context.moonTheme?.circularLoaderTheme.sizes.lg ??
+        return context.moonTheme.circularLoaderTheme.sizes.lg ??
             MoonCircularLoaderSizes(tokens: MoonTokens.light).lg;
       default:
-        return context.moonTheme?.circularLoaderTheme.sizes.md ??
+        return context.moonTheme.circularLoaderTheme.sizes.md ??
             MoonCircularLoaderSizes(tokens: MoonTokens.light).md;
     }
   }
@@ -78,11 +78,11 @@ class MoonCircularLoader extends StatelessWidget {
         _getMoonLoaderSize(context, circularLoaderSize);
 
     final Color effectiveColor = color ??
-        context.moonTheme?.circularLoaderTheme.colors.color ??
+        context.moonTheme.circularLoaderTheme.colors.color ??
         MoonColors.light.piccolo;
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.circularLoaderTheme.colors.backgroundColor ??
+        context.moonTheme.circularLoaderTheme.colors.backgroundColor ??
         Colors.transparent;
 
     final double effectiveSize =

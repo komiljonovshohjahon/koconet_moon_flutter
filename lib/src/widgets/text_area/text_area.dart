@@ -293,39 +293,39 @@ class MoonTextArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BorderRadiusGeometry effectiveBorderRadius = borderRadius ??
-        context.moonTheme?.textAreaTheme.properties.borderRadius ??
+        context.moonTheme.textAreaTheme.properties.borderRadius ??
         BorderRadius.circular(8);
 
     final Color effectiveBackgroundColor = backgroundColor ??
-        context.moonTheme?.textAreaTheme.colors.backgroundColor ??
+        context.moonTheme.textAreaTheme.colors.backgroundColor ??
         MoonColors.light.goku;
 
     final Color effectiveActiveBorderColor = activeBorderColor ??
-        context.moonTheme?.textAreaTheme.colors.activeBorderColor ??
+        context.moonTheme.textAreaTheme.colors.activeBorderColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveInactiveBorderColor = inactiveBorderColor ??
-        context.moonTheme?.textAreaTheme.colors.inactiveBorderColor ??
+        context.moonTheme.textAreaTheme.colors.inactiveBorderColor ??
         MoonColors.light.beerus;
 
     final Color effectiveErrorColor = errorColor ??
-        context.moonTheme?.textAreaTheme.colors.errorColor ??
+        context.moonTheme.textAreaTheme.colors.errorColor ??
         MoonColors.light.chichi;
 
     final Color effectiveHoverBorderColor = hoverBorderColor ??
-        context.moonTheme?.textAreaTheme.colors.hoverBorderColor ??
+        context.moonTheme.textAreaTheme.colors.hoverBorderColor ??
         MoonColors.light.beerus;
 
     final Color effectiveTextColor = textColor ??
-        context.moonTheme?.textAreaTheme.colors.textColor ??
+        context.moonTheme.textAreaTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveHelperTextColor = hintTextColor ??
-        context.moonTheme?.textAreaTheme.colors.helperTextColor ??
+        context.moonTheme.textAreaTheme.colors.helperTextColor ??
         MoonColors.light.trunks;
 
     final EdgeInsetsGeometry effectiveHelperPadding = helperPadding ??
-        context.moonTheme?.textAreaTheme.properties.helperPadding ??
+        context.moonTheme.textAreaTheme.properties.helperPadding ??
         EdgeInsets.only(
           left: MoonSizes.sizes.x3s,
           top: MoonSizes.sizes.x4s,
@@ -333,23 +333,23 @@ class MoonTextArea extends StatelessWidget {
         );
 
     final EdgeInsetsGeometry effectiveTextPadding = textPadding ??
-        context.moonTheme?.textAreaTheme.properties.textPadding ??
+        context.moonTheme.textAreaTheme.properties.textPadding ??
         const EdgeInsets.all(16);
 
     final TextStyle effectiveTextStyle = textStyle ??
-        context.moonTheme?.textAreaTheme.properties.textStyle ??
+        context.moonTheme.textAreaTheme.properties.textStyle ??
         MoonTypography.typography.body.text16;
 
     final TextStyle effectiveHelperTextStyle = helperTextStyle ??
-        context.moonTheme?.textAreaTheme.properties.helperTextStyle ??
+        context.moonTheme.textAreaTheme.properties.helperTextStyle ??
         MoonTypography.typography.body.text12;
 
     final Duration effectiveTransitionDuration = transitionDuration ??
-        context.moonTheme?.textAreaTheme.properties.transitionDuration ??
+        context.moonTheme.textAreaTheme.properties.transitionDuration ??
         MoonTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = transitionCurve ??
-        context.moonTheme?.textAreaTheme.properties.transitionCurve ??
+        context.moonTheme.textAreaTheme.properties.transitionCurve ??
         MoonTransitions.transitions.defaultTransitionCurve;
 
     return MoonFormTextInput(

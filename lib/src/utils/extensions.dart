@@ -1,15 +1,12 @@
 
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 import 'package:moon_design/src/utils/squircle/squircle_border_radius.dart';
 import 'package:moon_design/src/utils/squircle/squircle_radius.dart';
 
 extension BuildContextX on BuildContext {
-  /// Whether the dark mode is currently active.
-  bool get isDarkMode {
-    final brightness = MediaQuery.of(this).platformBrightness;
-    return brightness == Brightness.dark;
-  }
+  /// Whether the active application theme uses dark mode.
+  bool get isDarkMode => Theme.of(this).brightness == Brightness.dark;
 }
 
 extension BorderRadiusGeometryX on BorderRadiusGeometry {

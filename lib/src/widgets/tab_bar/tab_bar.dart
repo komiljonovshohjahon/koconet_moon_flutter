@@ -188,13 +188,13 @@ class _MoonTabBarState extends State<MoonTabBar> {
   ) {
     switch (tabBarSize) {
       case MoonTabBarSize.sm:
-        return context.moonTheme?.tabBarTheme.sizes.sm ??
+        return context.moonTheme.tabBarTheme.sizes.sm ??
             MoonTabBarSizes(tokens: MoonTokens.light).sm;
       case MoonTabBarSize.md:
-        return context.moonTheme?.tabBarTheme.sizes.md ??
+        return context.moonTheme.tabBarTheme.sizes.md ??
             MoonTabBarSizes(tokens: MoonTokens.light).md;
       default:
-        return context.moonTheme?.tabBarTheme.sizes.md ??
+        return context.moonTheme.tabBarTheme.sizes.md ??
             MoonTabBarSizes(tokens: MoonTokens.light).md;
     }
   }
@@ -313,18 +313,18 @@ class _MoonTabBarState extends State<MoonTabBar> {
     _effectiveMoonTabBarSize = _getMoonTabBarSize(context, widget.tabBarSize);
 
     _effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.tabBarTheme.properties.transitionDuration ??
+        context.moonTheme.tabBarTheme.properties.transitionDuration ??
         MoonTransitions.transitions.defaultTransitionDuration;
 
     _effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.tabBarTheme.properties.transitionCurve ??
+        context.moonTheme.tabBarTheme.properties.transitionCurve ??
         MoonTransitions.transitions.defaultTransitionCurve;
 
     final double effectiveHeight =
         widget.height ?? _effectiveMoonTabBarSize.height;
 
     final double effectiveGap = widget.gap ??
-        context.moonTheme?.tabBarTheme.properties.gap ??
+        context.moonTheme.tabBarTheme.properties.gap ??
         MoonSizes.sizes.x5s;
 
     return Container(
@@ -422,16 +422,16 @@ class _IndicatorTabBuilderState extends State<_IndicatorTabBuilder>
     final MoonTabStyle? tabStyle = widget.tab.tabStyle;
 
     final Color effectiveIndicatorColor = tabStyle?.indicatorColor ??
-        context.moonTheme?.tabBarTheme.colors.indicatorColor ??
+        context.moonTheme.tabBarTheme.colors.indicatorColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveTextColor = tabStyle?.textStyle?.color ??
         tabStyle?.textColor ??
-        context.moonTheme?.tabBarTheme.colors.textColor ??
+        context.moonTheme.tabBarTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveSelectedTextColor = tabStyle?.selectedTextColor ??
-        context.moonTheme?.tabBarTheme.colors.selectedTextColor ??
+        context.moonTheme.tabBarTheme.colors.selectedTextColor ??
         MoonColors.light.piccolo;
 
     final TextStyle effectiveTextStyle =
@@ -655,16 +655,16 @@ class _PillTabBuilderState extends State<_PillTabBuilder>
         tabStyle?.borderRadius ?? widget.moonTabBarSizeProperties.borderRadius;
 
     final Color effectiveSelectedTabColor = tabStyle?.selectedTabColor ??
-        context.moonTheme?.tabBarTheme.colors.selectedPillTabColor ??
+        context.moonTheme.tabBarTheme.colors.selectedPillTabColor ??
         MoonColors.light.goku;
 
     final Color effectiveTextColor = tabStyle?.textStyle?.color ??
         tabStyle?.textColor ??
-        context.moonTheme?.tabBarTheme.colors.textColor ??
+        context.moonTheme.tabBarTheme.colors.textColor ??
         MoonColors.light.textPrimary;
 
     final Color effectiveSelectedTextColor = tabStyle?.selectedTextColor ??
-        context.moonTheme?.tabBarTheme.colors.selectedPillTextColor ??
+        context.moonTheme.tabBarTheme.colors.selectedPillTextColor ??
         MoonColors.light.textPrimary;
 
     final TextStyle effectiveTextStyle =

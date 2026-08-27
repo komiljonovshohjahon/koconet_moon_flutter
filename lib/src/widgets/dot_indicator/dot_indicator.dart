@@ -86,27 +86,27 @@ class _CarouselIndicatorState extends State<MoonDotIndicator>
   @override
   Widget build(BuildContext context) {
     final double effectiveSize = widget.size ??
-        context.moonTheme?.dotIndicatorTheme.properties.size ??
+        context.moonTheme.dotIndicatorTheme.properties.size ??
         MoonSizes.sizes.x4s;
 
     final double effectiveGap = widget.gap ??
-        context.moonTheme?.dotIndicatorTheme.properties.gap ??
+        context.moonTheme.dotIndicatorTheme.properties.gap ??
         MoonSizes.sizes.x4s;
 
     final Color effectiveSelectedColor = widget.selectedColor ??
-        context.moonTheme?.dotIndicatorTheme.colors.selectedColor ??
+        context.moonTheme.dotIndicatorTheme.colors.selectedColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveUnselectedColor = widget.unselectedColor ??
-        context.moonTheme?.dotIndicatorTheme.colors.unselectedColor ??
+        context.moonTheme.dotIndicatorTheme.colors.unselectedColor ??
         MoonColors.light.beerus;
 
     final Duration effectiveTransitionDuration = widget.transitionDuration ??
-        context.moonTheme?.dotIndicatorTheme.properties.transitionDuration ??
+        context.moonTheme.dotIndicatorTheme.properties.transitionDuration ??
         MoonTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = widget.transitionCurve ??
-        context.moonTheme?.dotIndicatorTheme.properties.transitionCurve ??
+        context.moonTheme.dotIndicatorTheme.properties.transitionCurve ??
         MoonTransitions.transitions.defaultTransitionCurve;
 
     _animationControllers ??= List.generate(

@@ -138,7 +138,7 @@ class MoonMenuItem extends StatefulWidget {
     if (menuItems.isEmpty || menuItems.length == 1) return menuItems;
 
     final Color effectiveColor = color ??
-        context.moonTheme?.menuItemTheme.colors.dividerColor ??
+        context.moonTheme.menuItemTheme.colors.dividerColor ??
         MoonColors.light.beerus;
 
     Widget wrapMenuItem(Widget menuItems) {
@@ -191,46 +191,46 @@ class _MoonMenuItemState extends State<MoonMenuItem>
   @override
   Widget build(BuildContext context) {
     final BorderRadiusGeometry effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.menuItemTheme.properties.borderRadius ??
+        context.moonTheme.menuItemTheme.properties.borderRadius ??
         MoonBorders.borders.interactiveSm;
 
     final double effectiveMinimumHeaderHeight = widget.height ??
-        context.moonTheme?.menuItemTheme.properties.minimumHeight ??
+        context.moonTheme.menuItemTheme.properties.minimumHeight ??
         MoonSizes.sizes.md;
 
     final double effectiveVerticalGap = widget.verticalGap ??
-        context.moonTheme?.menuItemTheme.properties.verticalGap ??
+        context.moonTheme.menuItemTheme.properties.verticalGap ??
         MoonSizes.sizes.x5s;
 
     final EdgeInsetsGeometry effectiveHeaderPadding = widget.menuItemPadding ??
-        context.moonTheme?.menuItemTheme.properties.padding ??
+        context.moonTheme.menuItemTheme.properties.padding ??
         EdgeInsets.all(MoonSizes.sizes.x3s);
 
     final EdgeInsets resolvedDirectionalHeaderPadding =
         effectiveHeaderPadding.resolve(Directionality.of(context));
 
     final Color effectiveBackgroundColor = widget.backgroundColor ??
-        context.moonTheme?.menuItemTheme.colors.backgroundColor ??
+        context.moonTheme.menuItemTheme.colors.backgroundColor ??
         Colors.transparent;
 
     final Color effectiveIconColor =
-        context.moonTheme?.menuItemTheme.colors.iconColor ??
+        context.moonTheme.menuItemTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final Color effectiveLabelTextColor =
-        context.moonTheme?.menuItemTheme.colors.labelTextColor ??
+        context.moonTheme.menuItemTheme.colors.labelTextColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveContentTextColor =
-        context.moonTheme?.menuItemTheme.colors.contentTextColor ??
+        context.moonTheme.menuItemTheme.colors.contentTextColor ??
             MoonColors.light.textSecondary;
 
     final TextStyle effectiveLabelTextStyle =
-        context.moonTheme?.menuItemTheme.properties.labelTextStyle ??
+        context.moonTheme.menuItemTheme.properties.labelTextStyle ??
             MoonTypography.typography.body.textDefault;
 
     final TextStyle effectiveContentTextStyle =
-        context.moonTheme?.menuItemTheme.properties.contentTextStyle ??
+        context.moonTheme.menuItemTheme.properties.contentTextStyle ??
             MoonTypography.typography.body.text12;
 
     final Color effectiveHoverEffectColor = widget.hoverEffectColor ??

@@ -146,16 +146,16 @@ class _MoonSwitchState extends State<MoonSwitch>
   ) {
     switch (moonSwitchSize) {
       case MoonSwitchSize.x2s:
-        return context.moonTheme?.switchTheme.sizes.x2s ??
+        return context.moonTheme.switchTheme.sizes.x2s ??
             MoonSwitchSizes(tokens: MoonTokens.light).x2s;
       case MoonSwitchSize.xs:
-        return context.moonTheme?.switchTheme.sizes.xs ??
+        return context.moonTheme.switchTheme.sizes.xs ??
             MoonSwitchSizes(tokens: MoonTokens.light).xs;
       case MoonSwitchSize.sm:
-        return context.moonTheme?.switchTheme.sizes.sm ??
+        return context.moonTheme.switchTheme.sizes.sm ??
             MoonSwitchSizes(tokens: MoonTokens.light).sm;
       default:
-        return context.moonTheme?.switchTheme.sizes.xs ??
+        return context.moonTheme.switchTheme.sizes.xs ??
             MoonSwitchSizes(tokens: MoonTokens.light).xs;
     }
   }
@@ -280,15 +280,15 @@ class _MoonSwitchState extends State<MoonSwitch>
         _getMoonSwitchSize(context, widget.switchSize);
 
     final Color effectiveActiveTrackColor = widget.activeTrackColor ??
-        context.moonTheme?.switchTheme.colors.activeTrackColor ??
+        context.moonTheme.switchTheme.colors.activeTrackColor ??
         MoonColors.light.piccolo;
 
     final Color effectiveInactiveTrackColor = widget.inactiveTrackColor ??
-        context.moonTheme?.switchTheme.colors.inactiveTrackColor ??
+        context.moonTheme.switchTheme.colors.inactiveTrackColor ??
         MoonColors.light.beerus;
 
     final Color effectiveThumbColor = widget.thumbColor ??
-        context.moonTheme?.switchTheme.colors.thumbColor ??
+        context.moonTheme.switchTheme.colors.thumbColor ??
         MoonColors.light.goten;
 
     final double effectiveHeight =
@@ -312,15 +312,15 @@ class _MoonSwitchState extends State<MoonSwitch>
         BorderRadius.circular(effectiveThumbSizeValue / 2);
 
     final List<BoxShadow> effectiveThumbShadow =
-        context.moonTheme?.switchTheme.shadows.thumbShadows ??
+        context.moonTheme.switchTheme.shadows.thumbShadows ??
             MoonShadows.light.sm;
 
     final Duration effectiveDuration = widget.duration ??
-        context.moonTheme?.switchTheme.properties.transitionDuration ??
+        context.moonTheme.switchTheme.properties.transitionDuration ??
         MoonTransitions.transitions.defaultTransitionDuration;
 
     final Curve effectiveTransitionCurve = widget.curve ??
-        context.moonTheme?.switchTheme.properties.transitionCurve ??
+        context.moonTheme.switchTheme.properties.transitionCurve ??
         MoonTransitions.transitions.defaultTransitionCurve;
 
     final double effectiveFocusEffectExtent =
@@ -419,23 +419,23 @@ class _MoonSwitchState extends State<MoonSwitch>
     );
 
     final Color effectiveActiveTextColor =
-        context.moonTheme?.switchTheme.colors.activeTextColor ??
+        context.moonTheme.switchTheme.colors.activeTextColor ??
             MoonTokens.dark.colors.textPrimary;
 
     final Color effectiveInactiveTextColor =
-        context.moonTheme?.switchTheme.colors.inactiveTextColor ??
+        context.moonTheme.switchTheme.colors.inactiveTextColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveActiveIconColor =
-        context.moonTheme?.switchTheme.colors.activeIconColor ??
+        context.moonTheme.switchTheme.colors.activeIconColor ??
             MoonTokens.dark.colors.iconPrimary;
 
     final Color effectiveInactiveIconColor =
-        context.moonTheme?.switchTheme.colors.inactiveIconColor ??
+        context.moonTheme.switchTheme.colors.inactiveIconColor ??
             MoonColors.light.iconPrimary;
 
     final Color effectiveThumbIconColor =
-        context.moonTheme?.switchTheme.colors.thumbIconColor ??
+        context.moonTheme.switchTheme.colors.thumbIconColor ??
             MoonColors.light.iconPrimary;
 
     return Semantics(

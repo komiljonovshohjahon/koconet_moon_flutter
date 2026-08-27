@@ -7,13 +7,9 @@ import 'package:flutter/services.dart';
 import 'package:moon_design/src/theme/theme.dart';
 import 'package:moon_design/src/theme/tokens/borders.dart';
 import 'package:moon_design/src/theme/tokens/opacities.dart';
-import 'package:moon_design/src/theme/tokens/sizes.dart';
-import 'package:moon_design/src/theme/tokens/transitions.dart';
-import 'package:moon_design/src/theme/tokens/typography/typography.dart';
 import 'package:moon_design/src/utils/extensions.dart';
 import 'package:moon_design/src/utils/shape_decoration_premul.dart';
 import 'package:moon_design/src/utils/squircle/squircle_border.dart';
-import 'package:moon_tokens/moon_tokens.dart';
 
 enum AuthFieldShape {
   box,
@@ -762,92 +758,71 @@ class _MoonAuthCodeState extends State<MoonAuthCode>
   @override
   Widget build(BuildContext context) {
     _effectiveBorderRadius = widget.borderRadius ??
-        context.moonTheme?.authCodeTheme.properties.borderRadius ??
-        MoonBorders.borders.interactiveSm;
+        context.moonTheme.authCodeTheme.properties.borderRadius;
 
     _effectiveBorderWidth = widget.borderWidth ??
         context.moonBorders?.defaultBorderWidth ??
         MoonBorders.borders.defaultBorderWidth;
 
-    _effectiveGap = widget.gap ??
-        context.moonTheme?.authCodeTheme.properties.gap ??
-        MoonSizes.sizes.x4s;
+    _effectiveGap =
+        widget.gap ?? context.moonTheme.authCodeTheme.properties.gap;
 
-    _effectiveHeight = widget.height ??
-        context.moonTheme?.authCodeTheme.properties.height ??
-        MoonSizes.sizes.xl;
+    _effectiveHeight =
+        widget.height ?? context.moonTheme.authCodeTheme.properties.height;
 
-    _effectiveWidth = widget.width ??
-        context.moonTheme?.authCodeTheme.properties.width ??
-        MoonSizes.sizes.lg;
+    _effectiveWidth =
+        widget.width ?? context.moonTheme.authCodeTheme.properties.width;
 
     _effectiveSelectedBorderColor = widget.selectedBorderColor ??
-        context.moonTheme?.authCodeTheme.colors.selectedBorderColor ??
-        MoonColors.light.piccolo;
+        context.moonTheme.authCodeTheme.colors.selectedBorderColor;
 
     _effectiveActiveBorderColor = widget.activeBorderColor ??
-        context.moonTheme?.authCodeTheme.colors.activeBorderColor ??
-        MoonColors.light.beerus;
+        context.moonTheme.authCodeTheme.colors.activeBorderColor;
 
     _effectiveInactiveBorderColor = widget.inactiveBorderColor ??
-        context.moonTheme?.authCodeTheme.colors.inactiveBorderColor ??
-        MoonColors.light.beerus;
+        context.moonTheme.authCodeTheme.colors.inactiveBorderColor;
 
     _effectiveErrorBorderColor = widget.errorBorderColor ??
-        context.moonTheme?.authCodeTheme.colors.errorBorderColor ??
-        MoonColors.light.chichi;
+        context.moonTheme.authCodeTheme.colors.errorBorderColor;
 
     _effectiveSelectedFillColor = widget.selectedFillColor ??
-        context.moonTheme?.authCodeTheme.colors.selectedFillColor ??
-        MoonColors.light.goku;
+        context.moonTheme.authCodeTheme.colors.selectedFillColor;
 
     _effectiveActiveFillColor = widget.activeFillColor ??
-        context.moonTheme?.authCodeTheme.colors.activeFillColor ??
-        MoonColors.light.goku;
+        context.moonTheme.authCodeTheme.colors.activeFillColor;
 
     _effectiveInactiveFillColor = widget.inactiveFillColor ??
-        context.moonTheme?.authCodeTheme.colors.inactiveFillColor ??
-        MoonColors.light.goku;
+        context.moonTheme.authCodeTheme.colors.inactiveFillColor;
 
-    _effectiveTextStyle =
-        context.moonTheme?.authCodeTheme.properties.textStyle ??
-            MoonTypography.typography.body.text24;
+    _effectiveTextStyle = context.moonTheme.authCodeTheme.properties.textStyle;
 
     _effectiveErrorTextStyle =
-        context.moonTheme?.authCodeTheme.properties.errorTextStyle ??
-            MoonTypography.typography.body.text12;
+        context.moonTheme.authCodeTheme.properties.errorTextStyle;
 
-    _effectiveTextColor = context.moonTheme?.authCodeTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+    _effectiveTextColor = context.moonTheme.authCodeTheme.colors.textColor;
 
     _effectiveCursorColor = widget.authFieldCursorColor ??
-        context.moonTheme?.authCodeTheme.colors.textColor ??
-        MoonColors.light.textPrimary;
+        context.moonTheme.authCodeTheme.colors.textColor;
 
     _animationDuration ??= widget.animationDuration ??
-        context.moonTheme?.authCodeTheme.properties.animationDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.moonTheme.authCodeTheme.properties.animationDuration;
 
     _animationCurve ??= widget.animationCurve ??
-        context.moonTheme?.authCodeTheme.properties.animationCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.moonTheme.authCodeTheme.properties.animationCurve;
 
     _peekDuration ??= widget.peekDuration ??
-        context.moonTheme?.authCodeTheme.properties.peekDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+        context.moonTheme.authCodeTheme.properties.peekDuration;
 
     final double effectiveDisabledOpacityValue = widget.disabledOpacityValue ??
         context.moonOpacities?.disabled ??
         MoonOpacities.opacities.disabled;
 
-    final Duration effectiveErrorAnimationDuration = widget
-            .errorAnimationDuration ??
-        context.moonTheme?.authCodeTheme.properties.errorAnimationDuration ??
-        MoonTransitions.transitions.defaultTransitionDuration;
+    final Duration effectiveErrorAnimationDuration =
+        widget.errorAnimationDuration ??
+            context.moonTheme.authCodeTheme.properties.errorAnimationDuration;
 
     final Curve effectiveErrorAnimationCurve = widget.errorAnimationCurve ??
-        context.moonTheme?.authCodeTheme.properties.errorAnimationCurve ??
-        MoonTransitions.transitions.defaultTransitionCurve;
+        context.moonTheme.authCodeTheme.properties.errorAnimationCurve;
 
     _errorAnimationController ??= AnimationController(
       duration: effectiveErrorAnimationDuration,

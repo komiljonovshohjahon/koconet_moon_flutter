@@ -185,16 +185,16 @@ class _MoonCarouselState extends State<MoonCarousel> {
     if (widget.autoPlay) {
       WidgetsBinding.instance.addPostFrameCallback((Duration _) {
         final Duration effectiveAutoPlayDelay = widget.autoPlayDelay ??
-            context.moonTheme?.carouselTheme.properties.autoPlayDelay ??
+            context.moonTheme.carouselTheme.properties.autoPlayDelay ??
             const Duration(seconds: 3);
 
         final Duration effectiveTransitionDuration = widget
                 .transitionDuration ??
-            context.moonTheme?.carouselTheme.properties.transitionDuration ??
+            context.moonTheme.carouselTheme.properties.transitionDuration ??
             const Duration(milliseconds: 800);
 
         final Curve effectiveTransitionCurve = widget.transitionCurve ??
-            context.moonTheme?.carouselTheme.properties.transitionCurve ??
+            context.moonTheme.carouselTheme.properties.transitionCurve ??
             Curves.fastOutSlowIn;
 
         _scrollController.startAutoPlay(
@@ -213,16 +213,16 @@ class _MoonCarouselState extends State<MoonCarousel> {
     if (widget.autoPlay != oldWidget.autoPlay) {
       if (widget.autoPlay) {
         final Duration effectiveAutoPlayDelay = widget.autoPlayDelay ??
-            context.moonTheme?.carouselTheme.properties.autoPlayDelay ??
+            context.moonTheme.carouselTheme.properties.autoPlayDelay ??
             const Duration(seconds: 3);
 
         final Duration effectiveTransitionDuration = widget
                 .transitionDuration ??
-            context.moonTheme?.carouselTheme.properties.transitionDuration ??
+            context.moonTheme.carouselTheme.properties.transitionDuration ??
             const Duration(milliseconds: 800);
 
         final Curve effectiveTransitionCurve = widget.transitionCurve ??
-            context.moonTheme?.carouselTheme.properties.transitionCurve ??
+            context.moonTheme.carouselTheme.properties.transitionCurve ??
             Curves.fastOutSlowIn;
 
         _scrollController.startAutoPlay(
@@ -300,15 +300,15 @@ class _MoonCarouselState extends State<MoonCarousel> {
   @override
   Widget build(BuildContext context) {
     final Color effectiveTextColor =
-        context.moonTheme?.carouselTheme.colors.textColor ??
+        context.moonTheme.carouselTheme.colors.textColor ??
             MoonColors.light.textPrimary;
 
     final Color effectiveIconColor =
-        context.moonTheme?.carouselTheme.colors.iconColor ??
+        context.moonTheme.carouselTheme.colors.iconColor ??
             MoonColors.light.iconPrimary;
 
     final TextStyle effectiveTextStyle =
-        context.moonTheme?.carouselTheme.properties.textStyle ??
+        context.moonTheme.carouselTheme.properties.textStyle ??
             MoonTypography.typography.body.textDefault;
 
     final AxisDirection axisDirection = _getDirection(context);
@@ -324,7 +324,7 @@ class _MoonCarouselState extends State<MoonCarousel> {
         );
 
     _effectiveGap = widget.gap ??
-        context.moonTheme?.carouselTheme.properties.gap ??
+        context.moonTheme.carouselTheme.properties.gap ??
         MoonSizes.sizes.x2s;
 
     return NotificationListener<ScrollUpdateNotification>(
